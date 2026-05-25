@@ -1,0 +1,189 @@
+aid: magic-eden
+url: https://raw.githubusercontent.com/api-evangelist/magic-eden/refs/heads/main/apis.yml
+name: Magic Eden
+kind: company
+description: Magic Eden is a multi-chain NFT marketplace offering REST and instruction-generation
+  APIs for Solana, EVM chains (Ethereum, Polygon, Base, ApeChain, Arbitrum, Berachain,
+  BSC, SEI, Abstract), and Bitcoin Ordinals (inscriptions, rare sats, and runes).
+  Developers can fetch collections, tokens, listings, bids, activity, holder stats,
+  AMM pool data, launchpad data, and generate signed transactions or PSBTs for listing,
+  buying, bidding, transferring, swapping, and minting across all supported chains.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - NFT
+  - Web3
+  - Blockchain
+  - Marketplace
+  - Solana
+  - Ethereum
+  - Bitcoin
+  - Ordinals
+  - Runes
+  - Multi-chain
+created: '2026-05-24'
+modified: '2026-05-24'
+specificationVersion: '0.19'
+apis:
+  - aid: magic-eden:solana-api
+    name: Magic Eden Solana API
+    description: REST endpoints and signed-transaction instruction generators for the
+      Solana marketplace - collections, tokens, wallets, listings, bids, activity,
+      MMM AMM pools, marketplace popular collections, and launchpad. Public reads are
+      free at 120 QPM; instruction endpoints require a Bearer API key.
+    humanURL: https://docs.magiceden.io/reference/solana-api-keys
+    baseURL: https://api-mainnet.magiceden.dev/v2
+    tags:
+      - REST
+      - Solana
+      - Instructions
+      - MMM
+    properties:
+      - type: Documentation
+        url: https://docs.magiceden.io/reference/solana-api-keys
+      - type: OpenAPI
+        url: openapi/magic-eden-solana-openapi.yml
+      - type: Authentication
+        url: https://docs.magiceden.io/reference/solana-api-keys
+  - aid: magic-eden:evm-api
+    name: Magic Eden EVM API
+    description: Reservoir-powered v4 REST API for EVM chains (Ethereum, Polygon, Base,
+      ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract) covering collections, user
+      collections, search, NFT activity, asks (listings), bids (offers), assets, and
+      signed-transaction instruction endpoints for bidding, listing, buying, selling,
+      cancelling, and bulk transfers.
+    humanURL: https://docs.magiceden.io/reference/evm-api-overview
+    baseURL: https://api-mainnet.magiceden.dev/v4/evm-public
+    tags:
+      - REST
+      - EVM
+      - Reservoir
+      - Multi-chain
+    properties:
+      - type: Documentation
+        url: https://docs.magiceden.io/reference/evm-api-overview
+      - type: OpenAPI
+        url: openapi/magic-eden-evm-openapi.yml
+      - type: Authentication
+        url: https://docs.magiceden.io/reference/evm-api-keys
+  - aid: magic-eden:ordinals-api
+    name: Magic Eden Bitcoin Ordinals & Runes API
+    description: REST and PSBT-generation endpoints for the Bitcoin Ordinals marketplace -
+      ordinal collections, block activities, rare sats batch listings, and full Runes
+      lifecycle (orders, market sells, quotes, swaps, sweeping, wallet balances, and
+      activities). Free tier limited to 30 QPM; instruction endpoints require Bearer
+      auth.
+    humanURL: https://docs.magiceden.io/reference/ordinals-api-keys
+    baseURL: https://api-mainnet.magiceden.dev/v2
+    tags:
+      - REST
+      - Bitcoin
+      - Ordinals
+      - Runes
+      - PSBT
+    properties:
+      - type: Documentation
+        url: https://docs.magiceden.io/reference/ordinals-api-keys
+      - type: OpenAPI
+        url: openapi/magic-eden-ordinals-openapi.yml
+      - type: Authentication
+        url: https://docs.magiceden.io/reference/ordinals-api-keys
+common:
+  - type: Website
+    url: https://magiceden.io
+  - type: Portal
+    url: https://docs.magiceden.io
+  - type: APIReference
+    url: https://docs.magiceden.io/reference/getting-started-1
+  - type: GettingStarted
+    url: https://docs.magiceden.io/reference/getting-started-1
+  - type: ChangeLog
+    url: https://docs.magiceden.io/changelog
+  - type: GitHubOrganization
+    url: https://github.com/magiceden
+  - type: GitHubOrganization
+    url: https://github.com/magicoss
+  - type: SDK
+    url: https://github.com/magiceden/magiceden-sdk
+  - type: LLMsTxt
+    url: https://docs.magiceden.io/llms.txt
+  - type: TermsOfService
+    url: https://magiceden.io/terms-of-service.pdf
+  - type: BugBounty
+    url: https://hackerone.com/magic-eden
+  - type: Discord
+    url: https://discord.com/invite/magiceden
+  - type: Plans
+    url: plans/magic-eden-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/magic-eden-rate-limits.yml
+  - type: FinOps
+    url: finops/magic-eden-finops.yml
+features:
+  - name: Multi-chain marketplace coverage
+    description: Single developer platform spanning Solana, ten EVM chains, and Bitcoin
+      Ordinals / Runes from one set of API conventions.
+  - name: Signed-transaction instruction APIs
+    description: Server-side generation of unsigned Solana transactions, EVM EIP-712
+      signing payloads, and Bitcoin PSBTs that clients co-sign and broadcast.
+  - name: MMM AMM pool primitives
+    description: Programmatic creation, deposit, fulfillment, update, and close of
+      Magic Eden Market Maker (MMM) AMM pools on Solana.
+  - name: Reservoir-powered EVM indexing
+    description: EVM API surface built on Reservoir Protocol, exposing orderbook and
+      asset data across all supported L1/L2 chains.
+  - name: Runes lifecycle support
+    description: End-to-end Bitcoin Runes APIs covering quotes, swaps, sweeping (buying),
+      market sells, listing, and cancellation flows over PSBTs.
+  - name: Launchpad APIs
+    description: Endpoints for discovering launchpad collections and (via SDK) self-serve
+      creation of new launchpads with mint stages, allowlists, and royalties.
+useCases:
+  - name: NFT analytics dashboards
+    description: Aggregate floor prices, volumes, holder distributions, and activity
+      across multi-chain collections.
+  - name: Portfolio and wallet trackers
+    description: Surface user holdings, listings, offers made/received, and escrow
+      balances across Solana, EVM, and Bitcoin Ordinals from one provider.
+  - name: Trading bots and snipers
+    description: Programmatic buying, listing, bidding, and cancellation using the
+      instruction-generation endpoints.
+  - name: Aggregator marketplaces
+    description: Pull Magic Eden listings and offers (via Reservoir-style asks/bids
+      APIs) into third-party marketplace UIs.
+  - name: AI agents and assistants
+    description: LLM-friendly docs (llms.txt) plus official TypeScript SDK enable
+      agent-driven NFT trading workflows.
+  - name: Runes trading apps
+    description: Build native Bitcoin Runes swap, sweep, and listing experiences on
+      top of Magic Eden's PSBT generators.
+integrations:
+  - name: Reservoir Protocol
+    description: EVM orderbook indexing layer powering the v4 EVM API.
+  - name: Solana
+    description: Primary chain with on-chain MMM AMM and Magic Eden v2/M3 marketplace
+      programs.
+  - name: Bitcoin / Ordinals Theory
+    description: Native ordinals and runes protocol integration on Bitcoin.
+  - name: Metaplex Core
+    description: Solana NFT standard supported by the Magic Eden launchpad SDK.
+  - name: HackerOne
+    description: Public bug bounty program for security researchers.
+  - name: Discord
+    description: Developer and creator community.
+  - name: Airtable
+    description: Used for API key request intake (US and non-US forms).
+solutions:
+  - name: Magic Eden Marketplace
+    description: Consumer NFT marketplace at magiceden.io / magiceden.us across all
+      supported chains.
+  - name: Magic Eden Launchpad
+    description: Curated and self-serve NFT collection launch product with allowlist,
+      mint stages, and royalties.
+  - name: Magic Eden Wallet
+    description: ME-branded multi-chain wallet (Solana, EVM, Bitcoin) with developer
+      docs.
+  - name: Magic Eden Diamonds
+    description: Loyalty / rewards program tied to marketplace activity.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

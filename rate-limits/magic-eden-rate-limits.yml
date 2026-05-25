@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Magic Eden
+providerId: magic-eden
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - NFT
+  - Marketplace
+  - Multi-chain
+  - Rate Limiting
+description: Magic Eden publishes per-surface per-minute (QPM) rate limits for the
+  public API and recommends adding a small inter-request timeout when batching. Higher
+  limits are issued by request via the Airtable intake forms. Instruction endpoints
+  are gated by Bearer API keys.
+notes: 429 (Too Many Requests) is returned on overage. The Ordinals public surface
+  shares a demo key across all unauthenticated callers so 429s can be expected even
+  below the per-caller limit.
+sources:
+  - https://docs.magiceden.io/reference/solana-api-keys
+  - https://docs.magiceden.io/reference/evm-api-keys
+  - https://docs.magiceden.io/reference/ordinals-api-keys
+responseCodes:
+  throttled: 429
+limits:
+  - name: Solana Public
+    scope: ip
+    metric: requests_per_minute
+    limit: 120
+    notes: Default public limit; equivalent to ~2 QPS. Instruction endpoints require
+      a Bearer API key.
+  - name: EVM Public
+    scope: ip
+    metric: requests_per_minute
+    limit: 180
+    notes: Default public limit. Instruction endpoints require a Bearer API key.
+  - name: Ordinals Public
+    scope: shared
+    metric: requests_per_minute
+    limit: 30
+    notes: Unauthenticated requests share a single demo key, so 429s are possible.
+  - name: Authenticated
+    scope: api_key
+    metric: requests_per_minute
+    limit: see form
+    notes: Higher limits issued per request via the Airtable API key form.
+policies:
+  - name: Bearer Authorization
+    description: Authenticated requests use `Authorization Bearer <API_KEY>` HTTP
+      header.
+  - name: Inter-Request Delay
+    description: Add a small timeout between batch requests to avoid connection refusal.
+  - name: Backoff On 429
+    description: Apply exponential backoff with jitter when receiving 429 responses.
+  - name: Key Request Forms
+    description: US and non-US Airtable intake forms gate higher limits and instruction
+      endpoint access.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

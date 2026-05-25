@@ -1,0 +1,97 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Magic Eden
+providerId: magic-eden
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - NFT
+  - Marketplace
+  - Multi-chain
+  - FinOps
+  - FOCUS
+description: Magic Eden does not publish a metered, paid developer API tier. Free
+  public access is rate-limited per surface; higher access is granted on a per-key
+  basis via the API key request forms. The primary monetisation surface is the marketplace
+  itself (transaction fees and royalties), not the API. FinOps practices for consumers
+  therefore focus on rate-budgeting and key-attribution rather than direct API spend.
+notes: No public usage export API. Cost attribution must be implemented client-side
+  per API key. Marketplace fees are a separate revenue stream not represented in this
+  document.
+sources:
+  - https://docs.magiceden.io/reference/solana-api-keys
+  - https://docs.magiceden.io/reference/evm-api-keys
+  - https://docs.magiceden.io/reference/ordinals-api-keys
+  - https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Magic Eden, Inc.
+serviceCategory: Web3
+billingModel:
+  pricingCategory: Free Tier + Negotiated API Key
+  billingFrequency: N/A
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+focusColumns:
+  ServiceName: Magic Eden API
+  ServiceCategory: Web3
+  ProviderName: Magic Eden
+  PublisherName: Magic Eden
+  InvoiceIssuerName: Magic Eden
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: solana_requests
+    description: Requests against the Solana API surface (v2).
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key
+      - endpoint
+  - name: evm_requests
+    description: Requests against the EVM v4 API surface.
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key
+      - chain
+      - endpoint
+  - name: ordinals_requests
+    description: Requests against the Ordinals/Runes v2 API surface.
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key
+      - endpoint
+  - name: instruction_calls
+    description: Authenticated calls to instruction/transaction/PSBT generation endpoints.
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key
+      - chain
+      - operation
+principles:
+  - name: Visibility
+    description: Track request volumes and 429 rates per surface and per API key with
+      client-side metrics.
+  - name: Allocation
+    description: Issue separate API keys per application/environment to attribute
+      consumption.
+  - name: Optimization
+    description: Cache read endpoints aggressively; the marketplace data changes
+      faster than wallet/collection metadata. Batch with inter-request delays. Prefer
+      webhooks/streams where available (Geyser/Yellowstone, mempool.js) over polling.
+  - name: Accountability
+    description: Assign key ownership; review 429 burn and request growth monthly
+      and re-request a higher tier via the API key form when needed.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

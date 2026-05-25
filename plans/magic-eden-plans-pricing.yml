@@ -1,0 +1,93 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Magic Eden
+providerId: magic-eden
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - NFT
+  - Marketplace
+  - Multi-chain
+  - Plans
+description: Magic Eden offers free, public access to read endpoints for each chain
+  surface (Solana, EVM, Ordinals) with default per-minute throughput. Higher rate
+  limits and access to authenticated instruction endpoints are obtained by submitting
+  an API key request via Airtable (separate US and non-US intake forms). There is
+  no published consumer pricing page - higher tiers are quoted via the form.
+notes: Marketplace itself takes a platform fee on listings/sales; that is separate
+  from the developer API and not represented as an API plan here.
+sources:
+  - https://docs.magiceden.io/reference/solana-api-keys
+  - https://docs.magiceden.io/reference/evm-api-keys
+  - https://docs.magiceden.io/reference/ordinals-api-keys
+plans:
+  - id: magic-eden-public
+    name: Public (Default)
+    type: free
+    description: No-auth public access to read endpoints. Default rate limits per
+      chain surface (120 QPM Solana, 180 QPM EVM, 30 QPM Ordinals). Instruction
+      endpoints are gated and require a Bearer API key obtained via the request form.
+    entries:
+      - label: Solana QPM
+        name: solana_qpm
+        type: included
+        metric: requests
+        limit: 120
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+      - label: EVM QPM
+        name: evm_qpm
+        type: included
+        metric: requests
+        limit: 180
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+      - label: Ordinals QPM
+        name: ordinals_qpm
+        type: included
+        metric: requests
+        limit: 30
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: All read endpoints
+      - name: No authentication required
+      - name: Shared demo key for Ordinals
+  - id: magic-eden-api-key
+    name: API Key (Requested)
+    type: paid
+    description: Authenticated tier issued after submitting the API key request form.
+      Unlocks instruction endpoints (transaction/PSBT generators), higher rate limits,
+      and access to gated endpoints. Pricing and quota are negotiated via the form
+      and not published.
+    entries:
+      - label: Custom
+        name: custom
+        type: flat
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact via form
+        userMultiplied: false
+    elements:
+      - name: Instruction endpoints (Solana / Ordinals / EVM)
+      - name: Higher throughput
+      - name: Bearer token authentication
+      - name: US intake form (Airtable)
+      - name: Non-US intake form (Airtable)
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,2686 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden Bitcoin Ordinals API
+  description: Aggregated Magic Eden Bitcoin/Ordinals API covering ordinal collections, rare sats, runes (orders, swaps, sweeping,
+    market sells), block activities, and wallet balances.
+  version: v2
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v2
+components:
+  schemas:
+    BlockActivitySchema:
+      type: object
+      properties:
+        inscription:
+          type: object
+          properties:
+            id:
+              type: string
+            contentType:
+              type: string
+            contentMedia:
+              type: string
+            contentLength:
+              type: number
+              nullable: true
+            number:
+              type: number
+              nullable: true
+            sat:
+              type: number
+              nullable: true
+            satName:
+              type: string
+              nullable: true
+            satRarity:
+              type: string
+              nullable: true
+            satBlockHeight:
+              type: number
+              nullable: true
+            satBlockTime:
+              type: string
+              nullable: true
+            genesisTransaction:
+              type: string
+            genesisTransactionBlockTime:
+              type: string
+              nullable: true
+            genesisTransactionBlockHeight:
+              type: number
+              nullable: true
+            genesisTransactionBlockHash:
+              type: string
+              nullable: true
+            parentInscriptionId:
+              type: string
+              nullable: true
+            metaprotocol:
+              type: string
+              nullable: true
+        activityType:
+          type: string
+        blockHeight:
+          type: number
+        blockHash:
+          type: string
+        txId:
+          type: string
+        location:
+          type: string
+        address:
+          type: string
+        output:
+          type: string
+        value:
+          type: number
+        offset:
+          type: number
+        timestamp:
+          type: number
+        oldLocation:
+          type: string
+          nullable: true
+        oldAddress:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+    CollectionStatSchema:
+      type: object
+      properties:
+        floorPrice:
+          type: string
+        inscriptionNumberMin:
+          type: string
+        inscriptionNumberMax:
+          type: string
+        owners:
+          type: string
+        pendingTransactions:
+          type: string
+        supply:
+          type: string
+        totalListed:
+          type: string
+        totalVolume:
+          type: string
+    CollectionSchema:
+      type: object
+      properties:
+        symbol:
+          type: string
+        name:
+          type: string
+        imageURI:
+          type: string
+        chain:
+          type: string
+        description:
+          type: string
+        supply:
+          type: integer
+        twitterLink:
+          type: string
+        discordLink:
+          type: string
+        websiteLink:
+          type: string
+        min_inscription_number:
+          type: integer
+        max_inscription_number:
+          type: integer
+        createdAt:
+          type: string
+    RareSatsGetListingsSchema:
+      type: object
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsGetListingsItem'
+    RareSatsGetListingsItem:
+      type: object
+      properties:
+        id:
+          type: string
+        genesisTransaction:
+          type: string
+        genesisTransactionBlockTime:
+          type: string
+        genesisTransactionBlockHash:
+          type: string
+        genesisTransactionBlockHeight:
+          type: number
+        outputValue:
+          type: number
+        owner:
+          type: string
+        listed:
+          type: boolean
+        listedAt:
+          type: string
+        listedPrice:
+          type: number
+        listedSellerReceiverAddress:
+          type: string
+        minBlockHeight:
+          type: number
+        maxBlockHeight:
+          type: number
+        minBlockTime:
+          type: string
+        maxBlockTime:
+          type: string
+        minSatRange:
+          type: number
+        maxSatRange:
+          type: number
+        minUnitPrice:
+          type: number
+        maxUnitPrice:
+          type: number
+        satRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsSatRanges'
+    SatributesSchema:
+      type: string
+      enum:
+      - Common
+      - Uncommon
+      - Rare
+      - Epic
+      - Legendary
+      - Black Uncommon
+      - Black Rare
+      - Black Epic
+      - Black Legendary
+      - Mythic
+      - Palindrome
+      - Uniform Palinception
+      - Perfect Palinception
+      - Paliblock Palindrome
+      - Vintage
+      - Nakamoto
+      - Block 9
+      - Block 9 450x
+      - Block 286
+      - Block 78
+      - Block 666
+      - First Transaction
+      - Pizza
+      - Taproot
+      - Alpha
+      - Omega
+      - JPEG
+      - Legacy
+      - Hitman
+    SatributesArraySchema:
+      type: array
+      items:
+        $ref: '#/components/schemas/SatributesSchema'
+    RareSatsSatRanges:
+      type: object
+      properties:
+        id:
+          type: string
+        from:
+          type: number
+        to:
+          type: number
+        parentFrom:
+          type: number
+        parentTo:
+          type: number
+        satributes:
+          $ref: '#/components/schemas/SatributesArraySchema'
+        amount:
+          type: number
+        sequence:
+          type: number
+        unitPrice:
+          type: number
+        blockInfo:
+          $ref: '#/components/schemas/BlockInfoSchema'
+    BlockInfoSchema:
+      type: object
+      properties:
+        blockHash:
+          type: string
+        blockHeight:
+          type: number
+        blockTime:
+          type: string
+    ItemSchema:
+      type: object
+      properties:
+        chain:
+          type: string
+        collection:
+          type: object
+          properties:
+            chain:
+              type: string
+            imageURI:
+              type: string
+            name:
+              type: string
+            symbol:
+              type: string
+        contentURI:
+          type: string
+        contentType:
+          type: string
+        contentBody:
+          type: string
+        contentPreviewURI:
+          type: string
+        sat:
+          type: number
+        satName:
+          type: string
+        satRarity:
+          type: string
+        genesisTransaction:
+          type: string
+        genesisTransactionBlockTime:
+          type: string
+        genesisTransactionBlockHeight:
+          type: number
+        genesisTransactionBlockHash:
+          type: string
+        inscriptionNumber:
+          type: number
+        meta:
+          type: object
+          properties:
+            name:
+              type: string
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  trait_type:
+                    type: string
+                  value:
+                    type: string
+        owner:
+          type: string
+        collectionSymbol:
+          type: string
+        location:
+          type: string
+        locationBlockHeight:
+          type: number
+        locationBlockTime:
+          type: string
+        locationBlockHash:
+          type: string
+        outputValue:
+          type: number
+        output:
+          type: string
+        mempoolTxId:
+          type: string
+        mempoolTxTimestamp:
+          type: string
+        listed:
+          type: boolean
+        listedAt:
+          type: string
+        listedPrice:
+          type: number
+        listedMakerFeeBp:
+          type: number
+        listedSellerReceiverAddress:
+          type: string
+        listedForMint:
+          type: boolean
+        brc20TransferAmt:
+          type: number
+        brc20ListedUnitPrice:
+          type: number
+        domain:
+          type: string
+    RareSatsItemAdditionalSchema:
+      type: object
+      properties:
+        rareSatsUtxo:
+          $ref: '#/components/schemas/RareSatsUtxoSchema'
+    RareSatsUtxoSchema:
+      type: object
+      properties:
+        id:
+          type: string
+        txId:
+          type: string
+        vout:
+          type: number
+        value:
+          type: number
+        address:
+          type: string
+        blockInfo:
+          $ref: '#/components/schemas/BlockInfoSchema'
+        listedPrice:
+          type: number
+        satRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsSatRanges'
+        hasUninscribedRareSat:
+          type: boolean
+        floorValue:
+          type: number
+    RareSatsSatRangePriceSchema:
+      type: object
+      required:
+      - id
+      - from
+      - to
+      - parentFrom
+      - parentTo
+      - satributes
+      properties:
+        id:
+          type: string
+        from:
+          type: number
+        to:
+          type: number
+        parentFrom:
+          type: number
+        parentTo:
+          type: number
+        unitPrice:
+          type: number
+        satributes:
+          $ref: '#/components/schemas/SatributesArraySchema'
+    RareSatsListingPSBTResultSchema:
+      type: object
+      required:
+      - sellerReceiveAddress
+      - price
+      - utxoId
+      - unsignedListingPSBTBase64
+      - makerFee
+      properties:
+        sellerReceiveAddress:
+          type: string
+        price:
+          type: number
+        utxoId:
+          type: string
+        unsignedListingPSBTBase64:
+          type: string
+        makerFee:
+          type: number
+        publicKey:
+          type: string
+    RareSatsListingsPSBTRequestSchema:
+      type: object
+      required:
+      - listings
+      properties:
+        listings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsListingsPSBTRequestSchemaSingleItem'
+    RareSatsListingsPSBTRequestSchemaSingleItem:
+      type: object
+      required:
+      - utxoId
+      - satRangePrices
+      properties:
+        sellerReceiveAddress:
+          type: string
+          description: Default to the utxo owner address if not specified
+        publicKey:
+          type: string
+        utxoId:
+          type: string
+        satRangePrices:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsSatRangePriceSchema'
+    RareSatsListingsPSBTResultSchema:
+      type: object
+      required:
+      - results
+      - failed
+      - unsignedCombinedPSBTBase64
+      - toSignInputs
+      - toSignSigHash
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsListingPSBTResultSchema'
+        failed:
+          type: array
+          items:
+            type: string
+        unsignedCombinedPSBTBase64:
+          type: string
+          description: The PSBT to be signed by the owner of the rare sats
+        toSignInputs:
+          type: array
+          items:
+            type: number
+        toSignSigHash:
+          type: number
+    RareSatsListingSchema:
+      type: object
+      required:
+      - sellerReceiveAddress
+      - price
+      - utxoId
+      - satRangePrices
+      - signedListingPSBTBase64
+      - makerFee
+      properties:
+        sellerReceiveAddress:
+          type: string
+        price:
+          description: The total price of the listed rare sats utxo. Must be equal to the sum of the price of each sat range
+          type: number
+        utxoId:
+          type: string
+        satRangePrices:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsSatRangePriceSchema'
+        signedListingPSBTBase64:
+          description: Same as the signedCombinedPSBTBase64
+          type: string
+        makerFee:
+          description: Will be deprecated
+          type: number
+        publicKey:
+          type: string
+    RareSatsListingRequestSchema:
+      type: object
+      required:
+      - listings
+      - signedCombinedPSBTBase64
+      properties:
+        listings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsListingSchema'
+        signedCombinedPSBTBase64:
+          description: The selling PSBT must be signed by the rare sats owner. The unsigned PSBT can be generated using the
+            `POST /listing-psbt` endpoint
+          type: string
+    RareSatsListingResultSchema:
+      type: object
+      required:
+      - ok
+      - listed
+      - failed
+      properties:
+        ok:
+          type: boolean
+        listed:
+          type: number
+        failed:
+          type: array
+          items:
+            type: string
+    RuneActivitySchema:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+        oldOwner:
+          type: string
+          nullable: true
+        newOwner:
+          type: string
+          nullable: true
+        rune:
+          type: string
+        amount:
+          type: string
+          nullable: true
+        txValue:
+          type: string
+          nullable: true
+        txId:
+          type: string
+          nullable: true
+        txBlockTime:
+          type: string
+          format: date-time
+          nullable: true
+        txBlockHeight:
+          type: integer
+          nullable: true
+        txBlockHash:
+          type: string
+          nullable: true
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        listedPrice:
+          type: string
+          nullable: true
+        listedMakerFeeBp:
+          type: integer
+          nullable: true
+        listedTakerFeeBp:
+          type: integer
+          nullable: true
+        btcUsdPrice:
+          type: string
+          nullable: true
+        sellerPaymentReceiverAddress:
+          type: string
+          nullable: true
+        buyerPaymentAddress:
+          type: string
+          nullable: true
+    GetRuneActivitiesResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    GetCollectionStatsRuneResultSchema:
+      type: object
+      properties:
+        runes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneStatsSchema'
+    RuneStatsSchema:
+      type: object
+      properties:
+        rune:
+          type: string
+        etching:
+          $ref: '#/components/schemas/RuneEtchingSchema'
+        vol:
+          type: number
+          nullable: true
+        totalVol:
+          type: number
+          nullable: true
+        unitPriceSats:
+          type: number
+          nullable: true
+        formattedUnitPriceSats:
+          type: string
+          nullable: true
+        txnCount:
+          type: number
+          nullable: true
+        imageURI:
+          type: string
+          nullable: true
+        unitPriceChange:
+          type: number
+          nullable: true
+        holderCount:
+          type: number
+          nullable: true
+        pendingCount:
+          type: number
+          nullable: true
+    RuneEtchingSchema:
+      type: object
+      properties:
+        details:
+          type: string
+    GetRunesMarketInfoResultSchema:
+      type: object
+      properties:
+        rune:
+          type: string
+        ticker:
+          type: string
+        totalSupply:
+          type: string
+        formattedTotalSupply:
+          type: string
+        divisibility:
+          type: integer
+        imageURI:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        coinMarketCapLink:
+          type: string
+          nullable: true
+        discordLink:
+          type: string
+          nullable: true
+        telegramLink:
+          type: string
+          nullable: true
+        twitterLink:
+          type: string
+          nullable: true
+        minOrderSize:
+          type: integer
+          nullable: true
+        maxOrderSize:
+          type: integer
+          nullable: true
+        pendingTxnCount:
+          type: integer
+          nullable: true
+        floorUnitPrice:
+          type: object
+          properties:
+            formatted:
+              type: string
+            value:
+              type: string
+          nullable: true
+        marketCap:
+          type: integer
+          nullable: true
+        volume:
+          type: object
+          properties:
+            24h:
+              type: integer
+              nullable: true
+            7d:
+              type: integer
+              nullable: true
+            30d:
+              type: integer
+              nullable: true
+      nullable: true
+    GetRunesOrderInfoResultSchema:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/ISafeApiRuneOrderSchema'
+    ISafeApiRuneOrderSchema:
+      type: object
+      properties:
+        amount:
+          type: number
+        formattedAmount:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+        rune:
+          type: string
+        mempoolTxId:
+          type: string
+          nullable: true
+        maker:
+          type: string
+        makerReceiveAddress:
+          type: string
+        makerFeeBps:
+          type: number
+        price:
+          type: number
+        side:
+          type: string
+        status:
+          type: string
+        unitPrice:
+          type: number
+        formattedUnitPrice:
+          type: string
+    RuneUtxoSchema:
+      type: object
+      properties:
+        location:
+          type: string
+        address:
+          type: string
+          nullable: true
+        rune:
+          type: string
+        balance:
+          type: number
+        formattedBalance:
+          type: string
+        spent:
+          type: boolean
+        pure:
+          type: boolean
+        containsInscription:
+          type: boolean
+          nullable: true
+        costSats:
+          type: number
+          nullable: true
+        listing:
+          type: object
+          nullable: true
+          properties:
+            orderId:
+              type: string
+              format: uuid
+            totalPriceSats:
+              type: number
+            unitPriceSats:
+              type: number
+            formattedUnitPriceSats:
+              type: string
+            expiresAt:
+              type: string
+              format: date-time
+    GetRunesUtxoByWalletResultSchema:
+      type: object
+      properties:
+        utxos:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneUtxoSchema'
+    GetRuneActivitiesByAddressResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    GetBalanceByAddressAndRuneResultSchema:
+      type: object
+      properties:
+        balance:
+          type: string
+          description: The raw balance of the Rune, typically in its smallest unit.
+        formattedBalance:
+          type: string
+          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
+        ticker:
+          type: string
+          description: The symbol of the Rune whose balance is represented.
+          pattern: ^[A-Z]{1,26}$
+    PostRunesOrderCancelRequestSchema:
+      type: object
+      required:
+      - signature
+      - orderIds
+      - makerAddress
+      - makerPublicKey
+      - token
+      properties:
+        signature:
+          type: string
+          description: A BIP322 signed version of the message requested from /v2/ord/btc/runes/psbt/order/cancel
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of UUIDs of the orders to be cancelled; cannot be empty and maximum of 20.
+          minItems: 1
+          maxItems: 20
+        makerAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+        makerPublicKey:
+          type: string
+          oneOf:
+          - pattern: ^([0-9a-f]){66}$
+          - pattern: ^([0-9a-f]){64}$
+          description: Maker's Bitcoin public key, either a standard or x-only format.
+        token:
+          type: string
+          description: JWT token of cancellation request from /v2/ord/btc/runes/psbt/order/cancel.
+      additionalProperties: false
+    PostRunesOrderCancelResultSchema:
+      type: object
+      required:
+      - orderIds
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of UUIDs for successfully cancelled orders.
+      additionalProperties: false
+    PostRunesOrderCreateRequestSchema:
+      type: object
+      required:
+      - side
+      - signedPsbtBase64
+      - symbol
+      - makerRunesPublicKey
+      - makerRunesAddress
+      - makerReceiveAddress
+      - expiresAt
+      properties:
+        side:
+          type: string
+          enum:
+          - sell
+          description: Only 'sell' orders are currently supported.
+        signedPsbtBase64:
+          type: string
+          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction).
+        symbol:
+          type: string
+          description: Symbol representing the asset being transacted.
+        makerRunesPublicKey:
+          type: string
+          oneOf:
+          - pattern: ^([0-9a-f]){66}$
+          - pattern: ^([0-9a-f]){64}$
+          description: Maker's Bitcoin public key, either a standard or x-only format.
+        makerRunesAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+        makerReceiveAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiration date and time for the order.
+        signedRBFProtectedPsbts:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of the RBF protected sell
+            order.
+      additionalProperties: false
+    PostRunesOrderCreateResultSchema:
+      type: object
+      required:
+      - orderIds
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of UUIDs for successfully created orders.
+      additionalProperties: false
+    PostRunesPSBTOrderCancelRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - makerAddress
+      - makerPublicKey
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of UUIDs of the orders to be cancelled; cannot be empty and maximum of 20.
+          minItems: 1
+          maxItems: 20
+        makerAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+        makerPublicKey:
+          type: string
+          oneOf:
+          - pattern: ^([0-9a-f]){66}$
+          - pattern: ^([0-9a-f]){64}$
+          description: Maker's Bitcoin public key, either a standard or x-only format.
+      additionalProperties: false
+    PostRunesPSBTOrderCancelResultSchema:
+      type: object
+      required:
+      - orderIds
+      - psbtBase64
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of UUIDs for successfully cancelled orders.
+        token:
+          type: string
+          description: JWT token of cancellation request.
+        message:
+          type: string
+          description: Unsigned message of cancellation request.
+      additionalProperties: false
+    PostRunesPSBTOrderCreateRequestSchema:
+      type: object
+      required:
+      - side
+      - rune
+      - makerRunesPublicKey
+      - makerRunesAddress
+      - makerReceiveAddress
+      - utxos
+      - expiresAt
+      properties:
+        side:
+          type: string
+          enum:
+          - sell
+          description: Currently only 'sell' orders are supported.
+        rune:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+          description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long.
+        makerRunesPublicKey:
+          type: string
+          oneOf:
+          - pattern: ^([0-9a-f]){66}$
+          - pattern: ^([0-9a-f]){64}$
+          description: Bitcoin public key, either a standard or x-only format.
+        makerRunesAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+        makerReceiveAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
+        utxos:
+          type: array
+          maxItems: 100
+          items:
+            type: object
+            required:
+            - location
+            - priceSats
+            properties:
+              location:
+                type: string
+                description: Location identifier for the UTXO.
+              priceSats:
+                type: integer
+                minimum: 10000
+                maximum: 3000000000
+                description: Price in satoshis, within specified limits.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiration date and time of the order.
+      additionalProperties: false
+    PostRunesPSBTOrderCreateResultSchema:
+      type: object
+      required:
+      - orderPsbtBase64
+      - unsignedRBFProtectedPsbts
+      properties:
+        orderPsbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the sell order.
+        unsignedRBFProtectedPsbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnsignedRBFProtectedPSBTSchema'
+      additionalProperties: false
+    UnsignedRBFProtectedPSBTSchema:
+      type: object
+      properties:
+        unsignedPSBTBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the RBF protected sell order.
+        toSignInputs:
+          type: array
+          items:
+            type: number
+          description: Array of input indices to sign.
+        toSignSigHash:
+          type: number
+          description: Signature hash type for signing.
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
+    PostMarketSellPsbtResponseSchema:
+      type: object
+      properties:
+        txid:
+          type: string
+          description: The transaction ID for the market sell.
+      required:
+      - txid
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    GetMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: string
+                format: bigint
+                description: The amount for the order, represented as a string to accommodate large integers.
+              id:
+                type: string
+                description: The unique identifier for the order.
+        runeTicker:
+          type: string
+          description: The ticker symbol for the rune.
+        takerPaymentAddress:
+          type: string
+          description: The payment address of the taker.
+        takerRunesAddress:
+          type: string
+          description: The runes address of the taker.
+        takerRunesPublicKey:
+          type: string
+          description: The runes public key of the taker.
+        feeRateTier:
+          type: string
+          enum:
+          - custom
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: The fee rate tier.
+          default: hourFee
+        feeRateNum:
+          type: number
+          description: The numerical fee rate.
+          nullable: true
+    GetMarketSellPsbtResponseSchema:
+      type: object
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed.
+          items:
+            type: string
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the market sell.
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+      required:
+      - invalidOrders
+      - psbtBase64
+      - requestId
+      - runeUtxoIndexes
+      - settlement
+    GetQuoteResponseSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: The total amount for the quote, represented as a string to accommodate large integers.
+        averageUnitPrice:
+          type: number
+          description: The average unit price.
+        bestUnitPrice:
+          type: number
+          description: The best unit price available.
+        maxUnitPrice:
+          type: number
+          description: The maximum unit price.
+        minUnitPrice:
+          type: number
+          description: The minimum unit price.
+        price:
+          type: number
+          description: The total price.
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: string
+                format: bigint
+                description: The amount for the order, represented as a string to accommodate large integers.
+              id:
+                type: string
+                description: The unique identifier for the order.
+      required:
+      - amount
+      - averageUnitPrice
+      - bestUnitPrice
+      - maxUnitPrice
+      - minUnitPrice
+      - price
+      - orders
+    GetRuneSwapPsbtRequestSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: The amount for the swap, represented as a string to accommodate large integers.
+          minimum: 1
+        priceToleranceBp:
+          type: integer
+          description: The price tolerance in percentate x 10000.
+          nullable: true
+        runeTicker:
+          type: string
+          description: The ticker symbol for the rune.
+        side:
+          type: string
+          enum:
+          - buy
+          - sell
+          description: The side of the trade, either "buy" or "sell".
+        takerPaymentAddress:
+          type: string
+          description: The payment address of the taker.
+        takerPublicKey:
+          type: string
+          description: The public key of the taker, required for buying.
+          nullable: true
+        takerRunesAddress:
+          type: string
+          description: The runes address of the taker.
+        takerRunesPublicKey:
+          type: string
+          description: The runes public key of the taker, required for selling.
+          nullable: true
+        feeRateTier:
+          type: string
+          enum:
+          - custom
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: The fee rate tier.
+          default: hourFee
+        feeRateNum:
+          type: number
+          description: The numerical fee rate.
+          nullable: true
+        legacyListingOnly:
+          type: boolean
+          description: Flag indicating if only legacy listings should be considered.
+          nullable: true
+        rbfPreventionListingOnly:
+          type: boolean
+          description: Flag indicating if only RBF prevention listings should be considered.
+          nullable: true
+      required:
+      - amount
+      - runeTicker
+      - side
+      - takerPaymentAddress
+      - takerRunesAddress
+    RuneSwapPsbtSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - legacy-buy
+          - rbf-buy
+          - market-sell
+          description: The type of the Rune swap transaction.
+        paymentUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of payment UTXO indexes.
+        psbtBase64:
+          type: string
+          description: The PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+      required:
+      - type
+      - paymentUtxoIndexes
+      - psbtBase64
+      - settlement
+      - runeUtxoIndexes
+    RuneSwapErrorSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - legacy-buy
+          - rbf-buy
+          - market-sell
+          description: The type of the Rune swap transaction error.
+        message:
+          type: string
+          description: The error message.
+      required:
+      - type
+      - message
+    GetRuneSwapPsbtResponseSchema:
+      type: object
+      properties:
+        btcChangeOutputIndex:
+          type: integer
+          description: The index of the BTC change output, optional for sweeping post split.
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapErrorSchema'
+          description: An array of errors encountered during the swap process.
+          nullable: true
+        psbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapPsbtSchema'
+          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
+        quote:
+          $ref: '#/components/schemas/GetQuoteResponseSchema'
+          description: The quote details for the swap.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        requestId:
+          type: string
+          description: The unique request identifier.
+      required:
+      - psbts
+      - quote
+      - settlement
+      - requestId
+    SignedSwapPsbtSchema:
+      type: object
+      properties:
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - signedPsbtBase64
+    PostRuneSwapPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request identifier.
+        signedPsbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignedSwapPsbtSchema'
+          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
+      required:
+      - requestId
+      - signedPsbts
+    PostRuneSwapPsbtResponseSchema:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapErrorSchema'
+          description: An array of errors encountered during the swap process.
+          nullable: true
+        txs:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - legacy-buy
+                - rbf-buy
+                - market-sell
+                description: The type of the Rune swap transaction.
+              txid:
+                type: string
+                description: The transaction ID.
+          description: An array of transactions with their types and IDs.
+      required:
+      - txs
+    RuneSymbol:
+      type: string
+      pattern: ^[A-Z]{1,26}$
+      description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long
+    PostRunesPSBTSweepingRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - runeSymbol
+      - takerPaymentAddress
+      - takerPublicKey
+      - takerReceiveAddress
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of order IDs, must contain at least 1 and no more than 50
+          minItems: 1
+          maxItems: 50
+        runeSymbol:
+          $ref: '#/components/schemas/RuneSymbol'
+        takerPaymentAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker's payment
+        takerPublicKey:
+          type: string
+          format: btc-public-key
+          description: Bitcoin public key for the taker payment address
+        takerReceiveAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker to receive assets. Should be your taproot address
+        feeRateTier:
+          type: string
+          enum:
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: Desired speed for the transaction fee rate
+        feeRateNum:
+          type: number
+          description: Numeric value specifying the exact fee rate
+        enableRBFProtection:
+          type: boolean
+          description: Boolean value to enable RBF protection sweeping
+      additionalProperties: false
+    PostRunesPSBTSweepingResultSchema:
+      type: object
+      required:
+      - invalidOrders
+      - paymentUtxoIndexes
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed by non RBF protection sweeping (RBF protection orders
+            are excluded)
+          items:
+            type: string
+            format: uuid
+        validOrders:
+          type: array
+          description: List of order IDs that could be processed by non RBF protection sweeping
+          items:
+            type: string
+            format: uuid
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the non RBF protection sweeping
+        paymentUtxoIndexes:
+          type: number
+          description: Index of payment UTXO inputs
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: Settlement of the non RBF protection sweeping
+        fullRBFProtectedSweepingResult:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResultSchema'
+          description: Full RBF protection information need to be signed
+      additionalProperties: false
+    FullRBFProtectedSweepingResultSchema:
+      type: object
+      properties:
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+        validOrderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: An array of valid runes order IDs of the RBF protection sweeping.
+        unsignedFundsPreparationPsbtBase64:
+          type: string
+          description: Base64 encoded PSBT for unsigned funds preparation.
+          nullable: true
+        psbtIndexesToSign:
+          type: array
+          items:
+            type: number
+            format: integer
+          description: An array of indexes in the PSBT that need to be signed.
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message if an error occurred.
+          nullable: true
+      required:
+      - settlement
+      - validOrderIds
+      - psbtIndexesToSign
+    PostRunesSweepingRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - takerPaymentAddress
+      - takerReceiveAddress
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of order IDs, must contain at least one and no more than 50.
+          minItems: 1
+          maxItems: 50
+        signedPsbtBase64:
+          type: string
+          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of non RBF protection sweeping. You
+            must sign before submitting.
+        takerPaymentAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker’s payment.
+        takerReceiveAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker to receive assets. Should be your taproot address
+        enableRBFProtection:
+          type: boolean
+          description: Boolean value to enable RBF protection sweeping
+        fullRBFProtectedSweepingRequest:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingRequestSchema'
+          description: Signed PSBT for RBF protection sweeping
+      additionalProperties: false
+    PostRunesSweepingResultSchema:
+      type: object
+      required:
+      - txid
+      properties:
+        txid:
+          type: string
+          description: Transaction ID of the successfully broadcasted Bitcoin RBF protection sweeping transaction.
+        error:
+          type: string
+          description: Error message, if an error occurred during broadcasting RBF protection sweeping transaction.
+        fullRBFProtectedSweepingResponse:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResponseSchema'
+          description: Post result of the RBF protection sweeping
+      additionalProperties: false
+    FullRBFProtectedSweepingRequestSchema:
+      type: object
+      properties:
+        takerPaymentPublicKey:
+          type: string
+          format: btc-public-key
+          description: The Bitcoin public key of the taker.
+        signedFundsPreparationPsbtBase64:
+          type: string
+          description: Base64 encoded PSBT for the user-signed funds preparation.
+      required:
+      - takerPaymentPublicKey
+      - signedFundsPreparationPsbtBase64
+    FullRBFProtectedSweepingResponseSchema:
+      type: object
+      properties:
+        fundsPreparationTxId:
+          type: string
+          description: The transaction ID for the funds preparation, if available.
+          nullable: true
+        fulfillmentId:
+          type: string
+          description: The ID of the fulfillment, if available.
+          nullable: true
+        error:
+          type: string
+          description: Error message, if an error occurred.
+          nullable: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+tags: []
+paths:
+  /v2/ord/btc/block/activities:
+    get:
+      tags:
+      - Blocks
+      summary: Get block activities
+      description: Get block activities
+      parameters:
+      - name: blockHeight
+        in: query
+        description: Block height
+        required: true
+        schema:
+          type: integer
+      - name: kind
+        in: query
+        description: Comma-separated list of activity kinds. Acceptable values are "create" and "transfer". If not specified,
+          defaults to "create,transfer".
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 60
+          default: 20
+          multipleOf: 20
+      - name: cursor
+        in: query
+        description: cursor
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BlockActivitySchema'
+                  limit:
+                    type: integer
+                  nextCursor:
+                    type: string
+  /v2/ord/btc/stat:
+    get:
+      tags:
+      - Collections
+      summary: Get collection stats
+      description: Get collection stats
+      parameters:
+      - name: collectionSymbol
+        in: query
+        description: Collection symbol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionStatSchema'
+  /v2/ord/btc/collections/{symbol}:
+    get:
+      tags:
+      - Collections
+      summary: Get collection
+      description: Get collection
+      operationId: getCollection
+      parameters:
+      - name: symbol
+        in: path
+        description: Collection symbol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionSchema'
+  /collection_stats/search/bitcoin:
+    servers:
+    - url: https://stats-mainnet.magiceden.dev
+    get:
+      tags:
+      - Collections
+      summary: Get collection statistics
+      description: Get collection statistics
+      operationId: getCollectionStats
+      parameters:
+      - name: window
+        in: query
+        description: Time window
+        required: false
+        schema:
+          type: string
+          enum:
+          - 10m
+          - 1h
+          - 6h
+          - 1d
+          - 7d
+          - 30d
+          default: 1d
+      - name: sort
+        in: query
+        description: Sort by
+        required: false
+        schema:
+          type: string
+          enum:
+          - volume
+          - volumePercentageChange
+          - totalVolume
+          - sales
+          - salesPercentageChange
+          - totalSales
+          - floorPrice
+          - floorPricePercentageChange
+          - topOffer
+          - listedOverSupply
+          - ownerPercentage
+          - pending
+          - marketCap
+          default: volume
+      - name: direction
+        in: query
+        description: Sort direction
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      - name: offset
+        in: query
+        description: Offset
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 0
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 100
+      responses:
+        '200':
+          description: Successful response
+  /v2/ord/btc/raresats/listings:
+    get:
+      tags:
+      - Rare Sats
+      summary: Get Listings
+      description: Get Rare Sats Listings by a Variety of Filters and Sorting Orders
+      parameters:
+      - name: sortBy
+        in: query
+        description: Sort By
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - priceAsc
+            - priceDesc
+            - listedAtAsc
+            - listedAtDesc
+            - blockNumberAsc
+            - blockNumberDesc
+            - blockTimeAsc
+            - blockTimeDesc
+            - satRangeAsc
+            - satRangeDesc
+            - unitPriceAsc
+            - unitPriceDesc
+          default:
+          - priceAsc
+      - name: limit
+        in: query
+        description: Page limit
+        required: false
+        schema:
+          type: integer
+          minimum: 100
+          maximum: 500
+          default: 100
+          multipleOf: 100
+      - name: offset
+        in: query
+        description: Page offset
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 20000
+          default: 0
+          multipleOf: 100
+      - name: satributes
+        in: query
+        description: Filter listings that have the given satributes in the same sat range
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/SatributesSchema'
+      - name: minListedAt
+        in: query
+        description: Filter items that were listed after the given timestamp
+        required: false
+        schema:
+          type: integer
+      - name: maxListedAt
+        in: query
+        description: Filter items that were listed before the given timestamp
+        required: false
+        schema:
+          type: integer
+      - name: minPrice
+        in: query
+        description: Filter by minimum listed price in satoshis
+        required: false
+        schema:
+          type: integer
+      - name: maxPrice
+        in: query
+        description: Filter by maximum listed price in satoshis
+        required: false
+        schema:
+          type: integer
+      - name: minUtxoSize
+        in: query
+        description: Filter by minimum utxo size in satoshis
+        required: false
+        schema:
+          type: integer
+      - name: maxUtxoSize
+        in: query
+        description: Filter by maximum utxo size in satoshis
+        required: false
+        schema:
+          type: integer
+      - name: minSatRange
+        in: query
+        description: Filter by minimum sat range in sats
+        required: false
+        schema:
+          type: integer
+      - name: maxSatRange
+        in: query
+        description: Filter by maximum sat range in sats
+        required: false
+        schema:
+          type: integer
+      - name: minBlockNumber
+        in: query
+        description: Filter listings that only contain sats that were created after the given block number
+        required: false
+        schema:
+          type: integer
+      - name: maxBlockNumber
+        in: query
+        description: Filter listings that only contain sats that were created before the given block number
+        required: false
+        schema:
+          type: integer
+      - name: minBlockTimestamp
+        in: query
+        description: Filter listings that only contain sats that were created after the given timestamp
+        required: false
+        schema:
+          type: integer
+      - name: maxBlockTimestamp
+        in: query
+        description: Filter listings that only contain sats that were created before the given timestamp
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RareSatsGetListingsSchema'
+  /v2/ord/btc/raresats/wallet/utxos:
+    get:
+      tags:
+      - Rare Sats
+      summary: Get Rare Sats by Address
+      description: Get Rare Sats by Address
+      parameters:
+      - name: walletAddress
+        in: query
+        description: Wallet Address
+        required: true
+        schema:
+          type: string
+      - name: listed
+        in: query
+        description: Get only the rare sats that are listed if set to true
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 100
+          default: 40
+          multipleOf: 20
+      - name: offset
+        in: query
+        description: Offset - the `nextOffset` cursor received from the request of the previous page
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tokens
+                - total
+                properties:
+                  tokens:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: '#/components/schemas/ItemSchema'
+                      - $ref: '#/components/schemas/RareSatsItemAdditionalSchema'
+                  total:
+                    type: integer
+                  nextOffset:
+                    type: string
+  /v2/ord/btc/raresats/listing-psbt:
+    post:
+      tags:
+      - Rare Sats
+      summary: Get Batch Listing PSBT
+      description: Get Rare Sats Batch Listing PSBT for Signing
+      requestBody:
+        description: Rare Sats Batch Listing PSBT Post Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RareSatsListingsPSBTRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RareSatsListingsPSBTResultSchema'
+  /v2/ord/btc/raresats/listing:
+    post:
+      tags:
+      - Rare Sats
+      summary: Submit Batch Listing
+      description: Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`
+      requestBody:
+        description: Rare Sats Batch Listing Post Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RareSatsListingRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RareSatsListingResultSchema'
+  /v2/ord/btc/runes/activities/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get activities for a specific rune
+      description: Get activities for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: The rune symbol for which activities are fetched.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      - name: offset
+        in: query
+        description: Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up
+          to 5000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 5000
+          multipleOf: 100
+      responses:
+        '200':
+          description: Successful response with an array of activity records for the specified rune.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRuneActivitiesResultSchema'
+  /v2/ord/btc/runes/collection_stats/search:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune collection stats
+      description: Get Rune collection stats
+      parameters:
+      - name: window
+        in: query
+        description: Time window for which statistics are aggregated.
+        required: true
+        schema:
+          type: string
+          enum:
+          - 10m
+          - 1h
+          - 6h
+          - 1d
+          - 7d
+          - 30d
+          default: 1d
+      - name: limit
+        in: query
+        description: Limit the number of results returned. Default is 20, maximum is 2000.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2000
+      - name: offset
+        in: query
+        description: Pagination offset for results.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 15000
+      - name: sort
+        in: query
+        description: Column to sort the results by.
+        required: true
+        schema:
+          type: string
+          enum:
+          - volume
+          - volumePercentageChange
+          - totalVolume
+          - sales
+          - salesPercentageChange
+          - totalSales
+          - floorPrice
+          - floorPricePercentageChange
+          - topOffer
+          - listedOverSupply
+          - ownerPercentage
+          - pending
+          - marketCap
+          - ownerCount
+          - listedCount
+          default: floorPrice
+      - name: direction
+        in: query
+        description: Direction of the sort ('asc' for ascending, 'desc' for descending).
+        required: true
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      - name: walletAddress
+        in: query
+        description: Filter results by a specific wallet address.
+        required: false
+        schema:
+          type: string
+      - name: searchTerm
+        in: query
+        description: Filter collections by a search term.
+        required: false
+        schema:
+          type: string
+          maxLength: 100
+      - name: allCollections
+        in: query
+        description: Include all collections in the results, regardless of activity.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response with collection statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCollectionStatsRuneResultSchema'
+  /v2/ord/btc/runes/market/{rune}/info:
+    get:
+      tags:
+      - Runes Info
+      summary: Get rune market info
+      description: Get market market info for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: Rune symbol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesMarketInfoResultSchema'
+  /v2/ord/btc/runes/orders/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get orders for a specific rune
+      description: Get orders for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: The rune symbol for which orders are requested.
+        required: true
+        schema:
+          type: string
+      - name: side
+        in: query
+        description: Filter by order side, currently only 'sell' orders are supported.
+        required: true
+        schema:
+          type: string
+          enum:
+          - sell
+      - name: sort
+        in: query
+        description: Sorting order of the results. Default is 'unitPriceAsc'.
+        required: false
+        schema:
+          type: string
+          enum:
+          - unitPriceAsc
+          - unitPriceDesc
+          - totalPriceAsc
+          - totalPriceDesc
+      - name: offset
+        in: query
+        description: Pagination offset for the results. Default is 0, and increments of 100 are supported up to 2000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 2000
+          multipleOf: 100
+      - name: includePending
+        in: query
+        description: Whether to include pending orders in the results. Default is false.
+        required: false
+        schema:
+          type: boolean
+      - name: rbfPreventionListingOnly
+        in: query
+        description: Whether to only include RBF protected rune orders. Default is false.
+        required: false
+        schema:
+          type: boolean
+      - name: queryIssuerAddress
+        in: query
+        description: When "rbfPreventionListingOnly == true", filter the rune orders can be bought with RBF protection
+        required: false
+        schema:
+          type: string
+          pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+      responses:
+        '200':
+          description: Successful response with an array of orders for the specified rune.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesOrderInfoResultSchema'
+  /v2/ord/btc/runes/utxos/wallet/{address}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get rune utxos by wallet address
+      description: Get rune utxos by wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The Bitcoin address to fetch Rune UTXOs for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: rune
+        in: query
+        description: Filter UTXOs by rune symbol.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      - name: sort
+        in: query
+        description: Sorting order of the UTXOs based on their balance. Defaults to 'balanceAsc'.
+        required: false
+        schema:
+          type: string
+          enum:
+          - balanceDesc
+          - balanceAsc
+      - name: includeListed
+        in: query
+        description: Whether to include UTXOs that are currently listed in the marketplace. Defaults to false.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response with an array of UTXOs for the specified address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesUtxoByWalletResultSchema'
+  /v2/ord/btc/runes/wallet/activities/{address}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune activities for a specific wallet address
+      description: Get Rune activities for a specific wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The wallet address to fetch Rune activities for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: offset
+        in: query
+        description: Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up
+          to 10,000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 10000
+          multipleOf: 100
+      responses:
+        '200':
+          description: Successful response with an array of Rune activities for the specified wallet address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRuneActivitiesByAddressResultSchema'
+  /v2/ord/btc/runes/wallet/balances/{address}/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune balances by wallet address
+      description: Get Rune balances by wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The wallet address to fetch Rune balances for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: rune
+        in: path
+        description: The specific Rune symbol whose balance is being queried.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      responses:
+        '200':
+          description: Successful response with the balance details of the specified Rune for the given address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBalanceByAddressAndRuneResultSchema'
+  /v2/ord/btc/runes/order/cancel:
+    post:
+      tags:
+      - Runes Listing
+      summary: Submit a signed message for cancelling a rune sell order
+      description: Submit a signed message for cancelling a rune sell order
+      requestBody:
+        description: Post Request Body for cancelling a rune sell order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesOrderCancelRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesOrderCancelResultSchema'
+  /v2/ord/btc/runes/order/create:
+    post:
+      tags:
+      - Runes Listing
+      summary: Submit a signed PSBT for creating a rune sell order
+      description: Submit a signed PSBT for creating a rune sell order
+      requestBody:
+        description: PSBT Post Request Body for creating a rune sell order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesOrderCreateRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesOrderCreateResultSchema'
+  /v2/ord/btc/runes/psbt/order/cancel:
+    post:
+      tags:
+      - Runes Listing
+      summary: Get an unsigned message for cancelling a rune sell order
+      description: Get an unsigned message for cancelling a rune sell order
+      requestBody:
+        description: Post Request Body for cancelling a rune sell order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesPSBTOrderCancelRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesPSBTOrderCancelResultSchema'
+  /v2/ord/btc/runes/psbt/order/create:
+    post:
+      tags:
+      - Runes Listing
+      summary: Get an unsigned PSBT for creating a rune sell order
+      description: Get an unsigned PSBT for creating a rune sell order
+      requestBody:
+        description: PSBT Post Request Body for creating a rune sell order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesPSBTOrderCreateRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesPSBTOrderCreateResultSchema'
+  /v2/ord/btc/runes/market-sell:
+    post:
+      tags:
+      - Runes Market Sell
+      summary: Submit a signed PSBT for executing a market order to sell the runes
+      description: Submit a signed PSBT for executing a market order to sell the runes
+      requestBody:
+        description: Post Request Body for execute a market order to sell the runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMarketSellPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostMarketSellPsbtResponseSchema'
+  /v2/ord/btc/runes/psbt/get-market-sell:
+    post:
+      tags:
+      - Runes Market Sell
+      summary: Get an unsigned PSBT to execute a market order to sell the runes
+      description: Get an unsigned PSBT to execute a market order to sell the runes
+      requestBody:
+        description: Post Request Body for execute a market order to sell the runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetMarketSellPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMarketSellPsbtResponseSchema'
+  /v2/ord/btc/runes/quote:
+    get:
+      tags:
+      - Runes Swap
+      summary: Get available rune quotes with given parameters for the swap
+      description: Get available rune quotes with given parameters for the swap
+      parameters:
+      - name: runeTicker
+        in: query
+        description: Rune symbol
+        required: true
+        schema:
+          type: string
+      - name: amount
+        in: query
+        description: The amount for the quote
+        required: true
+        schema:
+          type: string
+          format: bigint
+      - name: side
+        in: query
+        description: The side of the trade, either "buy" or "sell"
+        required: true
+        schema:
+          type: string
+          enum:
+          - buy
+          - sell
+      - name: priceToleranceBp
+        in: query
+        description: The price tolerance in percentage x 10000
+        required: false
+        schema:
+          type: integer
+      - name: rbfPreventionListingOnly
+        in: query
+        description: Flag indicating if only RBF protection sell orders should be considered.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetQuoteResponseSchema'
+  /v2/ord/btc/runes/psbt/swap:
+    post:
+      tags:
+      - Runes Swap
+      summary: Get an unsigned PSBT for swapping runes
+      description: Get an unsigned PSBT for swapping runes
+      requestBody:
+        description: Post Request Body for get unsigned PSBT for swapping runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetRuneSwapPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRuneSwapPsbtResponseSchema'
+  /v2/ord/btc/runes/swap:
+    post:
+      tags:
+      - Runes Swap
+      summary: Post a signed PSBT to broadcast the swapping transaction
+      description: Post a signed PSBT to broadcast the swapping transaction
+      requestBody:
+        description: Post Request Body for swapping runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRuneSwapPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRuneSwapPsbtResponseSchema'
+  /v2/ord/btc/runes/psbt/get-sweeping:
+    post:
+      tags:
+      - Runes Sweeping
+      summary: Get an unsigned PSBT for buying a rune
+      description: Get an unsigned PSBT for buying a rune
+      requestBody:
+        description: PSBT Post Request Body for buying a rune
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesPSBTSweepingRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesPSBTSweepingResultSchema'
+  /v2/ord/btc/runes/sweeping:
+    post:
+      tags:
+      - Runes Sweeping
+      summary: Submit a signed PSBT for buying a rune
+      description: Submit a signed PSBT for buying a rune
+      requestBody:
+        description: PSBT Post Request Body for buying a rune
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesSweepingRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesSweepingResultSchema'
+  /v2/ord/btc/tokens:
+    get:
+      tags:
+      - Tokens
+      summary: Get tokens
+      description: Get tokens, can be filtered by collectionSymbol, owner, tokenIds
+      operationId: getTokens
+      parameters:
+      - name: tokenIds
+        in: query
+        description: Comma-separated list of token IDs.
+        required: false
+        schema:
+          type: string
+      - name: collectionSymbol
+        in: query
+        description: Collection symbol
+        required: false
+        schema:
+          type: string
+      - name: ownerAddress
+        in: query
+        description: Owner address
+        required: false
+        schema:
+          type: string
+      - name: showAll
+        in: query
+        description: Show all items including the listed and unlisted ones
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Offset
+        required: false
+        schema:
+          type: integer
+      - name: inscriptionMin
+        in: query
+        description: Inscription number min
+        required: false
+        schema:
+          type: number
+      - name: inscriptionMax
+        in: query
+        description: Inscription number max
+        required: false
+        schema:
+          type: number
+      - name: sortBy
+        in: query
+        description: sort by
+        required: false
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+          - listedAtAsc
+          - listedAtDesc
+          - inscriptionNumberAsc
+          - inscriptionNumberDesc
+          - brc20UnitPriceAsc
+          - brc20UnitPriceDesc
+          default: priceAsc
+      - name: minPrice
+        in: query
+        description: min price
+        required: false
+        schema:
+          type: number
+      - name: maxPrice
+        in: query
+        description: max price
+        required: false
+        schema:
+          type: number
+      - name: satRarity
+        in: query
+        description: sat rarity
+        required: false
+        schema:
+          type: string
+          enum:
+          - common
+          - uncommon
+          - rare
+          - epic
+          - legendary
+          - mythic
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemSchema'
