@@ -1,4 +1,4 @@
-executed: '2026-05-24T00:00:00.000Z'
+executed: '2026-05-29T00:00:00.000Z'
 provider: Magic Eden
 providerId: magic-eden
 results:
@@ -82,6 +82,25 @@ results:
     message: Tier-1 provider - documented developer portal, public OpenAPI per chain,
       official TypeScript SDK, changelog, bug bounty, llms.txt, multi-chain coverage.
     severity: 2
+  - code: apis-json-apis-properties-asyncapi-missing
+    message: 'No public WebSocket, streaming, or event-subscription API was found.
+      The llms.txt index at https://docs.magiceden.io/llms.txt enumerates every documented
+      endpoint across Solana, EVM, and Bitcoin Ordinals/Runes - all are synchronous
+      REST or instruction/PSBT generators. Searches across docs.magiceden.io (Solana,
+      EVM, Ordinals overviews, changelog), the help-center API guide, and the official
+      magiceden/magiceden-sdk repository returned zero references to WebSocket, WS,
+      stream, subscribe, push, real-time, events, or AsyncAPI. No AsyncAPI specification
+      produced - none would be honest.'
+    severity: 1
+  - code: apis-json-apis-properties-webhooks-missing
+    message: 'No public webhook product is documented. Magic Eden does not advertise
+      subscribable event callbacks for activity, orders, listings, bids, sales, or
+      collection events on any supported chain. Real-time consumers are expected to
+      either poll the REST activity endpoints or subscribe to underlying chain RPCs
+      (Solana programSubscribe on the ME marketplace program, EVM logs via Reservoir
+      or chain providers, Bitcoin mempool watchers) - none of which are Magic Eden
+      surfaces.'
+    severity: 1
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
