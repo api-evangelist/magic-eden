@@ -1,0 +1,624 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "NFT Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/activities",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "activityTypes[]",
+                "value": "",
+                "type": "query",
+                "description": "The activity types to query"
+              },
+              {
+                "name": "fromTime",
+                "value": "",
+                "type": "query",
+                "description": "`From time` of time range to query"
+              },
+              {
+                "name": "toTime",
+                "value": "",
+                "type": "query",
+                "description": "`To time` of time range to query"
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "query",
+                "description": "Asset Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Collection Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+              },
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "User wallet address to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to get NFT activity"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to explore a collection's metadata and statistics (sales, volume, etc)."
+        },
+        {
+          "info": {
+            "name": "User Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/user-collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to explore a user's collections metadata and statistics (sales, volume, etc)."
+        },
+        {
+          "info": {
+            "name": "Search Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to do a fuzzy collection search"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ixs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Bids (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bid/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation"
+        },
+        {
+          "info": {
+            "name": "Create Bids (Creation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bid",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate bids. This API is used to create bids with signature provided"
+        },
+        {
+          "info": {
+            "name": "Bulk Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bulk-transfer/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data"
+        },
+        {
+          "info": {
+            "name": "Buy Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/buy/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Buy assets(tokens). This API is used to generate transaction data to buy assets"
+        },
+        {
+          "info": {
+            "name": "Cancel Orders (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/cancel-order/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation"
+        },
+        {
+          "info": {
+            "name": "Cancel Orders (Cancellation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/cancel-order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel Orders. This API is used to cancel orders with signature provided"
+        },
+        {
+          "info": {
+            "name": "Create Listings (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/list/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation"
+        },
+        {
+          "info": {
+            "name": "Create Listings (Creation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate listings for assets (tokens). This API is used to create listings with signature provided"
+        },
+        {
+          "info": {
+            "name": "Sell Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/sell/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sell assets(tokens). This API is used to generate transaction data to sell assets"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Asks (listings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/orders/asks",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Direct fetch asks by ids, other filters will be ignored if `ids` is provided. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "makers[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by makers who made these asks. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "sources[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order source."
+              },
+              {
+                "name": "status[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order status. default `active`"
+              },
+              {
+                "name": "createAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "updateAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to search asks"
+        },
+        {
+          "info": {
+            "name": "Bids (offers)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/orders/bids",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Direct fetch bids by ids, other filters will be ignored if `ids` is provided. Either `ids` and `bidTypes[] + collectionId` must be provided"
+              },
+              {
+                "name": "bidTypes[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by bid types"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "attributes[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by attributes, could be a list, format as `<attribute_name>:<attribute_value>`, example: `Background:Black`"
+              },
+              {
+                "name": "makers[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by makers who made these bids. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "sources[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order source."
+              },
+              {
+                "name": "status[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order status. default `active`"
+              },
+              {
+                "name": "createAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "updateAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to search bids"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Collection Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/assets/collection-assets",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "The collection id to query assets. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` "
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "includeFloorAskSource[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by its name"
+              },
+              {
+                "name": "includeTopBid",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include top bid for returned assets, default to __false__"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of assets."
+              }
+            ]
+          },
+          "docs": "Use this API to explore a collection's assets and its market info"
+        },
+        {
+          "info": {
+            "name": "User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/assets/user-assets",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "walletAddresses[]",
+                "value": "",
+                "type": "query",
+                "description": "The wallet address (user address) to query assets from, could be a list, example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "collectionIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+              },
+              {
+                "name": "onlyListed",
+                "value": "",
+                "type": "query",
+                "description": "Whether to show only listed assets, default to __false__"
+              },
+              {
+                "name": "includeTopBid",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include top bid for returned assets, default to __false__"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of assets."
+              }
+            ]
+          },
+          "docs": "Use this API to explore a user's assets and its market info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

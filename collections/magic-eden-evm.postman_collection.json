@@ -1,0 +1,2302 @@
+{
+  "item": [
+    {
+      "id": "0793d93b-a97a-4b88-ac63-ec2664317ab3",
+      "name": "Activity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74a3fb38-f6bb-44c5-971c-3ce3178c41d8",
+          "name": "NFT Activity",
+          "request": {
+            "name": "NFT Activity",
+            "description": {
+              "content": "Use this API to get NFT activity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "activityTypes[]",
+                  "value": "<string>",
+                  "description": "(Required) The activity types to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "activityTypes[]",
+                  "value": "<string>",
+                  "description": "(Required) The activity types to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromTime",
+                  "value": "<string>",
+                  "description": "`From time` of time range to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "toTime",
+                  "value": "<string>",
+                  "description": "`To time` of time range to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>",
+                  "description": "(Required) Asset Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>",
+                  "description": "(Required) Collection Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+                },
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "(Required) User wallet address to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of items."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e61c93ac-6a76-47fe-b7fb-b113dc72f455",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityTypes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityTypes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"activityId\": \"string\",\n      \"activityType\": \"<string>\",\n      \"assetAmount\": \"string\",\n      \"fromAddress\": \"string\",\n      \"order\": {\n        \"orderId\": \"string\",\n        \"sourceDomain\": \"string\",\n        \"orderKind\": \"ASK\",\n        \"bidType\": \"<string>\"\n      },\n      \"timestamp\": \"string\",\n      \"toAddress\": \"string\",\n      \"transactionInfo\": {\n        \"transactionId\": \"string\",\n        \"blockNumber\": 6370.559782772046,\n        \"blockHash\": \"string\",\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transactionIndex\": 8417.353584415372,\n        \"logIndex\": 2373.9729533847008,\n        \"batchTransferIndex\": 9654.511091148184\n      },\n      \"unitPrice\": {\n        \"amount\": {\n          \"raw\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"native\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fiat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"currency\": {\n          \"contract\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"symbol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"decimals\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"displayName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fiatConversion\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"fees\": [\n        {\n          \"kind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"recipient\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"currencyId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bps\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"rawAmount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"kind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"recipient\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"currencyId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bps\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"rawAmount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"collection\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"verification\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isTradeable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"collectionType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"symbol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"media\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"social\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"royalty\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isSeaportV16Disabled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isSeaportV16RoyaltyOptional\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"seaportV16ListingCurrencies\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chainData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"asset\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"collectionId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"assetClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rarity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contractAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"standard\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"owner\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"mediaV2\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"remainingSupply\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lastSalePrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    {\n      \"activityId\": \"string\",\n      \"activityType\": \"<string>\",\n      \"assetAmount\": \"string\",\n      \"fromAddress\": \"string\",\n      \"order\": {\n        \"orderId\": \"string\",\n        \"sourceDomain\": \"string\",\n        \"orderKind\": \"BID\",\n        \"bidType\": \"<string>\"\n      },\n      \"timestamp\": \"string\",\n      \"toAddress\": \"string\",\n      \"transactionInfo\": {\n        \"transactionId\": \"string\",\n        \"blockNumber\": 190.31941193896174,\n        \"blockHash\": \"string\",\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transactionIndex\": 753.9069909367535,\n        \"logIndex\": 6143.558846458212,\n        \"batchTransferIndex\": 8256.230257383284\n      },\n      \"unitPrice\": {\n        \"amount\": {\n          \"raw\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"native\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fiat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"currency\": {\n          \"contract\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"symbol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"decimals\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"displayName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fiatConversion\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"fees\": [\n        {\n          \"kind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"recipient\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"currencyId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bps\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"rawAmount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"kind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"recipient\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"currencyId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bps\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"rawAmount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"collection\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"verification\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isTradeable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"collectionType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"symbol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"media\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"social\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"royalty\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isSeaportV16Disabled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isSeaportV16RoyaltyOptional\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"seaportV16ListingCurrencies\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chainData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"asset\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"collectionId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"assetClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rarity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contractAddress\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"standard\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"owner\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"mediaV2\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"remainingSupply\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lastSalePrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5f734cab-41d9-45cf-b361-a80311411c5e",
+      "name": "Collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "090a685e-b076-4e60-8698-ed5c5cfbd584",
+          "name": "Collections",
+          "request": {
+            "name": "Collections",
+            "description": {
+              "content": "Use this API to explore a collection's metadata and statistics (sales, volume, etc).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49cd721b-81b3-4b8d-9fbc-212c08379306",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": false,\n      \"collectionType\": \"ERC1155\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 6567.050698806877,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 4892.979388251437\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 365.58714448884143\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": true,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 429.0134660375757,\n              \"maxSupply\": 4635.252353566778\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 898.533885140626,\n              \"maxSupply\": 3794.5286674215404\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": false,\n      \"collectionType\": \"ERC721\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 2267.507543133951,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": true,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 3301.0846037086308\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 9909.372895898923\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 504.6122640907157,\n              \"maxSupply\": 382.5634933002909\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 488.91938530057735,\n              \"maxSupply\": 9608.790066354053\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5f7ca27-77a4-4000-b6d4-8dcdd0005c55",
+          "name": "User Collections",
+          "request": {
+            "name": "User Collections",
+            "description": {
+              "content": "Use this API to explore a user's collections metadata and statistics (sales, volume, etc).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                "user-collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"walletAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"chain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be3f38f9-bdc8-48ce-a1c3-d168f737d1b7",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "user-collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"walletAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"chain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"<string>\",\n      \"collectionType\": \"ERC1155\",\n      \"id\": \"string\",\n      \"isTradeable\": false,\n      \"listedCount\": 482.8825265905612,\n      \"name\": \"string\",\n      \"ownedCount\": 2629.7684424175427,\n      \"verification\": \"VERIFIED\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 623.0350025827191,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": true,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 373.8419888769295\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 2270.237556180933\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"collectionType\": \"ERC1155\",\n      \"id\": \"string\",\n      \"isTradeable\": true,\n      \"listedCount\": 5831.802362642098,\n      \"name\": \"string\",\n      \"ownedCount\": 4076.9081120682727,\n      \"verification\": \"VERIFIED\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 2773.191661256695,\n        \"isOptional\": false\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 8372.534147110759\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 4367.541873962224\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": true,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "662b50bd-6a40-4d6b-a4ac-d41923f320b1",
+          "name": "Search Collections",
+          "request": {
+            "name": "Search Collections",
+            "description": {
+              "content": "Use this API to do a fuzzy collection search",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"pattern\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9c3be1e4-0110-4a0f-9c39-823f4b09861b",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"pattern\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"VERIFIED\",\n      \"isTradeable\": true,\n      \"collectionType\": \"ERC1155\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 7857.385063067057,\n        \"isOptional\": false\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": true,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 1846.9936241245166\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 2215.4754274982724\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 540.108027175952,\n              \"maxSupply\": 5737.583968825496\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 141.2685746586182,\n              \"maxSupply\": 8159.156508011278\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": true,\n      \"collectionType\": \"ERC721\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 9450.022585055483,\n        \"isOptional\": false\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 9011.296455737198\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 5849.532486335308\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": true,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 694.2993254132466,\n              \"maxSupply\": 5355.913830766686\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 845.4630144280583,\n              \"maxSupply\": 7146.199528150223\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "77dbeb20-ca3c-4258-97e3-47d131153e88",
+      "name": "Ixs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f7b69a4-27be-4980-aca7-b393f829afba",
+          "name": "Create Bids (Get Signing Data)",
+          "request": {
+            "name": "Create Bids (Get Signing Data)",
+            "description": {
+              "content": "Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bid",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"<string>\",\n  \"offers\": [\n    {\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"<string>\",\n        \"raw\": \"<string>\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"collectionId\": \"<string>\",\n      \"assetId\": \"<string>\",\n      \"attribute\": {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a94ac73-9258-402b-b008-7afc6c2ae3cd",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bid",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"offers\": [\n    {\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"0x0000000000000000000000000000000000000000\",\n        \"raw\": \"1000000000000000000\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"collectionId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8\",\n      \"assetId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0\",\n      \"attribute\": {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2593d8a2-7624-454a-8b06-3f1ffe67abfc",
+          "name": "Create Bids (Creation)",
+          "request": {
+            "name": "Create Bids (Creation)",
+            "description": {
+              "content": "Generate bids. This API is used to create bids with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a60521b-66d3-45bb-8dfe-b25c8c7986d6",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "379e49fa-5463-4213-b0ed-fd9a39a49be1",
+          "name": "Bulk Transfer",
+          "request": {
+            "name": "Bulk Transfer",
+            "description": {
+              "content": "Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bulk-transfer",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"assets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "759897d0-2223-418b-a343-6e5c9db2007c",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bulk-transfer",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"assets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdebe894-730d-479c-a21e-5b71f1d2caa5",
+          "name": "Buy Assets",
+          "request": {
+            "name": "Buy Assets",
+            "description": {
+              "content": "Buy assets(tokens). This API is used to generate transaction data to buy assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "buy",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca06cf64-e9a9-4d9d-a256-47890d5dfbce",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "buy",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"currency\": \"0x0000000000000000000000000000000000000000\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b49d5626-016a-4a66-9583-745064d38f18",
+          "name": "Cancel Orders (Get Signing Data)",
+          "request": {
+            "name": "Cancel Orders (Get Signing Data)",
+            "description": {
+              "content": "Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "cancel-order",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"orderIds\": [\n    \"<string>\"\n  ],\n  \"maker\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e332babf-8ec1-4f72-8de8-21f2e9feae99",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "cancel-order",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"orderIds\": [\n    \"<string>\"\n  ],\n  \"maker\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50162104-d737-4ea2-8b91-fb09ba9cc0bc",
+          "name": "Cancel Orders (Cancellation)",
+          "request": {
+            "name": "Cancel Orders (Cancellation)",
+            "description": {
+              "content": "Cancel Orders. This API is used to cancel orders with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "cancel-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5d06e5d-7bde-44ec-bff8-006548c9d658",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "cancel-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a38c5be-e690-4d69-a7ae-317bc24022c8",
+          "name": "Create Listings (Get Signing Data)",
+          "request": {
+            "name": "Create Listings (Get Signing Data)",
+            "description": {
+              "content": "Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "list",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"<string>\",\n  \"listings\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"<string>\",\n        \"raw\": \"<string>\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"royaltyBps\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bbe1a84-3b3e-4f0c-a596-0783046e30e4",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "list",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"listings\": [\n    {\n      \"assetId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"0x0000000000000000000000000000000000000000\",\n        \"raw\": \"1000000000000000000\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"royaltyBps\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2b6064b-2007-436b-b7a7-d7768497ef0d",
+          "name": "Create Listings (Creation)",
+          "request": {
+            "name": "Create Listings (Creation)",
+            "description": {
+              "content": "Generate listings for assets (tokens). This API is used to create listings with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d30d6edd-ad3b-4dfa-97f2-70aff93d98fa",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "445dd16a-7283-477f-b95a-a8783865133b",
+          "name": "Sell Assets",
+          "request": {
+            "name": "Sell Assets",
+            "description": {
+              "content": "Sell assets(tokens). This API is used to generate transaction data to sell assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "sell",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"<string>\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df046fc1-e509-4879-aab2-a61b74a52527",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "sell",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d51df85d-5ed0-45c9-9fe7-ed02e10a57cf",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a97d99d6-7489-4030-9170-5c4a494de9d5",
+          "name": "Asks (listings)",
+          "request": {
+            "name": "Asks (listings)",
+            "description": {
+              "content": "Use this API to search asks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "asks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "ids[]",
+                  "value": "<string>",
+                  "description": "(Required) Direct fetch asks by ids, other filters will be ignored if `ids` is provided. Either `ids` and `collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids[]",
+                  "value": "<string>",
+                  "description": "(Required) Direct fetch asks by ids, other filters will be ignored if `ids` is provided. Either `ids` and `collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>",
+                  "description": "(Required) Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "makers[]",
+                  "value": "<string>",
+                  "description": "Filter by makers who made these asks. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "makers[]",
+                  "value": "<string>",
+                  "description": "Filter by makers who made these asks. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "sources[]",
+                  "value": "<string>",
+                  "description": "Filter by order source."
+                },
+                {
+                  "disabled": false,
+                  "key": "sources[]",
+                  "value": "<string>",
+                  "description": "Filter by order source."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Filter by order status. default `active`"
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Filter by order status. default `active`"
+                },
+                {
+                  "disabled": false,
+                  "key": "createAfter",
+                  "value": "<string>",
+                  "description": "(Required) Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+                },
+                {
+                  "disabled": false,
+                  "key": "updateAfter",
+                  "value": "<string>",
+                  "description": "(Required) Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of items."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b0ac278-5e1a-4706-96b2-13f76bfac29e",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "asks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makers[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makers[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sources[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sources[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updateAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "price"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"asks\": [\n    {\n      \"assetId\": \"string\",\n      \"chain\": \"<string>\",\n      \"contract\": \"string\",\n      \"contractData\": {\n        \"orderContractKind\": \"string\"\n      },\n      \"createdAt\": \"string\",\n      \"fees\": {\n        \"royaltyBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"makerMarketplaceBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"takerMarketplaceBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lpFeeBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"id\": \"string\",\n      \"kind\": \"ASK\",\n      \"maker\": \"string\",\n      \"price\": {\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"currency\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"protocol\": \"ERC1155\",\n      \"quantity\": {\n        \"filled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"remaining\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"source\": \"IXS_SERVICE\",\n      \"status\": \"<string>\",\n      \"expiry\": {\n        \"validUntil\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"validFrom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"updatedAt\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"chain\": \"<string>\",\n      \"contract\": \"string\",\n      \"contractData\": {\n        \"orderContractKind\": \"string\"\n      },\n      \"createdAt\": \"string\",\n      \"fees\": {\n        \"royaltyBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"makerMarketplaceBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"takerMarketplaceBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lpFeeBp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"id\": \"string\",\n      \"kind\": \"BID\",\n      \"maker\": \"string\",\n      \"price\": {\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"currency\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"protocol\": \"ERC721\",\n      \"quantity\": {\n        \"filled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"remaining\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"source\": \"OPENSEA\",\n      \"status\": \"<string>\",\n      \"expiry\": {\n        \"validUntil\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"validFrom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"updatedAt\": \"string\"\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d641beae-dd04-4b8e-9895-b0e2b9b6a746",
+          "name": "Bids (offers)",
+          "request": {
+            "name": "Bids (offers)",
+            "description": {
+              "content": "Use this API to search bids",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "bids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "ids[]",
+                  "value": "<string>",
+                  "description": "(Required) Direct fetch bids by ids, other filters will be ignored if `ids` is provided. Either `ids` and `bidTypes[] + collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids[]",
+                  "value": "<string>",
+                  "description": "(Required) Direct fetch bids by ids, other filters will be ignored if `ids` is provided. Either `ids` and `bidTypes[] + collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "bidTypes[]",
+                  "value": "<string>",
+                  "description": "(Required) Filter by bid types"
+                },
+                {
+                  "disabled": false,
+                  "key": "bidTypes[]",
+                  "value": "<string>",
+                  "description": "(Required) Filter by bid types"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>",
+                  "description": "(Required) Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes[]",
+                  "value": "<string>",
+                  "description": "Filter by attributes, could be a list, format as `<attribute_name>:<attribute_value>`, example: `Background:Black`"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes[]",
+                  "value": "<string>",
+                  "description": "Filter by attributes, could be a list, format as `<attribute_name>:<attribute_value>`, example: `Background:Black`"
+                },
+                {
+                  "disabled": false,
+                  "key": "makers[]",
+                  "value": "<string>",
+                  "description": "Filter by makers who made these bids. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "makers[]",
+                  "value": "<string>",
+                  "description": "Filter by makers who made these bids. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "sources[]",
+                  "value": "<string>",
+                  "description": "Filter by order source."
+                },
+                {
+                  "disabled": false,
+                  "key": "sources[]",
+                  "value": "<string>",
+                  "description": "Filter by order source."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Filter by order status. default `active`"
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Filter by order status. default `active`"
+                },
+                {
+                  "disabled": false,
+                  "key": "createAfter",
+                  "value": "<string>",
+                  "description": "(Required) Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+                },
+                {
+                  "disabled": false,
+                  "key": "updateAfter",
+                  "value": "<string>",
+                  "description": "(Required) Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of items."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c61495e-6fb7-48e7-b09e-bea7c177f7cb",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "bids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bidTypes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bidTypes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makers[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makers[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sources[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sources[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updateAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "price"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"bids\": [\n    {\n      \"chain\": \"<string>\",\n      \"contract\": \"string\",\n      \"contractData\": {\n        \"orderContractKind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"createdAt\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"fees\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"kind\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"maker\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"price\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"protocol\": \"ERC721\",\n      \"quantity\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"source\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"criteria\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"expiry\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"updatedAt\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"contract\": \"string\",\n      \"contractData\": {\n        \"orderContractKind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"createdAt\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"fees\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"kind\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"maker\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"price\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"protocol\": \"ERC721\",\n      \"quantity\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"source\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"criteria\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"expiry\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"updatedAt\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ecec67b6-2221-468b-8429-0a5ce7f62bbd",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aa5220c0-966d-4418-b92a-711261825b15",
+          "name": "Collection Assets",
+          "request": {
+            "name": "Collection Assets",
+            "description": {
+              "content": "Use this API to explore a collection's assets and its market info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "collection-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>",
+                  "description": "(Required) The collection id to query assets. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` "
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFloorAskSource[]",
+                  "value": "<string>",
+                  "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFloorAskSource[]",
+                  "value": "<string>",
+                  "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter assets by its name"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTopBid",
+                  "value": "<boolean>",
+                  "description": "Whether to include top bid for returned assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of assets."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4809c5b-ae71-432c-9634-e40cde755baf",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "collection-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeFloorAskSource[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeFloorAskSource[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTopBid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "price"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"NFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"HOWRARE\",\n            \"rank\": 1136.9271675645598\n          },\n          {\n            \"provider\": \"POPRANK\",\n            \"rank\": 2595.306118993337\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC1155\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 3209.024291199224,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 101.57253767610564\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"NFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"HOWRARE\",\n            \"rank\": 6826.947650882182\n          },\n          {\n            \"provider\": \"HOWRARE\",\n            \"rank\": 434.94031355171825\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC1155\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 7933.144321410309,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 8811.308391707116\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC721\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "012dbde8-6749-48e2-accd-66cc797ac015",
+          "name": "User Assets",
+          "request": {
+            "name": "User Assets",
+            "description": {
+              "content": "Use this API to explore a user's assets and its market info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "user-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "walletAddresses[]",
+                  "value": "<string>",
+                  "description": "(Required) The wallet address (user address) to query assets from, could be a list, example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyListed",
+                  "value": "<boolean>",
+                  "description": "Whether to show only listed assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTopBid",
+                  "value": "<boolean>",
+                  "description": "Whether to include top bid for returned assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "receivedAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of assets."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1890ee83-c96b-43b1-ba2b-d9043020823c",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "user-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletAddresses[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeTopBid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "receivedAt"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"NFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"HOWRARE\",\n            \"rank\": 6237.447650441968\n          },\n          {\n            \"provider\": \"MOONRANK\",\n            \"rank\": 3166.4089917066685\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC1155\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 3414.5532207654583,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 2871.7909129917616\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"SFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"POPRANK\",\n            \"rank\": 6930.965881144272\n          },\n          {\n            \"provider\": \"HOWRARE\",\n            \"rank\": 154.98533504012312\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC1155\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 5490.659672857781,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 7381.794354265495\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC721\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ab0a947-ae60-4c7e-a96d-dd22563af03e",
+    "name": "Magic Eden EVM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

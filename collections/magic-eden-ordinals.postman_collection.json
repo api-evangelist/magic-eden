@@ -1,0 +1,3327 @@
+{
+  "item": [
+    {
+      "id": "faea114c-09bc-4567-951d-61b03556c25e",
+      "name": "Blocks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e653bf6-c180-4732-b7f3-049d056d75d9",
+          "name": "Get block activities",
+          "request": {
+            "name": "Get block activities",
+            "description": {
+              "content": "Get block activities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "block",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "blockHeight",
+                  "value": "<integer>",
+                  "description": "(Required) Block height"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>",
+                  "description": "Comma-separated list of activity kinds. Acceptable values are \"create\" and \"transfer\". If not specified, defaults to \"create,transfer\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursor"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72533b77-0ae7-43c4-8195-2fbf344dcd16",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "block",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockHeight",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8093,\n  \"results\": [\n    {\n      \"inscription\": {\n        \"id\": \"string\",\n        \"contentType\": \"string\",\n        \"contentMedia\": \"string\",\n        \"contentLength\": 4692.210038516578,\n        \"number\": 3128.6109125400662,\n        \"sat\": 1072.1271679250156,\n        \"satName\": \"string\",\n        \"satRarity\": \"string\",\n        \"satBlockHeight\": 1347.1746172517717,\n        \"satBlockTime\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHeight\": 6981.216237441212,\n        \"genesisTransactionBlockHash\": \"string\",\n        \"parentInscriptionId\": \"string\",\n        \"metaprotocol\": \"string\"\n      },\n      \"activityType\": \"string\",\n      \"blockHeight\": 8289.732169813758,\n      \"blockHash\": \"string\",\n      \"txId\": \"string\",\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"output\": \"string\",\n      \"value\": 5336.9853565456815,\n      \"offset\": 267.22424529161293,\n      \"timestamp\": 4618.880694299812,\n      \"oldLocation\": \"string\",\n      \"oldAddress\": \"string\",\n      \"createdAt\": \"1959-09-16T08:16:16.936Z\"\n    },\n    {\n      \"inscription\": {\n        \"id\": \"string\",\n        \"contentType\": \"string\",\n        \"contentMedia\": \"string\",\n        \"contentLength\": 332.3470315708876,\n        \"number\": 6365.000987492627,\n        \"sat\": 2052.43450935798,\n        \"satName\": \"string\",\n        \"satRarity\": \"string\",\n        \"satBlockHeight\": 415.4706240528261,\n        \"satBlockTime\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHeight\": 3820.5392708551854,\n        \"genesisTransactionBlockHash\": \"string\",\n        \"parentInscriptionId\": \"string\",\n        \"metaprotocol\": \"string\"\n      },\n      \"activityType\": \"string\",\n      \"blockHeight\": 326.6205400979605,\n      \"blockHash\": \"string\",\n      \"txId\": \"string\",\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"output\": \"string\",\n      \"value\": 6011.763613932698,\n      \"offset\": 4951.206886126497,\n      \"timestamp\": 3181.3757241159055,\n      \"oldLocation\": \"string\",\n      \"oldAddress\": \"string\",\n      \"createdAt\": \"2006-10-25T17:09:52.963Z\"\n    }\n  ],\n  \"limit\": 2927,\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2ef35650-d7da-42c2-af67-d41812281157",
+      "name": "Collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d250968-99f9-4c94-adaf-e50d23b12d93",
+          "name": "Get collection stats",
+          "request": {
+            "name": "Get collection stats",
+            "description": {
+              "content": "Get collection stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "stat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "(Required) Collection symbol"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "087cee15-6dce-43ab-b7df-a68ea016a5d6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "stat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"floorPrice\": \"string\",\n  \"inscriptionNumberMin\": \"string\",\n  \"inscriptionNumberMax\": \"string\",\n  \"owners\": \"string\",\n  \"pendingTransactions\": \"string\",\n  \"supply\": \"string\",\n  \"totalListed\": \"string\",\n  \"totalVolume\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e501fc4a-a378-4911-b207-b00f03987482",
+          "name": "Get collection",
+          "request": {
+            "name": "Get collection",
+            "description": {
+              "content": "Get collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "collections",
+                ":symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44209d5d-f09d-4cc3-96e3-7b7051535665",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "collections",
+                    ":symbol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"symbol\": \"string\",\n  \"name\": \"string\",\n  \"imageURI\": \"string\",\n  \"chain\": \"string\",\n  \"description\": \"string\",\n  \"supply\": 7236,\n  \"twitterLink\": \"string\",\n  \"discordLink\": \"string\",\n  \"websiteLink\": \"string\",\n  \"min_inscription_number\": 9805,\n  \"max_inscription_number\": 1646,\n  \"createdAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d217d4b1-cb6e-4a85-bd2f-3784f5ace290",
+          "name": "Get collection statistics",
+          "request": {
+            "name": "Get collection statistics",
+            "description": {
+              "content": "Get collection statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection_stats",
+                "search",
+                "bitcoin"
+              ],
+              "host": [
+                "{{collection_stats-search-bitcoin-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "1d",
+                  "description": "Time window"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "volume",
+                  "description": "Sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "desc",
+                  "description": "Sort direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Limit"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9b1285b-961c-49cd-9e57-6eb024c40c4b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    "bitcoin"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-bitcoin-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4b4ea272-50ce-4e92-84e8-8ad177f0aa2e",
+      "name": "Rare Sats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60f24fb4-8194-4697-8e9b-38898b7f48b1",
+          "name": "Get Listings",
+          "request": {
+            "name": "Get Listings",
+            "description": {
+              "content": "Get Rare Sats Listings by a Variety of Filters and Sorting Orders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "priceAsc",
+                  "description": "Sort By"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Page limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "satributes",
+                  "value": "<string>",
+                  "description": "Filter listings that have the given satributes in the same sat range"
+                },
+                {
+                  "disabled": false,
+                  "key": "satributes",
+                  "value": "<string>",
+                  "description": "Filter listings that have the given satributes in the same sat range"
+                },
+                {
+                  "disabled": false,
+                  "key": "minListedAt",
+                  "value": "<integer>",
+                  "description": "Filter items that were listed after the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxListedAt",
+                  "value": "<integer>",
+                  "description": "Filter items that were listed before the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPrice",
+                  "value": "<integer>",
+                  "description": "Filter by minimum listed price in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<integer>",
+                  "description": "Filter by maximum listed price in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "minUtxoSize",
+                  "value": "<integer>",
+                  "description": "Filter by minimum utxo size in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxUtxoSize",
+                  "value": "<integer>",
+                  "description": "Filter by maximum utxo size in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "minSatRange",
+                  "value": "<integer>",
+                  "description": "Filter by minimum sat range in sats"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxSatRange",
+                  "value": "<integer>",
+                  "description": "Filter by maximum sat range in sats"
+                },
+                {
+                  "disabled": false,
+                  "key": "minBlockNumber",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created after the given block number"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxBlockNumber",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created before the given block number"
+                },
+                {
+                  "disabled": false,
+                  "key": "minBlockTimestamp",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created after the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxBlockTimestamp",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created before the given timestamp"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d21ceaf-6b75-442d-8a0a-d816be9125c7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "priceAsc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "satributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "satributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minListedAt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxListedAt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minUtxoSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxUtxoSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minSatRange",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxSatRange",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minBlockNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxBlockNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minBlockTimestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxBlockTimestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tokens\": [\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 1185.6686834908837,\n        \"outputValue\": 1820.0891236886885,\n        \"owner\": \"string\",\n        \"listed\": false,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 8447.338280924143,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 8526.39781360468,\n        \"maxBlockHeight\": 6900.554480368219,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 6754.17033546441,\n        \"maxSatRange\": 7695.501819068542,\n        \"minUnitPrice\": 7840.804572901547,\n        \"maxUnitPrice\": 618.4039109684902,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 8592.20083750054,\n            \"to\": 4489.99110638253,\n            \"parentFrom\": 1868.2712665975787,\n            \"parentTo\": 5871.825764412659,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 3825.831286330839,\n            \"sequence\": 1184.5498519029895,\n            \"unitPrice\": 2999.4760696064805,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 2971.332492128016,\n            \"to\": 124.24721167346276,\n            \"parentFrom\": 6661.341997335354,\n            \"parentTo\": 1240.4349557968076,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 3423.1503083359803,\n            \"sequence\": 9532.786971627876,\n            \"unitPrice\": 8790.80803998377,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 8831.660338968357,\n        \"outputValue\": 8103.129803782093,\n        \"owner\": \"string\",\n        \"listed\": true,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 2182.0387711536314,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 4211.73600668574,\n        \"maxBlockHeight\": 8692.198677644094,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 342.26057707919864,\n        \"maxSatRange\": 347.0238161717132,\n        \"minUnitPrice\": 8264.219437992404,\n        \"maxUnitPrice\": 8686.663174029489,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 9107.706554526829,\n            \"to\": 4994.358109857714,\n            \"parentFrom\": 378.94793212997047,\n            \"parentTo\": 2838.018839465415,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 9226.712728382916,\n            \"sequence\": 9506.48521655076,\n            \"unitPrice\": 722.4204152662417,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 8554.596307837779,\n            \"to\": 5973.074373846363,\n            \"parentFrom\": 9060.454623871961,\n            \"parentTo\": 2330.1666160338787,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 5061.041128047562,\n            \"sequence\": 1237.6521749283131,\n            \"unitPrice\": 718.6315603877435,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"tokens\": [\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 1596.3949309341763,\n        \"outputValue\": 3856.1643743553386,\n        \"owner\": \"string\",\n        \"listed\": false,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 6336.339804524301,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 9203.481531996818,\n        \"maxBlockHeight\": 2558.559372557311,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 4344.057509134541,\n        \"maxSatRange\": 737.5164047850835,\n        \"minUnitPrice\": 6029.281799954265,\n        \"maxUnitPrice\": 6525.528713271849,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 679.4295940541717,\n            \"to\": 37.3422746915486,\n            \"parentFrom\": 7070.376263143421,\n            \"parentTo\": 6253.789976719842,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 5215.163295080686,\n            \"sequence\": 7028.579064773449,\n            \"unitPrice\": 1279.5918070220857,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 9882.822234026657,\n            \"to\": 4259.375359400187,\n            \"parentFrom\": 4043.811926792773,\n            \"parentTo\": 8099.380820626037,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 1512.2431089990484,\n            \"sequence\": 3816.6070699784304,\n            \"unitPrice\": 6510.46967765838,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 4426.6795105108495,\n        \"outputValue\": 2586.961772316674,\n        \"owner\": \"string\",\n        \"listed\": true,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 9970.255971132765,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 9907.154476397021,\n        \"maxBlockHeight\": 1159.9655732742465,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 6362.036714281559,\n        \"maxSatRange\": 6154.603740651402,\n        \"minUnitPrice\": 8901.428834237438,\n        \"maxUnitPrice\": 8088.702299292611,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 3718.3931546354443,\n            \"to\": 8584.30956695515,\n            \"parentFrom\": 1456.6876277985486,\n            \"parentTo\": 2390.2726468316037,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 2613.9539567158877,\n            \"sequence\": 8287.749288183002,\n            \"unitPrice\": 2578.5811756186563,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 7474.430078259041,\n            \"to\": 8445.417164932873,\n            \"parentFrom\": 4168.736917028276,\n            \"parentTo\": 2517.226792533277,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 2526.122705082794,\n            \"sequence\": 3141.014373023172,\n            \"unitPrice\": 4423.357863275646,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8c9708a-5379-4331-ab78-1f10254e6ceb",
+          "name": "Get Rare Sats by Address",
+          "request": {
+            "name": "Get Rare Sats by Address",
+            "description": {
+              "content": "Get Rare Sats by Address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "wallet",
+                "utxos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "(Required) Wallet Address"
+                },
+                {
+                  "disabled": false,
+                  "key": "listed",
+                  "value": "false",
+                  "description": "Get only the rare sats that are listed if set to true"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "40",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>",
+                  "description": "Offset - the `nextOffset` cursor received from the request of the previous page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "160461d8-bd55-40e9-9671-4a7e4fc45326",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "wallet",
+                    "utxos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "40"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tokens\": [\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 4600.21968716916,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 8424.113227258422,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 1368.9969916480027,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 9065.560325001314,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 8870.069981902187,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 3051.3221713647454,\n      \"listedMakerFeeBp\": 3344.9417664725443,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": false,\n      \"brc20TransferAmt\": 5045.244091947113,\n      \"brc20ListedUnitPrice\": 3959.2152242192037,\n      \"domain\": \"string\",\n      \"rareSatsUtxo\": {\n        \"id\": \"string\",\n        \"txId\": \"string\",\n        \"vout\": 955.6730773202171,\n        \"value\": 9156.076550196813,\n        \"address\": \"string\",\n        \"blockInfo\": {\n          \"blockHash\": \"string\",\n          \"blockHeight\": 3969.616574080372,\n          \"blockTime\": \"string\"\n        },\n        \"listedPrice\": 4991.2418740184585,\n        \"satRanges\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"hasUninscribedRareSat\": true,\n        \"floorValue\": 3467.085142400527\n      }\n    },\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 9668.445339117361,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 8513.266152442515,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 4285.88051083454,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 2437.5240548611787,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 1142.615590080628,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": false,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 8744.674414275409,\n      \"listedMakerFeeBp\": 8973.161278516927,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": false,\n      \"brc20TransferAmt\": 5795.653939795273,\n      \"brc20ListedUnitPrice\": 3908.3113334814743,\n      \"domain\": \"string\",\n      \"rareSatsUtxo\": {\n        \"id\": \"string\",\n        \"txId\": \"string\",\n        \"vout\": 8001.4081436562865,\n        \"value\": 8219.15933821231,\n        \"address\": \"string\",\n        \"blockInfo\": {\n          \"blockHash\": \"string\",\n          \"blockHeight\": 6086.724905904365,\n          \"blockTime\": \"string\"\n        },\n        \"listedPrice\": 4742.465137898532,\n        \"satRanges\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"hasUninscribedRareSat\": false,\n        \"floorValue\": 5423.643361496526\n      }\n    }\n  ],\n  \"total\": 3617,\n  \"nextOffset\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "851a5221-1907-4b14-9809-9e75bb0eeabf",
+          "name": "Get Batch Listing PSBT",
+          "request": {
+            "name": "Get Batch Listing PSBT",
+            "description": {
+              "content": "Get Rare Sats Batch Listing PSBT for Signing",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listing-psbt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listings\": [\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c02bea00-a041-4404-a6f4-10717ab94818",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listing-psbt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listings\": [\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"sellerReceiveAddress\": \"string\",\n      \"price\": 5562.899644208585,\n      \"utxoId\": \"string\",\n      \"unsignedListingPSBTBase64\": \"string\",\n      \"makerFee\": 5844.401553059339,\n      \"publicKey\": \"string\"\n    },\n    {\n      \"sellerReceiveAddress\": \"string\",\n      \"price\": 8345.244241691313,\n      \"utxoId\": \"string\",\n      \"unsignedListingPSBTBase64\": \"string\",\n      \"makerFee\": 2692.6911602290415,\n      \"publicKey\": \"string\"\n    }\n  ],\n  \"failed\": [\n    \"string\",\n    \"string\"\n  ],\n  \"unsignedCombinedPSBTBase64\": \"string\",\n  \"toSignInputs\": [\n    2588.777862725177,\n    9649.435254201808\n  ],\n  \"toSignSigHash\": 4725.204724143038\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03c26848-6139-41ed-bd05-1ff679d87142",
+          "name": "Submit Batch Listing",
+          "request": {
+            "name": "Submit Batch Listing",
+            "description": {
+              "content": "Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listings\": [\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    }\n  ],\n  \"signedCombinedPSBTBase64\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3bbf99a-ae6a-4bb6-a0a2-b74d6700d5e3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listings\": [\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    }\n  ],\n  \"signedCombinedPSBTBase64\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false,\n  \"listed\": 4652.182532958609,\n  \"failed\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f5b3a583-e52f-4520-a3de-a4f936735f6d",
+      "name": "Runes Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d635ab87-11f2-4dbd-a65d-425044d63695",
+          "name": "Get activities for a specific rune",
+          "request": {
+            "name": "Get activities for a specific rune",
+            "description": {
+              "content": "Get activities for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "activities",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 5000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The rune symbol for which activities are fetched."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68cc22ed-a047-41db-b062-57f7dbc0b912",
+              "name": "Successful response with an array of activity records for the specified rune.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "activities",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The rune symbol for which activities are fetched."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"1956-02-03T09:00:31.707Z\",\n      \"txBlockHeight\": 5750,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1964-10-28T10:42:07.705Z\",\n      \"createdAt\": \"1952-01-04T21:49:34.974Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4424,\n      \"listedTakerFeeBp\": 9241,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2010-07-20T06:09:31.413Z\",\n      \"txBlockHeight\": 1011,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1993-08-24T02:08:05.339Z\",\n      \"createdAt\": \"1947-05-06T08:48:25.653Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4131,\n      \"listedTakerFeeBp\": 173,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90814dba-503d-496a-ab4e-0581e2f5249e",
+          "name": "Get Rune collection stats",
+          "request": {
+            "name": "Get Rune collection stats",
+            "description": {
+              "content": "Get Rune collection stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "collection_stats",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "1d",
+                  "description": "(Required) Time window for which statistics are aggregated."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned. Default is 20, maximum is 2000."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for results."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "floorPrice",
+                  "description": "(Required) Column to sort the results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "desc",
+                  "description": "(Required) Direction of the sort ('asc' for ascending, 'desc' for descending)."
+                },
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "Filter results by a specific wallet address."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "Filter collections by a search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "allCollections",
+                  "value": "<boolean>",
+                  "description": "Include all collections in the results, regardless of activity."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c42438fd-08e6-49af-b6ff-1ce00aa931ea",
+              "name": "Successful response with collection statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "collection_stats",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "floorPrice"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allCollections",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runes\": [\n    {\n      \"rune\": \"string\",\n      \"etching\": {\n        \"details\": \"string\"\n      },\n      \"vol\": 1924.1560816372405,\n      \"totalVol\": 5943.377549525876,\n      \"unitPriceSats\": 356.5802635702453,\n      \"formattedUnitPriceSats\": \"string\",\n      \"txnCount\": 6814.400588664807,\n      \"imageURI\": \"string\",\n      \"unitPriceChange\": 387.39654422632606,\n      \"holderCount\": 4703.465122911942,\n      \"pendingCount\": 1036.6424347778225\n    },\n    {\n      \"rune\": \"string\",\n      \"etching\": {\n        \"details\": \"string\"\n      },\n      \"vol\": 6120.632272881153,\n      \"totalVol\": 8625.285448611983,\n      \"unitPriceSats\": 2646.8902003126213,\n      \"formattedUnitPriceSats\": \"string\",\n      \"txnCount\": 3678.049614483908,\n      \"imageURI\": \"string\",\n      \"unitPriceChange\": 2731.4018821450004,\n      \"holderCount\": 986.4710886635786,\n      \"pendingCount\": 3582.580177031832\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54ba1698-3402-4351-8f42-228662f3c674",
+          "name": "Get rune market info",
+          "request": {
+            "name": "Get rune market info",
+            "description": {
+              "content": "Get market market info for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "market",
+                ":rune",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) Rune symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1c9c2f5-72c6-403b-8815-0997e62e0331",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "market",
+                    ":rune",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) Rune symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rune\": \"string\",\n  \"ticker\": \"string\",\n  \"totalSupply\": \"string\",\n  \"formattedTotalSupply\": \"string\",\n  \"divisibility\": 2290,\n  \"imageURI\": \"string\",\n  \"description\": \"string\",\n  \"coinMarketCapLink\": \"string\",\n  \"discordLink\": \"string\",\n  \"telegramLink\": \"string\",\n  \"twitterLink\": \"string\",\n  \"minOrderSize\": 2986,\n  \"maxOrderSize\": 4507,\n  \"pendingTxnCount\": 8282,\n  \"floorUnitPrice\": {\n    \"formatted\": \"string\",\n    \"value\": \"string\"\n  },\n  \"marketCap\": 4532,\n  \"volume\": {\n    \"24h\": 5691,\n    \"7d\": 5082,\n    \"30d\": 1068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19133f2a-6018-447e-b6c6-dd85865e9ff0",
+          "name": "Get orders for a specific rune",
+          "request": {
+            "name": "Get orders for a specific rune",
+            "description": {
+              "content": "Get orders for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "orders",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>",
+                  "description": "(Required) Filter by order side, currently only 'sell' orders are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order of the results. Default is 'unitPriceAsc'."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the results. Default is 0, and increments of 100 are supported up to 2000."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePending",
+                  "value": "<boolean>",
+                  "description": "Whether to include pending orders in the results. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "rbfPreventionListingOnly",
+                  "value": "<boolean>",
+                  "description": "Whether to only include RBF protected rune orders. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "queryIssuerAddress",
+                  "value": "<string>",
+                  "description": "When \"rbfPreventionListingOnly == true\", filter the rune orders can be bought with RBF protection"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The rune symbol for which orders are requested."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b73e484c-4a3d-47ca-92d1-72255124fa26",
+              "name": "Successful response with an array of orders for the specified rune.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "orders",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rbfPreventionListingOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "queryIssuerAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The rune symbol for which orders are requested."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"amount\": 738.7899865263004,\n      \"formattedAmount\": \"string\",\n      \"createdAt\": \"1995-02-18T16:38:05.515Z\",\n      \"expiresAt\": \"2014-08-19T22:07:07.675Z\",\n      \"id\": \"string\",\n      \"rune\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"maker\": \"string\",\n      \"makerReceiveAddress\": \"string\",\n      \"makerFeeBps\": 5601.45493883596,\n      \"price\": 1963.9412933334843,\n      \"side\": \"string\",\n      \"status\": \"string\",\n      \"unitPrice\": 3382.0130277754656,\n      \"formattedUnitPrice\": \"string\"\n    },\n    {\n      \"amount\": 9457.771506483197,\n      \"formattedAmount\": \"string\",\n      \"createdAt\": \"1966-09-09T23:56:30.543Z\",\n      \"expiresAt\": \"2015-07-27T16:48:05.795Z\",\n      \"id\": \"string\",\n      \"rune\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"maker\": \"string\",\n      \"makerReceiveAddress\": \"string\",\n      \"makerFeeBps\": 7814.82179559708,\n      \"price\": 1260.1689513796111,\n      \"side\": \"string\",\n      \"status\": \"string\",\n      \"unitPrice\": 5910.7350118517525,\n      \"formattedUnitPrice\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb36a575-b91f-4d40-ac47-36deb2ee4c4b",
+          "name": "Get rune utxos by wallet address",
+          "request": {
+            "name": "Get rune utxos by wallet address",
+            "description": {
+              "content": "Get rune utxos by wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "utxos",
+                "wallet",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "rune",
+                  "value": "<string>",
+                  "description": "(Required) Filter UTXOs by rune symbol."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order of the UTXOs based on their balance. Defaults to 'balanceAsc'."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeListed",
+                  "value": "<boolean>",
+                  "description": "Whether to include UTXOs that are currently listed in the marketplace. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The Bitcoin address to fetch Rune UTXOs for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8af14850-eda7-46a9-ac6b-94447f1b5bc6",
+              "name": "Successful response with an array of UTXOs for the specified address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "utxos",
+                    "wallet",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rune",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeListed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The Bitcoin address to fetch Rune UTXOs for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"utxos\": [\n    {\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"rune\": \"string\",\n      \"balance\": 5085.971937903776,\n      \"formattedBalance\": \"string\",\n      \"spent\": false,\n      \"pure\": false,\n      \"containsInscription\": true,\n      \"costSats\": 6762.337596687793,\n      \"listing\": {\n        \"orderId\": \"6db37a2e-a93f-3d3c-e30f-a6b47d646770\",\n        \"totalPriceSats\": 3793.027638092056,\n        \"unitPriceSats\": 2072.8027629849057,\n        \"formattedUnitPriceSats\": \"string\",\n        \"expiresAt\": \"1973-02-20T16:28:31.253Z\"\n      }\n    },\n    {\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"rune\": \"string\",\n      \"balance\": 9190.313742113749,\n      \"formattedBalance\": \"string\",\n      \"spent\": true,\n      \"pure\": true,\n      \"containsInscription\": false,\n      \"costSats\": 6214.229519757041,\n      \"listing\": {\n        \"orderId\": \"4cc8ec6f-c410-ddc4-9090-6e337979222b\",\n        \"totalPriceSats\": 3893.0535859080173,\n        \"unitPriceSats\": 817.6547489121266,\n        \"formattedUnitPriceSats\": \"string\",\n        \"expiresAt\": \"1968-05-14T19:44:48.079Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e86a4af1-a523-4890-8b1d-61c621cab0a6",
+          "name": "Get Rune activities for a specific wallet address",
+          "request": {
+            "name": "Get Rune activities for a specific wallet address",
+            "description": {
+              "content": "Get Rune activities for a specific wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "wallet",
+                "activities",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 10,000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The wallet address to fetch Rune activities for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5496df26-f148-4ba9-a597-eda97c907324",
+              "name": "Successful response with an array of Rune activities for the specified wallet address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "wallet",
+                    "activities",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The wallet address to fetch Rune activities for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"1956-02-03T09:00:31.707Z\",\n      \"txBlockHeight\": 5750,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1964-10-28T10:42:07.705Z\",\n      \"createdAt\": \"1952-01-04T21:49:34.974Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4424,\n      \"listedTakerFeeBp\": 9241,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2010-07-20T06:09:31.413Z\",\n      \"txBlockHeight\": 1011,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1993-08-24T02:08:05.339Z\",\n      \"createdAt\": \"1947-05-06T08:48:25.653Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4131,\n      \"listedTakerFeeBp\": 173,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4925153d-6dd4-4818-93b7-18c588afc122",
+          "name": "Get Rune balances by wallet address",
+          "request": {
+            "name": "Get Rune balances by wallet address",
+            "description": {
+              "content": "Get Rune balances by wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "wallet",
+                "balances",
+                ":address",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The wallet address to fetch Rune balances for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The specific Rune symbol whose balance is being queried."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86eee06d-e42f-4cd0-bdaa-dae174a2a4d2",
+              "name": "Successful response with the balance details of the specified Rune for the given address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "wallet",
+                    "balances",
+                    ":address",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The wallet address to fetch Rune balances for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The specific Rune symbol whose balance is being queried."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balance\": \"string\",\n  \"formattedBalance\": \"string\",\n  \"ticker\": \"OD\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "59d73a26-541c-49f0-b046-254af1db2af3",
+      "name": "Runes Listing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3ad98e9-8da2-4481-b694-f61a13018d26",
+          "name": "Submit a signed message for cancelling a rune sell order",
+          "request": {
+            "name": "Submit a signed message for cancelling a rune sell order",
+            "description": {
+              "content": "Submit a signed message for cancelling a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "order",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signature\": \"<string>\",\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {},\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "727b6489-a35f-4f3f-b8cf-d84d0fc9ba78",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "order",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signature\": \"<string>\",\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {},\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"90185799-8189-e47d-997c-ccaad61f20d0\",\n    \"8cfbe5b0-ddcb-05ba-8c72-7c09de352d8c\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b973b72-e616-4034-b245-41d60cb68faa",
+          "name": "Submit a signed PSBT for creating a rune sell order",
+          "request": {
+            "name": "Submit a signed PSBT for creating a rune sell order",
+            "description": {
+              "content": "Submit a signed PSBT for creating a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "order",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"expiresAt\": \"<dateTime>\",\n  \"signedRBFProtectedPsbts\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3495b22f-9510-4acd-b95c-a91294b3c974",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "order",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"side\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"expiresAt\": \"<dateTime>\",\n  \"signedRBFProtectedPsbts\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"348699de-5b3c-226b-8d74-3f75292b463e\",\n    \"98384119-0288-7f8c-c407-2c9213dbdef4\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e18a66e1-f7da-4cda-b971-b5c1ba1fc090",
+          "name": "Get an unsigned message for cancelling a rune sell order",
+          "request": {
+            "name": "Get an unsigned message for cancelling a rune sell order",
+            "description": {
+              "content": "Get an unsigned message for cancelling a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "order",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cc5d7e2-8404-4c11-b4d3-7e1583960890",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "order",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"68df1875-b604-9c09-9205-6820746deafc\",\n    \"802d3d2a-c905-8592-8e04-6c2542c0e68f\"\n  ],\n  \"token\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de038208-39eb-4974-8d61-0ba5c325913e",
+          "name": "Get an unsigned PSBT for creating a rune sell order",
+          "request": {
+            "name": "Get an unsigned PSBT for creating a rune sell order",
+            "description": {
+              "content": "Get an unsigned PSBT for creating a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "order",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"<string>\",\n  \"rune\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"utxos\": [\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    },\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    }\n  ],\n  \"expiresAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea2d19e2-e108-4c58-aaee-2b736a97957d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "order",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"side\": \"<string>\",\n  \"rune\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"utxos\": [\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    },\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    }\n  ],\n  \"expiresAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderPsbtBase64\": \"string\",\n  \"unsignedRBFProtectedPsbts\": [\n    {\n      \"unsignedPSBTBase64\": \"string\",\n      \"toSignInputs\": [\n        452.8552891161841,\n        5688.393231761529\n      ],\n      \"toSignSigHash\": 2857.494744733697\n    },\n    {\n      \"unsignedPSBTBase64\": \"string\",\n      \"toSignInputs\": [\n        2612.358686341212,\n        9034.536482569592\n      ],\n      \"toSignSigHash\": 3444.7900339535463\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6b2c273c-07ac-4ab0-a48d-663f191822cc",
+      "name": "Runes Market Sell",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9145231-da79-48f4-b17b-e4c02fc09344",
+          "name": "Submit a signed PSBT for executing a market order to sell the runes",
+          "request": {
+            "name": "Submit a signed PSBT for executing a market order to sell the runes",
+            "description": {
+              "content": "Submit a signed PSBT for executing a market order to sell the runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "market-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d5a2e5c-7d30-495d-a16d-6bca4dbf6768",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "market-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12d9c0dd-2291-4056-9565-d7e0dce281fc",
+          "name": "Get an unsigned PSBT to execute a market order to sell the runes",
+          "request": {
+            "name": "Get an unsigned PSBT to execute a market order to sell the runes",
+            "description": {
+              "content": "Get an unsigned PSBT to execute a market order to sell the runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "get-market-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orders\": [\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    }\n  ],\n  \"runeTicker\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edd6a57f-db30-44cc-923c-f6a9b8a75682",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "get-market-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orders\": [\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    }\n  ],\n  \"runeTicker\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invalidOrders\": [\n    \"string\",\n    \"string\"\n  ],\n  \"psbtBase64\": \"string\",\n  \"requestId\": \"string\",\n  \"runeUtxoIndexes\": [\n    7608,\n    7852\n  ],\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 4235.907067893804\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cc27077a-1208-48fe-a36d-9805ba1f9504",
+      "name": "Runes Swap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "799dbc24-73bd-4fae-b0ab-8533137074e8",
+          "name": "Get available rune quotes with given parameters for the swap",
+          "request": {
+            "name": "Get available rune quotes with given parameters for the swap",
+            "description": {
+              "content": "Get available rune quotes with given parameters for the swap",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "runeTicker",
+                  "value": "<string>",
+                  "description": "(Required) Rune symbol"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<bigint>",
+                  "description": "(Required) The amount for the quote"
+                },
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>",
+                  "description": "(Required) The side of the trade, either \"buy\" or \"sell\""
+                },
+                {
+                  "disabled": false,
+                  "key": "priceToleranceBp",
+                  "value": "<integer>",
+                  "description": "The price tolerance in percentage x 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "rbfPreventionListingOnly",
+                  "value": "<boolean>",
+                  "description": "Flag indicating if only RBF protection sell orders should be considered."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f7d6e88-9155-4c42-8b4f-ed8f869a1dd7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "runeTicker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<bigint>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priceToleranceBp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rbfPreventionListingOnly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": \"string\",\n  \"averageUnitPrice\": 8963.034189007683,\n  \"bestUnitPrice\": 9247.922962627461,\n  \"maxUnitPrice\": 3842.9698534216095,\n  \"minUnitPrice\": 9531.815686949789,\n  \"price\": 3134.916603251591,\n  \"orders\": [\n    {\n      \"amount\": \"string\",\n      \"id\": \"string\"\n    },\n    {\n      \"amount\": \"string\",\n      \"id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "727ea9ed-222c-44e0-8031-911637179f64",
+          "name": "Get an unsigned PSBT for swapping runes",
+          "request": {
+            "name": "Get an unsigned PSBT for swapping runes",
+            "description": {
+              "content": "Get an unsigned PSBT for swapping runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "swap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<bigint>\",\n  \"runeTicker\": \"<string>\",\n  \"side\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"priceToleranceBp\": \"<integer>\",\n  \"takerPublicKey\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\",\n  \"legacyListingOnly\": \"<boolean>\",\n  \"rbfPreventionListingOnly\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a41f0ddf-7b4a-412c-9dc3-b69e868e60d1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<bigint>\",\n  \"runeTicker\": \"<string>\",\n  \"side\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"priceToleranceBp\": \"<integer>\",\n  \"takerPublicKey\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\",\n  \"legacyListingOnly\": \"<boolean>\",\n  \"rbfPreventionListingOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"psbts\": [\n    {\n      \"type\": \"legacy-buy\",\n      \"paymentUtxoIndexes\": [\n        1264,\n        4048\n      ],\n      \"psbtBase64\": \"string\",\n      \"settlement\": {\n        \"amount\": \"string\",\n        \"price\": 597.9853870690511\n      },\n      \"runeUtxoIndexes\": [\n        5484,\n        3620\n      ]\n    },\n    {\n      \"type\": \"legacy-buy\",\n      \"paymentUtxoIndexes\": [\n        7675,\n        7686\n      ],\n      \"psbtBase64\": \"string\",\n      \"settlement\": {\n        \"amount\": \"string\",\n        \"price\": 1269.2936507389352\n      },\n      \"runeUtxoIndexes\": [\n        2494,\n        5611\n      ]\n    }\n  ],\n  \"quote\": {\n    \"amount\": \"string\",\n    \"averageUnitPrice\": 385.6197664303929,\n    \"bestUnitPrice\": 1612.0390689020037,\n    \"maxUnitPrice\": 9184.8107091673,\n    \"minUnitPrice\": 6321.544471457881,\n    \"price\": 3321.6038016832517,\n    \"orders\": [\n      {\n        \"amount\": \"string\",\n        \"id\": \"string\"\n      },\n      {\n        \"amount\": \"string\",\n        \"id\": \"string\"\n      }\n    ]\n  },\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 1561.8066304198164\n  },\n  \"requestId\": \"string\",\n  \"btcChangeOutputIndex\": 6287,\n  \"errors\": [\n    {\n      \"type\": \"legacy-buy\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"legacy-buy\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6ffa31e-e099-46ce-bb84-c21b00d9a033",
+          "name": "Post a signed PSBT to broadcast the swapping transaction",
+          "request": {
+            "name": "Post a signed PSBT to broadcast the swapping transaction",
+            "description": {
+              "content": "Post a signed PSBT to broadcast the swapping transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "swap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbts\": [\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    },\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a51d237f-c437-4fdc-a2e5-0537186b9894",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbts\": [\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    },\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txs\": [\n    {\n      \"type\": \"legacy-buy\",\n      \"txid\": \"string\"\n    },\n    {\n      \"type\": \"market-sell\",\n      \"txid\": \"string\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"market-sell\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"legacy-buy\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f8ae3a46-3740-4b4f-bce4-3452c5f9d05d",
+      "name": "Runes Sweeping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e61f6cac-f910-4404-a133-faff95b4f49c",
+          "name": "Get an unsigned PSBT for buying a rune",
+          "request": {
+            "name": "Get an unsigned PSBT for buying a rune",
+            "description": {
+              "content": "Get an unsigned PSBT for buying a rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "get-sweeping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"runeSymbol\": \"<string>\",\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerPublicKey\": \"<btc-public-key>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"feeRateTier\": \"<string>\",\n  \"feeRateNum\": \"<number>\",\n  \"enableRBFProtection\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ece33702-168d-4109-8e22-8f3a6623f6c4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "get-sweeping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"runeSymbol\": \"<string>\",\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerPublicKey\": \"<btc-public-key>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"feeRateTier\": \"<string>\",\n  \"feeRateNum\": \"<number>\",\n  \"enableRBFProtection\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invalidOrders\": [\n    \"bb1f13aa-7f37-0198-fe44-86f06153a741\",\n    \"94cc56ba-2cf0-0d0c-8011-c7e2049b629a\"\n  ],\n  \"paymentUtxoIndexes\": 5459.501362410663,\n  \"validOrders\": [\n    \"43a3c5ec-a0de-6c85-2382-bde1e17e2841\",\n    \"a238ff4c-3db2-3bff-82f6-be5e25b27af0\"\n  ],\n  \"psbtBase64\": \"string\",\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 5146.6420215105845\n  },\n  \"fullRBFProtectedSweepingResult\": {\n    \"settlement\": {\n      \"amount\": \"string\",\n      \"price\": 1553.5866355619232\n    },\n    \"validOrderIds\": [\n      \"0e74ebc6-b9b7-4d23-1537-9e94b5cb84b3\",\n      \"bfa5502e-40d1-bbc0-d7ef-685e8041b5ad\"\n    ],\n    \"psbtIndexesToSign\": [\n      6048.068731029859,\n      7285.084231427253\n    ],\n    \"unsignedFundsPreparationPsbtBase64\": \"string\",\n    \"error\": {\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7783d0b1-d880-47ee-98b5-e4b045741887",
+          "name": "Submit a signed PSBT for buying a rune",
+          "request": {
+            "name": "Submit a signed PSBT for buying a rune",
+            "description": {
+              "content": "Submit a signed PSBT for buying a rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "sweeping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"enableRBFProtection\": \"<boolean>\",\n  \"fullRBFProtectedSweepingRequest\": {\n    \"takerPaymentPublicKey\": \"<btc-public-key>\",\n    \"signedFundsPreparationPsbtBase64\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d98d033-275f-4897-9e73-57ff9f1435fb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "sweeping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"enableRBFProtection\": \"<boolean>\",\n  \"fullRBFProtectedSweepingRequest\": {\n    \"takerPaymentPublicKey\": \"<btc-public-key>\",\n    \"signedFundsPreparationPsbtBase64\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txid\": \"string\",\n  \"error\": \"string\",\n  \"fullRBFProtectedSweepingResponse\": {\n    \"fundsPreparationTxId\": \"string\",\n    \"fulfillmentId\": \"string\",\n    \"error\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2fc81049-7756-4f79-958a-58eaa5ffde89",
+      "name": "Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e80a4065-63fa-43be-9d31-f2c34140aea2",
+          "name": "Get tokens",
+          "request": {
+            "name": "Get tokens",
+            "description": {
+              "content": "Get tokens, can be filtered by collectionSymbol, owner, tokenIds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tokenIds",
+                  "value": "<string>",
+                  "description": "Comma-separated list of token IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "Collection symbol"
+                },
+                {
+                  "disabled": false,
+                  "key": "ownerAddress",
+                  "value": "<string>",
+                  "description": "Owner address"
+                },
+                {
+                  "disabled": false,
+                  "key": "showAll",
+                  "value": "true",
+                  "description": "Show all items including the listed and unlisted ones"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "inscriptionMin",
+                  "value": "<number>",
+                  "description": "Inscription number min"
+                },
+                {
+                  "disabled": false,
+                  "key": "inscriptionMax",
+                  "value": "<number>",
+                  "description": "Inscription number max"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "priceAsc",
+                  "description": "sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPrice",
+                  "value": "<number>",
+                  "description": "min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<number>",
+                  "description": "max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "satRarity",
+                  "value": "<string>",
+                  "description": "sat rarity"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8bb4659f-2cc2-4f91-bee9-3b9e3d23024b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tokenIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ownerAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "showAll",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "inscriptionMin",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "inscriptionMax",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "priceAsc"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "satRarity",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8076,\n  \"items\": [\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 5552.942332688929,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 9047.666338441775,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 60.265575695553906,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 5372.735277062225,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 9338.400315935167,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 6169.884908272805,\n      \"listedMakerFeeBp\": 502.91173606006765,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": true,\n      \"brc20TransferAmt\": 8974.61233955983,\n      \"brc20ListedUnitPrice\": 9397.298724844679,\n      \"domain\": \"string\"\n    },\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 363.8684167547468,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 632.0296465408248,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 9108.262507735806,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 6253.689322507792,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 5250.3731339077885,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 3392.157383178178,\n      \"listedMakerFeeBp\": 1969.852680891261,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": true,\n      \"brc20TransferAmt\": 2706.1027851320982,\n      \"brc20ListedUnitPrice\": 1455.8806577111127,\n      \"domain\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v2",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://stats-mainnet.magiceden.dev",
+      "key": "collection_stats-search-bitcoin-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "0f5efc75-73d7-4806-b39a-32c8835d3c5a",
+    "name": "Magic Eden Bitcoin Ordinals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden Bitcoin/Ordinals API covering ordinal collections, rare sats, runes (orders, swaps, sweeping, market sells), block activities, and wallet balances.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,901 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden Bitcoin Ordinals API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get block activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/block/activities",
+            "params": [
+              {
+                "name": "blockHeight",
+                "value": "",
+                "type": "query",
+                "description": "Block height"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of activity kinds. Acceptable values are \"create\" and \"transfer\". If not specified, defaults to \"create,transfer\"."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor"
+              }
+            ]
+          },
+          "docs": "Get block activities"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get collection stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/stat",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol"
+              }
+            ]
+          },
+          "docs": "Get collection stats"
+        },
+        {
+          "info": {
+            "name": "Get collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/collections/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Collection symbol"
+              }
+            ]
+          },
+          "docs": "Get collection"
+        },
+        {
+          "info": {
+            "name": "Get collection statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/collection_stats/search/bitcoin",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query",
+                "description": "Time window"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort by"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              }
+            ]
+          },
+          "docs": "Get collection statistics"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rare Sats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/raresats/listings",
+            "params": [
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort By"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Page offset"
+              },
+              {
+                "name": "satributes",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that have the given satributes in the same sat range"
+              },
+              {
+                "name": "minListedAt",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that were listed after the given timestamp"
+              },
+              {
+                "name": "maxListedAt",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that were listed before the given timestamp"
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum listed price in satoshis"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum listed price in satoshis"
+              },
+              {
+                "name": "minUtxoSize",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum utxo size in satoshis"
+              },
+              {
+                "name": "maxUtxoSize",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum utxo size in satoshis"
+              },
+              {
+                "name": "minSatRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum sat range in sats"
+              },
+              {
+                "name": "maxSatRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum sat range in sats"
+              },
+              {
+                "name": "minBlockNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created after the given block number"
+              },
+              {
+                "name": "maxBlockNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created before the given block number"
+              },
+              {
+                "name": "minBlockTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created after the given timestamp"
+              },
+              {
+                "name": "maxBlockTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created before the given timestamp"
+              }
+            ]
+          },
+          "docs": "Get Rare Sats Listings by a Variety of Filters and Sorting Orders"
+        },
+        {
+          "info": {
+            "name": "Get Rare Sats by Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/raresats/wallet/utxos",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Wallet Address"
+              },
+              {
+                "name": "listed",
+                "value": "",
+                "type": "query",
+                "description": "Get only the rare sats that are listed if set to true"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset - the `nextOffset` cursor received from the request of the previous page"
+              }
+            ]
+          },
+          "docs": "Get Rare Sats by Address"
+        },
+        {
+          "info": {
+            "name": "Get Batch Listing PSBT",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/raresats/listing-psbt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get Rare Sats Batch Listing PSBT for Signing"
+        },
+        {
+          "info": {
+            "name": "Submit Batch Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/raresats/listing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runes Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get activities for a specific rune",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/activities/:rune",
+            "params": [
+              {
+                "name": "rune",
+                "value": "",
+                "type": "path",
+                "description": "The rune symbol for which activities are fetched."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 5000."
+              }
+            ]
+          },
+          "docs": "Get activities for a specific rune"
+        },
+        {
+          "info": {
+            "name": "Get Rune collection stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/collection_stats/search",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query",
+                "description": "Time window for which statistics are aggregated."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned. Default is 20, maximum is 2000."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset for results."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Column to sort the results by."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Direction of the sort ('asc' for ascending, 'desc' for descending)."
+              },
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by a specific wallet address."
+              },
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query",
+                "description": "Filter collections by a search term."
+              },
+              {
+                "name": "allCollections",
+                "value": "",
+                "type": "query",
+                "description": "Include all collections in the results, regardless of activity."
+              }
+            ]
+          },
+          "docs": "Get Rune collection stats"
+        },
+        {
+          "info": {
+            "name": "Get rune market info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/market/:rune/info",
+            "params": [
+              {
+                "name": "rune",
+                "value": "",
+                "type": "path",
+                "description": "Rune symbol"
+              }
+            ]
+          },
+          "docs": "Get market market info for a specific rune"
+        },
+        {
+          "info": {
+            "name": "Get orders for a specific rune",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/orders/:rune",
+            "params": [
+              {
+                "name": "rune",
+                "value": "",
+                "type": "path",
+                "description": "The rune symbol for which orders are requested."
+              },
+              {
+                "name": "side",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order side, currently only 'sell' orders are supported."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the results. Default is 'unitPriceAsc'."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset for the results. Default is 0, and increments of 100 are supported up to 2000."
+              },
+              {
+                "name": "includePending",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include pending orders in the results. Default is false."
+              },
+              {
+                "name": "rbfPreventionListingOnly",
+                "value": "",
+                "type": "query",
+                "description": "Whether to only include RBF protected rune orders. Default is false."
+              },
+              {
+                "name": "queryIssuerAddress",
+                "value": "",
+                "type": "query",
+                "description": "When \"rbfPreventionListingOnly == true\", filter the rune orders can be bought with RBF protection"
+              }
+            ]
+          },
+          "docs": "Get orders for a specific rune"
+        },
+        {
+          "info": {
+            "name": "Get rune utxos by wallet address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/utxos/wallet/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "The Bitcoin address to fetch Rune UTXOs for."
+              },
+              {
+                "name": "rune",
+                "value": "",
+                "type": "query",
+                "description": "Filter UTXOs by rune symbol."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the UTXOs based on their balance. Defaults to 'balanceAsc'."
+              },
+              {
+                "name": "includeListed",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include UTXOs that are currently listed in the marketplace. Defaults to false."
+              }
+            ]
+          },
+          "docs": "Get rune utxos by wallet address"
+        },
+        {
+          "info": {
+            "name": "Get Rune activities for a specific wallet address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/wallet/activities/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "The wallet address to fetch Rune activities for."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 10,000."
+              }
+            ]
+          },
+          "docs": "Get Rune activities for a specific wallet address"
+        },
+        {
+          "info": {
+            "name": "Get Rune balances by wallet address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/wallet/balances/:address/:rune",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "The wallet address to fetch Rune balances for."
+              },
+              {
+                "name": "rune",
+                "value": "",
+                "type": "path",
+                "description": "The specific Rune symbol whose balance is being queried."
+              }
+            ]
+          },
+          "docs": "Get Rune balances by wallet address"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runes Listing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a signed message for cancelling a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/order/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed message for cancelling a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Submit a signed PSBT for creating a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/order/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed PSBT for creating a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned message for cancelling a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/psbt/order/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned message for cancelling a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned PSBT for creating a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/psbt/order/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT for creating a rune sell order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runes Market Sell",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a signed PSBT for executing a market order to sell the runes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/market-sell",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed PSBT for executing a market order to sell the runes"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned PSBT to execute a market order to sell the runes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/psbt/get-market-sell",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT to execute a market order to sell the runes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runes Swap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available rune quotes with given parameters for the swap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/quote",
+            "params": [
+              {
+                "name": "runeTicker",
+                "value": "",
+                "type": "query",
+                "description": "Rune symbol"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "The amount for the quote"
+              },
+              {
+                "name": "side",
+                "value": "",
+                "type": "query",
+                "description": "The side of the trade, either \"buy\" or \"sell\""
+              },
+              {
+                "name": "priceToleranceBp",
+                "value": "",
+                "type": "query",
+                "description": "The price tolerance in percentage x 10000"
+              },
+              {
+                "name": "rbfPreventionListingOnly",
+                "value": "",
+                "type": "query",
+                "description": "Flag indicating if only RBF protection sell orders should be considered."
+              }
+            ]
+          },
+          "docs": "Get available rune quotes with given parameters for the swap"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned PSBT for swapping runes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/psbt/swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT for swapping runes"
+        },
+        {
+          "info": {
+            "name": "Post a signed PSBT to broadcast the swapping transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post a signed PSBT to broadcast the swapping transaction"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runes Sweeping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an unsigned PSBT for buying a rune",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/psbt/get-sweeping",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT for buying a rune"
+        },
+        {
+          "info": {
+            "name": "Submit a signed PSBT for buying a rune",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/runes/sweeping",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed PSBT for buying a rune"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v2/v2/ord/btc/tokens",
+            "params": [
+              {
+                "name": "tokenIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of token IDs."
+              },
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol"
+              },
+              {
+                "name": "ownerAddress",
+                "value": "",
+                "type": "query",
+                "description": "Owner address"
+              },
+              {
+                "name": "showAll",
+                "value": "",
+                "type": "query",
+                "description": "Show all items including the listed and unlisted ones"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset"
+              },
+              {
+                "name": "inscriptionMin",
+                "value": "",
+                "type": "query",
+                "description": "Inscription number min"
+              },
+              {
+                "name": "inscriptionMax",
+                "value": "",
+                "type": "query",
+                "description": "Inscription number max"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "sort by"
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "min price"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "max price"
+              },
+              {
+                "name": "satRarity",
+                "value": "",
+                "type": "query",
+                "description": "sat rarity"
+              }
+            ]
+          },
+          "docs": "Get tokens, can be filtered by collectionSymbol, owner, tokenIds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
