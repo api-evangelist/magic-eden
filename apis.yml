@@ -8,7 +8,7 @@ description: Magic Eden is a multi-chain NFT marketplace offering REST and instr
   Developers can fetch collections, tokens, listings, bids, activity, holder stats,
   AMM pool data, launchpad data, and generate signed transactions or PSBTs for listing,
   buying, bidding, transferring, swapping, and minting across all supported chains.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - NFT
   - Web3
