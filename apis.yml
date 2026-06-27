@@ -102,9 +102,9 @@ common:
     url: https://github.com/magiceden
   - type: GitHubOrganization
     url: https://github.com/magicoss
-  - type: SDK
+  - type: SDKs
     url: https://github.com/magiceden/magiceden-sdk
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.magiceden.io/llms.txt
   - type: TermsOfService
     url: https://magiceden.io/terms-of-service.pdf
