@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/magic-eden-evm-openapi.yml, openapi/magic-eden-ordinals-openapi.yml, openapi/magic-eden-solana-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/magic-eden-evm-openapi.yml
+  - openapi/magic-eden-ordinals-openapi.yml
+  - openapi/magic-eden-solana-openapi.yml

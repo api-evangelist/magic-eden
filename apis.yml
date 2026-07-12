@@ -88,6 +88,12 @@ apis:
       - type: Authentication
         url: https://docs.magiceden.io/reference/ordinals-api-keys
 common:
+  - type: VulnerabilityDisclosure
+    url: security/magic-eden-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/magic-eden-domain-security.yml
+  - type: Authentication
+    url: authentication/magic-eden-authentication.yml
   - type: Website
     url: https://magiceden.io
   - type: Portal
