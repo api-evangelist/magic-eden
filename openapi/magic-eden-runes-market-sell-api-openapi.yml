@@ -1,0 +1,161 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Runes Market Sell API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Runes Market Sell
+paths:
+  /v2/ord/btc/runes/market-sell:
+    post:
+      tags:
+      - Runes Market Sell
+      summary: Submit a signed PSBT for executing a market order to sell the runes
+      description: Submit a signed PSBT for executing a market order to sell the runes
+      requestBody:
+        description: Post Request Body for execute a market order to sell the runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMarketSellPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostMarketSellPsbtResponseSchema'
+  /v2/ord/btc/runes/psbt/get-market-sell:
+    post:
+      tags:
+      - Runes Market Sell
+      summary: Get an unsigned PSBT to execute a market order to sell the runes
+      description: Get an unsigned PSBT to execute a market order to sell the runes
+      requestBody:
+        description: Post Request Body for execute a market order to sell the runes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetMarketSellPsbtRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMarketSellPsbtResponseSchema'
+components:
+  schemas:
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
+    PostMarketSellPsbtResponseSchema:
+      type: object
+      properties:
+        txid:
+          type: string
+          description: The transaction ID for the market sell.
+      required:
+      - txid
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    GetMarketSellPsbtResponseSchema:
+      type: object
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed.
+          items:
+            type: string
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the market sell.
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+      required:
+      - invalidOrders
+      - psbtBase64
+      - requestId
+      - runeUtxoIndexes
+      - settlement
+    GetMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: string
+                format: bigint
+                description: The amount for the order, represented as a string to accommodate large integers.
+              id:
+                type: string
+                description: The unique identifier for the order.
+        runeTicker:
+          type: string
+          description: The ticker symbol for the rune.
+        takerPaymentAddress:
+          type: string
+          description: The payment address of the taker.
+        takerRunesAddress:
+          type: string
+          description: The runes address of the taker.
+        takerRunesPublicKey:
+          type: string
+          description: The runes public key of the taker.
+        feeRateTier:
+          type: string
+          enum:
+          - custom
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: The fee rate tier.
+          default: hourFee
+        feeRateNum:
+          type: number
+          description: The numerical fee rate.
+          nullable: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

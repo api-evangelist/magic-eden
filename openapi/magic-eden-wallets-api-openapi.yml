@@ -1,0 +1,811 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity wallets API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: wallets
+  description: Get information of a wallet
+paths:
+  /wallets/owner/activities:
+    get:
+      deprecated: false
+      summary: Get ownership activities of a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwaggerFriendlyIActivityV2'
+              example:
+              - signature: 2v5HjvhZf1bPJ6iFoHkbJWgcwEpYoTvhdWwDESDmrTsY6sX7MtN3eeEvLngoXMVrneyRboG74sQWScVcEFR7R5Qg
+                type: buyNow
+                source: magiceden_v2
+                tokenMint: 4DbHsohxbkSJRZUNeVPPdxgYKJwEtXVge1ibQivi9x3T
+                collectionSymbol: runcible
+                slot: 110921876
+                blockTime: 1643408148
+                buyer: FtynbMEVKQnZp5iUmVaooR2JNW4brGD68eU4PLUUjNdX
+                buyerReferral: ''
+                seller: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                sellerReferral: ''
+                price: 0.045
+              - signature: NYXnQ6uFLbbZhQveYoheWZKFYsb1ZznLYxLxknsobhuPWGufnhGd6JHD5JUsAqkerYHVpc6roMDhYxJiRQ4VXwe
+                type: bid
+                source: magiceden
+                tokenMint: 6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma
+                collectionSymbol: btest
+                slot: 110736942
+                blockTime: 1643335720
+                buyer: 4nNQvp6dwo26FVxvFjgZQm66QjwkihPgeW33Z24HaU2T
+                buyerReferral: ''
+                seller: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                sellerReferral: ''
+                price: 0.03
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: owner
+        in: query
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      - name: createdAt
+        in: query
+        description: Filter activities that are created after this time
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      tags:
+      - wallets
+  /wallets/{wallet_address}:
+    get:
+      deprecated: false
+      summary: Get info about the wallet owner.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IWalletOwnerInfo'
+              example:
+                walletAddress: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                displayName: Channing
+                avatar: 8DGghzXuaRSe1n1qwabfC3wtfmn4WjiWgNJse1F8Aa6C
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      tags:
+      - wallets
+  /wallets/{wallet_address}/activities:
+    get:
+      deprecated: false
+      summary: Get activities of a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwaggerFriendlyIActivityV2'
+              example:
+              - signature: 2v5HjvhZf1bPJ6iFoHkbJWgcwEpYoTvhdWwDESDmrTsY6sX7MtN3eeEvLngoXMVrneyRboG74sQWScVcEFR7R5Qg
+                type: buyNow
+                source: magiceden_v2
+                tokenMint: 4DbHsohxbkSJRZUNeVPPdxgYKJwEtXVge1ibQivi9x3T
+                collectionSymbol: runcible
+                slot: 110921876
+                blockTime: 1643408148
+                buyer: FtynbMEVKQnZp5iUmVaooR2JNW4brGD68eU4PLUUjNdX
+                buyerReferral: ''
+                seller: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                sellerReferral: ''
+                price: 0.045
+              - signature: NYXnQ6uFLbbZhQveYoheWZKFYsb1ZznLYxLxknsobhuPWGufnhGd6JHD5JUsAqkerYHVpc6roMDhYxJiRQ4VXwe
+                type: bid
+                source: magiceden
+                tokenMint: 6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma
+                collectionSymbol: btest
+                slot: 110736942
+                blockTime: 1643335720
+                buyer: 4nNQvp6dwo26FVxvFjgZQm66QjwkihPgeW33Z24HaU2T
+                buyerReferral: ''
+                seller: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                sellerReferral: ''
+                price: 0.03
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      tags:
+      - wallets
+  /wallets/{wallet_address}/escrow_balance:
+    get:
+      deprecated: false
+      summary: Get escrow balance for a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscrowBalance'
+              example:
+                buyerEscrow: 6XpzgXRA92qg1j6Krfeqhxufnnn2PQNxiAhFFxLprYmj
+                balance: 0.03
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      tags:
+      - wallets
+  /wallets/{wallet_address}/offers_made:
+    get:
+      deprecated: false
+      summary: Get offers made by a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IOfferV2'
+              example:
+              - pdaAddress: ABk7HjjQkQmhFaZK9mmDaCTu7L4FJRDLBUU8Lk3ajReH
+                tokenMint: AKnh88U3Via1A3wFYBPzEa9wH3fXinpXY3ApZhC2ExCf
+                auctionHouse: ''
+                buyer: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                price: 0.03
+                tokenSize: 1
+                expiry: 0
+              - pdaAddress: EPEHNmPbApdYjPKZSAhiW987MGssi3SoqhXUzuqhXTQd
+                tokenMint: 3nCs3tqujtQ37gygKsPKoHbZUsK4ZbMx1EEpoijU4P4A
+                auctionHouse: E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe
+                buyer: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                buyerReferral: autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2
+                price: 0.02
+                tokenSize: 1
+                expiry: 0
+              - pdaAddress: 5BwQZ1DcDeZNGHumZesvQgtf1Y3Y11ZjJuZ988RgJqCr
+                tokenMint: 6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma
+                auctionHouse: ''
+                buyer: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+                price: 0.5
+                tokenSize: 1
+                expiry: 0
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      - name: min_price
+        in: query
+        description: Filter offers that are less than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        description: Filter offers that are more than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: The field to sort the offers made, default 'bidAmount'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/OfferReceivedSort'
+      - name: sort_direction
+        in: query
+        description: The direction returned elements should be sorted in, default 'desc'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/SortDirQuery'
+      tags:
+      - wallets
+  /wallets/{wallet_address}/offers_received:
+    get:
+      deprecated: false
+      summary: Get offers received by a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IOfferV2'
+              example:
+              - pdaAddress: 7QsrcdcXBXqMAwrDkc4XBGBnub7TNaso2oVMDJK5Pbgm
+                tokenMint: 9oTf3TfpCiS9LppP8BuTJ8XQpeg1GHVHuHDRcgWkS38a
+                auctionHouse: ''
+                buyer: BSrs8zdg2VN6GGPpzT6Ss1o6jVGWUXtDXyrvfMbpgxy1
+                price: 3
+                tokenSize: 1
+                expiry: 0
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      - name: min_price
+        in: query
+        description: Filter offers that are less than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        description: Filter offers that are more than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: sort
+        in: query
+        description: The field to sort the offers received, default 'updatedAt'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/OfferReceivedSort'
+      - name: sort_direction
+        in: query
+        description: The direction returned elements should be sorted in, default 'desc'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/SortDirQuery'
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      tags:
+      - wallets
+  /wallets/{wallet_address}/tokens:
+    get:
+      deprecated: false
+      summary: Get tokens owned by a wallet.
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
+              example:
+              - mintAddress: HdcrPMF4kHKqy5V9JibNSoWLNpqnxQUBDEBeimZkLf7u
+                owner: EWmtsfBA8EikR3vvhsXgxn7cBQCUZfXJ7jMwXUpYRzXY
+                supply: 1
+                name: Scanning of Picasso
+                updateAuthority: 7YNKWyPW5iqu1QHqnQ5Csj9yWpEEnqAzLcuzudMMHqbk
+                primarySaleHappened: false
+                sellerFeeBasisPoints: 1250
+                image: https://www.arweave.net/c-5vOkt_YZZmlU8pjijlIYPFVZLDrm7jLAs918aFe-g?ext=JPG
+                attributes: []
+                properties:
+                  files:
+                  - uri: https://www.arweave.net/c-5vOkt_YZZmlU8pjijlIYPFVZLDrm7jLAs918aFe-g?ext=JPG
+                    type: image/jpeg
+                  category: image
+                  creators:
+                  - address: 7YNKWyPW5iqu1QHqnQ5Csj9yWpEEnqAzLcuzudMMHqbk
+                    verified: true
+                    share: 100
+                listStatus: listed
+        '400':
+          description: Wallet not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: wallet_address
+        in: path
+        description: wallet address.
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
+      - name: collection_symbol
+        in: query
+        description: Filter tokens that are part of this collection symbol, max length of 255 characters
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: mcc_address
+        in: query
+        description: Filter tokens that are part of this Metaplex Certified Collection address, max length of 48 characters
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: min_price
+        in: query
+        description: Filter listings that are less than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        description: Filter listings that are more than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: attributes
+        in: query
+        description: 'Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{"traitType":"trait1", "value":"value1"},{"traitType":"trait1", "value":"value2"}]] would return tokens that have "value1" OR "value2" for "trait1".'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/SwaggerNftAttributeSchema'
+      - name: listStatus
+        in: query
+        description: Determines what type of tokens to return, default both
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/ListStatus'
+      - name: sort
+        in: query
+        description: The field to sort the tokens, default 'updatedAt'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/ListingSortOptions'
+      - name: sort_direction
+        in: query
+        description: The direction returned elements should be sorted in, default 'desc'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/SortDirQuery'
+      tags:
+      - wallets
+components:
+  schemas:
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
+    SwaggerFriendlyITokenV2:
+      properties:
+        mintAddress:
+          type: string
+        owner:
+          type: string
+        supply:
+          type: number
+          format: double
+        delegate:
+          type: string
+        collection:
+          type: string
+        collectionName:
+          type: string
+        name:
+          type: string
+        updateAuthority:
+          type: string
+        primarySaleHappened:
+          type: boolean
+        sellerFeeBasisPoints:
+          type: number
+          format: double
+        image:
+          type: string
+        tokenStandard:
+          $ref: '#/components/schemas/TokenStandard'
+        animationUrl:
+          type: string
+        externalUrl:
+          type: string
+        attributes:
+          items:
+            $ref: '#/components/schemas/IAttributeV2'
+          type: array
+        properties:
+          $ref: '#/components/schemas/IPropertiesV2'
+        listStatus:
+          type: string
+          enum:
+          - listed
+          - unlisted
+        price:
+          type: number
+          format: double
+        tokenAddress:
+          type: string
+        isCompressed:
+          type: boolean
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - mintAddress
+      - owner
+      - supply
+      - name
+      - updateAuthority
+      - primarySaleHappened
+      - sellerFeeBasisPoints
+      - image
+      type: object
+      additionalProperties: false
+    ListingSortOptions:
+      type: string
+      enum:
+      - updatedAt
+      - listPrice
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
+      type: object
+      additionalProperties: false
+    ListStatus:
+      type: string
+      enum:
+      - listed
+      - unlisted
+      - both
+    SwaggerFriendlyPriceInfo:
+      properties:
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+      required:
+      - solPrice
+      type: object
+      additionalProperties: false
+    SwaggerNftAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
+          type: string
+      required:
+      - traitType
+      - value
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyIActivityV2:
+      properties:
+        type:
+          type: string
+        collection:
+          type: string
+          deprecated: true
+        image:
+          type: string
+        price:
+          type: number
+          format: double
+        tokenMint:
+          type: string
+        seller:
+          type: string
+          nullable: true
+        sellerReferral:
+          type: string
+        signature:
+          type: string
+        source:
+          type: string
+        collectionSymbol:
+          type: string
+        slot:
+          type: number
+          format: double
+        blockTime:
+          type: number
+          format: double
+        buyer:
+          type: string
+          nullable: true
+        buyerReferral:
+          type: string
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - type
+      - price
+      - signature
+      - source
+      - slot
+      - blockTime
+      type: object
+      additionalProperties: false
+    SwaggerNftAttributeSchema:
+      items:
+        items:
+          $ref: '#/components/schemas/SwaggerNftAttribute'
+        type: array
+      type: array
+    OfferReceivedSort:
+      type: string
+      enum:
+      - updatedAt
+      - bidAmount
+    IOfferV2:
+      properties:
+        pdaAddress:
+          type: string
+        tokenMint:
+          type: string
+        auctionHouse:
+          type: string
+        buyer:
+          type: string
+        buyerReferral:
+          type: string
+        tokenSize:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        expiry:
+          type: number
+          format: double
+      required:
+      - pdaAddress
+      - tokenMint
+      - auctionHouse
+      - buyer
+      - tokenSize
+      - price
+      - expiry
+      type: object
+      additionalProperties: false
+    IPropertiesV2File:
+      properties:
+        uri:
+          type: string
+        type:
+          type: string
+        cdn:
+          type: boolean
+      required:
+      - uri
+      - type
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyTokenAmount:
+      properties:
+        rawAmount:
+          type: string
+        address:
+          type: string
+          description: The identifier of the amount.
+        decimals:
+          type: number
+          format: double
+          description: The number of decimals in the amount.
+      required:
+      - rawAmount
+      - address
+      - decimals
+      type: object
+      additionalProperties: false
+    IAttributeV2:
+      properties:
+        trait_type:
+          type: string
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
+    IWalletOwnerInfo:
+      properties:
+        walletAddress:
+          type: string
+        displayName:
+          type: string
+        avatar:
+          type: string
+        bio:
+          type: string
+      required:
+      - walletAddress
+      type: object
+      additionalProperties: false
+    Partial_ICreatorV2_:
+      properties:
+        address:
+          type: string
+        verified:
+          type: boolean
+        share:
+          type: number
+          format: double
+      type: object
+      description: Make all properties in T optional
+    EscrowBalance:
+      properties:
+        buyerEscrow:
+          type: string
+        balance:
+          type: number
+          format: double
+      required:
+      - buyerEscrow
+      - balance
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

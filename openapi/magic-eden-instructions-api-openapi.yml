@@ -1,0 +1,1534 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity instructions API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: instructions
+  description: Get instructions for the blockchain
+paths:
+  /instructions/buy:
+    get:
+      deprecated: false
+      summary: Get instruction to buy (bid)
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 will default to 7 days.
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/buy_cancel:
+    get:
+      deprecated: false
+      summary: Get instruction to cancel a buy
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/buy_change_price:
+    get:
+      deprecated: false
+      summary: Get instruction to change a buy price
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Old price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: newPrice
+        in: query
+        description: New price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/buy_now:
+    get:
+      deprecated: false
+      summary: Get instruction to buy now
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenATA
+        in: query
+        description: Associate Token Account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: buyerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerCreatorRoyaltyPercent
+        in: query
+        description: buyerCreatorRoyaltyPercent, integer 0-100
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: splPrice
+        in: query
+        description: SPL token price information (JSON string)
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      tags:
+      - instructions
+  /instructions/buy_now_transfer_nft:
+    get:
+      deprecated: false
+      summary: Get instruction to buy now and transfer nft to another owner
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenATA
+        in: query
+        description: Associate Token Account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: destinationATA
+        in: query
+        description: Associated token account to send bought NFT to
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: destinationOwner
+        in: query
+        description: Owner of token account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: createATA
+        in: query
+        description: whether to include create ATA instructions
+        required: true
+        deprecated: false
+        schema:
+          type: boolean
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: buyerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerCreatorRoyaltyPercent
+        in: query
+        description: buyerCreatorRoyaltyPercent, integer 0-100
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/deposit:
+    get:
+      deprecated: false
+      summary: Get instruction to deposit to escrow
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: amount
+        in: query
+        description: Amount in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/sell:
+    get:
+      deprecated: false
+      summary: Get instruction to sell (list)
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenAccount
+        in: query
+        description: Token account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/sell_cancel:
+    get:
+      deprecated: false
+      summary: Get instruction to cancel a sell
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenAccount
+        in: query
+        description: Token account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/sell_change_price:
+    get:
+      deprecated: false
+      summary: Get instruction to change a sell price
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenAccount
+        in: query
+        description: Token account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: newPrice
+        in: query
+        description: New price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: expiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/sell_now:
+    get:
+      deprecated: false
+      summary: Get instruction to sell now (accept offer)
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: seller
+        in: query
+        description: Seller wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenMint
+        in: query
+        description: Token mint address
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: tokenATA
+        in: query
+        description: Associate token account
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: newPrice
+        in: query
+        description: New price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: sellerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyerReferral
+        in: query
+        description: Buyer referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: sellerReferral
+        in: query
+        description: Seller referral wallet
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: buyerExpiry
+        in: query
+        description: timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/withdraw:
+    get:
+      deprecated: false
+      summary: Get instruction to withdraw from escrow
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: buyer
+        in: query
+        description: Buyer wallet
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: auctionHouseAddress
+        in: query
+        description: Auction house Address. If not provided, will use default auction house.
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: amount
+        in: query
+        description: Amount in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: prioFeeMicroLamports
+        in: query
+        description: Priority fee in microlamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPrioFeeLamports
+        in: query
+        description: Maximum priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: exactPrioFeeLamports
+        in: query
+        description: Exact priority fee in lamports
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/magic_ticket/burns:
+    get:
+      deprecated: false
+      summary: Construct and return burn txs for given mint addresses
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: walletAddress
+        in: query
+        description: Wallet address that owns the tickets
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: mintAddresses
+        in: query
+        description: Comma-separated list of mint addresses to burn
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      tags:
+      - instructions
+  /instructions/mmm/create-pool:
+    get:
+      deprecated: false
+      summary: Get instruction to create a pool
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: spotPrice
+        in: query
+        description: Pool initial spot price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: curveType
+        in: query
+        description: Type curve, either 'linear' or 'exp'
+        required: true
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/MMM.CurveKindString'
+      - name: curveDelta
+        in: query
+        description: Curve delta used to change price after a fill
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: reinvestBuy
+        in: query
+        description: Whether to reinvest bought asset or transfer directly to owner
+        required: true
+        deprecated: false
+        schema:
+          type: boolean
+      - name: reinvestSell
+        in: query
+        description: Whether to reinvest payment from sale or transfer directly to owner
+        required: true
+        deprecated: false
+        schema:
+          type: boolean
+      - name: expiry
+        in: query
+        description: Timestamp in seconds in the future, 0 means no expiry
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: lpFeeBp
+        in: query
+        description: Requested liquidity provider fee in basis points
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buysideCreatorRoyaltyBp
+        in: query
+        description: Amount of creator royalty the pool should pay in basis points
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: paymentMint
+        in: query
+        description: Mint address of payment (default for SOL)
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: collectionSymbol
+        in: query
+        description: Collection symbol for which the pool will be valid
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: owner
+        in: query
+        description: Owner of the pool
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: solDeposit
+        in: query
+        description: Optional sol amount to deposit with pool creation
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: sharedEscrowCount
+        in: query
+        description: Number of pools (bids) that will share the escrow account
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/sol-close-pool:
+    get:
+      deprecated: false
+      summary: Get instruction to close a pool after all assets and payment have been withdrawn
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to close
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/sol-deposit-buy:
+    get:
+      deprecated: false
+      summary: Get instruction to deposit SOL into a pool for buying
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to deposit into
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: solAmount
+        in: query
+        description: The amount of SOL to deposit
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/sol-fulfill-buy:
+    get:
+      deprecated: false
+      summary: Get instruction to have a pool fulfill a buy
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to interact with
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: assetAmount
+        in: query
+        description: Amount of asset to transact
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: minPaymentAmount
+        in: query
+        description: Minimum payment amount acceptible by the seller, in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: seller
+        in: query
+        description: Public key of seller of asset
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: assetMint
+        in: query
+        description: Public key of mint account of asset
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: assetTokenAccount
+        in: query
+        description: Public key of token account of asset
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: allowlistAuxAccount
+        in: query
+        description: The allowlist aux account used for token authentication
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: skipDelist
+        in: query
+        description: Whether to skip trying to delist the NFT if it is detected to be listed
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/sol-fulfill-sell:
+    get:
+      deprecated: false
+      summary: Get instruction to have a pool fulfill a sell
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to interact with
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: assetAmount
+        in: query
+        description: Amount of asset to transact
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: maxPaymentAmount
+        in: query
+        description: Maximum payment amount to be paid by the buyer, in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buysideCreatorRoyaltyBp
+        in: query
+        description: Amount of royalty to be paid, in basis points of total royalty
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buyer
+        in: query
+        description: Public key of buyer of asset
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: assetMint
+        in: query
+        description: Public key of mint account of asset
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: allowlistAuxAccount
+        in: query
+        description: The allowlist aux account used for token authentication
+        required: false
+        deprecated: false
+        schema:
+          type: string
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/sol-withdraw-buy:
+    get:
+      deprecated: false
+      summary: Get instruction to withdraw SOL from a pool
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to withdraw from
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: solAmount
+        in: query
+        description: The amount of SOL to withdraw
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+  /instructions/mmm/update-pool:
+    get:
+      deprecated: false
+      summary: Get instruction to update an existing pool
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+      parameters:
+      - name: pool
+        in: query
+        description: Public key of pool to modify
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: spotPrice
+        in: query
+        description: Pool initial spot price in SOL
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: curveType
+        in: query
+        description: Type curve, either 'linear' or 'exp'
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: curveDelta
+        in: query
+        description: Curve delta used to change price after a fill
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: reinvestBuy
+        in: query
+        description: Whether to reinvest bought asset or transfer directly to owner (this value must remain unchanged from when the pool was created)
+        required: true
+        deprecated: false
+        schema:
+          type: boolean
+      - name: reinvestSell
+        in: query
+        description: Whether to reinvest payment from sale or transfer directly to owner (this value must remain unchanged from when the pool was created)
+        required: true
+        deprecated: false
+        schema:
+          type: boolean
+      - name: expiry
+        in: query
+        description: Timestamp in seconds in the future, 0 means no expiry
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: lpFeeBp
+        in: query
+        description: Requested liquidity provider fee in basis points
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: buysideCreatorRoyaltyBp
+        in: query
+        description: Amount of creator royalty the pool should pay in basis points
+        required: true
+        deprecated: false
+        schema:
+          type: number
+      - name: priorityFee
+        in: query
+        description: Priority fee (in microlamports) to reprioritize the transaction against others
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: sharedEscrowCount
+        in: query
+        description: Number of pools (bids) that will share the escrow account
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      tags:
+      - instructions
+components:
+  schemas:
+    Transaction:
+      properties:
+        tx:
+          $ref: '#/components/schemas/IBuffer'
+        txSigned:
+          $ref: '#/components/schemas/IBuffer'
+      required:
+      - tx
+      type: object
+      additionalProperties: false
+    MMM.CurveKindString:
+      type: string
+      enum:
+      - linear
+      - exp
+      - xyk
+    IBuffer:
+      properties:
+        type:
+          type: string
+          enum:
+          - Buffer
+          nullable: false
+        data:
+          items:
+            type: number
+            format: double
+          type: array
+      required:
+      - type
+      - data
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

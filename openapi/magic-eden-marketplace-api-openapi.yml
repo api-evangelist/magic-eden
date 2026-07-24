@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity marketplace API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: marketplace
+  description: Get information about Magic Eden's marketplace!
+paths:
+  /marketplace/popular_collections:
+    get:
+      deprecated: false
+      summary: Get the top popular collections for a time range
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ICollectionV2'
+      parameters:
+      - name: timeRange
+        in: query
+        description: The time range to return popular collections for. Default 1d.
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/PopularCollectionsTimeRanges'
+      tags:
+      - marketplace
+components:
+  schemas:
+    IFloorPriceInfo:
+      properties:
+        floorPrice:
+          type: number
+          format: double
+        floorListedNftType:
+          $ref: '#/components/schemas/ListedNftType'
+      required:
+      - floorPrice
+      - floorListedNftType
+      type: object
+      additionalProperties: false
+    PopularCollectionsTimeRanges:
+      type: string
+      enum:
+      - 1h
+      - 1d
+      - 7d
+      - 30d
+    ListedNftType:
+      type: string
+      enum:
+      - M2
+      - MMM
+      - TENSOR_LISTING
+      - TENSOR_CNFT_LISTING
+      - TENSOR_MARKETPLACE_LISTING
+      - TENSOR_AMM
+      - TENSOR_AMM_V2
+      - HADESWAP_AMM
+      - M3
+    ICollectionV2:
+      properties:
+        symbol:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        twitter:
+          type: string
+        discord:
+          type: string
+        website:
+          type: string
+        isFlagged:
+          type: boolean
+        flagMessage:
+          type: string
+        categories:
+          items:
+            type: string
+            nullable: true
+          type: array
+        floorPrice:
+          type: number
+          format: double
+        listedCount:
+          type: number
+          format: double
+        avgPrice24hr:
+          type: number
+          format: double
+        volumeAll:
+          type: number
+          format: double
+        isBadged:
+          type: boolean
+        hasCNFTs:
+          type: boolean
+        isOcp:
+          type: boolean
+        splTokens:
+          items:
+            type: string
+          type: array
+        floorPriceWithFee:
+          $ref: '#/components/schemas/IFloorPriceInfo'
+      required:
+      - symbol
+      - name
+      - description
+      - image
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

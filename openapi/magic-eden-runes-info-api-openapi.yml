@@ -1,0 +1,626 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Runes Info API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Runes Info
+paths:
+  /v2/ord/btc/runes/activities/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get activities for a specific rune
+      description: Get activities for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: The rune symbol for which activities are fetched.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      - name: offset
+        in: query
+        description: Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 5000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 5000
+          multipleOf: 100
+      responses:
+        '200':
+          description: Successful response with an array of activity records for the specified rune.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRuneActivitiesResultSchema'
+  /v2/ord/btc/runes/collection_stats/search:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune collection stats
+      description: Get Rune collection stats
+      parameters:
+      - name: window
+        in: query
+        description: Time window for which statistics are aggregated.
+        required: true
+        schema:
+          type: string
+          enum:
+          - 10m
+          - 1h
+          - 6h
+          - 1d
+          - 7d
+          - 30d
+          default: 1d
+      - name: limit
+        in: query
+        description: Limit the number of results returned. Default is 20, maximum is 2000.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2000
+      - name: offset
+        in: query
+        description: Pagination offset for results.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 15000
+      - name: sort
+        in: query
+        description: Column to sort the results by.
+        required: true
+        schema:
+          type: string
+          enum:
+          - volume
+          - volumePercentageChange
+          - totalVolume
+          - sales
+          - salesPercentageChange
+          - totalSales
+          - floorPrice
+          - floorPricePercentageChange
+          - topOffer
+          - listedOverSupply
+          - ownerPercentage
+          - pending
+          - marketCap
+          - ownerCount
+          - listedCount
+          default: floorPrice
+      - name: direction
+        in: query
+        description: Direction of the sort ('asc' for ascending, 'desc' for descending).
+        required: true
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      - name: walletAddress
+        in: query
+        description: Filter results by a specific wallet address.
+        required: false
+        schema:
+          type: string
+      - name: searchTerm
+        in: query
+        description: Filter collections by a search term.
+        required: false
+        schema:
+          type: string
+          maxLength: 100
+      - name: allCollections
+        in: query
+        description: Include all collections in the results, regardless of activity.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response with collection statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCollectionStatsRuneResultSchema'
+  /v2/ord/btc/runes/market/{rune}/info:
+    get:
+      tags:
+      - Runes Info
+      summary: Get rune market info
+      description: Get market market info for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: Rune symbol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesMarketInfoResultSchema'
+  /v2/ord/btc/runes/orders/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get orders for a specific rune
+      description: Get orders for a specific rune
+      parameters:
+      - name: rune
+        in: path
+        description: The rune symbol for which orders are requested.
+        required: true
+        schema:
+          type: string
+      - name: side
+        in: query
+        description: Filter by order side, currently only 'sell' orders are supported.
+        required: true
+        schema:
+          type: string
+          enum:
+          - sell
+      - name: sort
+        in: query
+        description: Sorting order of the results. Default is 'unitPriceAsc'.
+        required: false
+        schema:
+          type: string
+          enum:
+          - unitPriceAsc
+          - unitPriceDesc
+          - totalPriceAsc
+          - totalPriceDesc
+      - name: offset
+        in: query
+        description: Pagination offset for the results. Default is 0, and increments of 100 are supported up to 2000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 2000
+          multipleOf: 100
+      - name: includePending
+        in: query
+        description: Whether to include pending orders in the results. Default is false.
+        required: false
+        schema:
+          type: boolean
+      - name: rbfPreventionListingOnly
+        in: query
+        description: Whether to only include RBF protected rune orders. Default is false.
+        required: false
+        schema:
+          type: boolean
+      - name: queryIssuerAddress
+        in: query
+        description: When "rbfPreventionListingOnly == true", filter the rune orders can be bought with RBF protection
+        required: false
+        schema:
+          type: string
+          pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+      responses:
+        '200':
+          description: Successful response with an array of orders for the specified rune.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesOrderInfoResultSchema'
+  /v2/ord/btc/runes/utxos/wallet/{address}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get rune utxos by wallet address
+      description: Get rune utxos by wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The Bitcoin address to fetch Rune UTXOs for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: rune
+        in: query
+        description: Filter UTXOs by rune symbol.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      - name: sort
+        in: query
+        description: Sorting order of the UTXOs based on their balance. Defaults to 'balanceAsc'.
+        required: false
+        schema:
+          type: string
+          enum:
+          - balanceDesc
+          - balanceAsc
+      - name: includeListed
+        in: query
+        description: Whether to include UTXOs that are currently listed in the marketplace. Defaults to false.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response with an array of UTXOs for the specified address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRunesUtxoByWalletResultSchema'
+  /v2/ord/btc/runes/wallet/activities/{address}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune activities for a specific wallet address
+      description: Get Rune activities for a specific wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The wallet address to fetch Rune activities for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: offset
+        in: query
+        description: Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 10,000.
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 10000
+          multipleOf: 100
+      responses:
+        '200':
+          description: Successful response with an array of Rune activities for the specified wallet address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRuneActivitiesByAddressResultSchema'
+  /v2/ord/btc/runes/wallet/balances/{address}/{rune}:
+    get:
+      tags:
+      - Runes Info
+      summary: Get Rune balances by wallet address
+      description: Get Rune balances by wallet address
+      parameters:
+      - name: address
+        in: path
+        description: The wallet address to fetch Rune balances for.
+        required: true
+        schema:
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+      - name: rune
+        in: path
+        description: The specific Rune symbol whose balance is being queried.
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{1,26}$
+      responses:
+        '200':
+          description: Successful response with the balance details of the specified Rune for the given address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBalanceByAddressAndRuneResultSchema'
+components:
+  schemas:
+    RuneEtchingSchema:
+      type: object
+      properties:
+        details:
+          type: string
+    GetBalanceByAddressAndRuneResultSchema:
+      type: object
+      properties:
+        balance:
+          type: string
+          description: The raw balance of the Rune, typically in its smallest unit.
+        formattedBalance:
+          type: string
+          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
+        ticker:
+          type: string
+          description: The symbol of the Rune whose balance is represented.
+          pattern: ^[A-Z]{1,26}$
+    GetRuneActivitiesByAddressResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    RuneStatsSchema:
+      type: object
+      properties:
+        rune:
+          type: string
+        etching:
+          $ref: '#/components/schemas/RuneEtchingSchema'
+        vol:
+          type: number
+          nullable: true
+        totalVol:
+          type: number
+          nullable: true
+        unitPriceSats:
+          type: number
+          nullable: true
+        formattedUnitPriceSats:
+          type: string
+          nullable: true
+        txnCount:
+          type: number
+          nullable: true
+        imageURI:
+          type: string
+          nullable: true
+        unitPriceChange:
+          type: number
+          nullable: true
+        holderCount:
+          type: number
+          nullable: true
+        pendingCount:
+          type: number
+          nullable: true
+    GetRuneActivitiesResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    GetRunesUtxoByWalletResultSchema:
+      type: object
+      properties:
+        utxos:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneUtxoSchema'
+    RuneActivitySchema:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+        oldOwner:
+          type: string
+          nullable: true
+        newOwner:
+          type: string
+          nullable: true
+        rune:
+          type: string
+        amount:
+          type: string
+          nullable: true
+        txValue:
+          type: string
+          nullable: true
+        txId:
+          type: string
+          nullable: true
+        txBlockTime:
+          type: string
+          format: date-time
+          nullable: true
+        txBlockHeight:
+          type: integer
+          nullable: true
+        txBlockHash:
+          type: string
+          nullable: true
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        listedPrice:
+          type: string
+          nullable: true
+        listedMakerFeeBp:
+          type: integer
+          nullable: true
+        listedTakerFeeBp:
+          type: integer
+          nullable: true
+        btcUsdPrice:
+          type: string
+          nullable: true
+        sellerPaymentReceiverAddress:
+          type: string
+          nullable: true
+        buyerPaymentAddress:
+          type: string
+          nullable: true
+    GetRunesOrderInfoResultSchema:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/ISafeApiRuneOrderSchema'
+    ISafeApiRuneOrderSchema:
+      type: object
+      properties:
+        amount:
+          type: number
+        formattedAmount:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+        rune:
+          type: string
+        mempoolTxId:
+          type: string
+          nullable: true
+        maker:
+          type: string
+        makerReceiveAddress:
+          type: string
+        makerFeeBps:
+          type: number
+        price:
+          type: number
+        side:
+          type: string
+        status:
+          type: string
+        unitPrice:
+          type: number
+        formattedUnitPrice:
+          type: string
+    RuneUtxoSchema:
+      type: object
+      properties:
+        location:
+          type: string
+        address:
+          type: string
+          nullable: true
+        rune:
+          type: string
+        balance:
+          type: number
+        formattedBalance:
+          type: string
+        spent:
+          type: boolean
+        pure:
+          type: boolean
+        containsInscription:
+          type: boolean
+          nullable: true
+        costSats:
+          type: number
+          nullable: true
+        listing:
+          type: object
+          nullable: true
+          properties:
+            orderId:
+              type: string
+              format: uuid
+            totalPriceSats:
+              type: number
+            unitPriceSats:
+              type: number
+            formattedUnitPriceSats:
+              type: string
+            expiresAt:
+              type: string
+              format: date-time
+    GetCollectionStatsRuneResultSchema:
+      type: object
+      properties:
+        runes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneStatsSchema'
+    GetRunesMarketInfoResultSchema:
+      type: object
+      properties:
+        rune:
+          type: string
+        ticker:
+          type: string
+        totalSupply:
+          type: string
+        formattedTotalSupply:
+          type: string
+        divisibility:
+          type: integer
+        imageURI:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        coinMarketCapLink:
+          type: string
+          nullable: true
+        discordLink:
+          type: string
+          nullable: true
+        telegramLink:
+          type: string
+          nullable: true
+        twitterLink:
+          type: string
+          nullable: true
+        minOrderSize:
+          type: integer
+          nullable: true
+        maxOrderSize:
+          type: integer
+          nullable: true
+        pendingTxnCount:
+          type: integer
+          nullable: true
+        floorUnitPrice:
+          type: object
+          properties:
+            formatted:
+              type: string
+            value:
+              type: string
+          nullable: true
+        marketCap:
+          type: integer
+          nullable: true
+        volume:
+          type: object
+          properties:
+            24h:
+              type: integer
+              nullable: true
+            7d:
+              type: integer
+              nullable: true
+            30d:
+              type: integer
+              nullable: true
+      nullable: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,616 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Orders API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Orders
+paths:
+  /orders/asks:
+    get:
+      summary: Asks (listings)
+      operationId: getAsks
+      description: Use this API to search asks
+      parameters:
+      - name: chain
+        schema:
+          $ref: '#/components/schemas/chainEnum'
+        required: true
+        in: query
+      - name: ids[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        in: query
+        explode: true
+        required: true
+        description: Direct fetch asks by ids, other filters will be ignored if `ids` is provided. Either `ids` and `collectionId` must be provided
+      - name: collectionId
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided'
+      - name: assetIds[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        explode: true
+        required: false
+        in: query
+        description: 'Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`'
+      - name: makers[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        explode: true
+        required: false
+        in: query
+        description: 'Filter by makers who made these asks. example: `0x47d88afbba889709abba07339ed1c88079944ca3`'
+      - name: sources[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/filterOrderSourceEnum'
+          maxItems: 5
+        explode: true
+        required: false
+        in: query
+        description: Filter by order source.
+      - name: status[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/orderStatusEnum'
+          maxItems: 5
+        explode: true
+        required: false
+        in: query
+        description: Filter by order status. default `active`
+      - name: createAfter
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`.'
+      - name: updateAfter
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`.'
+      - name: sortBy
+        schema:
+          type: string
+          enum:
+          - price
+          - createdAt
+          - updatedAt
+          default: price
+        required: false
+        in: query
+      - name: sortDir
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+        required: false
+        in: query
+      - name: limit
+        schema:
+          type: number
+          default: 20
+          minimum: 1
+          maximum: 100
+        required: false
+        in: query
+        description: Amount of items returned, default to __20__
+      - name: continuation
+        schema:
+          type: string
+        required: false
+        in: query
+        description: Use continuation token to request next offset of items.
+      tags:
+      - Orders
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/getAsksResponse'
+      x-order: 5
+  /orders/bids:
+    get:
+      summary: Bids (offers)
+      operationId: getBids
+      description: Use this API to search bids
+      parameters:
+      - name: chain
+        schema:
+          $ref: '#/components/schemas/chainEnum'
+        required: true
+        in: query
+      - name: ids[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        in: query
+        explode: true
+        required: true
+        description: Direct fetch bids by ids, other filters will be ignored if `ids` is provided. Either `ids` and `bidTypes[] + collectionId` must be provided
+      - name: bidTypes[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/bidTypeEnum'
+        explode: true
+        required: true
+        in: query
+        description: Filter by bid types
+      - name: collectionId
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided'
+      - name: assetIds[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        explode: true
+        required: false
+        in: query
+        description: 'Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`'
+      - name: attributes[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        explode: true
+        required: false
+        in: query
+        description: 'Filter by attributes, could be a list, format as `<attribute_name>:<attribute_value>`, example: `Background:Black`'
+      - name: makers[]
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 40
+        explode: true
+        required: false
+        in: query
+        description: 'Filter by makers who made these bids. example: `0x47d88afbba889709abba07339ed1c88079944ca3`'
+      - name: sources[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/filterOrderSourceEnum'
+          maxItems: 5
+        explode: true
+        required: false
+        in: query
+        description: Filter by order source.
+      - name: status[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/orderStatusEnum'
+          maxItems: 5
+        explode: true
+        required: false
+        in: query
+        description: Filter by order status. default `active`
+      - name: createAfter
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`.'
+      - name: updateAfter
+        schema:
+          type: string
+        explode: true
+        required: true
+        in: query
+        description: 'Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`.'
+      - name: sortBy
+        schema:
+          type: string
+          enum:
+          - price
+          - createdAt
+          - updatedAt
+          default: price
+        required: false
+        in: query
+      - name: sortDir
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+        required: false
+        in: query
+      - name: limit
+        schema:
+          type: number
+          default: 20
+          minimum: 1
+          maximum: 100
+        required: false
+        in: query
+        description: Amount of items returned, default to __20__
+      - name: continuation
+        schema:
+          type: string
+        required: false
+        in: query
+        description: Use continuation token to request next offset of items.
+      tags:
+      - Orders
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/getBidsResponse'
+      x-order: 6
+components:
+  schemas:
+    orderContractKind:
+      type: string
+    evmCollectionBid:
+      allOf:
+      - $ref: '#/components/schemas/baseCollectionBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    orderExpiry:
+      type: object
+      properties:
+        validFrom:
+          type: string
+        validUntil:
+          type: string
+      required:
+      - validUntil
+    chainEnum:
+      type: string
+      enum:
+      - ethereum
+      - abstract
+      - apechain
+      - arbitrum
+      - base
+      - berachain
+      - bsc
+      - polygon
+      - sei
+      - avalanche
+      - monad
+    evmAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseAssetBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    bidTypeEnum:
+      type: string
+      enum:
+      - ASSET
+      - COLLECTION
+      - ATTRIBUTE
+    bidAttributeCriteria:
+      type: object
+      properties:
+        collectionId:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/assetAttribute'
+          minItems: 1
+      required:
+      - collectionId
+      - attributes
+    orderSourceEnum:
+      type: string
+      enum:
+      - MAGICEDEN
+      - OPENSEA
+      - IXS_SERVICE
+    filterOrderSourceEnum:
+      type: string
+      enum:
+      - any
+      - opensea.io
+      - magiceden
+    evmAttributeBid:
+      allOf:
+      - $ref: '#/components/schemas/baseAttributeBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    baseCollectionBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidCollectionCriteria'
+      required:
+      - kind
+    evmBid:
+      oneOf:
+      - $ref: '#/components/schemas/evmAssetBid'
+      - $ref: '#/components/schemas/evmCollectionBid'
+      - $ref: '#/components/schemas/evmAttributeBid'
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/bidTypeEnum'
+      required:
+      - type
+    baseAssetAsk:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        assetId:
+          type: string
+      required:
+      - assetId
+    bidCollectionCriteria:
+      type: object
+      properties:
+        collectionId:
+          type: string
+      required:
+      - collectionId
+    evmAssetAsk:
+      allOf:
+      - $ref: '#/components/schemas/baseAssetAsk'
+      - $ref: '#/components/schemas/evmChainCommon'
+    baseAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAssetCriteria'
+      required:
+      - kind
+    baseOrder:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        status:
+          $ref: '#/components/schemas/orderStatusEnum'
+        maker:
+          type: string
+        price:
+          $ref: '#/components/schemas/tokenPrice'
+        quantity:
+          $ref: '#/components/schemas/orderQuantity'
+        expiry:
+          $ref: '#/components/schemas/orderExpiry'
+        source:
+          $ref: '#/components/schemas/orderSourceEnum'
+        fees:
+          $ref: '#/components/schemas/orderFee'
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+      - id
+      - kind
+      - status
+      - maker
+      - price
+      - quantity
+      - source
+      - fees
+      - createdAt
+    assetAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+          - type: string
+          - type: number
+      required:
+      - name
+      - value
+    orderQuantity:
+      type: object
+      properties:
+        filled:
+          type: string
+        remaining:
+          type: string
+      required:
+      - filled
+      - remaining
+    evmProtocolTypeEnum:
+      type: string
+      enum:
+      - ERC721
+      - ERC1155
+    tokenPrice:
+      type: object
+      properties:
+        amount:
+          type: object
+          properties:
+            raw:
+              type: string
+            native:
+              type: string
+            fiat:
+              type: object
+              properties:
+                usd:
+                  type: string
+          required:
+          - raw
+        currency:
+          type: object
+          properties:
+            contract:
+              type: string
+            symbol:
+              type: string
+            decimals:
+              type: number
+              minimum: 0
+            displayName:
+              type: string
+            fiatConversion:
+              type: object
+              properties:
+                usd:
+                  type: number
+          required:
+          - contract
+          - symbol
+          - decimals
+          - displayName
+      required:
+      - amount
+      - currency
+    bidAssetCriteria:
+      type: object
+      properties:
+        assetId:
+          type: string
+      required:
+      - assetId
+    getAsksResponse:
+      type: object
+      properties:
+        asks:
+          type: array
+          items:
+            $ref: '#/components/schemas/evmAssetAsk'
+        continuation:
+          type: string
+          description: used to get next offset of items
+      required:
+      - asks
+    evmChainCommon:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        protocol:
+          $ref: '#/components/schemas/evmProtocolTypeEnum'
+        contract:
+          type: string
+        contractData:
+          type: object
+          properties:
+            orderContractKind:
+              $ref: '#/components/schemas/orderContractKind'
+          required:
+          - orderContractKind
+      required:
+      - chain
+      - protocol
+      - contract
+      - contractData
+    getBidsResponse:
+      type: object
+      properties:
+        bids:
+          type: array
+          items:
+            $ref: '#/components/schemas/evmBid'
+        continuation:
+          type: string
+          description: used to get next offset of items
+      required:
+      - bids
+    orderFee:
+      type: object
+      properties:
+        royaltyBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        makerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        takerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        lpFeeBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+      required:
+      - royaltyBp
+      - makerMarketplaceBp
+      - takerMarketplaceBp
+      - lpFeeBp
+    orderStatusEnum:
+      type: string
+      enum:
+      - active
+      - inactive
+      - expired
+      - filled
+      - cancelled
+    baseAttributeBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAttributeCriteria'
+      required:
+      - kind
+    orderKindEnum:
+      type: string
+      enum:
+      - ASK
+      - BID
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

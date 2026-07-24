@@ -1,0 +1,777 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Ixs API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Ixs
+paths:
+  /ixs/bid/get:
+    post:
+      summary: Create Bids (Get Signing Data)
+      operationId: ixsBidGet
+      description: Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsBidGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsBidGetResponse'
+      x-order: 10
+  /ixs/bid:
+    post:
+      summary: Create Bids (Creation)
+      operationId: ixsBidPost
+      description: Generate bids. This API is used to create bids with signature provided
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsBidPostRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsBidPostResponse'
+      x-order: 11
+  /ixs/bulk-transfer/get:
+    post:
+      summary: Bulk Transfer
+      operationId: ixsBulkTransferGet
+      description: Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsBulkTransferGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsBulkTransferGetResponse'
+      x-order: 14
+  /ixs/buy/get:
+    post:
+      summary: Buy Assets
+      operationId: ixsBuyGet
+      description: Buy assets(tokens). This API is used to generate transaction data to buy assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsBuyGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsBuyGetResponse'
+      x-order: 15
+  /ixs/cancel-order/get:
+    post:
+      summary: Cancel Orders (Get Signing Data)
+      operationId: ixsCancelOrderGet
+      description: Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsCancelOrderGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsCancelOrderGetResponse'
+      x-order: 12
+  /ixs/cancel-order:
+    post:
+      summary: Cancel Orders (Cancellation)
+      operationId: ixsCancelOrderPost
+      description: Cancel Orders. This API is used to cancel orders with signature provided
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsCancelOrderPostRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsCancelOrderPostResponse'
+      x-order: 13
+  /ixs/list/get:
+    post:
+      summary: Create Listings (Get Signing Data)
+      operationId: ixsListGet
+      description: Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsListGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsListGetResponse'
+      x-order: 8
+  /ixs/list:
+    post:
+      summary: Create Listings (Creation)
+      operationId: ixsListPost
+      description: Generate listings for assets (tokens). This API is used to create listings with signature provided
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsListPostRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsListPostResponse'
+      x-order: 9
+  /ixs/sell/get:
+    post:
+      summary: Sell Assets
+      operationId: ixsSellGet
+      description: Sell assets(tokens). This API is used to generate transaction data to sell assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ixsSellGetRequest'
+      tags:
+      - Ixs
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ixsSellGetResponse'
+      x-order: 16
+components:
+  schemas:
+    ixsListGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        contractApprovalsNeeded:
+          $ref: '#/components/schemas/ixsApprovals'
+          description: Contract approvals needed to be signed before listing. This is for delegating MagicEden to move user's assets when listings are fulfilled
+        dataToSignAndPostList:
+          type: array
+          items:
+            type: object
+            properties:
+              listingDataToSign:
+                $ref: '#/components/schemas/ixsEip712SignData'
+              postBody:
+                type: string
+                description: Base64 encoded data that need to be pass to creation API endpoint
+          description: Array of listing data to sign and post to listing creation API endpoint, you should call listing creation API endpoint for every item in this list with signed signature and post body
+      required:
+      - dataToSignAndPostList
+    ixsCancelOrderPostResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+    ixsListGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        maker:
+          type: string
+          example: '0x079e5e1ac85b04225edad793ecdd9b31a26fdacc'
+          description: listing maker, should be owner of these assets(tokens) that wish to be listed.
+        listings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsListing'
+          minItems: 1
+          maxItems: 10
+          description: listings to generate
+      required:
+      - chain
+      - maker
+      - listings
+    ixsBulkTransferGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        from:
+          type: string
+          description: from which address these assets will be transferred out
+        to:
+          type: string
+          description: to which address these assets will be transferred in
+        assets:
+          type: array
+          items:
+            type: object
+            properties:
+              assetId:
+                type: string
+              quantity:
+                type: number
+                minimum: 1
+            required:
+            - assetId
+            - quantity
+          minItems: 1
+          maxItems: 10
+          description: Assets to transfer
+      required:
+      - chain
+      - from
+      - to
+      - assets
+    ixsSellGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        taker:
+          type: string
+          example: '0x079e5e1ac85b04225edad793ecdd9b31a26fdacc'
+          description: Taker who wish to sell assets
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              assetId:
+                type: string
+              quantity:
+                type: number
+                minimum: 1
+            required:
+            - assetId
+            - quantity
+          minItems: 1
+          maxItems: 10
+          description: Assets to sell
+      required:
+      - chain
+      - taker
+      - items
+    ixsBuyGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        taker:
+          type: string
+          example: '0x079e5e1ac85b04225edad793ecdd9b31a26fdacc'
+          description: Taker who wish to buy assets
+        currency:
+          type: string
+          example: '0x0000000000000000000000000000000000000000'
+          description: Listing currency which this taker wants to buy
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              assetId:
+                type: string
+              quantity:
+                type: number
+                minimum: 1
+            required:
+            - assetId
+            - quantity
+          minItems: 1
+          maxItems: 10
+          description: Assets to buy
+      required:
+      - chain
+      - taker
+      - assets
+    ixsBidGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsBidGetSuccessResponse'
+    ixsListPostRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        postBody:
+          type: string
+          description: Base64-encoded string stands for post body, which should come from signing data generation API endpoint
+        signature:
+          type: string
+          description: Hex-ed string stands for signaure, which should come from signing data generation API endpoint
+      required:
+      - chain
+      - postBody
+      - signature
+    ixsCancelOrderGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        maker:
+          type: string
+          description: order maker, only support batch cancellation under one maker
+        orderIds:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 100
+          description: Order ids to cancel
+      required:
+      - chain
+      - orderIds
+      - maker
+    ixsEip712SignData:
+      type: object
+      description: Standard EIP-712 signature data for signing and generate signature, once signature is generated, signer usually should pass signature along with `postBody` to another API endpoint
+      properties:
+        signatureKind:
+          type: string
+        domain:
+          $ref: '#/components/schemas/ixsEip712Domain'
+        types: {}
+        value: {}
+        primaryType:
+          type: string
+      required:
+      - name
+      - version
+      - chainId
+      - verifyingContract
+    chainEnum:
+      type: string
+      enum:
+      - ethereum
+      - abstract
+      - apechain
+      - arbitrum
+      - base
+      - berachain
+      - bsc
+      - polygon
+      - sei
+      - avalanche
+      - monad
+    ixsOffer:
+      type: object
+      properties:
+        quantity:
+          type: number
+          description: Bid quantity
+          minimum: 1
+        unitPrice:
+          $ref: '#/components/schemas/ixsUnitPrice'
+          description: Unit price per quantity
+        expirationInSeconds:
+          type: number
+          description: 'Expiration time (in seconds). Min: 15 minutes, Max: 1 year'
+          minimum: 900
+          maximum: 31536000
+        collectionId:
+          type: string
+          example: '0xbd3531da5cf5857e7cfaa92426877b022e612cf8'
+          description: Collection id which this bid against to. If this is present, means this is a collection offer
+        assetId:
+          type: string
+          example: 0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0
+          description: Specify asset id for bidding, could be a ERC-721 or ERC-1155. If this is present, means this is an asset(token) offer
+        attribute:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+          description: Specify an attribute this bid against to which means this is an attribute offer
+      required:
+      - quantity
+      - unitPrice
+      - expirationInSeconds
+    ixsSellGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsSellGetSuccessResponse'
+    ixsListPostSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        createdOrderIds:
+          type: array
+          items:
+            type: string
+          description: created listing ids
+      required:
+      - createdOrderIds
+    ixsBidPostRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        postBody:
+          type: string
+          description: Base64-encoded string stands for post body, which should come from signing data generation API endpoint
+        signature:
+          type: string
+          description: Hex-ed string stands for signaure, which should come from signing data generation API endpoint
+      required:
+      - chain
+      - postBody
+      - signature
+    ixsBaseSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+      required:
+      - status
+    ixsEip712Domain:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        chainId:
+          type: number
+        verifyingContract:
+          type: string
+      required:
+      - name
+      - version
+      - chainId
+      - verifyingContract
+    ixsCancelOrderPostRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        postBody:
+          type: string
+          description: Base64-encoded string stands for post body, which should come from signing data generation API endpoint
+        signature:
+          type: string
+          description: Hex-ed string stands for signaure, which should come from signing data generation API endpoint
+      required:
+      - chain
+      - postBody
+      - signature
+    ixsBuyGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsBuyGetSuccessResponse'
+    ixsBulkTransferGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsBulkTransferGetSuccessResponse'
+    ixsBidPostSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        createdOrderIds:
+          type: array
+          items:
+            type: string
+          description: created bid ids
+      required:
+      - createdOrderIds
+    ixsListPostErrorResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+    ixsCancelOrderGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsCancelOrderGetSuccessResponse'
+    ixsUnitPrice:
+      type: object
+      properties:
+        currency:
+          type: string
+          example: '0x0000000000000000000000000000000000000000'
+          description: on-chain currency id
+        raw:
+          type: string
+          example: '1000000000000000000'
+          description: price with on-chain currency in its decimal format. e.g. `0x0000000000000000000000000000000000000000` stands for ETH in ethereum, so to specify 1 ETH (deicmals == 18), you should input `1000000000000000000`
+      required:
+      - currency
+      - raw
+    ixsSellGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        contractApprovalsNeeded:
+          $ref: '#/components/schemas/ixsApprovals'
+          description: Contract approvals needed to be signed before listing. This is for delegating MagicEden to move user's assets when selling
+        sellTransactionsToSign:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsTransactionData'
+          description: Array of selling transaction data to sign. Once signed, please broadcast signed transactions to EVM network to finish selling
+        sellDetails:
+          type: object
+          description: Selling details for every to-sell items
+          properties:
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  assetId:
+                    type: string
+                  orderId:
+                    type: string
+                    description: Which order (bid) is sold to for this asset
+                  sellQuantity:
+                    type: number
+                    minimum: 1
+                    description: How many quantity is sold to this order for this asset
+                required:
+                - assetId
+                - orderId
+                - sellQuantity
+          required:
+          - items
+      required:
+      - sellTransactionsToSign
+      - sellDetails
+    ixsCancelOrderGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        dataToSignAndPostList:
+          type: array
+          items:
+            type: object
+            properties:
+              cancelOrderDataToSign:
+                $ref: '#/components/schemas/ixsEip712SignData'
+              postBody:
+                type: string
+                description: Base64 encoded data that need to be pass to cancellation API endpoint
+            description: Order cancellation data to sign. Once signed, you should call the cancellatino API endpoint with signature to finish order cancellation.
+        onchainCancellationTransactionToSign:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsTransactionData'
+    ixsBaseErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - error
+        errors:
+          type: array
+          items:
+            type: string
+          description: errors
+      required:
+      - status
+      - errors
+    ixsListPostResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsListPostErrorResponse'
+      - $ref: '#/components/schemas/ixsListPostSuccessResponse'
+    ixsTransactionData:
+      type: object
+      description: EVM transaction data structure
+      properties:
+        from:
+          type: string
+          example: '0x78d25e7beb6e7ae84859f2df6fd739b9eab231ec'
+          description: 'Transaction issuer: from whom sends this transaction'
+        to:
+          type: string
+          example: '0x3334fd65540a19cf92bee834da65d2316c55c348'
+          description: 'Transaction destination: to where this transaction shall be executed, usually a EVM smart contract address'
+        data:
+          type: string
+          description: Hex-ed transaction data to sign before broadcasting to EVM network
+        value:
+          type: string
+          description: Transaction value to specifiy when broadcasting to EVM network
+      required:
+      - from
+      - to
+    ixsListGetResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsListGetErrorResponse'
+      - $ref: '#/components/schemas/ixsListGetSuccessResponse'
+    ixsBidGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        erc20CurrencyApprovalsNeeded:
+          $ref: '#/components/schemas/ixsApprovals'
+          description: ERC-20 token approvals needed to be signed before bids generation. This is for delegating MagicEden to move user's ERC-20 balances when bids are fulfilled
+        dataToSignAndPostList:
+          type: array
+          items:
+            type: object
+            properties:
+              bidDataToSign:
+                $ref: '#/components/schemas/ixsEip712SignData'
+              postBody:
+                type: string
+                description: Base64 encoded data that need to be pass to creation API endpoint
+          description: Array of bid data to sign and post to bid creation API endpoint, you should call bid creation API endpoint for every item in this list with signed signature and post body
+      required:
+      - dataToSignAndPostList
+    ixsBidPostResponse:
+      oneOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+      - $ref: '#/components/schemas/ixsBidPostSuccessResponse'
+    ixsListing:
+      type: object
+      properties:
+        assetId:
+          type: string
+          example: 0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0
+          description: Asset id for listing, could be a ERC-721 or ERC-1155
+        quantity:
+          type: number
+          description: Asset quantity to list, for ERC-721, must specified 1, for ERC-1155, could be > 1
+          minimum: 1
+        unitPrice:
+          $ref: '#/components/schemas/ixsUnitPrice'
+          description: Unit price per quantity
+        royaltyBps:
+          type: number
+          description: Royalty bps to paid to creator for listing if there are
+          minimum: 0
+          maximum: 10000
+        expirationInSeconds:
+          type: number
+          description: 'Expiration time (in seconds). Min: 15 minutes, Max: 1 year'
+          minimum: 900
+          maximum: 31536000
+      required:
+      - assetId
+      - quantity
+      - unitPrice
+      - expirationInSeconds
+    ixsBuyGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        erc20CurrencyApprovalsNeeded:
+          $ref: '#/components/schemas/ixsApprovals'
+          description: ERC-20 token approvals needed to be signed before buying. This is for delegating MagicEden to move user's ERC-20 balances for buying
+        buyTransactionsToSign:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsTransactionData'
+          description: Array of buying transaction data to sign. Once signed, please broadcast signed transactions to EVM network to finish buying
+      required:
+      - buyTransactionsToSign
+    ixsListGetErrorResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseErrorResponse'
+    ixsBidGetRequest:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        maker:
+          type: string
+          example: '0x079e5e1ac85b04225edad793ecdd9b31a26fdacc'
+          description: Bid maker
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsOffer'
+          minItems: 1
+          maxItems: 10
+          description: Bids to generate from this maker
+      required:
+      - chain
+      - maker
+      - offers
+    ixsApprovals:
+      type: object
+      properties:
+        transactionsDataToSignAndCast:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsTransactionData'
+      required:
+      - transactionsDataToSignAndCast
+    ixsBulkTransferGetSuccessResponse:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ixsBaseSuccessResponse'
+      properties:
+        contractApprovalsNeeded:
+          $ref: '#/components/schemas/ixsApprovals'
+          description: Contract approvals needed to be signed before transferring. This is for delegating MagicEden to move user's assets when transferring
+        transferTransactionsToSign:
+          type: array
+          items:
+            $ref: '#/components/schemas/ixsTransactionData'
+          description: Array of transfer transaction data to sign. Once signed, please broadcast signed transactions to EVM network to finish transfer
+      required:
+      - transferTransactionsToSign
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

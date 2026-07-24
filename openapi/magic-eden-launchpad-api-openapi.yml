@@ -1,0 +1,115 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity launchpad API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: launchpad
+  description: Get launchpad information
+paths:
+  /launchpad/collections:
+    get:
+      deprecated: false
+      summary: Get launchpad collections
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ILaunchpadCollectionV2'
+              example:
+              - symbol: mini_royale
+                name: 'Mini Royale: Nations'
+                description: 'Vikings and soldiers with one goal: dominate the Miniverse'
+                image: https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link
+                price: 0.01
+                size: 2500
+                launchDatetime: '2021-12-01T12:40:00.000Z'
+                chainId: solana
+              - symbol: test_lp_1
+                name: Launchpad w/ 3 stages
+                description: As I've said, it has 3 Stages
+                featured: false
+                image: https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link
+                price: 0.1
+                size: 5000
+                launchDatetime: '2022-02-03T12:00:00.000Z'
+                chainId: solana
+              - symbol: test_lp_2
+                name: Test Launchpad 2
+                description: 3 stages
+                featured: false
+                image: https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link
+                price: 0.1
+                size: 5000
+                launchDatetime: '2022-02-03T12:11:00.000Z'
+                chainId: '1'
+                contractAddress: '0x3888Fd82F8406E80B3d8eBA0353D0e9Ec51E6812'
+      parameters:
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 200, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      tags:
+      - launchpad
+components:
+  schemas:
+    ILaunchpadCollectionV2:
+      properties:
+        symbol:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        featured:
+          type: boolean
+        image:
+          type: string
+        price:
+          type: number
+          format: double
+        size:
+          type: number
+          format: double
+        launchDatetime:
+          type: string
+          description: Launch date time in simplified extended ISO format
+        chainId:
+          type: string
+          description: Stringified EVM chain id, or "solana" for SOL launches
+        contractAddress:
+          type: string
+          description: Candy machine id on SOL, contract address for EVM
+      required:
+      - symbol
+      - name
+      - description
+      - image
+      - chainId
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

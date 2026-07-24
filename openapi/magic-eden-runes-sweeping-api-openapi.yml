@@ -1,0 +1,261 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Runes Sweeping API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Runes Sweeping
+paths:
+  /v2/ord/btc/runes/psbt/get-sweeping:
+    post:
+      tags:
+      - Runes Sweeping
+      summary: Get an unsigned PSBT for buying a rune
+      description: Get an unsigned PSBT for buying a rune
+      requestBody:
+        description: PSBT Post Request Body for buying a rune
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesPSBTSweepingRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesPSBTSweepingResultSchema'
+  /v2/ord/btc/runes/sweeping:
+    post:
+      tags:
+      - Runes Sweeping
+      summary: Submit a signed PSBT for buying a rune
+      description: Submit a signed PSBT for buying a rune
+      requestBody:
+        description: PSBT Post Request Body for buying a rune
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRunesSweepingRequestSchema'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRunesSweepingResultSchema'
+components:
+  schemas:
+    FullRBFProtectedSweepingResultSchema:
+      type: object
+      properties:
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+        validOrderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: An array of valid runes order IDs of the RBF protection sweeping.
+        unsignedFundsPreparationPsbtBase64:
+          type: string
+          description: Base64 encoded PSBT for unsigned funds preparation.
+          nullable: true
+        psbtIndexesToSign:
+          type: array
+          items:
+            type: number
+            format: integer
+          description: An array of indexes in the PSBT that need to be signed.
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message if an error occurred.
+          nullable: true
+      required:
+      - settlement
+      - validOrderIds
+      - psbtIndexesToSign
+    RuneSymbol:
+      type: string
+      pattern: ^[A-Z]{1,26}$
+      description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long
+    PostRunesPSBTSweepingRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - runeSymbol
+      - takerPaymentAddress
+      - takerPublicKey
+      - takerReceiveAddress
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of order IDs, must contain at least 1 and no more than 50
+          minItems: 1
+          maxItems: 50
+        runeSymbol:
+          $ref: '#/components/schemas/RuneSymbol'
+        takerPaymentAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker's payment
+        takerPublicKey:
+          type: string
+          format: btc-public-key
+          description: Bitcoin public key for the taker payment address
+        takerReceiveAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker to receive assets. Should be your taproot address
+        feeRateTier:
+          type: string
+          enum:
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: Desired speed for the transaction fee rate
+        feeRateNum:
+          type: number
+          description: Numeric value specifying the exact fee rate
+        enableRBFProtection:
+          type: boolean
+          description: Boolean value to enable RBF protection sweeping
+      additionalProperties: false
+    PostRunesSweepingResultSchema:
+      type: object
+      required:
+      - txid
+      properties:
+        txid:
+          type: string
+          description: Transaction ID of the successfully broadcasted Bitcoin RBF protection sweeping transaction.
+        error:
+          type: string
+          description: Error message, if an error occurred during broadcasting RBF protection sweeping transaction.
+        fullRBFProtectedSweepingResponse:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResponseSchema'
+          description: Post result of the RBF protection sweeping
+      additionalProperties: false
+    PostRunesSweepingRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - takerPaymentAddress
+      - takerReceiveAddress
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of order IDs, must contain at least one and no more than 50.
+          minItems: 1
+          maxItems: 50
+        signedPsbtBase64:
+          type: string
+          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of non RBF protection sweeping. You must sign before submitting.
+        takerPaymentAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker’s payment.
+        takerReceiveAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker to receive assets. Should be your taproot address
+        enableRBFProtection:
+          type: boolean
+          description: Boolean value to enable RBF protection sweeping
+        fullRBFProtectedSweepingRequest:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingRequestSchema'
+          description: Signed PSBT for RBF protection sweeping
+      additionalProperties: false
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    FullRBFProtectedSweepingRequestSchema:
+      type: object
+      properties:
+        takerPaymentPublicKey:
+          type: string
+          format: btc-public-key
+          description: The Bitcoin public key of the taker.
+        signedFundsPreparationPsbtBase64:
+          type: string
+          description: Base64 encoded PSBT for the user-signed funds preparation.
+      required:
+      - takerPaymentPublicKey
+      - signedFundsPreparationPsbtBase64
+    PostRunesPSBTSweepingResultSchema:
+      type: object
+      required:
+      - invalidOrders
+      - paymentUtxoIndexes
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed by non RBF protection sweeping (RBF protection orders are excluded)
+          items:
+            type: string
+            format: uuid
+        validOrders:
+          type: array
+          description: List of order IDs that could be processed by non RBF protection sweeping
+          items:
+            type: string
+            format: uuid
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the non RBF protection sweeping
+        paymentUtxoIndexes:
+          type: number
+          description: Index of payment UTXO inputs
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: Settlement of the non RBF protection sweeping
+        fullRBFProtectedSweepingResult:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResultSchema'
+          description: Full RBF protection information need to be signed
+      additionalProperties: false
+    FullRBFProtectedSweepingResponseSchema:
+      type: object
+      properties:
+        fundsPreparationTxId:
+          type: string
+          description: The transaction ID for the funds preparation, if available.
+          nullable: true
+        fulfillmentId:
+          type: string
+          description: The ID of the fulfillment, if available.
+          nullable: true
+        error:
+          type: string
+          description: Error message, if an error occurred.
+          nullable: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

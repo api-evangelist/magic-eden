@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity magic-ticket API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: magic-ticket
+paths:
+  /instructions/magic_ticket/burns:
+    get:
+      deprecated: false
+      summary: Construct and return burn txs for given mint addresses
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: walletAddress
+        in: query
+        description: Wallet address that owns the tickets
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      - name: mintAddresses
+        in: query
+        description: Comma-separated list of mint addresses to burn
+        required: true
+        deprecated: false
+        schema:
+          type: string
+      tags:
+      - magic-ticket
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

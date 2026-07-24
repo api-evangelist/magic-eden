@@ -1,0 +1,152 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Blocks API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Blocks
+paths:
+  /v2/ord/btc/block/activities:
+    get:
+      tags:
+      - Blocks
+      summary: Get block activities
+      description: Get block activities
+      parameters:
+      - name: blockHeight
+        in: query
+        description: Block height
+        required: true
+        schema:
+          type: integer
+      - name: kind
+        in: query
+        description: Comma-separated list of activity kinds. Acceptable values are "create" and "transfer". If not specified, defaults to "create,transfer".
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 60
+          default: 20
+          multipleOf: 20
+      - name: cursor
+        in: query
+        description: cursor
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BlockActivitySchema'
+                  limit:
+                    type: integer
+                  nextCursor:
+                    type: string
+components:
+  schemas:
+    BlockActivitySchema:
+      type: object
+      properties:
+        inscription:
+          type: object
+          properties:
+            id:
+              type: string
+            contentType:
+              type: string
+            contentMedia:
+              type: string
+            contentLength:
+              type: number
+              nullable: true
+            number:
+              type: number
+              nullable: true
+            sat:
+              type: number
+              nullable: true
+            satName:
+              type: string
+              nullable: true
+            satRarity:
+              type: string
+              nullable: true
+            satBlockHeight:
+              type: number
+              nullable: true
+            satBlockTime:
+              type: string
+              nullable: true
+            genesisTransaction:
+              type: string
+            genesisTransactionBlockTime:
+              type: string
+              nullable: true
+            genesisTransactionBlockHeight:
+              type: number
+              nullable: true
+            genesisTransactionBlockHash:
+              type: string
+              nullable: true
+            parentInscriptionId:
+              type: string
+              nullable: true
+            metaprotocol:
+              type: string
+              nullable: true
+        activityType:
+          type: string
+        blockHeight:
+          type: number
+        blockHash:
+          type: string
+        txId:
+          type: string
+        location:
+          type: string
+        address:
+          type: string
+        output:
+          type: string
+        value:
+          type: number
+        offset:
+          type: number
+        timestamp:
+          type: number
+        oldLocation:
+          type: string
+          nullable: true
+        oldAddress:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

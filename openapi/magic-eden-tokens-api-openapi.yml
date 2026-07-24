@@ -1,0 +1,929 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity Tokens API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Tokens
+paths:
+  /v2/ord/btc/tokens:
+    get:
+      tags:
+      - Tokens
+      summary: Get tokens
+      description: Get tokens, can be filtered by collectionSymbol, owner, tokenIds
+      operationId: getTokens
+      parameters:
+      - name: tokenIds
+        in: query
+        description: Comma-separated list of token IDs.
+        required: false
+        schema:
+          type: string
+      - name: collectionSymbol
+        in: query
+        description: Collection symbol
+        required: false
+        schema:
+          type: string
+      - name: ownerAddress
+        in: query
+        description: Owner address
+        required: false
+        schema:
+          type: string
+      - name: showAll
+        in: query
+        description: Show all items including the listed and unlisted ones
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Offset
+        required: false
+        schema:
+          type: integer
+      - name: inscriptionMin
+        in: query
+        description: Inscription number min
+        required: false
+        schema:
+          type: number
+      - name: inscriptionMax
+        in: query
+        description: Inscription number max
+        required: false
+        schema:
+          type: number
+      - name: sortBy
+        in: query
+        description: sort by
+        required: false
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+          - listedAtAsc
+          - listedAtDesc
+          - inscriptionNumberAsc
+          - inscriptionNumberDesc
+          - brc20UnitPriceAsc
+          - brc20UnitPriceDesc
+          default: priceAsc
+      - name: minPrice
+        in: query
+        description: min price
+        required: false
+        schema:
+          type: number
+      - name: maxPrice
+        in: query
+        description: max price
+        required: false
+        schema:
+          type: number
+      - name: satRarity
+        in: query
+        description: sat rarity
+        required: false
+        schema:
+          type: string
+          enum:
+          - common
+          - uncommon
+          - rare
+          - epic
+          - legendary
+          - mythic
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemSchema'
+  /tokens/{token_mint}:
+    get:
+      deprecated: false
+      summary: Get token metadata by mint address
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
+              example:
+                mintAddress: 4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq
+                owner: 8ao31PYJ7jHiGQDAkRN1sDWxUgUMwTjMZ7uyiS5F9aNs
+                supply: 1
+                collection: devnet_zoolana
+                name: Beyond Reach
+                updateAuthority: 7DiTpjUsvRS63EoaEsjEnQj3ncqVeQeiB116kNrhMBNw
+                primarySaleHappened: true
+                sellerFeeBasisPoints: 500
+                image: https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2
+                animationUrl: https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4
+                externalUrl: https://www.zoolana.io
+                attributes:
+                - trait_type: Edition
+                  value: Teaser
+                - trait_type: Tribe
+                  value: Vand
+                - trait_type: Rarity
+                  value: Bronze
+                properties:
+                  files:
+                  - uri: https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2
+                    type: image/png
+                  - uri: https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4
+                    type: video/mp4
+                  category: ''
+                  creators:
+                  - address: 6QNWBWhxBfEMkwBUTeTsGyxohBicA3k6EGWr6X8KmzUL
+                    share: 50
+                  - address: 4Tysv54Lxh1L16h5Yt5ncFGbG5ont8iXvCUzFFkfCYFY
+                    share: 50
+        '400':
+          description: Token not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: token_mint
+        in: path
+        description: Mint address of the token or asset ID of compressed NFT
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq
+      tags:
+      - Tokens
+  /tokens/{token_mint}/activities:
+    get:
+      deprecated: false
+      summary: Get activities for a token
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwaggerFriendlyIActivityV2'
+              example:
+              - signature: 3HM6raDqMF6W134NmDw7tUhpMSePbr32FRnigx3w4THfMGdtgnz9f7FxNHDmLY625o2vmpidqa3WaJL5uAUcNTpd
+                type: list
+                source: magiceden_v2
+                tokenMint: 6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa
+                collectionSymbol: null
+                slot: 138008605
+                blockTime: 1654024725
+                buyer: null
+                buyerReferral: ''
+                seller: AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN
+                sellerReferral: ''
+                price: 1.12
+              - signature: 3HM6raDqMF6W134NmDw7tUhpMSePbr32FRnigx3w4THfMGdtgnz9f7FxNHDmLY625o2vmpidqa3WaJL5uAUcNTpd
+                type: list
+                source: magiceden_v2
+                tokenMint: 6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa
+                collectionSymbol: devnet_zoolana
+                slot: 138008605
+                blockTime: 1654024725
+                buyer: null
+                buyerReferral: ''
+                seller: AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN
+                sellerReferral: ''
+                price: 1.12
+        '400':
+          description: Token not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: token_mint
+        in: path
+        description: Mint address of the token or asset ID of compressed NFT
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      tags:
+      - Tokens
+  /tokens/{token_mint}/listings:
+    get:
+      deprecated: false
+      summary: Get listings for a token
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SwaggerFriendlyIListingV2'
+              example:
+              - pdaAddress: 7PkCbEWQsndTKgSWySWjkggWxpZwPnrDop8vJc8vxevs
+                auctionHouse: E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe
+                tokenAddress: NosfJM1SyMYED4eBnbZxa4pfnQYeeXw97Fep9w9Tqzu
+                tokenMint: 6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa
+                seller: AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN
+                sellerReferral: autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2
+                tokenSize: 1
+                price: 1.12
+                rarity: {}
+                expiry: -1
+                token:
+                  mintAddress: 4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq
+                  owner: 8ao31PYJ7jHiGQDAkRN1sDWxUgUMwTjMZ7uyiS5F9aNs
+                  supply: 1
+                  collection: devnet_zoolana
+                  name: Beyond Reach
+                  updateAuthority: 7DiTpjUsvRS63EoaEsjEnQj3ncqVeQeiB116kNrhMBNw
+                  primarySaleHappened: true
+                  sellerFeeBasisPoints: 500
+                  image: https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2
+                  animationUrl: https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4
+                  externalUrl: https://www.zoolana.io
+                  attributes:
+                  - trait_type: Edition
+                    value: Teaser
+                  - trait_type: Tribe
+                    value: Vand
+                  - trait_type: Rarity
+                    value: Bronze
+                  properties:
+                    files:
+                    - uri: https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2
+                      type: image/png
+                    - uri: https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4
+                      type: video/mp4
+                    category: ''
+                    creators:
+                    - address: 6QNWBWhxBfEMkwBUTeTsGyxohBicA3k6EGWr6X8KmzUL
+                      share: 50
+                    - address: 4Tysv54Lxh1L16h5Yt5ncFGbG5ont8iXvCUzFFkfCYFY
+                      share: 50
+                listingSource: M2
+        '400':
+          description: Token not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: token_mint
+        in: path
+        description: Mint address of the token or asset ID of compressed NFT
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa
+      - name: listingAggMode
+        in: query
+        description: True to return aggregated marketplace listings, false to return just Magic Eden listings. Defaults to false.
+        required: false
+        deprecated: false
+        schema:
+          type: boolean
+      tags:
+      - Tokens
+  /tokens/{token_mint}/offers_received:
+    get:
+      deprecated: false
+      summary: Get received offers for a token
+      security: []
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IOfferV2'
+              example:
+              - pdaAddress: 6pDTQ8eSLQCBeAsagmYbpjqbrW82Q5gwbVF8cEj2Tg6j
+                tokenMint: 6eGfgGuxA1pBtTX4k2oubpa6m1Z3eaJUBxgtZFB7sjZA
+                auctionHouse: ''
+                buyer: AnCKk6ThHEhgHMUpM2JoNDRwJ4neyzcj6a3TRPGH5Pa5
+                buyerReferral: ''
+                tokenSize: 1
+                price: 0.007
+                expiry: 0
+              - pdaAddress: H54aiNrbDZi31YSycp1sz5iXM9Cvs3BWjCTPgmBTjQKt
+                tokenMint: 6eGfgGuxA1pBtTX4k2oubpa6m1Z3eaJUBxgtZFB7sjZA
+                auctionHouse: ''
+                buyer: CEMnY2UPQJUZ9MahFcbogQFUfFzoHVFgSZpJmZW5WpH6
+                buyerReferral: ''
+                tokenSize: 1
+                price: 0.51
+                expiry: 0
+        '400':
+          description: Token not found
+          content:
+            application/json:
+              schema:
+                type: object
+      parameters:
+      - name: token_mint
+        in: path
+        description: Mint address of the token
+        required: true
+        deprecated: false
+        schema:
+          type: string
+        example: 7ThMgi8Qh2XEAYBvnrEHNfaTNnHyqQCVH5XbFgGgu6bn
+      - name: min_price
+        in: query
+        description: Filter offers that are less than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        description: Filter offers that are more than this price
+        required: false
+        deprecated: false
+        schema:
+          type: number
+      - name: offset
+        in: query
+        description: The number of items to skip, default 0, min 0
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: The numbers of items to return, default 100, min 1, max 500
+        required: false
+        deprecated: false
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: The field to sort the offers received, default 'updatedAt'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/OfferReceivedSort'
+      - name: sort_direction
+        in: query
+        description: The direction returned elements should be sorted in, default 'desc'
+        required: false
+        deprecated: false
+        schema:
+          $ref: '#/components/schemas/SortDirQuery'
+      tags:
+      - Tokens
+components:
+  schemas:
+    MeInstantRarity:
+      properties:
+        rank:
+          type: number
+          format: double
+      required:
+      - rank
+      type: object
+      additionalProperties: false
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
+    SwaggerFriendlyIActivityV2:
+      properties:
+        type:
+          type: string
+        collection:
+          type: string
+          deprecated: true
+        image:
+          type: string
+        price:
+          type: number
+          format: double
+        tokenMint:
+          type: string
+        seller:
+          type: string
+          nullable: true
+        sellerReferral:
+          type: string
+        signature:
+          type: string
+        source:
+          type: string
+        collectionSymbol:
+          type: string
+        slot:
+          type: number
+          format: double
+        blockTime:
+          type: number
+          format: double
+        buyer:
+          type: string
+          nullable: true
+        buyerReferral:
+          type: string
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - type
+      - price
+      - signature
+      - source
+      - slot
+      - blockTime
+      type: object
+      additionalProperties: false
+    IOfferV2:
+      properties:
+        pdaAddress:
+          type: string
+        tokenMint:
+          type: string
+        auctionHouse:
+          type: string
+        buyer:
+          type: string
+        buyerReferral:
+          type: string
+        tokenSize:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        expiry:
+          type: number
+          format: double
+      required:
+      - pdaAddress
+      - tokenMint
+      - auctionHouse
+      - buyer
+      - tokenSize
+      - price
+      - expiry
+      type: object
+      additionalProperties: false
+    IPropertiesV2File:
+      properties:
+        uri:
+          type: string
+        type:
+          type: string
+        cdn:
+          type: boolean
+      required:
+      - uri
+      - type
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyIListingV2:
+      properties:
+        price:
+          type: number
+          format: double
+        tokenAddress:
+          type: string
+        pdaAddress:
+          type: string
+        auctionHouse:
+          type: string
+        tokenMint:
+          type: string
+        seller:
+          type: string
+        sellerReferral:
+          type: string
+        tokenSize:
+          type: number
+          format: double
+        rarity:
+          $ref: '#/components/schemas/NFTRarity'
+        extra:
+          $ref: '#/components/schemas/IExtraPublicInfo'
+        expiry:
+          type: number
+          format: double
+        listingSource:
+          $ref: '#/components/schemas/ListedNftType'
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+        token:
+          $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
+      required:
+      - price
+      - tokenAddress
+      - pdaAddress
+      - auctionHouse
+      - tokenMint
+      - seller
+      - tokenSize
+      - rarity
+      - expiry
+      - listingSource
+      - token
+      type: object
+      additionalProperties: false
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
+      type: object
+      additionalProperties: false
+    MeTokenRarity:
+      properties:
+        tokenKey:
+          type: string
+        score:
+          type: number
+          format: double
+        rank:
+          type: number
+          format: double
+        totalSupply:
+          type: number
+          format: double
+        attributeWithCounts:
+          items:
+            $ref: '#/components/schemas/IXAttribute'
+          type: array
+      required:
+      - tokenKey
+      - score
+      type: object
+      additionalProperties: false
+    ItemSchema:
+      type: object
+      properties:
+        chain:
+          type: string
+        collection:
+          type: object
+          properties:
+            chain:
+              type: string
+            imageURI:
+              type: string
+            name:
+              type: string
+            symbol:
+              type: string
+        contentURI:
+          type: string
+        contentType:
+          type: string
+        contentBody:
+          type: string
+        contentPreviewURI:
+          type: string
+        sat:
+          type: number
+        satName:
+          type: string
+        satRarity:
+          type: string
+        genesisTransaction:
+          type: string
+        genesisTransactionBlockTime:
+          type: string
+        genesisTransactionBlockHeight:
+          type: number
+        genesisTransactionBlockHash:
+          type: string
+        inscriptionNumber:
+          type: number
+        meta:
+          type: object
+          properties:
+            name:
+              type: string
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  trait_type:
+                    type: string
+                  value:
+                    type: string
+        owner:
+          type: string
+        collectionSymbol:
+          type: string
+        location:
+          type: string
+        locationBlockHeight:
+          type: number
+        locationBlockTime:
+          type: string
+        locationBlockHash:
+          type: string
+        outputValue:
+          type: number
+        output:
+          type: string
+        mempoolTxId:
+          type: string
+        mempoolTxTimestamp:
+          type: string
+        listed:
+          type: boolean
+        listedAt:
+          type: string
+        listedPrice:
+          type: number
+        listedMakerFeeBp:
+          type: number
+        listedSellerReceiverAddress:
+          type: string
+        listedForMint:
+          type: boolean
+        brc20TransferAmt:
+          type: number
+        brc20ListedUnitPrice:
+          type: number
+        domain:
+          type: string
+    IAttributeV2:
+      properties:
+        trait_type:
+          type: string
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
+    IExtraPublicInfo:
+      properties:
+        img:
+          type: string
+      type: object
+      additionalProperties: false
+    Partial_ICreatorV2_:
+      properties:
+        address:
+          type: string
+        verified:
+          type: boolean
+        share:
+          type: number
+          format: double
+      type: object
+      description: Make all properties in T optional
+    MoonrankCrawl:
+      properties:
+        complete:
+          type: boolean
+          description: 'Flag for if Moonrank has fully crawled the collection. If this is false,
+
+            then it means the rarity values are incomplete and should not be used.'
+        id:
+          type: string
+      type: object
+      additionalProperties: false
+    OfferReceivedSort:
+      type: string
+      enum:
+      - updatedAt
+      - bidAmount
+    ListedNftType:
+      type: string
+      enum:
+      - M2
+      - MMM
+      - TENSOR_LISTING
+      - TENSOR_CNFT_LISTING
+      - TENSOR_MARKETPLACE_LISTING
+      - TENSOR_AMM
+      - TENSOR_AMM_V2
+      - HADESWAP_AMM
+      - M3
+    SwaggerFriendlyITokenV2:
+      properties:
+        mintAddress:
+          type: string
+        owner:
+          type: string
+        supply:
+          type: number
+          format: double
+        delegate:
+          type: string
+        collection:
+          type: string
+        collectionName:
+          type: string
+        name:
+          type: string
+        updateAuthority:
+          type: string
+        primarySaleHappened:
+          type: boolean
+        sellerFeeBasisPoints:
+          type: number
+          format: double
+        image:
+          type: string
+        tokenStandard:
+          $ref: '#/components/schemas/TokenStandard'
+        animationUrl:
+          type: string
+        externalUrl:
+          type: string
+        attributes:
+          items:
+            $ref: '#/components/schemas/IAttributeV2'
+          type: array
+        properties:
+          $ref: '#/components/schemas/IPropertiesV2'
+        listStatus:
+          type: string
+          enum:
+          - listed
+          - unlisted
+        price:
+          type: number
+          format: double
+        tokenAddress:
+          type: string
+        isCompressed:
+          type: boolean
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - mintAddress
+      - owner
+      - supply
+      - name
+      - updateAuthority
+      - primarySaleHappened
+      - sellerFeeBasisPoints
+      - image
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyPriceInfo:
+      properties:
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+      required:
+      - solPrice
+      type: object
+      additionalProperties: false
+    IXAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
+          type: string
+        count:
+          type: number
+          format: double
+        rarity:
+          type: number
+          format: double
+        topBidValue:
+          type: number
+          format: double
+        floorAskPrice:
+          type: number
+          format: double
+        onSaleCount:
+          type: number
+          format: double
+      required:
+      - traitType
+      - value
+      type: object
+      additionalProperties: false
+    NFTRarity:
+      properties:
+        howrare:
+          properties:
+            rank:
+              type: number
+              format: double
+          required:
+          - rank
+          type: object
+        moonrank:
+          properties:
+            crawl:
+              $ref: '#/components/schemas/MoonrankCrawl'
+            absolute_rarity:
+              type: number
+              format: double
+            rank:
+              type: number
+              format: double
+          required:
+          - crawl
+          - absolute_rarity
+          - rank
+          type: object
+        merarity:
+          $ref: '#/components/schemas/MeTokenRarity'
+        meInstant:
+          $ref: '#/components/schemas/MeInstantRarity'
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyTokenAmount:
+      properties:
+        rawAmount:
+          type: string
+        address:
+          type: string
+          description: The identifier of the amount.
+        decimals:
+          type: number
+          format: double
+          description: The number of decimals in the amount.
+      required:
+      - rawAmount
+      - address
+      - decimals
+      type: object
+      additionalProperties: false
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

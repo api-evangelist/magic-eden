@@ -1,0 +1,897 @@
+openapi: 3.0.1
+info:
+  title: Magic Eden EVM Activity API
+  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
+  version: v4
+  termsOfService: https://magiceden.io/terms-of-service.pdf
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api-mainnet.magiceden.dev/v4/evm-public
+tags:
+- name: Activity
+paths:
+  /activities:
+    get:
+      summary: NFT Activity
+      operationId: getNftActivity
+      description: Use this API to get NFT activity
+      parameters:
+      - name: chain
+        schema:
+          $ref: '#/components/schemas/chainEnum'
+        required: true
+        in: query
+      - name: activityTypes[]
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/nftActivityTypeEnum'
+        required: true
+        explode: true
+        in: query
+        description: The activity types to query
+      - name: fromTime
+        schema:
+          type: string
+        required: false
+        in: query
+        description: '`From time` of time range to query'
+      - name: toTime
+        schema:
+          type: string
+        required: false
+        in: query
+        description: '`To time` of time range to query'
+      - name: assetId
+        schema:
+          type: string
+        required: true
+        in: query
+        description: 'Asset Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`'
+      - name: collectionId
+        schema:
+          type: string
+        required: true
+        in: query
+        description: 'Collection Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`'
+      - name: walletAddress
+        schema:
+          type: string
+        required: true
+        in: query
+        description: 'User wallet address to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0x47d88afbba889709abba07339ed1c88079944ca3`'
+      - name: limit
+        schema:
+          type: number
+          default: 20
+          minimum: 1
+          maximum: 100
+        required: false
+        in: query
+        description: Amount of items returned, default to __20__
+      - name: continuation
+        schema:
+          type: string
+        required: false
+        in: query
+        description: Use continuation token to request next offset of items.
+      tags:
+      - Activity
+      responses:
+        '200':
+          description: Successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/getNftActivityResponse'
+      x-order: 7
+components:
+  schemas:
+    listingCurrency:
+      type: object
+      properties:
+        address:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+        decimals:
+          type: number
+      required:
+      - address
+      - name
+      - symbol
+      - decimals
+    orderContractKind:
+      type: string
+    evmCollectionBid:
+      allOf:
+      - $ref: '#/components/schemas/baseCollectionBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    nftBidActivity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/baseNftActivity'
+      properties:
+        bid:
+          $ref: '#/components/schemas/evmBid'
+      required:
+      - bid
+    collectionTypeEnum:
+      type: string
+      enum:
+      - ERC721
+      - ERC1155
+    collectionMintStage:
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/collectionMintStageKindEnum'
+        price:
+          type: object
+          properties:
+            currency:
+              $ref: '#/components/schemas/chainAsset'
+            raw:
+              type: string
+          required:
+          - currency
+          - raw
+        startTime:
+          type: string
+        endTime:
+          type: string
+        walletLimit:
+          type: number
+          minimum: 0
+          maximum: 1000
+        maxSupply:
+          type: number
+          minimum: 1
+      required:
+      - kind
+      - price
+    orderExpiry:
+      type: object
+      properties:
+        validFrom:
+          type: string
+        validUntil:
+          type: string
+      required:
+      - validUntil
+    baseNftActivity:
+      type: object
+      properties:
+        activityType:
+          $ref: '#/components/schemas/nftActivityTypeEnum'
+        activityId:
+          type: string
+        timestamp:
+          type: string
+        collection:
+          $ref: '#/components/schemas/collectionSchema'
+        asset:
+          $ref: '#/components/schemas/asset'
+      required:
+      - activityType
+      - activityId
+      - timestamp
+    chainEnum:
+      type: string
+      enum:
+      - ethereum
+      - abstract
+      - apechain
+      - arbitrum
+      - base
+      - berachain
+      - bsc
+      - polygon
+      - sei
+      - avalanche
+      - monad
+    evmAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseAssetBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    getNftActivityResponse:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/nftActivity'
+        continuation:
+          type: string
+          description: used to get next offset of items
+      required:
+      - activities
+    nftActivity:
+      oneOf:
+      - $ref: '#/components/schemas/nftTradeActivity'
+      - $ref: '#/components/schemas/nftTransferActivity'
+      - $ref: '#/components/schemas/nftMintActivity'
+      - $ref: '#/components/schemas/nftAskActivity'
+      - $ref: '#/components/schemas/nftBidActivity'
+    nftActivityTypeEnum:
+      type: string
+      enum:
+      - ASK_CREATED
+      - ASK_CANCELLED
+      - BID_CREATED
+      - BID_CANCELLED
+      - BURN
+      - MINT
+      - TRANSFER
+      - TRADE
+    media:
+      type: object
+      properties:
+        url:
+          type: string
+        mimeType:
+          type: string
+    bidTypeEnum:
+      type: string
+      enum:
+      - ASSET
+      - COLLECTION
+      - ATTRIBUTE
+    chainAsset:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        assetId:
+          type: string
+      required:
+      - chain
+      - assetId
+    bidAttributeCriteria:
+      type: object
+      properties:
+        collectionId:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/assetAttribute'
+          minItems: 1
+      required:
+      - collectionId
+      - attributes
+    orderSourceEnum:
+      type: string
+      enum:
+      - MAGICEDEN
+      - OPENSEA
+      - IXS_SERVICE
+    evmAttributeBid:
+      allOf:
+      - $ref: '#/components/schemas/baseAttributeBid'
+      - $ref: '#/components/schemas/evmChainCommon'
+    nftAskActivity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/baseNftActivity'
+      properties:
+        ask:
+          $ref: '#/components/schemas/evmAssetAsk'
+      required:
+      - ask
+    assetMediaV2Entry:
+      type: object
+      properties:
+        url:
+          type: string
+        type:
+          $ref: '#/components/schemas/assetMediaTypeEnum'
+        typeRaw:
+          type: string
+      required:
+      - url
+      - type
+    asset:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        id:
+          type: string
+        collectionId:
+          type: string
+        owner:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        assetClass:
+          $ref: '#/components/schemas/assetClassEnum'
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              traitType:
+                type: string
+              value:
+                type: string
+            required:
+            - traitType
+            - value
+        mediaV2:
+          $ref: '#/components/schemas/assetMediaV2'
+        remainingSupply:
+          type: string
+        rarity:
+          type: array
+          items:
+            type: object
+            properties:
+              provider:
+                $ref: '#/components/schemas/assetRarityEnum'
+              rank:
+                type: number
+            required:
+            - provider
+            - rank
+        contractAddress:
+          type: string
+        tokenId:
+          type: string
+        standard:
+          $ref: '#/components/schemas/collectionTypeEnum'
+        lastSalePrice:
+          $ref: '#/components/schemas/tokenPrice'
+      required:
+      - id
+      - collectionId
+      - assetClass
+      - rarity
+      - contractAddress
+      - tokenId
+      - standard
+    transactionInfo:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        transactionId:
+          type: string
+        transactionIndex:
+          type: number
+        blockNumber:
+          type: number
+        blockHash:
+          type: string
+        logIndex:
+          type: number
+        batchTransferIndex:
+          type: number
+      required:
+      - transactionId
+      - blockNumber
+      - blockHash
+    baseCollectionBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidCollectionCriteria'
+      required:
+      - kind
+    evmBid:
+      oneOf:
+      - $ref: '#/components/schemas/evmAssetBid'
+      - $ref: '#/components/schemas/evmCollectionBid'
+      - $ref: '#/components/schemas/evmAttributeBid'
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/bidTypeEnum'
+      required:
+      - type
+    baseAssetAsk:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        assetId:
+          type: string
+      required:
+      - assetId
+    assetMediaTypeEnum:
+      type: string
+      enum:
+      - img
+      - video
+      - html
+      - model
+      - audio
+      - text
+      - pdf
+    assetRarityEnum:
+      type: string
+      enum:
+      - MOONRANK
+      - HOWRARE
+      - OPENRARITY
+      - POPRANK
+      - ME_STATISTICAL
+      - MAGICEDEN
+    evmAssetAsk:
+      allOf:
+      - $ref: '#/components/schemas/baseAssetAsk'
+      - $ref: '#/components/schemas/evmChainCommon'
+    feeAmount:
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/feeKindEnum'
+        recipient:
+          type: string
+        bps:
+          type: number
+        rawAmount:
+          type: string
+        currencyId:
+          type: string
+      required:
+      - kind
+      - recipient
+      - currencyId
+      - bps
+      - rawAmount
+    bidCollectionCriteria:
+      type: object
+      properties:
+        collectionId:
+          type: string
+      required:
+      - collectionId
+    baseAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAssetCriteria'
+      required:
+      - kind
+    collectionSchema:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        id:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+          description: i.e. collection slug
+        description:
+          type: string
+        media:
+          $ref: '#/components/schemas/media'
+        social:
+          $ref: '#/components/schemas/social'
+        verification:
+          $ref: '#/components/schemas/collectionVerificationEnum'
+        isTradeable:
+          type: boolean
+        royalty:
+          $ref: '#/components/schemas/collectionRoyalty'
+        collectionType:
+          $ref: '#/components/schemas/collectionTypeEnum'
+        isSeaportV16Disabled:
+          type: boolean
+        isSeaportV16RoyaltyOptional:
+          type: boolean
+        seaportV16ListingCurrencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/listingCurrency'
+        chainData:
+          type: object
+          properties:
+            contract:
+              type: string
+            transferability:
+              $ref: '#/components/schemas/collectionTransferabilityEnum'
+            collectionBidSupported:
+              type: boolean
+            contractDeployedAt:
+              type: string
+            isMinting:
+              type: boolean
+            owner:
+              type: string
+            mintConfig:
+              type: object
+              properties:
+                maxSupply:
+                  type: string
+                totalSupply:
+                  type: string
+                walletLimit:
+                  type: string
+                baseURI:
+                  type: string
+                contractURI:
+                  type: string
+                stages:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/collectionMintStage'
+                payoutRecipient:
+                  type: string
+                royaltyRecipient:
+                  type: string
+                royaltyBps:
+                  type: string
+                mintFee:
+                  type: string
+              required:
+              - maxSupply
+              - totalSupply
+              - walletLimit
+              - baseURI
+              - contractURI
+              - stages
+              - payoutRecipient
+              - royaltyRecipient
+              - royaltyBps
+          required:
+          - contract
+          - transferability
+          - collectionBidSupported
+          - isMinting
+      required:
+      - chain
+      - id
+      - name
+      - verification
+      - isTradeable
+      - collectionType
+    baseOrder:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        status:
+          $ref: '#/components/schemas/orderStatusEnum'
+        maker:
+          type: string
+        price:
+          $ref: '#/components/schemas/tokenPrice'
+        quantity:
+          $ref: '#/components/schemas/orderQuantity'
+        expiry:
+          $ref: '#/components/schemas/orderExpiry'
+        source:
+          $ref: '#/components/schemas/orderSourceEnum'
+        fees:
+          $ref: '#/components/schemas/orderFee'
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+      - id
+      - kind
+      - status
+      - maker
+      - price
+      - quantity
+      - source
+      - fees
+      - createdAt
+    collectionVerificationEnum:
+      type: string
+      enum:
+      - VERIFIED
+      - UNVERIFIED
+    assetAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+          - type: string
+          - type: number
+      required:
+      - name
+      - value
+    assetClassEnum:
+      type: string
+      enum:
+      - NFT
+      - SFT
+    social:
+      type: object
+      properties:
+        twitterUsername:
+          type: string
+        discordUrl:
+          type: string
+        websiteUrl:
+          type: string
+    collectionRoyalty:
+      type: object
+      properties:
+        recipient:
+          type: string
+        bps:
+          type: number
+          maximum: 10000
+          minimum: 0
+        isOptional:
+          type: boolean
+      required:
+      - recipient
+      - bps
+      - isOptional
+    tokenPrice:
+      type: object
+      properties:
+        amount:
+          type: object
+          properties:
+            raw:
+              type: string
+            native:
+              type: string
+            fiat:
+              type: object
+              properties:
+                usd:
+                  type: string
+          required:
+          - raw
+        currency:
+          type: object
+          properties:
+            contract:
+              type: string
+            symbol:
+              type: string
+            decimals:
+              type: number
+              minimum: 0
+            displayName:
+              type: string
+            fiatConversion:
+              type: object
+              properties:
+                usd:
+                  type: number
+          required:
+          - contract
+          - symbol
+          - decimals
+          - displayName
+      required:
+      - amount
+      - currency
+    evmProtocolTypeEnum:
+      type: string
+      enum:
+      - ERC721
+      - ERC1155
+    orderQuantity:
+      type: object
+      properties:
+        filled:
+          type: string
+        remaining:
+          type: string
+      required:
+      - filled
+      - remaining
+    bidAssetCriteria:
+      type: object
+      properties:
+        assetId:
+          type: string
+      required:
+      - assetId
+    collectionMintStageKindEnum:
+      type: string
+      enum:
+      - public
+      - allowlist
+    assetMediaV2:
+      type: object
+      properties:
+        cover:
+          $ref: '#/components/schemas/assetMediaV2Entry'
+        main:
+          $ref: '#/components/schemas/assetMediaV2Entry'
+        additional:
+          type: array
+          items:
+            $ref: '#/components/schemas/assetMediaV2Entry'
+      required:
+      - main
+    nftMintActivity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/baseNftActivity'
+      properties:
+        assetAmount:
+          type: string
+        toAddress:
+          type: string
+        unitPrice:
+          $ref: '#/components/schemas/tokenPrice'
+        fees:
+          type: array
+          items:
+            $ref: '#/components/schemas/feeAmount'
+        transactionInfo:
+          $ref: '#/components/schemas/transactionInfo'
+      required:
+      - assetAmount
+      - toAddress
+      - transactionInfo
+    evmChainCommon:
+      type: object
+      properties:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        protocol:
+          $ref: '#/components/schemas/evmProtocolTypeEnum'
+        contract:
+          type: string
+        contractData:
+          type: object
+          properties:
+            orderContractKind:
+              $ref: '#/components/schemas/orderContractKind'
+          required:
+          - orderContractKind
+      required:
+      - chain
+      - protocol
+      - contract
+      - contractData
+    feeKindEnum:
+      type: string
+      enum:
+      - unknown
+      - maker_marketplace
+      - taker_marketplace
+      - royalty
+      - liquidity_provider
+      - marketplace
+    nftTradeActivity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/baseNftActivity'
+      properties:
+        assetAmount:
+          type: string
+        fromAddress:
+          type: string
+        toAddress:
+          type: string
+        order:
+          type: object
+          properties:
+            orderId:
+              type: string
+            orderKind:
+              $ref: '#/components/schemas/orderKindEnum'
+            bidType:
+              $ref: '#/components/schemas/bidTypeEnum'
+            sourceDomain:
+              type: string
+          required:
+          - orderId
+          - sourceDomain
+        unitPrice:
+          $ref: '#/components/schemas/tokenPrice'
+        fees:
+          type: array
+          items:
+            $ref: '#/components/schemas/feeAmount'
+        transactionInfo:
+          $ref: '#/components/schemas/transactionInfo'
+      required:
+      - assetAmount
+      - fromAddress
+      - toAddress
+      - order
+      - unitPrice
+      - transactionInfo
+    orderFee:
+      type: object
+      properties:
+        royaltyBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        makerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        takerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        lpFeeBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+      required:
+      - royaltyBp
+      - makerMarketplaceBp
+      - takerMarketplaceBp
+      - lpFeeBp
+    nftTransferActivity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/baseNftActivity'
+      properties:
+        assetAmount:
+          type: string
+        fromAddress:
+          type: string
+        toAddress:
+          type: string
+        transactionInfo:
+          $ref: '#/components/schemas/transactionInfo'
+      required:
+      - assetAmount
+      - fromAddress
+      - toAddress
+      - transactionInfo
+    orderStatusEnum:
+      type: string
+      enum:
+      - active
+      - inactive
+      - expired
+      - filled
+      - cancelled
+    baseAttributeBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAttributeCriteria'
+      required:
+      - kind
+    collectionTransferabilityEnum:
+      type: string
+      enum:
+      - TRANSFERABLE_TRADABLE
+      - TRANSFERABLE_NOT_TRADABLE
+      - NOT_TRANSFERABLE_NOT_TRADABLE
+      - NOT_TRANSFERABLE_TRADABLE
+    orderKindEnum:
+      type: string
+      enum:
+      - ASK
+      - BID
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
