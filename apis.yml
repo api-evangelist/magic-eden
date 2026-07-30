@@ -8,7 +8,20 @@ description: Magic Eden is a multi-chain NFT marketplace offering REST and instr
   Developers can fetch collections, tokens, listings, bids, activity, holder stats,
   AMM pool data, launchpad data, and generate signed transactions or PSBTs for listing,
   buying, bidding, transferring, swapping, and minting across all supported chains.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magic-eden.png
 tags:
   - NFT
   - Web3
@@ -24,69 +37,424 @@ created: '2026-05-24'
 modified: '2026-05-24'
 specificationVersion: '0.19'
 apis:
-  - aid: magic-eden:solana-api
-    name: Magic Eden Solana API
-    description: REST endpoints and signed-transaction instruction generators for the
-      Solana marketplace - collections, tokens, wallets, listings, bids, activity,
-      MMM AMM pools, marketplace popular collections, and launchpad. Public reads are
-      free at 120 QPM; instruction endpoints require a Bearer API key.
-    humanURL: https://docs.magiceden.io/reference/solana-api-keys
-    baseURL: https://api-mainnet.magiceden.dev/v2
-    tags:
-      - REST
-      - Solana
-      - Instructions
-      - MMM
-    properties:
-      - type: Documentation
-        url: https://docs.magiceden.io/reference/solana-api-keys
-      - type: OpenAPI
-        url: openapi/magic-eden-solana-openapi.yml
-      - type: Authentication
-        url: https://docs.magiceden.io/reference/solana-api-keys
-  - aid: magic-eden:evm-api
-    name: Magic Eden EVM API
-    description: Reservoir-powered v4 REST API for EVM chains (Ethereum, Polygon, Base,
-      ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract) covering collections, user
-      collections, search, NFT activity, asks (listings), bids (offers), assets, and
-      signed-transaction instruction endpoints for bidding, listing, buying, selling,
-      cancelling, and bulk transfers.
-    humanURL: https://docs.magiceden.io/reference/evm-api-overview
-    baseURL: https://api-mainnet.magiceden.dev/v4/evm-public
-    tags:
-      - REST
-      - EVM
-      - Reservoir
-      - Multi-chain
-    properties:
-      - type: Documentation
-        url: https://docs.magiceden.io/reference/evm-api-overview
-      - type: OpenAPI
-        url: openapi/magic-eden-evm-openapi.yml
-      - type: Authentication
-        url: https://docs.magiceden.io/reference/evm-api-keys
-  - aid: magic-eden:ordinals-api
-    name: Magic Eden Bitcoin Ordinals & Runes API
-    description: REST and PSBT-generation endpoints for the Bitcoin Ordinals marketplace -
-      ordinal collections, block activities, rare sats batch listings, and full Runes
-      lifecycle (orders, market sells, quotes, swaps, sweeping, wallet balances, and
-      activities). Free tier limited to 30 QPM; instruction endpoints require Bearer
-      auth.
-    humanURL: https://docs.magiceden.io/reference/ordinals-api-keys
-    baseURL: https://api-mainnet.magiceden.dev/v2
-    tags:
-      - REST
-      - Bitcoin
-      - Ordinals
-      - Runes
-      - PSBT
-    properties:
-      - type: Documentation
-        url: https://docs.magiceden.io/reference/ordinals-api-keys
-      - type: OpenAPI
-        url: openapi/magic-eden-ordinals-openapi.yml
-      - type: Authentication
-        url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-activity-api
+  name: Magic Eden Activity API
+  description: The Activity API from Magic Eden — 1 operation(s) for activity.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Activity
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-activity-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-assets-api
+  name: Magic Eden Assets API
+  description: The Assets API from Magic Eden — 2 operation(s) for assets.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-blocks-api
+  name: Magic Eden Blocks API
+  description: The Blocks API from Magic Eden — 1 operation(s) for blocks.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-blocks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-collections-api
+  name: Magic Eden Collections API
+  description: The Collections API from Magic Eden — 13 operation(s) for collections.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-collections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-instructions-api
+  name: Magic Eden instructions API
+  description: Get instructions for the blockchain
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - instructions
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-instructions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-ixs-api
+  name: Magic Eden Ixs API
+  description: The Ixs API from Magic Eden — 9 operation(s) for ixs.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Ixs
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-ixs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-launchpad-api
+  name: Magic Eden launchpad API
+  description: Get launchpad information
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - launchpad
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-launchpad-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-magic-ticket-api
+  name: Magic Eden magic-ticket API
+  description: The magic-ticket API from Magic Eden — 1 operation(s) for magic-ticket.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - magic-ticket
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-magic-ticket-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-marketplace-api
+  name: Magic Eden marketplace API
+  description: Get information about Magic Eden's marketplace!
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - marketplace
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-marketplace-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-mmm-api
+  name: Magic Eden mmm API
+  description: Get AMM information
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - mmm
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-mmm-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-orders-api
+  name: Magic Eden Orders API
+  description: The Orders API from Magic Eden — 2 operation(s) for orders.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-rare-sats-api
+  name: Magic Eden Rare Sats API
+  description: The Rare Sats API from Magic Eden — 4 operation(s) for rare sats.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Rare Sats
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-rare-sats-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-runes-info-api
+  name: Magic Eden Runes Info API
+  description: The Runes Info API from Magic Eden — 7 operation(s) for runes info.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Runes Info
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-runes-info-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-runes-listing-api
+  name: Magic Eden Runes Listing API
+  description: The Runes Listing API from Magic Eden — 4 operation(s) for runes listing.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Runes Listing
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-runes-listing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-runes-market-sell-api
+  name: Magic Eden Runes Market Sell API
+  description: The Runes Market Sell API from Magic Eden — 2 operation(s) for runes market sell.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Runes Market Sell
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-runes-market-sell-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-runes-swap-api
+  name: Magic Eden Runes Swap API
+  description: The Runes Swap API from Magic Eden — 3 operation(s) for runes swap.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Runes Swap
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-runes-swap-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-runes-sweeping-api
+  name: Magic Eden Runes Sweeping API
+  description: The Runes Sweeping API from Magic Eden — 2 operation(s) for runes sweeping.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Runes Sweeping
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-runes-sweeping-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-tokens-api
+  name: Magic Eden Tokens API
+  description: The Tokens API from Magic Eden — 5 operation(s) for tokens.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-wallets-api
+  name: Magic Eden wallets API
+  description: Get information of a wallet
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - wallets
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-wallets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/solana-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/evm-api-overview
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/evm-api-keys
+  - type: Documentation
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
+  - type: Authentication
+    url: https://docs.magiceden.io/reference/ordinals-api-keys
 common:
   - type: AgenticAccess
     url: agentic-access/magic-eden-agentic-access.yml
