@@ -1,0 +1,21 @@
+{
+  "pool": {
+    "poolAddress": "7bKVBT9UvJjK5VkwsBhXpZWJQmQWpKsFpjVTGJAfFzQa",
+    "owner": "3XgD7yBXkSwqFbdxyCZ5tDWjdHGCQpXRKynQe7EuFpVZ",
+    "collectionSymbol": "okay_bears",
+    "poolType": "trade",
+    "solBalance": 135.5,
+    "buysideCredit": 0.0,
+    "spotPrice": 12.5,
+    "curveType": "linear",
+    "curveDelta": 0.25,
+    "reinvestFulfillBuy": true,
+    "reinvestFulfillSell": false,
+    "nftsHeld": 4,
+    "sellOrdersAmount": 4,
+    "expiry": 0,
+    "lpFeesBps": 200,
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-06-01T08:00:00Z"
+  }
+}

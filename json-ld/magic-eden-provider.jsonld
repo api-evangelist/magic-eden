@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "me": "https://magiceden.io/vocab/"
+  },
+  "@type": "Organization",
+  "@id": "https://magiceden.io",
+  "name": "Magic Eden",
+  "description": "Magic Eden is a multi-chain NFT marketplace and trading platform supporting Solana, Bitcoin (Ordinals and Runes), Ethereum, and Polygon. It provides REST APIs for accessing NFT listings, collection statistics, wallet activities, offers, and token metadata across supported chains.",
+  "url": "https://magiceden.io",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://twitter.com/MagicEden",
+    "https://discord.gg/magiceden",
+    "https://github.com/magiceden"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Magic Eden API Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Solana Collections API",
+        "description": "Collection data endpoints for the Magic Eden Solana NFT marketplace.",
+        "url": "https://docs.magiceden.io/reference/solana-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Solana Tokens API",
+        "description": "Token and NFT data endpoints for the Magic Eden Solana marketplace.",
+        "url": "https://docs.magiceden.io/reference/solana-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Solana Wallets API",
+        "description": "Wallet-oriented endpoints for the Magic Eden Solana marketplace.",
+        "url": "https://docs.magiceden.io/reference/solana-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Solana Trading Instructions API",
+        "description": "Trading instruction endpoints for the Magic Eden Solana marketplace.",
+        "url": "https://docs.magiceden.io/reference/solana-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Solana AMM Pool API",
+        "description": "Automated Market Maker (AMM/MMM) pool endpoints for the Magic Eden Solana marketplace.",
+        "url": "https://docs.magiceden.io/reference/solana-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Bitcoin Ordinals API",
+        "description": "Bitcoin Ordinals and inscription endpoints for the Magic Eden marketplace (deprecated March 2026).",
+        "url": "https://docs.magiceden.io/reference/ordinals-overview",
+        "category": "NFT Marketplace API"
+      },
+      {
+        "@type": "Offer",
+        "name": "Magic Eden Runes API",
+        "description": "Runes protocol trading endpoints for the Magic Eden Bitcoin marketplace (deprecated March 2026).",
+        "url": "https://docs.magiceden.io/reference/ordinals-overview",
+        "category": "NFT Marketplace API"
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://api-mainnet.magiceden.dev/v2/collections/{collectionSymbol}",
+    "query-input": "required name=collectionSymbol"
+  },
+  "termsOfService": "https://magiceden.us/legal-policies/api-terms",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Developer Support",
+    "url": "https://discord.gg/magiceden"
+  },
+  "me:apiDocumentation": "https://docs.magiceden.io",
+  "me:apiReference": "https://docs.magiceden.io/reference/solana-overview",
+  "me:apiKeyApplication": "https://airtable.com/appe8frCT8yj415Us/pagqgEFcpBlbm2DAF/form",
+  "me:bugBounty": "https://hackerone.com/magiceden",
+  "me:supportedChains": ["solana", "bitcoin", "ethereum", "polygon", "base"],
+  "me:primaryChain": "solana",
+  "me:freeRateLimitQPM": 120
+}

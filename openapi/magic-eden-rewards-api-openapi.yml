@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin Rewards API
+  version: 1.0.0
+  description: A comprehensive API for interacting with Magic Eden, providing tools to handle collections, tokens, activity, bid, list, and buy on Solana, Bitcoin, Ethereum, Base, and Polygon chains.
+servers:
+- url: https://nfttools.pro/magiceden
+  description: Production server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Rewards
+  description: Check Diamond Rewards Eligibility
+paths:
+  /rewards/diamond/eligibility:
+    get:
+      summary: Check Diamond Rewards Eligibility
+      description: Retrieve the eligibility status for Diamond Rewards for a specific wallet address on a given blockchain.
+      tags:
+      - Rewards
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      - bearerAuth: []
+      parameters:
+      - name: walletAddress
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The wallet address to check for eligibility
+        example: EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N
+      - name: chain
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - solana
+          - ethereum
+          - polygon
+          - base
+          - bitcoin
+        description: The blockchain on which to check eligibility
+        example: solana
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-NFT-API-Key
+    cookieAuth:
+      type: apiKey
+      in: header
+      name: Cookie
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/magiceden/main/json-schema/magiceden-collection.json",
+  "title": "MagicEdenCollection",
+  "description": "A Magic Eden NFT collection with marketplace statistics and metadata.",
+  "type": "object",
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "description": "Unique collection symbol identifier on Magic Eden."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the collection."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the NFT collection."
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the collection's cover image."
+    },
+    "chain": {
+      "type": "string",
+      "enum": ["solana", "ethereum", "polygon", "base", "bitcoin"],
+      "description": "Blockchain on which the collection lives."
+    },
+    "floorPrice": {
+      "type": "number",
+      "description": "Current floor price of the collection in lamports (Solana) or wei (EVM)."
+    },
+    "listedCount": {
+      "type": "integer",
+      "description": "Number of NFTs currently listed for sale."
+    },
+    "volumeAll": {
+      "type": "number",
+      "description": "All-time trading volume for the collection."
+    },
+    "avgPrice24hr": {
+      "type": "number",
+      "description": "Average sale price over the past 24 hours."
+    },
+    "volume24hr": {
+      "type": "number",
+      "description": "Trading volume over the past 24 hours."
+    },
+    "holders": {
+      "type": "integer",
+      "description": "Number of unique wallet addresses holding at least one NFT from this collection."
+    },
+    "totalItems": {
+      "type": "integer",
+      "description": "Total number of items (minted supply) in the collection."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Category tags associated with the collection."
+    },
+    "isVerified": {
+      "type": "boolean",
+      "description": "Whether the collection has been verified by Magic Eden."
+    },
+    "hasAllItems": {
+      "type": "boolean",
+      "description": "Whether all items in the collection are indexed by Magic Eden."
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official website URL for the collection."
+    },
+    "twitter": {
+      "type": "string",
+      "description": "Twitter handle for the collection."
+    },
+    "discord": {
+      "type": "string",
+      "format": "uri",
+      "description": "Discord invite URL for the collection community."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the collection was created on Magic Eden."
+    }
+  },
+  "required": ["symbol", "name", "chain"]
+}

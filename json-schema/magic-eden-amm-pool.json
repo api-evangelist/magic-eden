@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/magiceden/main/json-schema/magiceden-amm-pool.json",
+  "title": "MagicEdenAMMPool",
+  "description": "An Automated Market Maker (AMM/MMM) liquidity pool on the Magic Eden Solana marketplace.",
+  "type": "object",
+  "properties": {
+    "poolAddress": {
+      "type": "string",
+      "description": "On-chain address of the liquidity pool."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Wallet address of the pool creator/owner."
+    },
+    "collectionSymbol": {
+      "type": "string",
+      "description": "Collection symbol this pool provides liquidity for."
+    },
+    "poolType": {
+      "type": "string",
+      "enum": ["buy", "sell", "trade"],
+      "description": "Pool type: buy-only, sell-only, or two-sided trade."
+    },
+    "solBalance": {
+      "type": "number",
+      "description": "Current SOL balance available in the pool."
+    },
+    "buysideCredit": {
+      "type": "number",
+      "description": "Credit available for buy-side operations."
+    },
+    "spotPrice": {
+      "type": "number",
+      "description": "Current spot price the pool is willing to buy/sell at, in SOL."
+    },
+    "curveType": {
+      "type": "string",
+      "enum": ["linear", "exponential"],
+      "description": "Price curve type used by the pool."
+    },
+    "curveDelta": {
+      "type": "number",
+      "description": "Delta value controlling price movement along the curve."
+    },
+    "reinvestFulfillBuy": {
+      "type": "boolean",
+      "description": "Whether buy proceeds are automatically reinvested."
+    },
+    "reinvestFulfillSell": {
+      "type": "boolean",
+      "description": "Whether sell proceeds are automatically reinvested."
+    },
+    "nftsHeld": {
+      "type": "integer",
+      "description": "Number of NFTs currently held in the pool."
+    },
+    "sellOrdersAmount": {
+      "type": "integer",
+      "description": "Number of open sell orders from this pool."
+    },
+    "expiry": {
+      "type": "integer",
+      "description": "Unix timestamp when the pool expires (0 = no expiry)."
+    },
+    "lpFeesBps": {
+      "type": "integer",
+      "description": "Liquidity provider fee in basis points (100 = 1%)."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the pool was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the pool was last updated."
+    }
+  },
+  "required": ["poolAddress", "owner", "collectionSymbol", "poolType"]
+}

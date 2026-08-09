@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/magiceden/main/json-schema/magiceden-wallet.json",
+  "title": "MagicEdenWallet",
+  "description": "Wallet information and activity on the Magic Eden marketplace.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Public wallet address."
+    },
+    "chain": {
+      "type": "string",
+      "enum": ["solana", "ethereum", "polygon", "base", "bitcoin"],
+      "description": "Blockchain network this wallet belongs to."
+    },
+    "escrowBalance": {
+      "type": "number",
+      "description": "Balance held in escrow on Magic Eden (in SOL or native currency)."
+    },
+    "offersPlaced": {
+      "type": "array",
+      "description": "Active offers/bids placed by this wallet.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pdaAddress": { "type": "string" },
+          "tokenMint": { "type": "string" },
+          "price": { "type": "number" },
+          "expiry": { "type": "integer" }
+        }
+      }
+    },
+    "offersReceived": {
+      "type": "array",
+      "description": "Offers received on NFTs owned by this wallet.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pdaAddress": { "type": "string" },
+          "tokenMint": { "type": "string" },
+          "price": { "type": "number" },
+          "buyer": { "type": "string" }
+        }
+      }
+    },
+    "tokensOwned": {
+      "type": "array",
+      "description": "NFT tokens currently owned by this wallet.",
+      "items": {
+        "$ref": "magiceden-nft-token.json"
+      }
+    },
+    "activities": {
+      "type": "array",
+      "description": "Recent marketplace activities by this wallet.",
+      "items": {
+        "$ref": "magiceden-activity.json"
+      }
+    }
+  },
+  "required": ["address"]
+}

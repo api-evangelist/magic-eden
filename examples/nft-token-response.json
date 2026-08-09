@@ -1,0 +1,28 @@
+{
+  "mintAddress": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+  "owner": "HN7cABqLq46Es1jh92dQQisAq662SmxELLLsHHe4YWrH",
+  "supply": 1,
+  "collection": "okay_bears",
+  "collectionName": "Okay Bears",
+  "name": "Okay Bear #2574",
+  "updateAuthority": "oKDU7hkwCFXPb8i2HXjHdXLFmHm2bHkqGsFBUMKFEAe",
+  "primarySaleHappened": true,
+  "sellerFeeBasisPoints": 500,
+  "image": "https://arweave.net/A3IzIlO_Ue2Ky_3sBs0-D2XVRIMl6RHNN7LmOoKS6k",
+  "animationUrl": null,
+  "externalUrl": "https://okaybears.com",
+  "attributes": [
+    { "trait_type": "Background", "value": "Sunset" },
+    { "trait_type": "Fur", "value": "Brown" },
+    { "trait_type": "Eyes", "value": "Laser" },
+    { "trait_type": "Mouth", "value": "Okay" },
+    { "trait_type": "Clothes", "value": "Hoodie" }
+  ],
+  "price": 13.5,
+  "listStatus": "listed",
+  "tokenAddress": "HgFB6tVLxaBCJMCxFbLfGMj5HnH3JdyDm4FrGLb4GJV",
+  "rarity": {
+    "rank": 1042,
+    "score": 47.3
+  }
+}

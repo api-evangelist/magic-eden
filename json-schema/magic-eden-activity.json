@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/magiceden/main/json-schema/magiceden-activity.json",
+  "title": "MagicEdenActivity",
+  "description": "A marketplace activity event on Magic Eden (sale, listing, bid, transfer, etc.).",
+  "type": "object",
+  "properties": {
+    "signature": {
+      "type": "string",
+      "description": "On-chain transaction signature."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["sale", "list", "delist", "bid", "cancelBid", "transfer"],
+      "description": "Type of marketplace activity."
+    },
+    "source": {
+      "type": "string",
+      "description": "Marketplace source of the activity (e.g., magic_eden)."
+    },
+    "tokenMint": {
+      "type": "string",
+      "description": "Mint address of the NFT involved in the activity."
+    },
+    "collection": {
+      "type": "string",
+      "description": "Collection symbol the NFT belongs to."
+    },
+    "collectionSymbol": {
+      "type": "string",
+      "description": "Unique collection symbol on Magic Eden."
+    },
+    "slot": {
+      "type": "integer",
+      "description": "Solana slot number when the activity occurred."
+    },
+    "blockTime": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds) when the activity was confirmed on-chain."
+    },
+    "buyer": {
+      "type": "string",
+      "description": "Wallet address of the buyer (for sale and bid events)."
+    },
+    "seller": {
+      "type": "string",
+      "description": "Wallet address of the seller (for sale and list events)."
+    },
+    "price": {
+      "type": "number",
+      "description": "Transaction price in SOL or native currency."
+    },
+    "currency": {
+      "type": "object",
+      "description": "Currency details if the transaction used a non-native SPL token.",
+      "properties": {
+        "symbol": { "type": "string" },
+        "address": { "type": "string" },
+        "decimals": { "type": "integer" }
+      }
+    }
+  },
+  "required": ["signature", "type", "blockTime"]
+}

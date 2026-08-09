@@ -1,0 +1,94 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Magic Eden
+providerId: magiceden
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - NFT
+  - Marketplace
+  - Solana
+  - Bitcoin
+  - Ordinals
+  - Plans
+description: >-
+  Magic Eden's public API is available in two access tiers: a free keyless tier with default
+  QPM limits for prototyping and low-volume use, and an approved API key tier for higher QPS
+  requirements obtained via a formal application form. Magic Eden does not publish explicit
+  named pricing plans or per-call billing; access upgrades are handled on a case-by-case basis
+  through direct approval. The Bitcoin Ordinals and EVM APIs are deprecated as of early 2026.
+sources:
+  - https://help.magiceden.io/en/articles/6533403-how-to-use-the-magic-eden-api-access-keys-rate-limits-docs
+  - https://docs.magiceden.io/reference/solana-api-keys
+  - https://docs.magiceden.io/reference/ordinals-api-keys
+  - https://help.magiceden.io/en/articles/13885533-magic-eden-api-infrastructure-changes
+plans:
+  - id: magiceden-public-free
+    name: Public Free Tier
+    type: free
+    description: >-
+      No API key required. Free shared access to Magic Eden's public Solana, Ordinals, and
+      Runes API endpoints at default QPM limits. Suitable for prototyping, development, and
+      low-volume integrations. Not subject to an SLA; requests may be throttled or blocked
+      upon abuse.
+    entries:
+      - label: Solana API requests per minute
+        name: solana_qpm
+        type: rate-limit
+        metric: request
+        limit: 120
+        timeFrame: 60s
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Ordinals API requests per minute
+        name: ordinals_qpm
+        type: rate-limit
+        metric: request
+        limit: 30
+        timeFrame: 60s
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Solana NFT collections endpoints
+      - name: Solana token metadata and listings endpoints
+      - name: Solana wallet portfolio and activity endpoints
+      - name: Solana trading instruction generation endpoints
+      - name: Solana AMM/MMM pool endpoints
+      - name: Bitcoin Ordinals and inscriptions endpoints (deprecated March 2026)
+      - name: Runes market and trading endpoints (deprecated March 2026)
+      - name: No API key required
+      - name: No SLA
+  - id: magiceden-api-key
+    name: API Key (Higher QPS)
+    type: freemium
+    description: >-
+      Approved API key holders receive elevated QPS limits and potentially access to additional
+      gated endpoints. Access is obtained by submitting the Magic Eden API key application form
+      and awaiting approval. No formal pricing tier is published; Magic Eden approves keys on a
+      case-by-case basis. The API key is included in the request header for authentication.
+    entries:
+      - label: Elevated requests per second
+        name: elevated_qps
+        type: rate-limit
+        metric: request
+        limit: -1
+        timeFrame: 1s
+        geo: global
+        unit: 1
+        price: contact provider
+        userMultiplied: false
+    elements:
+      - name: All public tier endpoints
+      - name: Higher QPS limit (negotiated per application)
+      - name: Access to additional authorized endpoints
+      - name: API key header authentication
+      - name: Priority access (case-by-case)
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin General API
+  version: 1.0.0
+  description: A comprehensive API for interacting with Magic Eden, providing tools to handle collections, tokens, activity, bid, list, and buy on Solana, Bitcoin, Ethereum, Base, and Polygon chains.
+servers:
+- url: https://nfttools.pro/magiceden
+  description: Production server
+security:
+- ApiKeyAuth: []
+tags:
+- name: General
+paths:
+  /auth/user/{walletAddress}:
+    get:
+      summary: Fetch user authentication data
+      tags:
+      - General
+      parameters:
+      - in: path
+        name: walletAddress
+        required: true
+        schema:
+          type: string
+        description: The wallet address of the user
+      - in: query
+        name: enableSNS
+        schema:
+          type: boolean
+        required: false
+        description: Flag to enable SNS (Social Network Sharing)
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-NFT-API-Key
+    cookieAuth:
+      type: apiKey
+      in: header
+      name: Cookie
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

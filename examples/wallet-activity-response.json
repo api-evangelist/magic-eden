@@ -1,0 +1,32 @@
+{
+  "activities": [
+    {
+      "signature": "5NiGcTGJpMgqeHsKDZaZdGPMrpgWSkAU3CW9BfYjmYP7eJkT2YswvjvS7iKHabCiRmGxwqfYbNDKHTqrJW8BQKQ",
+      "type": "sale",
+      "source": "magic_eden",
+      "tokenMint": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+      "collection": "okay_bears",
+      "collectionSymbol": "okay_bears",
+      "slot": 198423567,
+      "blockTime": 1717200000,
+      "buyer": "HN7cABqLq46Es1jh92dQQisAq662SmxELLLsHHe4YWrH",
+      "seller": "3XgD7yBXkSwqFbdxyCZ5tDWjdHGCQpXRKynQe7EuFpVZ",
+      "price": 13.5,
+      "currency": null
+    },
+    {
+      "signature": "4Kqm7xJgLzwRuFqt8qWpzCuFVX5Z9iLmMLvJhHWkD3TZfhHRTUfQQ9eMEMsDVnKLRbtL9Y3nPAiLJbzPEwmXSFR",
+      "type": "list",
+      "source": "magic_eden",
+      "tokenMint": "7nP8v5d3HJkUWqMxS9iLFRPQzXVK4kqEL2mCrpBnWAf",
+      "collection": "okay_bears",
+      "collectionSymbol": "okay_bears",
+      "slot": 198200000,
+      "blockTime": 1717100000,
+      "buyer": null,
+      "seller": "HN7cABqLq46Es1jh92dQQisAq662SmxELLLsHHe4YWrH",
+      "price": 15.0,
+      "currency": null
+    }
+  ]
+}

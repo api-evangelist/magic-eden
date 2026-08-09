@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/magiceden/main/json-schema/magiceden-nft-token.json",
+  "title": "MagicEdenNFTToken",
+  "description": "An individual NFT token listed or tracked on Magic Eden.",
+  "type": "object",
+  "properties": {
+    "mintAddress": {
+      "type": "string",
+      "description": "The on-chain mint address of the NFT (Solana) or token ID (EVM)."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Wallet address of the current owner."
+    },
+    "supply": {
+      "type": "integer",
+      "description": "Token supply (1 for standard NFTs, >1 for semi-fungible tokens)."
+    },
+    "delegate": {
+      "type": "string",
+      "description": "Delegate wallet address if the token has been delegated."
+    },
+    "collection": {
+      "type": "string",
+      "description": "Symbol of the collection this token belongs to."
+    },
+    "collectionName": {
+      "type": "string",
+      "description": "Human-readable collection name."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the NFT token."
+    },
+    "updateAuthority": {
+      "type": "string",
+      "description": "Authority address that can update the token metadata."
+    },
+    "primarySaleHappened": {
+      "type": "boolean",
+      "description": "Whether the primary sale of this NFT has occurred."
+    },
+    "sellerFeeBasisPoints": {
+      "type": "integer",
+      "description": "Royalty fee in basis points (100 = 1%)."
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the NFT image."
+    },
+    "animationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to an animation or video asset."
+    },
+    "externalUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "External URL associated with the NFT."
+    },
+    "attributes": {
+      "type": "array",
+      "description": "Trait attributes of the NFT.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trait_type": { "type": "string" },
+          "value": { "type": ["string", "number"] }
+        },
+        "required": ["trait_type", "value"]
+      }
+    },
+    "price": {
+      "type": "number",
+      "description": "Current listing price in SOL or native currency."
+    },
+    "listStatus": {
+      "type": "string",
+      "enum": ["listed", "unlisted"],
+      "description": "Whether the NFT is currently listed for sale."
+    },
+    "tokenAddress": {
+      "type": "string",
+      "description": "Associated token account address (Solana)."
+    },
+    "rarity": {
+      "type": "object",
+      "description": "Rarity score and rank information.",
+      "properties": {
+        "rank": { "type": "integer" },
+        "score": { "type": "number" }
+      }
+    }
+  },
+  "required": ["mintAddress"]
+}

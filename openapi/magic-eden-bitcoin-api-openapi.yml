@@ -1,0 +1,837 @@
+openapi: 3.0.1
+info:
+  title: NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin API
+  version: 1.0.0
+  description: A comprehensive API for interacting with Magic Eden, providing tools to handle collections, tokens, activity, bid, list, and buy on Solana, Bitcoin, Ethereum, Base, and Polygon chains.
+servers:
+- url: https://nfttools.pro/magiceden
+  description: Production server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Bitcoin
+  description: Endpoints related to Bitcoin blockchain
+paths:
+  /v2/ord/btc/activities:
+    get:
+      summary: Retrieve Ordinal activities from Magic Eden
+      tags:
+      - Bitcoin
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 100
+        description: Number of results to return (default is 100)
+      - name: collectionSymbol
+        in: query
+        required: true
+        schema:
+          type: string
+          example: nodemonkes
+        description: Symbol of the NFT collection
+      - name: kind
+        in: query
+        schema:
+          type: string
+          items:
+            type: string
+          example:
+          - list
+          - offer_placed
+          - buying_broadcasted
+          - offer_accepted_broadcasted
+        explode: true
+        description: 'Array of activity types to include.
+
+          Possible values: list, offer_placed, buying_broadcasted, offer_accepted_broadcasted
+
+          '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activities:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        activityType:
+                          type: string
+                          example: offer_placed
+                        timestamp:
+                          type: string
+                          format: date-time
+                          example: '2023-07-04T12:34:56Z'
+                        details:
+                          type: object
+                          description: Additional details specific to the activity type
+        '400':
+          description: Invalid request
+        '404':
+          description: Activities not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/tokens:
+    get:
+      summary: Retrieve BTC tokens from Magic Eden
+      tags:
+      - Bitcoin
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 40
+        description: Number of tokens to return (default is determined dynamically)
+      - name: offset
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 0
+        description: Number of tokens to skip
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+          - updatedAt
+          example: priceAsc
+        description: Field to sort tokens by
+      - name: minPrice
+        in: query
+        schema:
+          type: number
+          example: 0
+        description: Minimum price filter
+      - name: maxPrice
+        in: query
+        schema:
+          type: number
+          example: 0
+        description: Maximum price filter
+      - name: collectionSymbol
+        in: query
+        schema:
+          type: string
+          example: nodemonkes
+        description: Symbol of the NFT collection
+      - name: disablePendingTransactions
+        in: query
+        schema:
+          type: boolean
+          example: true
+        description: Disable fetching pending transactions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Define the structure of the response data as per your application's needs
+        '400':
+          description: Invalid request
+        '404':
+          description: Tokens not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/attributes:
+    get:
+      summary: Retrieve BTC attributes from Magic Eden
+      tags:
+      - Bitcoin
+      parameters:
+      - name: attributes
+        in: query
+        schema:
+          type: string
+          example: '%5B%7B%22traitType%22%3A%22color%22%2C%22value%22%3A%22blue%22%7D%2C%7B%22traitType%22%3A%22rarity%22%2C%22value%22%3A%22legendary%22%7D%5D'
+        description: Encoded JSON string of transformed attributes
+      - name: collectionSymbol
+        in: query
+        schema:
+          type: string
+          example: nodemonkes
+        description: Symbol of the NFT collection
+      - name: disablePendingTransactions
+        in: query
+        schema:
+          type: boolean
+          example: true
+        description: Disable fetching pending transactions
+      - name: limit
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 100
+        description: Number of attributes to return (default is determined dynamically)
+      - name: offset
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 0
+        description: Number of attributes to skip
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+          - updatedAt
+          example: priceAsc
+        description: Field to sort attributes by
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Define the structure of the response data as per your application's needs
+        '400':
+          description: Invalid request
+        '404':
+          description: Attributes not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/tokens/{tokenId}:
+    get:
+      summary: Retrieve BTC token by tokenId
+      tags:
+      - Bitcoin
+      parameters:
+      - name: tokenId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ccfb3ea4e5de0caf3236a2073ed6d3365e6b0d5be0c22aa38b2071ac8db644bfi0
+        description: Example token ID for Magic Eden
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Token not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/stat:
+    get:
+      summary: Retrieve BTC collection statistics
+      tags:
+      - Bitcoin
+      parameters:
+      - name: collectionSymbol
+        in: query
+        required: true
+        schema:
+          type: string
+          example: nodemonkes
+        description: Symbol of the collection for BTC statistics
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Collection not found
+        '500':
+          description: Internal server error
+  /collection_stats/search/bitcoin:
+    servers:
+    - url: https://nfttools.pro/magiceden_stats
+    get:
+      summary: Search Bitcoin collection statistics
+      tags:
+      - Bitcoin
+      parameters:
+      - name: window
+        in: query
+        schema:
+          type: string
+          example: 7d
+        description: Time window for statistics aggregation
+      - name: limit
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 100
+        description: Maximum number of results to return
+      - name: offset
+        required: false
+        in: query
+        schema:
+          type: integer
+          example: 0
+        description: Number of results to skip before returning data
+      - name: sort
+        in: query
+        schema:
+          type: string
+          example: volume
+        description: Field to sort results by
+      - name: direction
+        in: query
+        schema:
+          type: string
+          example: desc
+        description: Sort direction (asc or desc)
+      - name: filter
+        in: query
+        schema:
+          type: string
+          example: '{"timeWindow":"7d","collectionType":"all","sortColumn":"volume","sortDirection":"desc","featuredCollection":false}'
+        description: JSON string representing additional filters
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/collection-offers/psbt/cancel:
+    get:
+      summary: Cancel Collection Offers
+      tags:
+      - Bitcoin
+      parameters:
+      - name: offerIds
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+          description: Array of offer IDs to be cancelled
+          example: 6de493e5-4f1d-437d-8aa8-b87368dbe5ab
+      - name: makerPublicKey
+        in: query
+        schema:
+          type: string
+          description: Maker's public key
+      - name: makerPaymentType
+        in: query
+        schema:
+          type: string
+          description: Payment type of the maker
+          example: p2wpkh
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Cancel Collection Offers
+      tags:
+      - Bitcoin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                makerPublicKey:
+                  type: string
+                  description: Maker's public key
+                  example: 0300db232186bd7de491b45d5e703d6aebaf926b0c.........
+                offerIds:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of offer IDs to be cancelled
+                  example:
+                  - 6de493e5-4f1d-437d-8aa8-b87368dbe5ab
+                  - 6de493e5-4f1d-437d-8aa8-b87368dbe5ab
+                signedPsbtBase64:
+                  type: string
+                  description: Signed PSBT in Base64 format
+                  example: cHNidP8BAHcCAAAAAZX6s.......
+                makerPaymentType:
+                  type: string
+                  description: Payment type of the maker
+                  example: p2wpkh
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Offers cancelled successfully
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/collection-offers/psbt/create:
+    get:
+      summary: Create Collection Offers
+      tags:
+      - Bitcoin
+      parameters:
+      - name: collectionSymbol
+        in: query
+        required: true
+        schema:
+          type: string
+        example: nodemonkes
+      - name: quantity
+        in: query
+        required: true
+        schema:
+          type: integer
+        example: 1
+      - name: priceSats
+        in: query
+        required: true
+        schema:
+          type: integer
+        example: 100000
+      - name: expirationAt
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2024-12-31T23:59:59Z'
+      - name: feeSatsPerVbyte
+        in: query
+        required: true
+        schema:
+          type: integer
+        example: 5
+      - name: makerPublicKey
+        in: query
+        required: true
+        schema:
+          type: string
+        example: 0600db232186bd7de491b45g5e703d6aebaf976b0ce52d721640a1bd3f1f110752
+      - name: makerPaymentType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - p2wpkh
+          - p2sh
+          - p2pkh
+        example: p2wpkh
+      - name: makerReceiveAddress
+        in: query
+        required: true
+        schema:
+          type: string
+        example: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8jzg5
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      offerId:
+                        type: string
+                        example: offer123456
+                      psbt:
+                        type: string
+                        example: cHNidP8BAHcCAAAAAZX6s.......
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Submit Collection Offers
+      tags:
+      - Bitcoin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collectionSymbol:
+                  type: string
+                  example: nodemonkes
+                quantity:
+                  type: integer
+                  example: 1
+                priceSats:
+                  type: integer
+                  example: 100000
+                expirationAt:
+                  type: string
+                  format: date-time
+                  example: '2024-12-31T23:59:59Z'
+                makerPublicKey:
+                  type: string
+                  example: 0600db232186bd7de491b45g5e703d6aebaf976b0ce52d721640a1bd3f1f110752
+                makerPaymentType:
+                  type: string
+                  enum:
+                  - p2wpkh
+                  - p2sh
+                  - p2pkh
+                  example: p2wpkh
+                makerReceiveAddress:
+                  type: string
+                  example: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8jzg5
+                offers:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      signedPsbtBase64:
+                        type: string
+                        example: cHNidP8BAHcCAAAAAZX6s.......
+                      signedCancelPsbtBase64:
+                        type: string
+                        example: cHNidP8BAHcCAAAAAZX6s.......
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  /v2/ord/btc/offers/create:
+    get:
+      summary: Create Offer for a Token
+      tags:
+      - Bitcoin
+      parameters:
+      - name: tokenId
+        in: query
+        required: true
+        schema:
+          type: string
+        example: ccfb3ea4e5de0caf3236a2073ed6d3365e6b0d5be0c22aa38b2071ac8db644bfi0
+      - name: price
+        in: query
+        required: true
+        schema:
+          type: integer
+        example: 100000
+      - name: expirationDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2024-12-31T23:59:59Z'
+      - name: buyerTokenReceiveAddress
+        in: query
+        required: true
+        schema:
+          type: string
+        example: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8jzg5
+      - name: buyerPaymentAddress
+        in: query
+        required: true
+        schema:
+          type: string
+        example: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+      - name: buyerPaymentPublicKey
+        in: query
+        required: true
+        schema:
+          type: string
+        example: 0600db232186bd7de491b45g5e703d6aebaf976b0ce52d721640a1bd3f1f110752
+      - name: feerateTier
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - halfHourFee
+          - hourFee
+          - fastestFee
+        example: halfHourFee
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - Bitcoin
+      summary: Submit a signed offer order for a Bitcoin NFT
+      operationId: submitSignedOfferOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signedPSBTBase64:
+                  type: string
+                  example: cHNidP8BAHECAAAAAYb6xNH9fhgkTybG4ZH52wKROs...
+                feerateTier:
+                  type: string
+                  enum:
+                  - halfHourFee
+                  - hourFee
+                  - dayFee
+                  example: halfHourFee
+                tokenId:
+                  type: string
+                  example: ccfb3ea4e5de0caf3236a2073ed6d3365e6b0d5be0c22aa38b2071ac8db644bfi0
+                price:
+                  type: number
+                  format: int64
+                  example: 100000
+                expirationDate:
+                  type: string
+                  format: date-time
+                  example: '1672531199000'
+                buyerPaymentAddress:
+                  type: string
+                  example: 1BoatSLRHtKNngkdXEeobR76b53LETtpyT
+                buyerPaymentPublicKey:
+                  type: string
+                  example: 0600db232186bd7de491b45g5e703d6aebaf976b0ce52d721640a1bd3f1f110752
+                buyerReceiveAddress:
+                  type: string
+                  example: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+              required:
+              - signedPSBTBase64
+              - feerateTier
+              - tokenId
+              - price
+              - expirationDate
+              - buyerPaymentAddress
+              - buyerPaymentPublicKey
+              - buyerReceiveAddress
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+  /v2/ord/btc/collection-offers/collection/{collectionSymbol}:
+    get:
+      tags:
+      - Bitcoin
+      summary: Get collection offers for a Bitcoin NFT collection
+      operationId: getCollectionOffers
+      parameters:
+      - name: collectionSymbol
+        in: path
+        required: true
+        schema:
+          type: string
+        example: nodemonkes
+      - name: sort
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+          - dateAsc
+          - dateDesc
+        example: priceDesc
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 100
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 0
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+  /v2/ord/btc/offers/:
+    get:
+      tags:
+      - Bitcoin
+      summary: Retrieve best offers for a specific token.
+      parameters:
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - valid
+          - invalid
+          - expired
+        example: valid
+        description: Filter offers by status.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          example: 2
+        description: Maximum number of offers to return.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          example: 0
+        description: Number of offers to skip (pagination offset).
+      - name: sortBy
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - priceAsc
+          - priceDesc
+        example: priceDesc
+        description: Sort offers by price in ascending or descending order.
+      - name: token_id
+        in: query
+        required: true
+        schema:
+          type: string
+        example: ccfb3ea4e5de0caf3236a2073ed6d3365e6b0d5be0c22aa38b2071ac8db644bfi0
+        description: The token ID for which offers are retrieved.
+      - name: wallet_address_buyer
+        in: query
+        schema:
+          type: string
+        required: false
+        description: The buyer's wallet address
+        example: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+      responses:
+        '200':
+          description: Successful response
+  /v2/ord/btc/offers/cancel:
+    get:
+      summary: Retrieve cancel offer format
+      tags:
+      - Bitcoin
+      operationId: retrieveCancelOfferFormat
+      parameters:
+      - in: query
+        name: offerId
+        required: true
+        schema:
+          type: string
+        description: The ID of the offer to be cancelled
+        example: 6de493e5-4f1d-437d-8aa8-b87368dbe5ab
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '404':
+          description: Offer not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Submit cancel offer data
+      tags:
+      - Bitcoin
+      operationId: submitCancelOfferData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                offerId:
+                  type: string
+                  description: The ID of the offer to be cancelled
+                  example: 7ab12cd3-45ef-67gh-89ij-klmn12op34qr
+                signedPSBTBase64:
+                  type: string
+                  description: The signed Partially Signed Bitcoin Transaction (PSBT) in Base64 format
+                  example: cHNidP8BAHECAAAAAbFNrlBpjUdXy0qFcCUJjkl7AClYQJh53OFWMO9eOZe9AAAAAAD/////AhAnAAAAAAAAFgAUFK4qK4oWGApqikklz1HVyewNfZ4wdQAAAAAAACIAIJnpjiwz0/PmQy8qwtxpzBkb+EGrjf8odZMwKwBzpccAAAAAAAAA
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '404':
+          description: Offer not found
+        '500':
+          description: Internal server error
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-NFT-API-Key
+    cookieAuth:
+      type: apiKey
+      in: header
+      name: Cookie
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
