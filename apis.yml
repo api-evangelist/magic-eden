@@ -455,6 +455,8 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 common:
+- type: IssueTracker
+  url: https://github.com/magiceden/magiceden-sdk/issues
 - type: AgenticAccess
   url: agentic-access/magic-eden-agentic-access.yml
 - type: VulnerabilityDisclosure
