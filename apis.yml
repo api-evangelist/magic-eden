@@ -34,7 +34,7 @@ tags:
 - Multi-chain
 created: '2026-05-24'
 modified: '2026-08-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: magic-eden:magic-eden-activity-api
   name: Magic Eden Activity API
