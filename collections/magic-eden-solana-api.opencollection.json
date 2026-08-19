@@ -1,0 +1,827 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin Solana API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-NFT-API-Key",
+      "value": "{{X-NFT-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Solana",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Solana Collection Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/collection_stats/search/solana",
+            "params": [
+              {
+                "name": "direction",
+                "value": "desc",
+                "type": "query",
+                "description": "The direction to sort the results"
+              },
+              {
+                "name": "sort",
+                "value": "volume",
+                "type": "query",
+                "description": "The field to sort the results by"
+              },
+              {
+                "name": "window",
+                "value": "1d",
+                "type": "query",
+                "description": "The time window for the stats"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum number of results to return"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "The number of results to skip (for pagination)"
+              }
+            ]
+          },
+          "docs": "Retrieve collection statistics for Solana NFTs on Magic Eden, with options for sorting, filtering, and pagination."
+        },
+        {
+          "info": {
+            "name": "Get Collection Holder Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getCollectionHolderStats/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "rugens_drip",
+                "type": "path",
+                "description": "The symbol or identifier of the collection"
+              },
+              {
+                "name": "edge_cache",
+                "value": "true",
+                "type": "query",
+                "description": "Whether to use edge caching for the request"
+              }
+            ]
+          },
+          "docs": "Retrieve holder statistics for a specific NFT collection on Magic Eden."
+        },
+        {
+          "info": {
+            "name": "Retrieve all NFTs by collection symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/idxv2/getAllNftsByCollectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "rugens_drip",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "field",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "token22StandardFilter",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "mplCoreStandardFilter",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "agg",
+                "value": "3",
+                "type": "query"
+              },
+              {
+                "name": "compressionMode",
+                "value": "both",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all NFTs by collection symbol"
+        },
+        {
+          "info": {
+            "name": "Retrieve NFTs by owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getNFTsByOwner/:ownerAddress",
+            "params": [
+              {
+                "name": "ownerAddress",
+                "value": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve NFTs by owner"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection attributes stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getCollectionAttributesStats/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "all",
+                "type": "query"
+              },
+              {
+                "name": "edge_cache",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "agg",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve collection attributes stats"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection organization details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/collections/:collectionSymbol/organization",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "edge_cache",
+                "value": "true",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve collection organization details"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection details with pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/sft/collection/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "20",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve collection details with pagination"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection escrow stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getCollectionEscrowStats/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "all",
+                "type": "query"
+              },
+              {
+                "name": "edge_cache",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "agg",
+                "value": "3",
+                "type": "query"
+              },
+              {
+                "name": "enableFloorWithFee",
+                "value": "true",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve collection escrow stats"
+        },
+        {
+          "info": {
+            "name": "Get Collection Activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/activities",
+            "params": [
+              {
+                "name": "activityTypes",
+                "value": "%5B%22sale%22%2C%22item_offer%22%2C%22pool_offer%22%2C%22attributes_offer%22%2C%22list%22%2C%22edit_list%22%2C%22delist%22%5D",
+                "type": "query",
+                "description": "JSON array of activity types to filter by, URL encoded"
+              },
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "query",
+                "description": "The symbol or identifier of the collection"
+              },
+              {
+                "name": "onChainCollectionAddress",
+                "value": "TAuAUS8neSS3KPSqLXQ7u1aWkKgnVPzqNizihDYuXvN",
+                "type": "query",
+                "description": "The on-chain address of the collection"
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query",
+                "description": "The maximum number of results to return"
+              },
+              {
+                "name": "enableSNS",
+                "value": "true",
+                "type": "query",
+                "description": "Whether to enable SNS (possibly Solana Name Service) resolution"
+              }
+            ]
+          },
+          "docs": "Retrieve activities for a specific NFT collection on Magic Eden, with options for filtering by activity type and pagination."
+        },
+        {
+          "info": {
+            "name": "Retrieve listed NFTs by collection symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/idxv2/getListedNftsByCollectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "field",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "token22StandardFilter",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "mplCoreStandardFilter",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "all",
+                "type": "query"
+              },
+              {
+                "name": "agg",
+                "value": "3",
+                "type": "query"
+              },
+              {
+                "name": "compressionMode",
+                "value": "both",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve listed NFTs by collection symbol"
+        },
+        {
+          "info": {
+            "name": "Check if user is watching a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/collection_watchlists/action/checkUserWatchCollection/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "walletAddress",
+                "value": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Check if user is watching a collection"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/collections/:collectionSymbol",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              },
+              {
+                "name": "edge_cache",
+                "value": "true",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve collection details"
+        },
+        {
+          "info": {
+            "name": "Retrieve bids by mint addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/idxv2/getBidsByMintAddresses",
+            "params": [
+              {
+                "name": "hideExpired",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "mintAddresses",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "field",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "500",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve bids by mint addresses"
+        },
+        {
+          "info": {
+            "name": "Retrieve NFT by mint address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getNFTByMintAddress/:mintAddress",
+            "params": [
+              {
+                "name": "mintAddress",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              },
+              {
+                "name": "agg",
+                "value": "3",
+                "type": "query"
+              },
+              {
+                "name": "useRarity",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "includeBurntMint",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "compressionMode",
+                "value": "both",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve NFT by mint address"
+        },
+        {
+          "info": {
+            "name": "Retrieve NFT stats by mint address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rpc/getNFTStatsByMintAddress/:mintAddress",
+            "params": [
+              {
+                "name": "mintAddress",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve NFT stats by mint address"
+        },
+        {
+          "info": {
+            "name": "Retrieve activities for a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/collections/:symbol/activities",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "drip_tarimosi",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve activities for a collection"
+        },
+        {
+          "info": {
+            "name": "Retrieve listings for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/tokens/:token_mint/listings",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve listings for a token"
+        },
+        {
+          "info": {
+            "name": "Retrieve offers received for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/tokens/:token_mint/offers_received",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              },
+              {
+                "name": "min_price",
+                "value": "1000000",
+                "type": "query"
+              },
+              {
+                "name": "max_price",
+                "value": "100000000",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "updatedAt",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "desc",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve offers received for a token"
+        },
+        {
+          "info": {
+            "name": "Retrieve activities for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/tokens/:token_mint/activities",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve activities for a token"
+        },
+        {
+          "info": {
+            "name": "Retrieve token details by mint address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/tokens/:token_mint",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "DmdF3ACqvjmRh4mayaw3SAKuttVQ3tZkmut1N4RxSLCG",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve token details by mint address"
+        },
+        {
+          "info": {
+            "name": "Batch retrieve listings for collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v2/collections/batch/listings",
+            "params": [
+              {
+                "name": "attributes",
+                "value": "",
+                "type": "query",
+                "description": "Array of arrays of objects representing a filtering mechanism.\nElements within each inner array are logically ORed, and resulting arrays are ANDed together.\nEach inner array consists of objects with properties traitType (string) and value (string).\nExample: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]]\n"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price filter"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price filter"
+              },
+              {
+                "name": "sort",
+                "value": "listPrice",
+                "type": "query",
+                "description": "Field to sort the listings"
+              },
+              {
+                "name": "sort_direction",
+                "value": "asc",
+                "type": "query",
+                "description": "Sort direction for the returned elements"
+              },
+              {
+                "name": "listingAggMode",
+                "value": "true",
+                "type": "query",
+                "description": "True to return aggregated marketplace listings, false for Magic Eden listings only"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch retrieve listings for collections"
+        },
+        {
+          "info": {
+            "name": "Get sell instructions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/instructions/sell",
+            "params": [
+              {
+                "name": "seller",
+                "value": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+                "type": "query",
+                "description": "The seller's wallet address."
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe",
+                "type": "query",
+                "description": "The address of the auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "7kpQSvaSW5r4usqUHeqXCHK79zj4amadLdv1mpFpDiWR",
+                "type": "query",
+                "description": "The mint address of the token."
+              },
+              {
+                "name": "tokenAccount",
+                "value": "HLfiWCHHma8BJDHPLt1q65v2cA4UXQKEswPCT1rEbQi4",
+                "type": "query",
+                "description": "The token account address."
+              },
+              {
+                "name": "price",
+                "value": "1",
+                "type": "query",
+                "description": "The price of the token."
+              }
+            ]
+          },
+          "docs": "Retrieve instructions for selling an NFT on Magic Eden."
+        },
+        {
+          "info": {
+            "name": "Submit signed listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v2/tx/:txId",
+            "params": [
+              {
+                "name": "txId",
+                "value": "",
+                "type": "path",
+                "description": "The transaction ID to retrieve details for."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit signed listing"
+        },
+        {
+          "info": {
+            "name": "Get buy instructions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v2/instructions/buy",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+                "type": "query"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe",
+                "type": "query"
+              },
+              {
+                "name": "tokenMint",
+                "value": "7kpQSvaSW5r4usqUHeqXCHK79zj4amadLdv1mpFpDiWR",
+                "type": "query"
+              },
+              {
+                "name": "price",
+                "value": "1",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get buy instructions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

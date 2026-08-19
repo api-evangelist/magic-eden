@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "NFT Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/activities",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "activityTypes[]",
+                "value": "",
+                "type": "query",
+                "description": "The activity types to query"
+              },
+              {
+                "name": "fromTime",
+                "value": "",
+                "type": "query",
+                "description": "`From time` of time range to query"
+              },
+              {
+                "name": "toTime",
+                "value": "",
+                "type": "query",
+                "description": "`To time` of time range to query"
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "query",
+                "description": "Asset Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Collection Id to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+              },
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "User wallet address to filter for activities. Either `assetId` or `collectionId` or `walletAddress` should be provided. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to get NFT activity"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

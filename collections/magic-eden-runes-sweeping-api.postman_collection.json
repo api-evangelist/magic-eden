@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "6a271dd1-5585-494d-b5d3-576ea8f2c0a2",
+      "name": "Runes Sweeping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c8e35bd-d765-4069-9924-833cb90cc768",
+          "name": "Get an unsigned PSBT for buying a rune",
+          "request": {
+            "name": "Get an unsigned PSBT for buying a rune",
+            "description": {
+              "content": "Get an unsigned PSBT for buying a rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "get-sweeping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"runeSymbol\": \"<string>\",\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerPublicKey\": \"<btc-public-key>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"feeRateTier\": \"<string>\",\n  \"feeRateNum\": \"<number>\",\n  \"enableRBFProtection\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5102f4a-f9f3-4169-b21f-b6df46305a18",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "get-sweeping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"runeSymbol\": \"<string>\",\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerPublicKey\": \"<btc-public-key>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"feeRateTier\": \"<string>\",\n  \"feeRateNum\": \"<number>\",\n  \"enableRBFProtection\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invalidOrders\": [\n    \"8c256d0e-903a-22cf-8b10-ebb9c306f996\",\n    \"d8ba94ea-b792-ef9f-51f6-90635b94298d\"\n  ],\n  \"paymentUtxoIndexes\": 9980.227365918663,\n  \"validOrders\": [\n    \"8527fdad-fab7-ab6e-61ac-ebc605bd0105\",\n    \"e2787ecd-4702-8000-2e82-415835f4c463\"\n  ],\n  \"psbtBase64\": \"string\",\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 8453.900133662382\n  },\n  \"fullRBFProtectedSweepingResult\": {\n    \"settlement\": {\n      \"amount\": \"string\",\n      \"price\": 6410.061517209206\n    },\n    \"validOrderIds\": [\n      \"a4f058d4-0d4d-aa0b-81e4-213c2b582db7\",\n      \"352364f0-b448-f34e-21eb-a759a6bceded\"\n    ],\n    \"psbtIndexesToSign\": [\n      7601.656361458823,\n      2137.3116857698706\n    ],\n    \"unsignedFundsPreparationPsbtBase64\": \"string\",\n    \"error\": {\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97663ece-5d1b-43a3-9490-abd0b056f00c",
+          "name": "Submit a signed PSBT for buying a rune",
+          "request": {
+            "name": "Submit a signed PSBT for buying a rune",
+            "description": {
+              "content": "Submit a signed PSBT for buying a rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "sweeping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"enableRBFProtection\": \"<boolean>\",\n  \"fullRBFProtectedSweepingRequest\": {\n    \"takerPaymentPublicKey\": \"<btc-public-key>\",\n    \"signedFundsPreparationPsbtBase64\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c35ae1f0-aeae-4b80-99d3-becbac9b0d1a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "sweeping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"takerPaymentAddress\": \"<btc-address>\",\n  \"takerReceiveAddress\": \"<btc-address>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"enableRBFProtection\": \"<boolean>\",\n  \"fullRBFProtectedSweepingRequest\": {\n    \"takerPaymentPublicKey\": \"<btc-public-key>\",\n    \"signedFundsPreparationPsbtBase64\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txid\": \"string\",\n  \"error\": \"string\",\n  \"fullRBFProtectedSweepingResponse\": {\n    \"fundsPreparationTxId\": \"string\",\n    \"fulfillmentId\": \"string\",\n    \"error\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dcc44b93-50c5-47fc-8a62-f74ae853a52c",
+    "name": "Magic Eden EVM Activity Runes Sweeping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

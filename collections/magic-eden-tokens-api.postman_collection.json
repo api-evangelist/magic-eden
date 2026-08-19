@@ -1,0 +1,890 @@
+{
+  "item": [
+    {
+      "id": "d9496b6b-1e29-411b-9ae1-d3875d6be73c",
+      "name": "Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a329ff2-62d4-4a66-a076-0414040710e7",
+          "name": "Get tokens",
+          "request": {
+            "name": "Get tokens",
+            "description": {
+              "content": "Get tokens, can be filtered by collectionSymbol, owner, tokenIds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tokenIds",
+                  "value": "<string>",
+                  "description": "Comma-separated list of token IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "Collection symbol"
+                },
+                {
+                  "disabled": false,
+                  "key": "ownerAddress",
+                  "value": "<string>",
+                  "description": "Owner address"
+                },
+                {
+                  "disabled": false,
+                  "key": "showAll",
+                  "value": "true",
+                  "description": "Show all items including the listed and unlisted ones"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "inscriptionMin",
+                  "value": "<number>",
+                  "description": "Inscription number min"
+                },
+                {
+                  "disabled": false,
+                  "key": "inscriptionMax",
+                  "value": "<number>",
+                  "description": "Inscription number max"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "priceAsc",
+                  "description": "sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPrice",
+                  "value": "<number>",
+                  "description": "min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<number>",
+                  "description": "max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "satRarity",
+                  "value": "<string>",
+                  "description": "sat rarity"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2c74090-d5b5-4e59-99e3-e9a9a4878481",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tokenIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ownerAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "showAll",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "inscriptionMin",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "inscriptionMax",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "priceAsc"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "satRarity",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 9777,\n  \"items\": [\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 8564.084873557582,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 7289.627093750136,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 8268.868698493452,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 1387.670292441393,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 7318.006791025516,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": false,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 9608.804153571904,\n      \"listedMakerFeeBp\": 2903.0990364124177,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": false,\n      \"brc20TransferAmt\": 7182.577147591025,\n      \"brc20ListedUnitPrice\": 5003.855755802539,\n      \"domain\": \"string\"\n    },\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 9118.229429194085,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 210.27861520551693,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 8905.289686060974,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 1775.3664377609523,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 2820.247172804803,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 9724.100054554914,\n      \"listedMakerFeeBp\": 9801.80231508713,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": true,\n      \"brc20TransferAmt\": 4572.043261379711,\n      \"brc20ListedUnitPrice\": 2575.684629077577,\n      \"domain\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "978f17ba-5ba0-4813-936a-27d704c57a8f",
+          "name": "Get token metadata by mint address",
+          "request": {
+            "name": "Get token metadata by mint address",
+            "description": {},
+            "url": {
+              "path": [
+                "tokens",
+                ":token_mint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token_mint",
+                  "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cbb6354-7775-442d-970a-b954bdab1eb5",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mintAddress\": \"4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq\",\n  \"owner\": \"8ao31PYJ7jHiGQDAkRN1sDWxUgUMwTjMZ7uyiS5F9aNs\",\n  \"supply\": 1,\n  \"collection\": \"devnet_zoolana\",\n  \"name\": \"Beyond Reach\",\n  \"updateAuthority\": \"7DiTpjUsvRS63EoaEsjEnQj3ncqVeQeiB116kNrhMBNw\",\n  \"primarySaleHappened\": true,\n  \"sellerFeeBasisPoints\": 500,\n  \"image\": \"https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2\",\n  \"animationUrl\": \"https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4\",\n  \"externalUrl\": \"https://www.zoolana.io\",\n  \"attributes\": [\n    {\n      \"trait_type\": \"Edition\",\n      \"value\": \"Teaser\"\n    },\n    {\n      \"trait_type\": \"Tribe\",\n      \"value\": \"Vand\"\n    },\n    {\n      \"trait_type\": \"Rarity\",\n      \"value\": \"Bronze\"\n    }\n  ],\n  \"properties\": {\n    \"files\": [\n      {\n        \"uri\": \"https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2\",\n        \"type\": \"image/png\"\n      },\n      {\n        \"uri\": \"https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4\",\n        \"type\": \"video/mp4\"\n      }\n    ],\n    \"category\": \"\",\n    \"creators\": [\n      {\n        \"address\": \"6QNWBWhxBfEMkwBUTeTsGyxohBicA3k6EGWr6X8KmzUL\",\n        \"share\": 50\n      },\n      {\n        \"address\": \"4Tysv54Lxh1L16h5Yt5ncFGbG5ont8iXvCUzFFkfCYFY\",\n        \"share\": 50\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f93d544-b501-4b78-ba2b-41eb95de5191",
+              "name": "Token not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d9bf407-a0df-4889-bb81-0730b1ff8eb2",
+          "name": "Get activities for a token",
+          "request": {
+            "name": "Get activities for a token",
+            "description": {},
+            "url": {
+              "path": [
+                "tokens",
+                ":token_mint",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token_mint",
+                  "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e09b3b85-d04d-495a-ae18-4a9b2d905823",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signature\": \"3HM6raDqMF6W134NmDw7tUhpMSePbr32FRnigx3w4THfMGdtgnz9f7FxNHDmLY625o2vmpidqa3WaJL5uAUcNTpd\",\n    \"type\": \"list\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa\",\n    \"collectionSymbol\": null,\n    \"slot\": 138008605,\n    \"blockTime\": 1654024725,\n    \"buyer\": null,\n    \"buyerReferral\": \"\",\n    \"seller\": \"AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN\",\n    \"sellerReferral\": \"\",\n    \"price\": 1.12\n  },\n  {\n    \"signature\": \"3HM6raDqMF6W134NmDw7tUhpMSePbr32FRnigx3w4THfMGdtgnz9f7FxNHDmLY625o2vmpidqa3WaJL5uAUcNTpd\",\n    \"type\": \"list\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa\",\n    \"collectionSymbol\": \"devnet_zoolana\",\n    \"slot\": 138008605,\n    \"blockTime\": 1654024725,\n    \"buyer\": null,\n    \"buyerReferral\": \"\",\n    \"seller\": \"AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN\",\n    \"sellerReferral\": \"\",\n    \"price\": 1.12\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1747036b-d5c1-43de-8eb6-1ff1f423e61c",
+              "name": "Token not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c3ca0aa-e5ca-414a-b985-37d5c340ac93",
+          "name": "Get listings for a token",
+          "request": {
+            "name": "Get listings for a token",
+            "description": {},
+            "url": {
+              "path": [
+                "tokens",
+                ":token_mint",
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "listingAggMode",
+                  "value": "<boolean>",
+                  "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token_mint",
+                  "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7e80a1d-8510-4b16-b10c-c708deb3ed68",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"7PkCbEWQsndTKgSWySWjkggWxpZwPnrDop8vJc8vxevs\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"tokenAddress\": \"NosfJM1SyMYED4eBnbZxa4pfnQYeeXw97Fep9w9Tqzu\",\n    \"tokenMint\": \"6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa\",\n    \"seller\": \"AmGLq5ZRGKjCXPq4tMAEgsKogMu1qFV5Yj28NM4ZZHKN\",\n    \"sellerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"tokenSize\": 1,\n    \"price\": 1.12,\n    \"rarity\": {},\n    \"expiry\": -1,\n    \"token\": {\n      \"mintAddress\": \"4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq\",\n      \"owner\": \"8ao31PYJ7jHiGQDAkRN1sDWxUgUMwTjMZ7uyiS5F9aNs\",\n      \"supply\": 1,\n      \"collection\": \"devnet_zoolana\",\n      \"name\": \"Beyond Reach\",\n      \"updateAuthority\": \"7DiTpjUsvRS63EoaEsjEnQj3ncqVeQeiB116kNrhMBNw\",\n      \"primarySaleHappened\": true,\n      \"sellerFeeBasisPoints\": 500,\n      \"image\": \"https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2\",\n      \"animationUrl\": \"https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4\",\n      \"externalUrl\": \"https://www.zoolana.io\",\n      \"attributes\": [\n        {\n          \"trait_type\": \"Edition\",\n          \"value\": \"Teaser\"\n        },\n        {\n          \"trait_type\": \"Tribe\",\n          \"value\": \"Vand\"\n        },\n        {\n          \"trait_type\": \"Rarity\",\n          \"value\": \"Bronze\"\n        }\n      ],\n      \"properties\": {\n        \"files\": [\n          {\n            \"uri\": \"https://ipfs.io/ipfs/QmY4PDbfRsuwCvmJeY6NdzaRXFJhypgVwzNyDwin91dsM2\",\n            \"type\": \"image/png\"\n          },\n          {\n            \"uri\": \"https://ipfs.io/ipfs/QmWhd7tAWgogpcndBec5gSKTuzJ5tiNqrTsdsho2Mk5c7m?ext=mp4\",\n            \"type\": \"video/mp4\"\n          }\n        ],\n        \"category\": \"\",\n        \"creators\": [\n          {\n            \"address\": \"6QNWBWhxBfEMkwBUTeTsGyxohBicA3k6EGWr6X8KmzUL\",\n            \"share\": 50\n          },\n          {\n            \"address\": \"4Tysv54Lxh1L16h5Yt5ncFGbG5ont8iXvCUzFFkfCYFY\",\n            \"share\": 50\n          }\n        ]\n      }\n    },\n    \"listingSource\": \"M2\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f280730e-416e-433a-9459-b0e91ccbbf86",
+              "name": "Token not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token or asset ID of compressed NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8288f904-1132-438c-a6d3-81a28c95262d",
+          "name": "Get received offers for a token",
+          "request": {
+            "name": "Get received offers for a token",
+            "description": {},
+            "url": {
+              "path": [
+                "tokens",
+                ":token_mint",
+                "offers_received"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the offers received, default 'updatedAt'"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'desc'"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token_mint",
+                  "description": "(Required) Mint address of the token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa1af31c-83d3-449e-bc3b-8ac1f96ab41b",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "offers_received"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"6pDTQ8eSLQCBeAsagmYbpjqbrW82Q5gwbVF8cEj2Tg6j\",\n    \"tokenMint\": \"6eGfgGuxA1pBtTX4k2oubpa6m1Z3eaJUBxgtZFB7sjZA\",\n    \"auctionHouse\": \"\",\n    \"buyer\": \"AnCKk6ThHEhgHMUpM2JoNDRwJ4neyzcj6a3TRPGH5Pa5\",\n    \"buyerReferral\": \"\",\n    \"tokenSize\": 1,\n    \"price\": 0.007,\n    \"expiry\": 0\n  },\n  {\n    \"pdaAddress\": \"H54aiNrbDZi31YSycp1sz5iXM9Cvs3BWjCTPgmBTjQKt\",\n    \"tokenMint\": \"6eGfgGuxA1pBtTX4k2oubpa6m1Z3eaJUBxgtZFB7sjZA\",\n    \"auctionHouse\": \"\",\n    \"buyer\": \"CEMnY2UPQJUZ9MahFcbogQFUfFzoHVFgSZpJmZW5WpH6\",\n    \"buyerReferral\": \"\",\n    \"tokenSize\": 1,\n    \"price\": 0.51,\n    \"expiry\": 0\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a2e31d7-b05c-4c86-9064-55d78ee19177",
+              "name": "Token not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    ":token_mint",
+                    "offers_received"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_mint",
+                      "description": "(Required) Mint address of the token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "75a299cf-c119-4b78-a9e5-3b6c6bd98cd0",
+    "name": "Magic Eden EVM Activity Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1273 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity instructions API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instructions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get instruction to buy (bid)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/buy",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 will default to 7 days."
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to buy (bid)"
+        },
+        {
+          "info": {
+            "name": "Get instruction to cancel a buy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/buy_cancel",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to cancel a buy"
+        },
+        {
+          "info": {
+            "name": "Get instruction to change a buy price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/buy_change_price",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Old price in SOL"
+              },
+              {
+                "name": "newPrice",
+                "value": "",
+                "type": "query",
+                "description": "New price in SOL"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to change a buy price"
+        },
+        {
+          "info": {
+            "name": "Get instruction to buy now",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/buy_now",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenATA",
+                "value": "",
+                "type": "query",
+                "description": "Associate Token Account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "buyerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "sellerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "buyerCreatorRoyaltyPercent",
+                "value": "",
+                "type": "query",
+                "description": "buyerCreatorRoyaltyPercent, integer 0-100"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              },
+              {
+                "name": "splPrice",
+                "value": "",
+                "type": "query",
+                "description": "SPL token price information (JSON string)"
+              }
+            ]
+          },
+          "docs": "Get instruction to buy now"
+        },
+        {
+          "info": {
+            "name": "Get instruction to buy now and transfer nft to another owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/buy_now_transfer_nft",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenATA",
+                "value": "",
+                "type": "query",
+                "description": "Associate Token Account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "destinationATA",
+                "value": "",
+                "type": "query",
+                "description": "Associated token account to send bought NFT to"
+              },
+              {
+                "name": "destinationOwner",
+                "value": "",
+                "type": "query",
+                "description": "Owner of token account"
+              },
+              {
+                "name": "createATA",
+                "value": "",
+                "type": "query",
+                "description": "whether to include create ATA instructions"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "buyerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "sellerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "buyerCreatorRoyaltyPercent",
+                "value": "",
+                "type": "query",
+                "description": "buyerCreatorRoyaltyPercent, integer 0-100"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to buy now and transfer nft to another owner"
+        },
+        {
+          "info": {
+            "name": "Get instruction to deposit to escrow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/deposit",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount in SOL"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to deposit to escrow"
+        },
+        {
+          "info": {
+            "name": "Get instruction to sell (list)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/sell",
+            "params": [
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenAccount",
+                "value": "",
+                "type": "query",
+                "description": "Token account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to sell (list)"
+        },
+        {
+          "info": {
+            "name": "Get instruction to cancel a sell",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/sell_cancel",
+            "params": [
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenAccount",
+                "value": "",
+                "type": "query",
+                "description": "Token account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to cancel a sell"
+        },
+        {
+          "info": {
+            "name": "Get instruction to change a sell price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/sell_change_price",
+            "params": [
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenAccount",
+                "value": "",
+                "type": "query",
+                "description": "Token account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "newPrice",
+                "value": "",
+                "type": "query",
+                "description": "New price in SOL"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to change a sell price"
+        },
+        {
+          "info": {
+            "name": "Get instruction to sell now (accept offer)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/sell_now",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Seller wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "tokenMint",
+                "value": "",
+                "type": "query",
+                "description": "Token mint address"
+              },
+              {
+                "name": "tokenATA",
+                "value": "",
+                "type": "query",
+                "description": "Associate token account"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Price in SOL"
+              },
+              {
+                "name": "newPrice",
+                "value": "",
+                "type": "query",
+                "description": "New price in SOL"
+              },
+              {
+                "name": "sellerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "buyerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Buyer referral wallet"
+              },
+              {
+                "name": "sellerReferral",
+                "value": "",
+                "type": "query",
+                "description": "Seller referral wallet"
+              },
+              {
+                "name": "buyerExpiry",
+                "value": "",
+                "type": "query",
+                "description": "timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to sell now (accept offer)"
+        },
+        {
+          "info": {
+            "name": "Get instruction to withdraw from escrow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/withdraw",
+            "params": [
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Buyer wallet"
+              },
+              {
+                "name": "auctionHouseAddress",
+                "value": "",
+                "type": "query",
+                "description": "Auction house Address. If not provided, will use default auction house."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount in SOL"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "prioFeeMicroLamports",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee in microlamports"
+              },
+              {
+                "name": "maxPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Maximum priority fee in lamports"
+              },
+              {
+                "name": "exactPrioFeeLamports",
+                "value": "",
+                "type": "query",
+                "description": "Exact priority fee in lamports"
+              }
+            ]
+          },
+          "docs": "Get instruction to withdraw from escrow"
+        },
+        {
+          "info": {
+            "name": "Construct and return burn txs for given mint addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/magic_ticket/burns",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Wallet address that owns the tickets"
+              },
+              {
+                "name": "mintAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of mint addresses to burn"
+              }
+            ]
+          },
+          "docs": "Construct and return burn txs for given mint addresses"
+        },
+        {
+          "info": {
+            "name": "Get instruction to create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/create-pool",
+            "params": [
+              {
+                "name": "spotPrice",
+                "value": "",
+                "type": "query",
+                "description": "Pool initial spot price in SOL"
+              },
+              {
+                "name": "curveType",
+                "value": "",
+                "type": "query",
+                "description": "Type curve, either 'linear' or 'exp'"
+              },
+              {
+                "name": "curveDelta",
+                "value": "",
+                "type": "query",
+                "description": "Curve delta used to change price after a fill"
+              },
+              {
+                "name": "reinvestBuy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest bought asset or transfer directly to owner"
+              },
+              {
+                "name": "reinvestSell",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest payment from sale or transfer directly to owner"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "Timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "lpFeeBp",
+                "value": "",
+                "type": "query",
+                "description": "Requested liquidity provider fee in basis points"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of creator royalty the pool should pay in basis points"
+              },
+              {
+                "name": "paymentMint",
+                "value": "",
+                "type": "query",
+                "description": "Mint address of payment (default for SOL)"
+              },
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol for which the pool will be valid"
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query",
+                "description": "Owner of the pool"
+              },
+              {
+                "name": "solDeposit",
+                "value": "",
+                "type": "query",
+                "description": "Optional sol amount to deposit with pool creation"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "sharedEscrowCount",
+                "value": "",
+                "type": "query",
+                "description": "Number of pools (bids) that will share the escrow account"
+              }
+            ]
+          },
+          "docs": "Get instruction to create a pool"
+        },
+        {
+          "info": {
+            "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-close-pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to close"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to close a pool after all assets and payment have been withdrawn"
+        },
+        {
+          "info": {
+            "name": "Get instruction to deposit SOL into a pool for buying",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-deposit-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to deposit into"
+              },
+              {
+                "name": "solAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount of SOL to deposit"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to deposit SOL into a pool for buying"
+        },
+        {
+          "info": {
+            "name": "Get instruction to have a pool fulfill a buy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-fulfill-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to interact with"
+              },
+              {
+                "name": "assetAmount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of asset to transact"
+              },
+              {
+                "name": "minPaymentAmount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum payment amount acceptible by the seller, in SOL"
+              },
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Public key of seller of asset"
+              },
+              {
+                "name": "assetMint",
+                "value": "",
+                "type": "query",
+                "description": "Public key of mint account of asset"
+              },
+              {
+                "name": "assetTokenAccount",
+                "value": "",
+                "type": "query",
+                "description": "Public key of token account of asset"
+              },
+              {
+                "name": "allowlistAuxAccount",
+                "value": "",
+                "type": "query",
+                "description": "The allowlist aux account used for token authentication"
+              },
+              {
+                "name": "skipDelist",
+                "value": "",
+                "type": "query",
+                "description": "Whether to skip trying to delist the NFT if it is detected to be listed"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to have a pool fulfill a buy"
+        },
+        {
+          "info": {
+            "name": "Get instruction to have a pool fulfill a sell",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-fulfill-sell",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to interact with"
+              },
+              {
+                "name": "assetAmount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of asset to transact"
+              },
+              {
+                "name": "maxPaymentAmount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum payment amount to be paid by the buyer, in SOL"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of royalty to be paid, in basis points of total royalty"
+              },
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Public key of buyer of asset"
+              },
+              {
+                "name": "assetMint",
+                "value": "",
+                "type": "query",
+                "description": "Public key of mint account of asset"
+              },
+              {
+                "name": "allowlistAuxAccount",
+                "value": "",
+                "type": "query",
+                "description": "The allowlist aux account used for token authentication"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to have a pool fulfill a sell"
+        },
+        {
+          "info": {
+            "name": "Get instruction to withdraw SOL from a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-withdraw-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to withdraw from"
+              },
+              {
+                "name": "solAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount of SOL to withdraw"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to withdraw SOL from a pool"
+        },
+        {
+          "info": {
+            "name": "Get instruction to update an existing pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/update-pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to modify"
+              },
+              {
+                "name": "spotPrice",
+                "value": "",
+                "type": "query",
+                "description": "Pool initial spot price in SOL"
+              },
+              {
+                "name": "curveType",
+                "value": "",
+                "type": "query",
+                "description": "Type curve, either 'linear' or 'exp'"
+              },
+              {
+                "name": "curveDelta",
+                "value": "",
+                "type": "query",
+                "description": "Curve delta used to change price after a fill"
+              },
+              {
+                "name": "reinvestBuy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest bought asset or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+              },
+              {
+                "name": "reinvestSell",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest payment from sale or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "Timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "lpFeeBp",
+                "value": "",
+                "type": "query",
+                "description": "Requested liquidity provider fee in basis points"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of creator royalty the pool should pay in basis points"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "sharedEscrowCount",
+                "value": "",
+                "type": "query",
+                "description": "Number of pools (bids) that will share the escrow account"
+              }
+            ]
+          },
+          "docs": "Get instruction to update an existing pool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

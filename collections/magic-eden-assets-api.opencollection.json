@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Assets API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Collection Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/assets/collection-assets",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "The collection id to query assets. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` "
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "includeFloorAskSource[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by its name"
+              },
+              {
+                "name": "includeTopBid",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include top bid for returned assets, default to __false__"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of assets."
+              }
+            ]
+          },
+          "docs": "Use this API to explore a collection's assets and its market info"
+        },
+        {
+          "info": {
+            "name": "User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/assets/user-assets",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "walletAddresses[]",
+                "value": "",
+                "type": "query",
+                "description": "The wallet address (user address) to query assets from, could be a list, example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "collectionIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+              },
+              {
+                "name": "onlyListed",
+                "value": "",
+                "type": "query",
+                "description": "Whether to show only listed assets, default to __false__"
+              },
+              {
+                "name": "includeTopBid",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include top bid for returned assets, default to __false__"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of assets."
+              }
+            ]
+          },
+          "docs": "Use this API to explore a user's assets and its market info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

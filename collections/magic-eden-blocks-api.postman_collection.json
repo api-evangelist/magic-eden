@@ -1,0 +1,152 @@
+{
+  "item": [
+    {
+      "id": "000dca33-e828-4994-a493-3e4e501816fe",
+      "name": "Blocks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24256e0b-3a0a-427f-a4a9-aa86e0a88963",
+          "name": "Get block activities",
+          "request": {
+            "name": "Get block activities",
+            "description": {
+              "content": "Get block activities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "block",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "blockHeight",
+                  "value": "<integer>",
+                  "description": "(Required) Block height"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>",
+                  "description": "Comma-separated list of activity kinds. Acceptable values are \"create\" and \"transfer\". If not specified, defaults to \"create,transfer\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursor"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0915183-5ec3-4815-84c5-1ea2f824e3df",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "block",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockHeight",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1559,\n  \"results\": [\n    {\n      \"inscription\": {\n        \"id\": \"string\",\n        \"contentType\": \"string\",\n        \"contentMedia\": \"string\",\n        \"contentLength\": 2244.529116797018,\n        \"number\": 9838.631908842806,\n        \"sat\": 6997.614817263025,\n        \"satName\": \"string\",\n        \"satRarity\": \"string\",\n        \"satBlockHeight\": 450.1006427494869,\n        \"satBlockTime\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHeight\": 700.3863299253221,\n        \"genesisTransactionBlockHash\": \"string\",\n        \"parentInscriptionId\": \"string\",\n        \"metaprotocol\": \"string\"\n      },\n      \"activityType\": \"string\",\n      \"blockHeight\": 4643.613905016485,\n      \"blockHash\": \"string\",\n      \"txId\": \"string\",\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"output\": \"string\",\n      \"value\": 768.656143349915,\n      \"offset\": 9783.745179627118,\n      \"timestamp\": 5567.387466326383,\n      \"oldLocation\": \"string\",\n      \"oldAddress\": \"string\",\n      \"createdAt\": \"1960-05-27T22:32:21.070Z\"\n    },\n    {\n      \"inscription\": {\n        \"id\": \"string\",\n        \"contentType\": \"string\",\n        \"contentMedia\": \"string\",\n        \"contentLength\": 9000.708786089299,\n        \"number\": 6404.773283728448,\n        \"sat\": 6209.0249505459005,\n        \"satName\": \"string\",\n        \"satRarity\": \"string\",\n        \"satBlockHeight\": 1242.8998012134607,\n        \"satBlockTime\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHeight\": 8786.958713877648,\n        \"genesisTransactionBlockHash\": \"string\",\n        \"parentInscriptionId\": \"string\",\n        \"metaprotocol\": \"string\"\n      },\n      \"activityType\": \"string\",\n      \"blockHeight\": 868.9522382678527,\n      \"blockHash\": \"string\",\n      \"txId\": \"string\",\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"output\": \"string\",\n      \"value\": 9588.390534058559,\n      \"offset\": 38.80130466036413,\n      \"timestamp\": 6133.189598153946,\n      \"oldLocation\": \"string\",\n      \"oldAddress\": \"string\",\n      \"createdAt\": \"2003-02-19T22:15:50.729Z\"\n    }\n  ],\n  \"limit\": 1118,\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "542fdbef-d11c-4f58-b8df-0c8053aea98d",
+    "name": "Magic Eden EVM Activity Blocks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

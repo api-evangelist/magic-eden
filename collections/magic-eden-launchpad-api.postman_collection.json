@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "114e1e20-caa6-48c5-8fd6-f2612cb1b2b5",
+      "name": "launchpad",
+      "description": {
+        "content": "Get launchpad information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d15ce5aa-d1ea-4805-8716-3d218da1a1e9",
+          "name": "Get launchpad collections",
+          "request": {
+            "name": "Get launchpad collections",
+            "description": {},
+            "url": {
+              "path": [
+                "launchpad",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 200, min 1, max 500"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c9efd89-3703-42f9-8844-da32abdb8f2a",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launchpad",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"symbol\": \"mini_royale\",\n    \"name\": \"Mini Royale: Nations\",\n    \"description\": \"Vikings and soldiers with one goal: dominate the Miniverse\",\n    \"image\": \"https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link\",\n    \"price\": 0.01,\n    \"size\": 2500,\n    \"launchDatetime\": \"2021-12-01T12:40:00.000Z\",\n    \"chainId\": \"solana\"\n  },\n  {\n    \"symbol\": \"test_lp_1\",\n    \"name\": \"Launchpad w/ 3 stages\",\n    \"description\": \"As I've said, it has 3 Stages\",\n    \"featured\": false,\n    \"image\": \"https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link\",\n    \"price\": 0.1,\n    \"size\": 5000,\n    \"launchDatetime\": \"2022-02-03T12:00:00.000Z\",\n    \"chainId\": \"solana\"\n  },\n  {\n    \"symbol\": \"test_lp_2\",\n    \"name\": \"Test Launchpad 2\",\n    \"description\": \"3 stages\",\n    \"featured\": false,\n    \"image\": \"https://bafybeia6mayvhdf3rd53woqmnzo254xoayi5hzeum6aulz4ii7wcqtmloe.ipfs.dweb.link\",\n    \"price\": 0.1,\n    \"size\": 5000,\n    \"launchDatetime\": \"2022-02-03T12:11:00.000Z\",\n    \"chainId\": \"1\",\n    \"contractAddress\": \"0x3888Fd82F8406E80B3d8eBA0353D0e9Ec51E6812\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da4818a9-b09e-4d0c-8dc2-7328d6d7749f",
+    "name": "Magic Eden EVM Activity launchpad API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

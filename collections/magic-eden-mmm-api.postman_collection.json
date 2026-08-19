@@ -1,0 +1,1288 @@
+{
+  "item": [
+    {
+      "id": "a31df1f5-e479-4378-ad09-1e08c6a558d1",
+      "name": "mmm",
+      "description": {
+        "content": "Get AMM information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db593b10-f16e-4abb-933a-d3bfb1b30dbb",
+          "name": "Get instruction to create a pool",
+          "request": {
+            "name": "Get instruction to create a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "create-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "spotPrice",
+                  "value": "<number>",
+                  "description": "(Required) Pool initial spot price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveType",
+                  "value": "<string>",
+                  "description": "(Required) Type curve, either 'linear' or 'exp'"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveDelta",
+                  "value": "<number>",
+                  "description": "(Required) Curve delta used to change price after a fill"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestBuy",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest bought asset or transfer directly to owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestSell",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest payment from sale or transfer directly to owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "Timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "lpFeeBp",
+                  "value": "<number>",
+                  "description": "(Required) Requested liquidity provider fee in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of creator royalty the pool should pay in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "paymentMint",
+                  "value": "<string>",
+                  "description": "(Required) Mint address of payment (default for SOL)"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "(Required) Collection symbol for which the pool will be valid"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<string>",
+                  "description": "(Required) Owner of the pool"
+                },
+                {
+                  "disabled": false,
+                  "key": "solDeposit",
+                  "value": "<number>",
+                  "description": "Optional sol amount to deposit with pool creation"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedEscrowCount",
+                  "value": "<number>",
+                  "description": "Number of pools (bids) that will share the escrow account"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "09d8b0cb-beb5-4e4e-a6b2-4464be848d83",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "create-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spotPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "curveType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "curveDelta",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reinvestBuy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "reinvestSell",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lpFeeBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "paymentMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solDeposit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sharedEscrowCount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      4338.815681962048,\n      4978.275316027686\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1554.4893381588897,\n      3569.1873156336583\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4826c5f-15d3-4c91-947a-e91cedcf4621",
+          "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+          "request": {
+            "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-close-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to close"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a9f759a4-6ee8-4a60-ac01-c4f1e6161130",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-close-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad4b91ab-c7e6-4406-9305-9f03b59ef183",
+          "name": "Get instruction to deposit SOL into a pool for buying",
+          "request": {
+            "name": "Get instruction to deposit SOL into a pool for buying",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-deposit-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to deposit into"
+                },
+                {
+                  "disabled": false,
+                  "key": "solAmount",
+                  "value": "<number>",
+                  "description": "(Required) The amount of SOL to deposit"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "90a8a50d-c1a0-4658-a795-ba9f8a22bb83",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-deposit-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "160b68ce-b0ff-4163-8388-51a3538ddf7a",
+          "name": "Get instruction to have a pool fulfill a buy",
+          "request": {
+            "name": "Get instruction to have a pool fulfill a buy",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-fulfill-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to interact with"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetAmount",
+                  "value": "<number>",
+                  "description": "(Required) Amount of asset to transact"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPaymentAmount",
+                  "value": "<number>",
+                  "description": "(Required) Minimum payment amount acceptible by the seller, in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Public key of seller of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetMint",
+                  "value": "<string>",
+                  "description": "(Required) Public key of mint account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetTokenAccount",
+                  "value": "<string>",
+                  "description": "(Required) Public key of token account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowlistAuxAccount",
+                  "value": "<string>",
+                  "description": "The allowlist aux account used for token authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipDelist",
+                  "value": "<boolean>",
+                  "description": "Whether to skip trying to delist the NFT if it is detected to be listed"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "cbb59c9a-0a43-4e3d-9e87-97dac99c449b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-fulfill-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "minPaymentAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetTokenAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allowlistAuxAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skipDelist",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c560034e-f197-4c10-a84b-13f90687ec82",
+          "name": "Get instruction to have a pool fulfill a sell",
+          "request": {
+            "name": "Get instruction to have a pool fulfill a sell",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-fulfill-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to interact with"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetAmount",
+                  "value": "<number>",
+                  "description": "(Required) Amount of asset to transact"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPaymentAmount",
+                  "value": "<number>",
+                  "description": "(Required) Maximum payment amount to be paid by the buyer, in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of royalty to be paid, in basis points of total royalty"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Public key of buyer of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetMint",
+                  "value": "<string>",
+                  "description": "(Required) Public key of mint account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowlistAuxAccount",
+                  "value": "<string>",
+                  "description": "The allowlist aux account used for token authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1d5fd48b-474f-47d3-9ad3-ecf6771b379b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-fulfill-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPaymentAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allowlistAuxAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4663d69-815e-4f7f-949d-1cd97ace8e32",
+          "name": "Get instruction to withdraw SOL from a pool",
+          "request": {
+            "name": "Get instruction to withdraw SOL from a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-withdraw-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to withdraw from"
+                },
+                {
+                  "disabled": false,
+                  "key": "solAmount",
+                  "value": "<number>",
+                  "description": "(Required) The amount of SOL to withdraw"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "cceb5d83-7c06-47ec-baf5-ec1ded1327ec",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-withdraw-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98b8c4be-2680-42e9-a695-8225caa2db76",
+          "name": "Get instruction to update an existing pool",
+          "request": {
+            "name": "Get instruction to update an existing pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "update-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to modify"
+                },
+                {
+                  "disabled": false,
+                  "key": "spotPrice",
+                  "value": "<number>",
+                  "description": "(Required) Pool initial spot price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveType",
+                  "value": "<string>",
+                  "description": "(Required) Type curve, either 'linear' or 'exp'"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveDelta",
+                  "value": "<number>",
+                  "description": "(Required) Curve delta used to change price after a fill"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestBuy",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest bought asset or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestSell",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest payment from sale or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "(Required) Timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "lpFeeBp",
+                  "value": "<number>",
+                  "description": "(Required) Requested liquidity provider fee in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of creator royalty the pool should pay in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedEscrowCount",
+                  "value": "<number>",
+                  "description": "Number of pools (bids) that will share the escrow account"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f8722286-fad6-4a8a-ad37-6eeb670907a1",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "update-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spotPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "curveType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "curveDelta",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reinvestBuy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "reinvestSell",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lpFeeBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sharedEscrowCount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3691.19271719192,\n      4427.3381793303715\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      896.5404726533866,\n      818.260579805049\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b3d3701-cc2a-4075-a439-4ef1c688bf43",
+          "name": "Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!",
+          "request": {
+            "name": "Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!",
+            "description": {},
+            "url": {
+              "path": [
+                "mmm",
+                "pools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "The collection symbol to query the pools from. At least this or \"owner\" must be passed in"
+                },
+                {
+                  "disabled": false,
+                  "key": "pools",
+                  "value": "<string>",
+                  "description": "The pools key to query by."
+                },
+                {
+                  "disabled": false,
+                  "key": "pools",
+                  "value": "<string>",
+                  "description": "The pools key to query by."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<string>",
+                  "description": "The owner public key to query the pools created by. At least this or \"collectionSymbol\" must be passed in"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                },
+                {
+                  "disabled": false,
+                  "key": "field",
+                  "value": "<string>",
+                  "description": "Sort pools by field. 0: NONE (no sorting field, default), 1: ADDRESS (sort pools by pool address), 2: SPOT_PRICE (sort pools by pool spot price), 5: BUYSIDE_ADJUSTED_PRICE (sort pools by buyside_adjusted_price = spot_price - royalty_fee - lp_fee)"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "Sort pools by field in specified directions. 0: NONE (no sorting direction, default to increasing order if field is specified), 1: DESC (descending), 2: INC (increasing)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bba2179-1c60-42e7-97bd-a8a33428fe19",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mmm",
+                    "pools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pools",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pools",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"spotPrice\": 53042450000,\n      \"curveType\": \"exp\",\n      \"curveDelta\": 0,\n      \"reinvestFulfillBuy\": false,\n      \"reinvestFulfillSell\": false,\n      \"expiry\": 0,\n      \"lpFeeBp\": 0,\n      \"buysideCreatorRoyaltyBp\": 0,\n      \"poolOwner\": \"AC1r4GYj1TZ62ASZS4VT6GnNtMzoD78wYNWfxJ3Uzbxy\",\n      \"sellsideAssetAmount\": 0,\n      \"buysidePaymentAmount\": 53095492450,\n      \"buyOrdersAmount\": 1,\n      \"collectionSymbol\": \"okay_bears\",\n      \"collectionName\": \"Okay Bears\",\n      \"poolType\": \"buy_sided\",\n      \"updatedAt\": \"2023-05-10T06:37:11.823Z\",\n      \"uuid\": \"9KHoeTEnFFCxh1guDCB18hX6Cj1kcP1Z2hcpLCyV3hTo\",\n      \"poolKey\": \"7Tjbkwp234hPKjmTXNwpjdQnUqA1hXLAJEduVB2xkg8p\",\n      \"cosigner\": \"NTYeYJ1wr4bpM5xo6zx5En44SvJFAd35zTxxNoERYqd\",\n      \"mints\": [],\n      \"collectionSellerFeeBasisPoints\": 500,\n      \"lpFeeEarned\": 0,\n      \"isMIP1\": true\n    },\n    {\n      \"spotPrice\": 53042440000,\n      \"curveType\": \"exp\",\n      \"curveDelta\": 0,\n      \"reinvestFulfillBuy\": false,\n      \"reinvestFulfillSell\": false,\n      \"expiry\": 0,\n      \"lpFeeBp\": 0,\n      \"buysideCreatorRoyaltyBp\": 0,\n      \"poolOwner\": \"oKAYXGwLFF4TAqnC5G62PpwYo2GgPgzqwZ13JL1dWjE\",\n      \"sellsideAssetAmount\": 0,\n      \"buysidePaymentAmount\": 53095482440,\n      \"buyOrdersAmount\": 1,\n      \"collectionSymbol\": \"okay_bears\",\n      \"collectionName\": \"Okay Bears\",\n      \"poolType\": \"buy_sided\",\n      \"updatedAt\": \"2023-05-10T06:36:59.374Z\",\n      \"uuid\": \"HRmPrYoqwN55uSVzofgrAPb4ryZH87UUWnK9PkRUPEHJ\",\n      \"poolKey\": \"9akMvSF6UHixPQBHQ5tpY6hF6bVyo7CQG4bVn5AhWPD9\",\n      \"cosigner\": \"NTYeYJ1wr4bpM5xo6zx5En44SvJFAd35zTxxNoERYqd\",\n      \"mints\": [],\n      \"collectionSellerFeeBasisPoints\": 500,\n      \"lpFeeEarned\": 0,\n      \"isMIP1\": true,\n      \"isOCP\": false\n    },\n    {\n      \"spotPrice\": 53042230000,\n      \"curveType\": \"exp\",\n      \"curveDelta\": 0,\n      \"reinvestFulfillBuy\": false,\n      \"reinvestFulfillSell\": false,\n      \"expiry\": 0,\n      \"lpFeeBp\": 0,\n      \"buysideCreatorRoyaltyBp\": 0,\n      \"poolOwner\": \"AgxfD7iS3M6hSR75dfhBZxXYEym5ohanPBBge5QhfQCK\",\n      \"sellsideAssetAmount\": 0,\n      \"buysidePaymentAmount\": 53095272230,\n      \"buyOrdersAmount\": 1,\n      \"collectionSymbol\": \"okay_bears\",\n      \"collectionName\": \"Okay Bears\",\n      \"poolType\": \"buy_sided\",\n      \"updatedAt\": \"2023-05-10T06:14:52.337Z\",\n      \"uuid\": \"4HTWKn5r7gH7Ma42FKCScB43uMGFruJExmbxr8DwCz6G\",\n      \"poolKey\": \"6q4UscJzMpJLM1ehwm7i9BHPxXQECPc4qMr2S6XSjD1j\",\n      \"cosigner\": \"NTYeYJ1wr4bpM5xo6zx5En44SvJFAd35zTxxNoERYqd\",\n      \"mints\": [],\n      \"collectionSellerFeeBasisPoints\": 500,\n      \"lpFeeEarned\": 0,\n      \"isMIP1\": true,\n      \"isOCP\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de485901-fd04-4fbe-98c4-cee9a2ad6397",
+          "name": "Get best offers for an NFT",
+          "request": {
+            "name": "Get best offers for an NFT",
+            "description": {},
+            "url": {
+              "path": [
+                "mmm",
+                "token",
+                ":mint_address",
+                "pools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Total best offers to return, defaults 1, max 5. Best offer will come first"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mint_address",
+                  "description": "(Required) Mint address of the NFT"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beade8c1-5adb-4293-a2cd-f430eb0b55f7",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mmm",
+                    "token",
+                    ":mint_address",
+                    "pools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mint_address",
+                      "description": "(Required) Mint address of the NFT"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"spotPrice\": 44193250,\n      \"curveType\": \"exp\",\n      \"curveDelta\": 0,\n      \"reinvestFulfillBuy\": false,\n      \"reinvestFulfillSell\": false,\n      \"expiry\": 0,\n      \"lpFeeBp\": 0,\n      \"buysideCreatorRoyaltyBp\": 9302,\n      \"poolOwner\": \"9PBa4wED2V9CFzjpE94K23LWBquqmX4XanxoqiJgZnQo\",\n      \"sellsideAssetAmount\": 0,\n      \"buysidePaymentAmount\": 44414216,\n      \"buyOrdersAmount\": 1,\n      \"collectionSymbol\": \"pastel_pandas\",\n      \"collectionName\": \"PASTEL PANDAS\",\n      \"poolType\": \"buy_sided\",\n      \"updatedAt\": \"2023-05-09T12:20:04.201Z\",\n      \"uuid\": \"6qknG6Ko6vYcUk3wo8JpdY2HCNwm5gzmiEgW4gGuGdgX\",\n      \"poolKey\": \"D6J69jm38rh5nPJdit37L3VMQWVs8m9veNxsPPFVKsPy\",\n      \"cosigner\": \"NTYeYJ1wr4bpM5xo6zx5En44SvJFAd35zTxxNoERYqd\",\n      \"mints\": [],\n      \"collectionSellerFeeBasisPoints\": 750,\n      \"lpFeeEarned\": 0,\n      \"buyPriceTaker\": 40447209,\n      \"isMIP1\": false,\n      \"isOCP\": false,\n      \"attributes\": [\n        [\n          {\n            \"trait_type\": \"Attributes Count\",\n            \"value\": \"8\"\n          }\n        ]\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "86e6b391-72dc-437e-bb50-503b58c24b4d",
+    "name": "Magic Eden EVM Activity mmm API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2081 @@
+{
+  "item": [
+    {
+      "id": "26527aff-dc0e-4a5b-b9a7-0043fffe90ea",
+      "name": "Collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c23b5a64-b53a-4dec-a324-ce923a87142d",
+          "name": "Collections",
+          "request": {
+            "name": "Collections",
+            "description": {
+              "content": "Use this API to explore a collection's metadata and statistics (sales, volume, etc).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "362a834e-8a00-43cf-917c-a05856cb855d",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"base\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": true,\n      \"collectionType\": \"ERC1155\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 7997.414170789343,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": true,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 1819.5347885008784\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 3466.6765684352354\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 657.2368840230456,\n              \"maxSupply\": 5938.605624030614\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 112.34357368195968,\n              \"maxSupply\": 5826.257666252963\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"abstract\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": false,\n      \"collectionType\": \"ERC1155\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 68.39994139430038,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 4452.827284003113\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 1291.2387404681958\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 82.30442531579885,\n              \"maxSupply\": 1981.6132719730817\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 413.942353383872,\n              \"maxSupply\": 2011.5657250164988\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "add66141-5dc5-482d-9397-f1a8c038f4db",
+          "name": "Get collections",
+          "request": {
+            "name": "Get collections",
+            "description": {},
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 200, min 1, max 500"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "This endpoint supports paging metadata",
+                "key": "ME-Pub-API-Metadata",
+                "value": "paging,<boolean>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "810ce03d-4bb5-47ea-ae97-3677d39b07ac",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "This endpoint supports paging metadata",
+                    "key": "ME-Pub-API-Metadata",
+                    "value": "paging,<boolean>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Will return paging metadata if requested",
+                  "key": "ME-Pub-API-Metadata",
+                  "value": "paging,[object Object]"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"symbol\": \"trippinshrooms\",\n    \"name\": \"Trippin Shrooms\",\n    \"description\": \"A collection of 555 NFTs spreading some love across the Solana blockchain.\\n\\nNo roadmap, no promises just awesome vibes!\",\n    \"image\": \"https://arweave.net/PO6QTMV1xuQjWPCgZFe7wSuVtmtNGiK3zRM4jsEL4ao\",\n    \"twitter\": \"https://www.twitter.com/Trippin_Shrooms\",\n    \"discord\": \"https://www.discord.gg/zPqyBpRNXd\",\n    \"categories\": [\n      \"pfps\",\n      \"art\"\n    ]\n  },\n  {\n    \"symbol\": \"shadow_lords\",\n    \"name\": \"Shadow Lords\",\n    \"description\": \"When darkness falls, Shadow Lords reign supreme.\",\n    \"image\": \"https://creator-hub-prod.s3.us-east-2.amazonaws.com/shadow_lords_pfp_1656315133604.gif\",\n    \"twitter\": \"https://www.twitter.com/ShadowLordsNFT\",\n    \"discord\": \"https://www.discord.gg/9JNJWYBGBu\",\n    \"website\": \"\",\n    \"categories\": [\n      \"pfps\",\n      \"art\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14c2fc8c-6d5a-4e81-aa19-623e0e30cbb5",
+          "name": "User Collections",
+          "request": {
+            "name": "User Collections",
+            "description": {
+              "content": "Use this API to explore a user's collections metadata and statistics (sales, volume, etc).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                "user-collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"walletAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"chain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "589e5308-d865-409c-84e4-38c4e84d00c3",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "user-collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"walletAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"chain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"<string>\",\n      \"collectionType\": \"ERC1155\",\n      \"id\": \"string\",\n      \"isTradeable\": true,\n      \"listedCount\": 984.2437978701346,\n      \"name\": \"string\",\n      \"ownedCount\": 8941.181535525404,\n      \"verification\": \"VERIFIED\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 8696.622023747557,\n        \"isOptional\": false\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 6192.071162591484\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 9577.737512656011\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": true,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"collectionType\": \"ERC1155\",\n      \"id\": \"string\",\n      \"isTradeable\": true,\n      \"listedCount\": 5503.413836515192,\n      \"name\": \"string\",\n      \"ownedCount\": 7538.430603066476,\n      \"verification\": \"UNVERIFIED\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 3487.3798408041744,\n        \"isOptional\": false\n      },\n      \"isSeaportV16Disabled\": true,\n      \"isSeaportV16RoyaltyOptional\": true,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 7172.16040666809\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 1170.8824170469957\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": false,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f81f2da-5988-4dd1-9b1a-a468341cc523",
+          "name": "Search Collections",
+          "request": {
+            "name": "Search Collections",
+            "description": {
+              "content": "Use this API to do a fuzzy collection search",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"pattern\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "064090f9-1a34-4fd5-b46f-e036e2626837",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"pattern\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"UNVERIFIED\",\n      \"isTradeable\": false,\n      \"collectionType\": \"ERC721\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 6287.567435556272,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 7806.919871450656\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 9743.89429670638\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_NOT_TRADABLE\",\n        \"collectionBidSupported\": false,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 594.9652494106056,\n              \"maxSupply\": 7371.542690665318\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 457.9500151264646,\n              \"maxSupply\": 8121.5862702239465\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    },\n    {\n      \"chain\": \"<string>\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"verification\": \"VERIFIED\",\n      \"isTradeable\": true,\n      \"collectionType\": \"ERC721\",\n      \"symbol\": \"string\",\n      \"description\": \"string\",\n      \"media\": {\n        \"url\": \"string\",\n        \"mimeType\": \"string\"\n      },\n      \"social\": {\n        \"twitterUsername\": \"string\",\n        \"discordUrl\": \"string\",\n        \"websiteUrl\": \"string\"\n      },\n      \"royalty\": {\n        \"recipient\": \"string\",\n        \"bps\": 4035.9628840629225,\n        \"isOptional\": true\n      },\n      \"isSeaportV16Disabled\": false,\n      \"isSeaportV16RoyaltyOptional\": false,\n      \"seaportV16ListingCurrencies\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 231.1128298415388\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"symbol\": \"string\",\n          \"decimals\": 4506.120386935374\n        }\n      ],\n      \"chainData\": {\n        \"contract\": \"string\",\n        \"transferability\": \"NOT_TRANSFERABLE_TRADABLE\",\n        \"collectionBidSupported\": true,\n        \"isMinting\": true,\n        \"contractDeployedAt\": \"string\",\n        \"owner\": \"string\",\n        \"mintConfig\": {\n          \"maxSupply\": \"string\",\n          \"totalSupply\": \"string\",\n          \"walletLimit\": \"string\",\n          \"baseURI\": \"string\",\n          \"contractURI\": \"string\",\n          \"stages\": [\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 658.0717057767647,\n              \"maxSupply\": 3808.8098061555233\n            },\n            {\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"price\": {\n                \"currency\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"raw\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"startTime\": \"string\",\n              \"endTime\": \"string\",\n              \"walletLimit\": 895.5964976539393,\n              \"maxSupply\": 168.51499228310615\n            }\n          ],\n          \"payoutRecipient\": \"string\",\n          \"royaltyRecipient\": \"string\",\n          \"royaltyBps\": \"string\",\n          \"mintFee\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42a2121c-295a-4132-8cf7-ac8d57a8584b",
+          "name": "Get collection stats",
+          "request": {
+            "name": "Get collection stats",
+            "description": {
+              "content": "Get collection stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "stat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "(Required) Collection symbol"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "597816b9-7e99-44d6-810d-ae1489ebf539",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "stat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"floorPrice\": \"string\",\n  \"inscriptionNumberMin\": \"string\",\n  \"inscriptionNumberMax\": \"string\",\n  \"owners\": \"string\",\n  \"pendingTransactions\": \"string\",\n  \"supply\": \"string\",\n  \"totalListed\": \"string\",\n  \"totalVolume\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "101d0e9a-6c03-4dc2-8878-2ac0d827e4d0",
+          "name": "Get collection",
+          "request": {
+            "name": "Get collection",
+            "description": {
+              "content": "Get collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "collections",
+                ":symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0ee561b-a201-4c1f-b928-bdb5a44952f7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "collections",
+                    ":symbol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"symbol\": \"string\",\n  \"name\": \"string\",\n  \"imageURI\": \"string\",\n  \"chain\": \"string\",\n  \"description\": \"string\",\n  \"supply\": 6344,\n  \"twitterLink\": \"string\",\n  \"discordLink\": \"string\",\n  \"websiteLink\": \"string\",\n  \"min_inscription_number\": 9541,\n  \"max_inscription_number\": 8065,\n  \"createdAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "505c0944-a0a6-4e16-a771-764b094d846d",
+          "name": "Get collection statistics",
+          "request": {
+            "name": "Get collection statistics",
+            "description": {
+              "content": "Get collection statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection_stats",
+                "search",
+                "bitcoin"
+              ],
+              "host": [
+                "{{collection_stats-search-bitcoin-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "1d",
+                  "description": "Time window"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "volume",
+                  "description": "Sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "desc",
+                  "description": "Sort direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Limit"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8766ff76-63db-41ad-9bcd-6b8e6264f06b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    "bitcoin"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-bitcoin-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1676f29f-098a-4e62-a24f-b1124a645f40",
+          "name": "Get attributes of a collection",
+          "request": {
+            "name": "Get attributes of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":collectionSymbol",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionSymbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0cce0da4-b47a-48c4-b3e3-0aa32b7e7b04",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collectionSymbol",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionSymbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"symbol\": \"string\",\n    \"availableAttributes\": [\n      {\n        \"attribute\": {\n          \"trait_type\": \"string\",\n          \"value\": \"\"\n        },\n        \"count\": 5067.113555958976,\n        \"floor\": 2437.3622337308807,\n        \"countByListingType\": {\n          \"key_0\": 7215.764275232474,\n          \"key_1\": 3795.0682729423133\n        }\n      },\n      {\n        \"attribute\": {\n          \"trait_type\": \"string\",\n          \"value\": \"\"\n        },\n        \"count\": 8025.602025864103,\n        \"floor\": 783.8967334700997,\n        \"countByListingType\": {\n          \"key_0\": 2360.095338784343\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69337643-6ecd-40a1-ad55-52a32bf287a7",
+              "name": "Invalid symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collectionSymbol",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionSymbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5925f795-e59c-4048-867c-a51163329934",
+              "name": "Collection not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collectionSymbol",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionSymbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ead998c-db78-44e3-a82b-8e55fb40352e",
+          "name": "Get activities of a collection",
+          "request": {
+            "name": "Get activities of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":symbol",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 1000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dee10667-784d-4b08-b61c-0ab0bb1ee2c5",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signature\": \"ntGRVYH31VtYYatGmax4evUAdEejh2bHRCUR9Fwe1mjMQYDVBngbxRf3ATDwUyeKoMwJD7SA6sEDQYj4T34qufo\",\n    \"type\": \"list\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"Hn35U1k6N8ZJ4ToAKxJvwwb5iyoNb6crxChK186AtRp5\",\n    \"collection\": \"magicticket\",\n    \"collectionSymbol\": \"magicticket\",\n    \"slot\": 139232690,\n    \"blockTime\": 1656332000,\n    \"buyer\": null,\n    \"buyerReferral\": \"\",\n    \"seller\": \"JB9knFr8FkiT5vRf3U2UKTdyWnkotG2MYmBnR1HuhLXv\",\n    \"sellerReferral\": \"\",\n    \"price\": 5.1\n  },\n  {\n    \"signature\": \"3aaYEqfiJmwuQ7cSDQtiQs8iCqTsVLjrNR5fNzH82aLZpH2n7PsfUKv4peZyjJd1NgysV2qhCouA1woranzeArmD\",\n    \"type\": \"list\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"2DXPYVMF2Urc11Pi5UGsZPBqYqBb1vNYy71TpuMBFXTd\",\n    \"collection\": \"magicticket\",\n    \"collectionSymbol\": \"magicticket\",\n    \"slot\": 139232688,\n    \"blockTime\": 1656331999,\n    \"buyer\": null,\n    \"buyerReferral\": \"\",\n    \"seller\": \"JB9knFr8FkiT5vRf3U2UKTdyWnkotG2MYmBnR1HuhLXv\",\n    \"sellerReferral\": \"\",\n    \"price\": 5.05\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a13110a-ee4c-4443-8e83-b7eec15e1870",
+              "name": "Invalid symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d69e484-558b-44c2-a7c8-00882e7c1683",
+          "name": "Get holder stats of a collection",
+          "request": {
+            "name": "Get holder stats of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":symbol",
+                "holder_stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e49a7c9-920a-4b00-bf69-408f79de812d",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "holder_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"symbol\": \"magicticket\",\n  \"totalSupply\": 30662,\n  \"uniqueHolders\": 19989,\n  \"tokenHistogram\": {\n    \"bars\": [\n      {\n        \"l_val\": 1,\n        \"hight\": 17625\n      },\n      {\n        \"l_val\": 2,\n        \"hight\": 2023\n      },\n      {\n        \"l_val\": 6,\n        \"hight\": 276\n      },\n      {\n        \"l_val\": 25,\n        \"hight\": 34\n      },\n      {\n        \"l_val\": 50,\n        \"hight\": 32\n      }\n    ]\n  },\n  \"topHolders\": [\n    {\n      \"tokens\": 491,\n      \"owner\": \"74Vzf7H6F4fYtyUDAPsUyRLpKFgA95PC3Hxv6HDMzZkB\",\n      \"ownerDisplay\": {\n        \"sol\": \"testName\"\n      }\n    },\n    {\n      \"tokens\": 375,\n      \"owner\": \"ApLq7vqXswhpecF85MNhY2Zoj3sTbuLXpUgiY3wmwacj\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 319,\n      \"owner\": \"3D3jTdYc1QwT4PgHqFMhFgTWpBiHVvQGC8r154cnF65L\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 295,\n      \"owner\": \"pikbd74fyjELkW8Xt9aeDf6oQZbKsdwqmSsxR3eJEzH\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 199,\n      \"owner\": \"DPhBRMQJyCRKPrbY7Yi7J3u61KNkecSB17FytSuvu1VV\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 174,\n      \"owner\": \"6HL9R6k3jy6vr2ELycBWv3HcUcVfpEv1ZKfLvkfcZSkX\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 156,\n      \"owner\": \"GJvu3coUrkqTGMomAKmNdRqKaEaZrhLss3KUFpdcsr6F\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 134,\n      \"owner\": \"5k5P9oEkeSbLa2NvXtHWhdLSRkz8zctSYoMrpdHQso24\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 111,\n      \"owner\": \"BruKPymvNxe8tyAZ24qV4WX1LhZ3DkuA7tAa8wNpEbbN\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 107,\n      \"owner\": \"9fzxydhgTTPgfmkhZLkrESXnj2GYB4h89YqX3RiAQvdZ\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 98,\n      \"owner\": \"4FbCC89pNRcX3t4kTXuiKXW6LrMTCZNVsyfHiUrEvn5R\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 96,\n      \"owner\": \"B8T5kw3VzpryjigyTkxce7jshSAC8TXBWD1kYMW62Cwx\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 92,\n      \"owner\": \"9L7bB2baDcRsyxgj1tUbyL1cmXp7KsAKgYArWdfBxZJm\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 87,\n      \"owner\": \"GdMZBAhi181dduNCPDqLb7GLcpyBqvKHPixRZiTj7iKW\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 86,\n      \"owner\": \"6aL8gF1dCCZiyeuqjzqHozJGNTp7KVjogjWUdMrTxm29\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 85,\n      \"owner\": \"HwuBTkReWdd9Ceoud52NCfhyBsGhPiFDnox7jgES7M3o\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 85,\n      \"owner\": \"AAoaMhv9vxGZhp4AZvxuza2FZJJNtEgWp3bm2aqkgPJ1\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 82,\n      \"owner\": \"4HVo14THtjrENSsibnUCZFTgMzmsA5d5XTNG1a2Ae5FQ\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 77,\n      \"owner\": \"8ZWy2E1uMEngWt68TR6xgnSKu441wb2c5xWRptF4bZdg\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 74,\n      \"owner\": \"Aok6SNAqmqy2Hhod9VD4jY9VXUVaaiTBBPF3nHT6V79U\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 71,\n      \"owner\": \"3S4WYxbPnzzFhwvtL3jejTsFhhupvdyx1FH699E7aZ5e\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 70,\n      \"owner\": \"2TMzcRk2d6V8aqjKSRVuwtBfkP4i3si6MHDG8YpEn6qG\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 66,\n      \"owner\": \"GHAEXyW1zZnk8ignwryaRnUA2czkTp1kYZPCcYmMQCQB\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 63,\n      \"owner\": \"9oVgU4qyN7kVNJPA43vkSXdYwEeQdCRpXwbCv47Nf93C\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 59,\n      \"owner\": \"EgqTxbFfcbPMcoUyBcfBDfxcRSsm9s3qSpX3CtNJkAJT\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 58,\n      \"owner\": \"C45tbZRx36qbRWAQuifrocVg3XeyEALrsegqrT4wbE2f\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 57,\n      \"owner\": \"CToMigeH6Nu8sD7y9YDD1U8dedpF6bBKTCxzCj335r12\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 56,\n      \"owner\": \"Dduv1mpbKDvroYnaVDm3HQq9X8rtqxsJ1a4qPVDTC1kY\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 55,\n      \"owner\": \"FYu1XyfhaQQvuWGbf2xmBmjrQpzNgVwHhAhi9Kaz73P1\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 53,\n      \"owner\": \"CmvNNpdGVDGujBadaMmgKc8xgFfyV6G9PNEjD8zEND6L\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbb57873-5fe4-40a7-83ea-77edec73b31b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "holder_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53b6f3ed-1279-4375-b6c7-33e7ad7b3af4",
+          "name": "Get wallets rank sorted by volume for one collection",
+          "request": {
+            "name": "Get wallets rank sorted by volume for one collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":symbol",
+                "leaderboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e3becea-cc2a-4a9a-bb41-18078fd066f7",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"symbol\": \"magicticket\",\n  \"totalSupply\": 30662,\n  \"uniqueHolders\": 19989,\n  \"tokenHistogram\": {\n    \"bars\": [\n      {\n        \"l_val\": 1,\n        \"hight\": 17625\n      },\n      {\n        \"l_val\": 2,\n        \"hight\": 2023\n      },\n      {\n        \"l_val\": 6,\n        \"hight\": 276\n      },\n      {\n        \"l_val\": 25,\n        \"hight\": 34\n      },\n      {\n        \"l_val\": 50,\n        \"hight\": 32\n      }\n    ]\n  },\n  \"topHolders\": [\n    {\n      \"tokens\": 491,\n      \"owner\": \"74Vzf7H6F4fYtyUDAPsUyRLpKFgA95PC3Hxv6HDMzZkB\",\n      \"ownerDisplay\": {\n        \"sol\": \"testName\"\n      }\n    },\n    {\n      \"tokens\": 375,\n      \"owner\": \"ApLq7vqXswhpecF85MNhY2Zoj3sTbuLXpUgiY3wmwacj\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 319,\n      \"owner\": \"3D3jTdYc1QwT4PgHqFMhFgTWpBiHVvQGC8r154cnF65L\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 295,\n      \"owner\": \"pikbd74fyjELkW8Xt9aeDf6oQZbKsdwqmSsxR3eJEzH\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 199,\n      \"owner\": \"DPhBRMQJyCRKPrbY7Yi7J3u61KNkecSB17FytSuvu1VV\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 174,\n      \"owner\": \"6HL9R6k3jy6vr2ELycBWv3HcUcVfpEv1ZKfLvkfcZSkX\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 156,\n      \"owner\": \"GJvu3coUrkqTGMomAKmNdRqKaEaZrhLss3KUFpdcsr6F\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 134,\n      \"owner\": \"5k5P9oEkeSbLa2NvXtHWhdLSRkz8zctSYoMrpdHQso24\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 111,\n      \"owner\": \"BruKPymvNxe8tyAZ24qV4WX1LhZ3DkuA7tAa8wNpEbbN\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 107,\n      \"owner\": \"9fzxydhgTTPgfmkhZLkrESXnj2GYB4h89YqX3RiAQvdZ\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 98,\n      \"owner\": \"4FbCC89pNRcX3t4kTXuiKXW6LrMTCZNVsyfHiUrEvn5R\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 96,\n      \"owner\": \"B8T5kw3VzpryjigyTkxce7jshSAC8TXBWD1kYMW62Cwx\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 92,\n      \"owner\": \"9L7bB2baDcRsyxgj1tUbyL1cmXp7KsAKgYArWdfBxZJm\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 87,\n      \"owner\": \"GdMZBAhi181dduNCPDqLb7GLcpyBqvKHPixRZiTj7iKW\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 86,\n      \"owner\": \"6aL8gF1dCCZiyeuqjzqHozJGNTp7KVjogjWUdMrTxm29\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 85,\n      \"owner\": \"HwuBTkReWdd9Ceoud52NCfhyBsGhPiFDnox7jgES7M3o\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 85,\n      \"owner\": \"AAoaMhv9vxGZhp4AZvxuza2FZJJNtEgWp3bm2aqkgPJ1\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 82,\n      \"owner\": \"4HVo14THtjrENSsibnUCZFTgMzmsA5d5XTNG1a2Ae5FQ\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 77,\n      \"owner\": \"8ZWy2E1uMEngWt68TR6xgnSKu441wb2c5xWRptF4bZdg\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 74,\n      \"owner\": \"Aok6SNAqmqy2Hhod9VD4jY9VXUVaaiTBBPF3nHT6V79U\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 71,\n      \"owner\": \"3S4WYxbPnzzFhwvtL3jejTsFhhupvdyx1FH699E7aZ5e\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 70,\n      \"owner\": \"2TMzcRk2d6V8aqjKSRVuwtBfkP4i3si6MHDG8YpEn6qG\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 66,\n      \"owner\": \"GHAEXyW1zZnk8ignwryaRnUA2czkTp1kYZPCcYmMQCQB\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 63,\n      \"owner\": \"9oVgU4qyN7kVNJPA43vkSXdYwEeQdCRpXwbCv47Nf93C\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 59,\n      \"owner\": \"EgqTxbFfcbPMcoUyBcfBDfxcRSsm9s3qSpX3CtNJkAJT\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 58,\n      \"owner\": \"C45tbZRx36qbRWAQuifrocVg3XeyEALrsegqrT4wbE2f\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 57,\n      \"owner\": \"CToMigeH6Nu8sD7y9YDD1U8dedpF6bBKTCxzCj335r12\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 56,\n      \"owner\": \"Dduv1mpbKDvroYnaVDm3HQq9X8rtqxsJ1a4qPVDTC1kY\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 55,\n      \"owner\": \"FYu1XyfhaQQvuWGbf2xmBmjrQpzNgVwHhAhi9Kaz73P1\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    },\n    {\n      \"tokens\": 53,\n      \"owner\": \"CmvNNpdGVDGujBadaMmgKc8xgFfyV6G9PNEjD8zEND6L\",\n      \"ownerDisplay\": {\n        \"sol\": \"sns-display-name\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8d2c136-92ba-40b2-9d87-f99bd124581a",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c7df8d-c6d1-4e03-a7e4-008968bd0cdc",
+          "name": "Get listings of a collection",
+          "request": {
+            "name": "Get listings of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":symbol",
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 20, min 1, max 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the listings, default 'listPrice'"
+                },
+                {
+                  "disabled": false,
+                  "key": "listingAggMode",
+                  "value": "<boolean>",
+                  "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'asc'"
+                },
+                {
+                  "disabled": false,
+                  "key": "paymentMints",
+                  "value": "<string>",
+                  "description": "Filter listings by the payment mint address that the seller expects. Default to filter for listings that only accept native SOL. Use \"ALL\" to show all listings."
+                },
+                {
+                  "disabled": false,
+                  "key": "paymentMints",
+                  "value": "<string>",
+                  "description": "Filter listings by the payment mint address that the seller expects. Default to filter for listings that only accept native SOL. Use \"ALL\" to show all listings."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "153fa4b1-a40a-43de-b4b9-aac20aa509fd",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "paymentMints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "paymentMints",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"DH4GmB44wrCHp1GnhWLFbBd4bsjSM6WyjZiY5s8TM2QW\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"tokenAddress\": \"J61sq4dZidoX27mFo3QNoCNo3Zh4Jnqfwg7udo5Nr81a\",\n    \"tokenMint\": \"HqRZKSAWHig98928x6jezNxUUmwY8VrHn1WF6NzeVU27\",\n    \"seller\": \"EMs8aMgETr2CnZtKihiH1xLa3mtGe7cN3nFkBKSWfp6P\",\n    \"sellerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"tokenSize\": 1,\n    \"price\": 2.87,\n    \"rarity\": {},\n    \"extra\": {\n      \"img\": \"https://bafybeihr7vi77syiup5o4avvzemhlp4v4nplpc23haderjcjkkzgah2a5u.ipfs.dweb.link/0.gif?ext=gif\"\n    },\n    \"expiry\": -1,\n    \"token\": {\n      \"mintAddress\": \"G5pULE3aTgGaVuFmABiYHsFrZqmZmjBKA3nMsQoKbnjb\",\n      \"owner\": \"udQA9PjJA9vUMKEpeDUYUD6y84ZRaphRf1tWTCng8SM\",\n      \"supply\": 1,\n      \"collection\": \"magicticket\",\n      \"name\": \"Magic Ticket: OG #7354\",\n      \"updateAuthority\": \"2PB2jBx5Trwxcv3Cn3yzw8acc6kdZDHABkp6QbsFraya\",\n      \"primarySaleHappened\": true,\n      \"sellerFeeBasisPoints\": 500,\n      \"image\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n      \"animationUrl\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4\",\n      \"externalUrl\": \"https://magiceden.io\",\n      \"attributes\": [\n        {\n          \"trait_type\": \"Level\",\n          \"value\": 3\n        },\n        {\n          \"trait_type\": \"Tier\",\n          \"value\": \"OG\"\n        }\n      ],\n      \"properties\": {\n        \"category\": \"video\",\n        \"files\": [\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4?ext=mp4\",\n            \"type\": \"video/mp4\"\n          },\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n            \"type\": \"image/png\"\n          }\n        ],\n        \"creators\": [\n          {\n            \"address\": \"RRUMF9KYPcvNSmnicNMAFKx5wDYix3wjNa6bA7R6xqA\",\n            \"share\": 95\n          },\n          {\n            \"address\": \"mdaoMkGbmV2udu6wpzv4LhQ6fwcHudP4whu1r1k2Jac\",\n            \"share\": 5\n          }\n        ]\n      }\n    },\n    \"listingSource\": \"M2\"\n  },\n  {\n    \"pdaAddress\": \"CLAUb44eYwX6kWmydJDSxfuZCzFACCQfefzMzuApvrhv\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"tokenAddress\": \"86LEHMJs63wjWZ9Z1ZbJx47vAptsDo88SG7F4BSNvwD6\",\n    \"tokenMint\": \"5qiToEtKs4uf2CAxYxCM7RQXqbKK9Hd8XEe9XR7k2jG8\",\n    \"seller\": \"DD7QCur1hMdq8DEESwuAKviCpXmesXUpMDx54AXXHLLH\",\n    \"sellerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"tokenSize\": 1,\n    \"price\": 9,\n    \"rarity\": {},\n    \"extra\": {\n      \"img\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\"\n    },\n    \"expiry\": -1,\n    \"token\": {\n      \"mintAddress\": \"EU6muWpunxdVqA1QPYrSGn6kJEojWimWkBDTmY3bvFtM\",\n      \"owner\": \"ABpA7SJJURVo4g3U7cVLA17JLT7NHn1R8Q7RmMKcApEF\",\n      \"supply\": 1,\n      \"collection\": \"magicticket\",\n      \"name\": \"Magic Ticket: OG #618\",\n      \"updateAuthority\": \"2PB2jBx5Trwxcv3Cn3yzw8acc6kdZDHABkp6QbsFraya\",\n      \"primarySaleHappened\": true,\n      \"sellerFeeBasisPoints\": 500,\n      \"image\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n      \"animationUrl\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4\",\n      \"externalUrl\": \"https://magiceden.io\",\n      \"attributes\": [\n        {\n          \"trait_type\": \"Level\",\n          \"value\": 3\n        },\n        {\n          \"trait_type\": \"Tier\",\n          \"value\": \"OG\"\n        }\n      ],\n      \"properties\": {\n        \"category\": \"video\",\n        \"files\": [\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4?ext=mp4\",\n            \"type\": \"video/mp4\"\n          },\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n            \"type\": \"image/png\"\n          }\n        ],\n        \"creators\": [\n          {\n            \"address\": \"RRUMF9KYPcvNSmnicNMAFKx5wDYix3wjNa6bA7R6xqA\",\n            \"share\": 95\n          },\n          {\n            \"address\": \"mdaoMkGbmV2udu6wpzv4LhQ6fwcHudP4whu1r1k2Jac\",\n            \"share\": 5\n          }\n        ]\n      }\n    },\n    \"listingSource\": \"M2\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ef66568-8ab0-4e8e-99d4-6790ead24eef",
+              "name": "Invalid symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "paymentMints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "paymentMints",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04cec04f-d785-4e63-a881-ed2a9a2479d2",
+          "name": "Get stats of a collection",
+          "request": {
+            "name": "Get stats of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                ":symbol",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timeWindow",
+                  "value": "<string>",
+                  "description": "Time window for stats, default all. '24h', '7d', '30d', 'all'"
+                },
+                {
+                  "disabled": false,
+                  "key": "listingAggMode",
+                  "value": "<boolean>",
+                  "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) collection symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29f8c12e-95f7-403e-93db-7455abaea12e",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeWindow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"symbol\": \"magicticket\",\n  \"floorPrice\": 2850000000,\n  \"listedCount\": 877,\n  \"avgPrice24hr\": 3009962636.8159204,\n  \"volumeAll\": 76113329022113\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21a23696-b43c-4df2-abc5-4a5e25bde1ad",
+              "name": "Invalid symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeWindow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23f17a20-cb5c-40de-960c-ff3f78140ec0",
+              "name": "Collection not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":symbol",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeWindow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) collection symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43330270-7cd0-45bf-9bc0-2d98feb65e57",
+          "name": "Get batch listings of a collection",
+          "request": {
+            "name": "Get batch listings of a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "collections",
+                "batch",
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 20, min 1, max 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the listings, default 'listPrice'"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'asc'"
+                },
+                {
+                  "disabled": false,
+                  "key": "listingAggMode",
+                  "value": "<boolean>",
+                  "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "551080b7-eae1-4d61-bb4e-5ed0a9b641b4",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "batch",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"DH4GmB44wrCHp1GnhWLFbBd4bsjSM6WyjZiY5s8TM2QW\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"tokenAddress\": \"J61sq4dZidoX27mFo3QNoCNo3Zh4Jnqfwg7udo5Nr81a\",\n    \"tokenMint\": \"HqRZKSAWHig98928x6jezNxUUmwY8VrHn1WF6NzeVU27\",\n    \"seller\": \"EMs8aMgETr2CnZtKihiH1xLa3mtGe7cN3nFkBKSWfp6P\",\n    \"sellerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"tokenSize\": 1,\n    \"price\": 2.87,\n    \"rarity\": {},\n    \"extra\": {\n      \"img\": \"https://bafybeihr7vi77syiup5o4avvzemhlp4v4nplpc23haderjcjkkzgah2a5u.ipfs.dweb.link/0.gif?ext=gif\"\n    },\n    \"expiry\": -1,\n    \"token\": {\n      \"mintAddress\": \"G5pULE3aTgGaVuFmABiYHsFrZqmZmjBKA3nMsQoKbnjb\",\n      \"owner\": \"udQA9PjJA9vUMKEpeDUYUD6y84ZRaphRf1tWTCng8SM\",\n      \"supply\": 1,\n      \"collection\": \"magicticket\",\n      \"name\": \"Magic Ticket: OG #7354\",\n      \"updateAuthority\": \"2PB2jBx5Trwxcv3Cn3yzw8acc6kdZDHABkp6QbsFraya\",\n      \"primarySaleHappened\": true,\n      \"sellerFeeBasisPoints\": 500,\n      \"image\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n      \"animationUrl\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4\",\n      \"externalUrl\": \"https://magiceden.io\",\n      \"attributes\": [\n        {\n          \"trait_type\": \"Level\",\n          \"value\": 3\n        },\n        {\n          \"trait_type\": \"Tier\",\n          \"value\": \"OG\"\n        }\n      ],\n      \"properties\": {\n        \"category\": \"video\",\n        \"files\": [\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4?ext=mp4\",\n            \"type\": \"video/mp4\"\n          },\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n            \"type\": \"image/png\"\n          }\n        ],\n        \"creators\": [\n          {\n            \"address\": \"RRUMF9KYPcvNSmnicNMAFKx5wDYix3wjNa6bA7R6xqA\",\n            \"share\": 95\n          },\n          {\n            \"address\": \"mdaoMkGbmV2udu6wpzv4LhQ6fwcHudP4whu1r1k2Jac\",\n            \"share\": 5\n          }\n        ]\n      }\n    },\n    \"listingSource\": \"M2\"\n  },\n  {\n    \"pdaAddress\": \"CLAUb44eYwX6kWmydJDSxfuZCzFACCQfefzMzuApvrhv\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"tokenAddress\": \"86LEHMJs63wjWZ9Z1ZbJx47vAptsDo88SG7F4BSNvwD6\",\n    \"tokenMint\": \"5qiToEtKs4uf2CAxYxCM7RQXqbKK9Hd8XEe9XR7k2jG8\",\n    \"seller\": \"DD7QCur1hMdq8DEESwuAKviCpXmesXUpMDx54AXXHLLH\",\n    \"sellerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"tokenSize\": 1,\n    \"price\": 9,\n    \"rarity\": {},\n    \"extra\": {\n      \"img\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\"\n    },\n    \"expiry\": -1,\n    \"token\": {\n      \"mintAddress\": \"EU6muWpunxdVqA1QPYrSGn6kJEojWimWkBDTmY3bvFtM\",\n      \"owner\": \"ABpA7SJJURVo4g3U7cVLA17JLT7NHn1R8Q7RmMKcApEF\",\n      \"supply\": 1,\n      \"collection\": \"magicticket\",\n      \"name\": \"Magic Ticket: OG #618\",\n      \"updateAuthority\": \"2PB2jBx5Trwxcv3Cn3yzw8acc6kdZDHABkp6QbsFraya\",\n      \"primarySaleHappened\": true,\n      \"sellerFeeBasisPoints\": 500,\n      \"image\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n      \"animationUrl\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4\",\n      \"externalUrl\": \"https://magiceden.io\",\n      \"attributes\": [\n        {\n          \"trait_type\": \"Level\",\n          \"value\": 3\n        },\n        {\n          \"trait_type\": \"Tier\",\n          \"value\": \"OG\"\n        }\n      ],\n      \"properties\": {\n        \"category\": \"video\",\n        \"files\": [\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.mp4?ext=mp4\",\n            \"type\": \"video/mp4\"\n          },\n          {\n            \"uri\": \"https://bafybeihlkgqlslyayv3u5c6ix4tuis27jp6mrapyfqjosgwaqb7prickbi.ipfs.dweb.link/0.gif?ext=gif\",\n            \"type\": \"image/png\"\n          }\n        ],\n        \"creators\": [\n          {\n            \"address\": \"RRUMF9KYPcvNSmnicNMAFKx5wDYix3wjNa6bA7R6xqA\",\n            \"share\": 95\n          },\n          {\n            \"address\": \"mdaoMkGbmV2udu6wpzv4LhQ6fwcHudP4whu1r1k2Jac\",\n            \"share\": 5\n          }\n        ]\n      }\n    },\n    \"listingSource\": \"M2\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a92c321a-5cc8-4b72-9bf9-9b24e6a7c657",
+              "name": "Invalid symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "batch",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listingAggMode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://stats-mainnet.magiceden.dev",
+      "key": "collection_stats-search-bitcoin-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "46ee934f-315a-46f6-8834-4f2f1b5c85a4",
+    "name": "Magic Eden EVM Activity Collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

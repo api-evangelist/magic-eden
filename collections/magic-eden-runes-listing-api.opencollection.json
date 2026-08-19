@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Runes Listing API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Runes Listing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a signed message for cancelling a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/order/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed message for cancelling a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Submit a signed PSBT for creating a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/order/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a signed PSBT for creating a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned message for cancelling a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/psbt/order/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned message for cancelling a rune sell order"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned PSBT for creating a rune sell order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/psbt/order/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT for creating a rune sell order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

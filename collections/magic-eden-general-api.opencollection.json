@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin General API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-NFT-API-Key",
+      "value": "{{X-NFT-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "General",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch user authentication data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/auth/user/:walletAddress",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "path",
+                "description": "The wallet address of the user"
+              },
+              {
+                "name": "enableSNS",
+                "value": "",
+                "type": "query",
+                "description": "Flag to enable SNS (Social Network Sharing)"
+              }
+            ]
+          },
+          "docs": "Fetch user authentication data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

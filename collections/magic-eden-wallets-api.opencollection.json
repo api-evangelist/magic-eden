@@ -1,0 +1,301 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity wallets API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wallets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get ownership activities of a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/owner/activities",
+            "params": [
+              {
+                "name": "owner",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "query",
+                "description": "wallet address."
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "Filter activities that are created after this time"
+              }
+            ]
+          },
+          "docs": "Get ownership activities of a wallet."
+        },
+        {
+          "info": {
+            "name": "Get info about the wallet owner.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              }
+            ]
+          },
+          "docs": "Get info about the wallet owner."
+        },
+        {
+          "info": {
+            "name": "Get activities of a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address/activities",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              }
+            ]
+          },
+          "docs": "Get activities of a wallet."
+        },
+        {
+          "info": {
+            "name": "Get escrow balance for a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address/escrow_balance",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              }
+            ]
+          },
+          "docs": "Get escrow balance for a wallet."
+        },
+        {
+          "info": {
+            "name": "Get offers made by a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address/offers_made",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are more than this price"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, max 500"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the offers made, default 'bidAmount'"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'desc'"
+              }
+            ]
+          },
+          "docs": "Get offers made by a wallet."
+        },
+        {
+          "info": {
+            "name": "Get offers received by a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address/offers_received",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are more than this price"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the offers received, default 'updatedAt'"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'desc'"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              }
+            ]
+          },
+          "docs": "Get offers received by a wallet."
+        },
+        {
+          "info": {
+            "name": "Get tokens owned by a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/wallets/:wallet_address/tokens",
+            "params": [
+              {
+                "name": "wallet_address",
+                "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD",
+                "type": "path",
+                "description": "wallet address."
+              },
+              {
+                "name": "collection_symbol",
+                "value": "",
+                "type": "query",
+                "description": "Filter tokens that are part of this collection symbol, max length of 255 characters"
+              },
+              {
+                "name": "mcc_address",
+                "value": "",
+                "type": "query",
+                "description": "Filter tokens that are part of this Metaplex Certified Collection address, max length of 48 characters"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are more than this price"
+              },
+              {
+                "name": "attributes",
+                "value": "",
+                "type": "query",
+                "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return tokens that have \"value1\" OR \"value2\" for \"trait1\"."
+              },
+              {
+                "name": "listStatus",
+                "value": "",
+                "type": "query",
+                "description": "Determines what type of tokens to return, default both"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the tokens, default 'updatedAt'"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'desc'"
+              }
+            ]
+          },
+          "docs": "Get tokens owned by a wallet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

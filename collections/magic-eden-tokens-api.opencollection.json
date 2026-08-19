@@ -1,0 +1,233 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Tokens API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/tokens",
+            "params": [
+              {
+                "name": "tokenIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of token IDs."
+              },
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol"
+              },
+              {
+                "name": "ownerAddress",
+                "value": "",
+                "type": "query",
+                "description": "Owner address"
+              },
+              {
+                "name": "showAll",
+                "value": "",
+                "type": "query",
+                "description": "Show all items including the listed and unlisted ones"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset"
+              },
+              {
+                "name": "inscriptionMin",
+                "value": "",
+                "type": "query",
+                "description": "Inscription number min"
+              },
+              {
+                "name": "inscriptionMax",
+                "value": "",
+                "type": "query",
+                "description": "Inscription number max"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "sort by"
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "min price"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "max price"
+              },
+              {
+                "name": "satRarity",
+                "value": "",
+                "type": "query",
+                "description": "sat rarity"
+              }
+            ]
+          },
+          "docs": "Get tokens, can be filtered by collectionSymbol, owner, tokenIds"
+        },
+        {
+          "info": {
+            "name": "Get token metadata by mint address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/tokens/:token_mint",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "4uvpqEL73361hRXCrHqBZQWeqfbKPQw55yKSFZvLQYTq",
+                "type": "path",
+                "description": "Mint address of the token or asset ID of compressed NFT"
+              }
+            ]
+          },
+          "docs": "Get token metadata by mint address"
+        },
+        {
+          "info": {
+            "name": "Get activities for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/tokens/:token_mint/activities",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa",
+                "type": "path",
+                "description": "Mint address of the token or asset ID of compressed NFT"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              }
+            ]
+          },
+          "docs": "Get activities for a token"
+        },
+        {
+          "info": {
+            "name": "Get listings for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/tokens/:token_mint/listings",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa",
+                "type": "path",
+                "description": "Mint address of the token or asset ID of compressed NFT"
+              },
+              {
+                "name": "listingAggMode",
+                "value": "",
+                "type": "query",
+                "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings. Defaults to false."
+              }
+            ]
+          },
+          "docs": "Get listings for a token"
+        },
+        {
+          "info": {
+            "name": "Get received offers for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/tokens/:token_mint/offers_received",
+            "params": [
+              {
+                "name": "token_mint",
+                "value": "7ThMgi8Qh2XEAYBvnrEHNfaTNnHyqQCVH5XbFgGgu6bn",
+                "type": "path",
+                "description": "Mint address of the token"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter offers that are more than this price"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the offers received, default 'updatedAt'"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'desc'"
+              }
+            ]
+          },
+          "docs": "Get received offers for a token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

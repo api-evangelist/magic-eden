@@ -1,0 +1,124 @@
+{
+  "item": [
+    {
+      "id": "d2e52afc-9e95-49e8-97a4-7ab79e7edc0f",
+      "name": "magic-ticket",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61b52d62-efef-4f59-98dd-969aa04865a6",
+          "name": "Construct and return burn txs for given mint addresses",
+          "request": {
+            "name": "Construct and return burn txs for given mint addresses",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "magic_ticket",
+                "burns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "(Required) Wallet address that owns the tickets"
+                },
+                {
+                  "disabled": false,
+                  "key": "mintAddresses",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of mint addresses to burn"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4d3bc87e-5ce0-45c9-b9ea-37ba5b63903f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "magic_ticket",
+                    "burns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mintAddresses",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf7c8f1c-cce2-49c4-b53a-b338ea3d175a",
+    "name": "Magic Eden EVM Activity magic-ticket API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

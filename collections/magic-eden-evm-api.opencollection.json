@@ -1,0 +1,645 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin EVM API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-NFT-API-Key",
+      "value": "{{X-NFT-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EVM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Magic Eden Collection Stats on Base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/collection_stats/search/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "window",
+                "value": "1d",
+                "type": "query",
+                "description": "The time window for the stats"
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query",
+                "description": "The maximum number of results to return"
+              },
+              {
+                "name": "sort",
+                "value": "volume",
+                "type": "query",
+                "description": "The field to sort the results by"
+              },
+              {
+                "name": "direction",
+                "value": "desc",
+                "type": "query",
+                "description": "The direction to sort the results"
+              },
+              {
+                "name": "filter",
+                "value": "{}",
+                "type": "query",
+                "description": "JSON string representing filter criteria"
+              }
+            ]
+          },
+          "docs": "Retrieve collection statistics from Magic Eden on the Base network, with options for sorting and filtering."
+        },
+        {
+          "info": {
+            "name": "Submit signed offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/order/v4",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "signature",
+                "value": "",
+                "type": "query",
+                "description": "URI encoded signature e.g signature=${encodeURIComponent(signature)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit signed offer"
+        },
+        {
+          "info": {
+            "name": "Submit offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/execute/bid/v5",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit offer"
+        },
+        {
+          "info": {
+            "name": "Execute List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/execute/list/v5",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute List"
+        },
+        {
+          "info": {
+            "name": "Get Marketplace configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/collections/0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a/marketplace-configurations/v2",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Marketplace configuration"
+        },
+        {
+          "info": {
+            "name": "Get Collection Set Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/collections-sets/v1",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get Collection Set Id"
+        },
+        {
+          "info": {
+            "name": "Retrieve user tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/users/:address/tokens/v10",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "address",
+                "value": "0xb71425024868e0c9156c3942AC115Cd3b56d5559",
+                "type": "path"
+              },
+              {
+                "name": "includeLastSale",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "excludeSpam",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "acquiredAt",
+                "type": "query"
+              },
+              {
+                "name": "sortDirection",
+                "value": "desc",
+                "type": "query"
+              },
+              {
+                "name": "onlyListed",
+                "value": "false",
+                "type": "query"
+              },
+              {
+                "name": "normalizeRoyalties",
+                "value": "false",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve user tokens"
+        },
+        {
+          "info": {
+            "name": "Retrieve token activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/tokens/:token/activity/v5",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "token",
+                "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a:9310",
+                "type": "path"
+              },
+              {
+                "name": "types",
+                "value": "sale,ask,transfer,mint,bid,bid_cancel,ask_cancel",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "eventTimestamp",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve token activity"
+        },
+        {
+          "info": {
+            "name": "Retrieve active ask orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/orders/asks/v5",
+            "headers": [
+              {
+                "name": "token",
+                "value": "0xcb28749c24af4797808364d71d71539bc01e76d4:4865"
+              },
+              {
+                "name": "status",
+                "value": "active"
+              },
+              {
+                "name": "sortBy",
+                "value": "price"
+              },
+              {
+                "name": "excludeEOA",
+                "value": "false"
+              },
+              {
+                "name": "limit",
+                "value": "100"
+              },
+              {
+                "name": "normalizeRoyalties",
+                "value": "false"
+              }
+            ],
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve active ask orders"
+        },
+        {
+          "info": {
+            "name": "Retrieve bids for a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/orders/bids/v6",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collection",
+                "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120",
+                "type": "query",
+                "description": "The address of the collection"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the results by"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the bids to retrieve"
+              },
+              {
+                "name": "excludeEOA",
+                "value": "",
+                "type": "query",
+                "description": "Whether to exclude EOA (Externally Owned Account) bids"
+              },
+              {
+                "name": "includeCriteriaMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include criteria metadata"
+              },
+              {
+                "name": "includeDepth",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include depth information"
+              },
+              {
+                "name": "normalizeRoyalties",
+                "value": "",
+                "type": "query",
+                "description": "Whether to normalize royalties"
+              }
+            ]
+          },
+          "docs": "Get detailed information about active bids for a specific collection, including criteria metadata and depth."
+        },
+        {
+          "info": {
+            "name": "Retrieve user's collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/users/:address/collections/v4",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "address",
+                "value": "0xb71425024868e0c9156c3942AC115Cd3b56d5559",
+                "type": "path",
+                "description": "The address of the user"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip before starting to collect the result set"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return"
+              },
+              {
+                "name": "collection",
+                "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a",
+                "type": "query",
+                "description": "The address of a specific collection to filter by"
+              }
+            ]
+          },
+          "docs": "Get detailed information about collections owned by a specific user address."
+        },
+        {
+          "info": {
+            "name": "Retrieve all attributes for a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/collections/:collectionAddress/attributes/all/v4",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionAddress",
+                "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120",
+                "type": "path",
+                "description": "The address of the collection"
+              }
+            ]
+          },
+          "docs": "Get detailed information about all attributes associated with a specific collection."
+        },
+        {
+          "info": {
+            "name": "Retrieve collection information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/collections/v7",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120",
+                "type": "query",
+                "description": "The address of the collection"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return"
+              },
+              {
+                "name": "includeSalesCount",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the sales count"
+              },
+              {
+                "name": "excludeSpam",
+                "value": "",
+                "type": "query",
+                "description": "Whether to exclude spam collections"
+              },
+              {
+                "name": "displayCurrency",
+                "value": "0x4200000000000000000000000000000000000006",
+                "type": "query",
+                "description": "The address of the currency to display prices in"
+              },
+              {
+                "name": "normalizeRoyalties",
+                "value": "",
+                "type": "query",
+                "description": "Whether to normalize royalties"
+              },
+              {
+                "name": "includeQuantity",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include quantity information"
+              },
+              {
+                "name": "includeLastSale",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the last sale information"
+              },
+              {
+                "name": "excludeBurnt",
+                "value": "",
+                "type": "query",
+                "description": "Whether to exclude burnt tokens"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the results by"
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to sort the results"
+              },
+              {
+                "name": "includeAttributes",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include attribute information"
+              }
+            ]
+          },
+          "docs": "Get detailed information about specific collections, including sales count, floor price, and other metadata."
+        },
+        {
+          "info": {
+            "name": "Fetch collection activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/collections/activity/v6",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collection",
+                "value": "",
+                "type": "query",
+                "description": "The Ethereum collection address"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types of activities to fetch. Can include multiple types (sale, ask, bid, transfer, mint).\n"
+              }
+            ]
+          },
+          "docs": "Fetch collection activity"
+        },
+        {
+          "info": {
+            "name": "Fetch Ethereum Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/v3/rtp/:chain/tokens/v7",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeQuantity",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include quantity."
+              },
+              {
+                "name": "includeLastSale",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the last sale."
+              },
+              {
+                "name": "excludeSpam",
+                "value": "",
+                "type": "query",
+                "description": "Whether to exclude spam tokens."
+              },
+              {
+                "name": "excludeBurnt",
+                "value": "",
+                "type": "query",
+                "description": "Whether to exclude burnt tokens."
+              },
+              {
+                "name": "collection",
+                "value": "",
+                "type": "query",
+                "description": "The collection contract address."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort by."
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to sort the results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return."
+              },
+              {
+                "name": "includeAttributes",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include attributes."
+              },
+              {
+                "name": "normalizeRoyalties",
+                "value": "",
+                "type": "query",
+                "description": "Whether to normalize royalties."
+              }
+            ]
+          },
+          "docs": "Fetches Ethereum tokens from the specified collection with various filters and sorting options."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

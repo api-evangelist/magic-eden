@@ -1,0 +1,416 @@
+{
+  "item": [
+    {
+      "id": "5920e2a1-98ab-4df2-a977-966259159b80",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d1c98bf7-5155-4c6f-8600-6a0a9472414c",
+          "name": "Collection Assets",
+          "request": {
+            "name": "Collection Assets",
+            "description": {
+              "content": "Use this API to explore a collection's assets and its market info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "collection-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>",
+                  "description": "(Required) The collection id to query assets. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` "
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFloorAskSource[]",
+                  "value": "<string>",
+                  "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFloorAskSource[]",
+                  "value": "<string>",
+                  "description": "Filter assets whose floor ask is from specific sources. if `any` is specified, means return assets which are listed only"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter assets by its name"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTopBid",
+                  "value": "<boolean>",
+                  "description": "Whether to include top bid for returned assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of assets."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0036419e-55ba-456a-b530-16b4b32d85ef",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "collection-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeFloorAskSource[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeFloorAskSource[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTopBid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "price"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"NFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"POPRANK\",\n            \"rank\": 8895.506417626691\n          },\n          {\n            \"provider\": \"OPENRARITY\",\n            \"rank\": 3076.8120027567215\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC1155\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 923.48831732318,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 9247.739784497182\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"NFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"MAGICEDEN\",\n            \"rank\": 2108.4760284932236\n          },\n          {\n            \"provider\": \"POPRANK\",\n            \"rank\": 1170.7584751015277\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC721\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 561.8340611343253,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 8545.407310012832\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c3a307c-2301-4ec3-a000-91b780e32528",
+          "name": "User Assets",
+          "request": {
+            "name": "User Assets",
+            "description": {
+              "content": "Use this API to explore a user's assets and its market info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "user-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "walletAddresses[]",
+                  "value": "<string>",
+                  "description": "(Required) The wallet address (user address) to query assets from, could be a list, example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionIds[]",
+                  "value": "<string>",
+                  "description": "Filter assets by collectionIds. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyListed",
+                  "value": "<boolean>",
+                  "description": "Whether to show only listed assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTopBid",
+                  "value": "<boolean>",
+                  "description": "Whether to include top bid for returned assets, default to __false__"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "receivedAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDir",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Amount of items returned, default to __20__"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation",
+                  "value": "<string>",
+                  "description": "Use continuation token to request next offset of assets."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "555eb804-2ed9-4688-9fa6-90b253044d27",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "user-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletAddresses[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionIds[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeTopBid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "receivedAt"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "continuation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"SFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"MOONRANK\",\n            \"rank\": 9271.187228362896\n          },\n          {\n            \"provider\": \"ME_STATISTICAL\",\n            \"rank\": 5228.602280267637\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC721\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 2932.261420439629,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 2977.3956653388555\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    {\n      \"asset\": {\n        \"id\": \"string\",\n        \"collectionId\": \"string\",\n        \"assetClass\": \"SFT\",\n        \"rarity\": [\n          {\n            \"provider\": \"OPENRARITY\",\n            \"rank\": 928.3855742556457\n          },\n          {\n            \"provider\": \"MOONRANK\",\n            \"rank\": 3756.9082526119546\n          }\n        ],\n        \"contractAddress\": \"string\",\n        \"tokenId\": \"string\",\n        \"standard\": \"ERC721\",\n        \"chain\": \"<string>\",\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"attributes\": [\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"traitType\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"mediaV2\": {\n          \"main\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"cover\": {\n            \"url\": \"string\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"typeRaw\": \"string\"\n          },\n          \"additional\": [\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typeRaw\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"remainingSupply\": \"string\",\n        \"lastSalePrice\": {\n          \"amount\": {\n            \"raw\": \"string\",\n            \"native\": \"string\",\n            \"fiat\": {\n              \"usd\": \"string\"\n            }\n          },\n          \"currency\": {\n            \"contract\": \"string\",\n            \"symbol\": \"string\",\n            \"decimals\": 407.11842531582664,\n            \"displayName\": \"string\",\n            \"fiatConversion\": {\n              \"usd\": 1629.5865000663946\n            }\n          }\n        }\n      },\n      \"floorAsk\": {\n        \"assetId\": \"string\",\n        \"chain\": \"<string>\",\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": \"string\"\n        },\n        \"createdAt\": \"string\",\n        \"fees\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maker\": \"string\",\n        \"price\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": \"ERC1155\",\n        \"quantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"source\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"expiry\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"updatedAt\": \"string\"\n      },\n      \"topBid\": {\n        \"chain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contract\": \"string\",\n        \"contractData\": {\n          \"orderContractKind\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"kind\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"protocol\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"criteria\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  ],\n  \"continuation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "632cb296-7f95-4d66-b6c8-2e5df7adb2a4",
+    "name": "Magic Eden EVM Activity Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

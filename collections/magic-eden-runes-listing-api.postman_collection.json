@@ -1,0 +1,440 @@
+{
+  "item": [
+    {
+      "id": "74577846-360c-428c-9e31-116c04d233a5",
+      "name": "Runes Listing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94a21657-426c-4f32-84d1-87f787bea9f4",
+          "name": "Submit a signed message for cancelling a rune sell order",
+          "request": {
+            "name": "Submit a signed message for cancelling a rune sell order",
+            "description": {
+              "content": "Submit a signed message for cancelling a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "order",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signature\": \"<string>\",\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {},\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44e22e28-6062-486c-a7d5-f938bdc09038",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "order",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signature\": \"<string>\",\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {},\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"f337ce9a-747d-6573-c8de-c766e1f098da\",\n    \"04de5843-98d3-093b-cbc6-b25628c2d853\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae2d5e17-470a-45f1-b770-95ee10f5ccd3",
+          "name": "Submit a signed PSBT for creating a rune sell order",
+          "request": {
+            "name": "Submit a signed PSBT for creating a rune sell order",
+            "description": {
+              "content": "Submit a signed PSBT for creating a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "order",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"expiresAt\": \"<dateTime>\",\n  \"signedRBFProtectedPsbts\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1b7bcda-dbc9-4780-a1c2-48fa3d990f86",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "order",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"side\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"expiresAt\": \"<dateTime>\",\n  \"signedRBFProtectedPsbts\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"cb95c679-64e0-d4b1-e2a0-756df92d5565\",\n    \"d911de51-3570-ec2a-283a-d13fa1a6f618\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57d3515b-ace5-472e-a229-b2e026cb1382",
+          "name": "Get an unsigned message for cancelling a rune sell order",
+          "request": {
+            "name": "Get an unsigned message for cancelling a rune sell order",
+            "description": {
+              "content": "Get an unsigned message for cancelling a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "order",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6beb6df3-eafc-4fe4-bf2b-452c4e6a7eed",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "order",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderIds\": [\n    \"<uuid>\"\n  ],\n  \"makerAddress\": {},\n  \"makerPublicKey\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderIds\": [\n    \"03120195-fa89-8c60-0da0-503dccdcc80b\",\n    \"b47df279-3ef5-29c8-0458-308ac399fa6c\"\n  ],\n  \"token\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c081c525-05a7-4cb8-8432-270331f711d1",
+          "name": "Get an unsigned PSBT for creating a rune sell order",
+          "request": {
+            "name": "Get an unsigned PSBT for creating a rune sell order",
+            "description": {
+              "content": "Get an unsigned PSBT for creating a rune sell order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "order",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"<string>\",\n  \"rune\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"utxos\": [\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    },\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    }\n  ],\n  \"expiresAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26c1c8b1-6a23-4fac-9211-ba4d8e60a134",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "order",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"side\": \"<string>\",\n  \"rune\": \"<string>\",\n  \"makerRunesPublicKey\": {},\n  \"makerRunesAddress\": {},\n  \"makerReceiveAddress\": {},\n  \"utxos\": [\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    },\n    {\n      \"location\": \"<string>\",\n      \"priceSats\": \"<integer>\"\n    }\n  ],\n  \"expiresAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderPsbtBase64\": \"string\",\n  \"unsignedRBFProtectedPsbts\": [\n    {\n      \"unsignedPSBTBase64\": \"string\",\n      \"toSignInputs\": [\n        5170.356957730224,\n        348.0911431808975\n      ],\n      \"toSignSigHash\": 6247.356267679203\n    },\n    {\n      \"unsignedPSBTBase64\": \"string\",\n      \"toSignInputs\": [\n        5138.942710219464,\n        5589.444881476103\n      ],\n      \"toSignSigHash\": 2462.554859263921\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "921ddf12-a383-4066-a831-e82c84e60518",
+    "name": "Magic Eden EVM Activity Runes Listing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

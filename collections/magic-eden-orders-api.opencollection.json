@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Orders API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Asks (listings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/orders/asks",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Direct fetch asks by ids, other filters will be ignored if `ids` is provided. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "makers[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by makers who made these asks. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "sources[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order source."
+              },
+              {
+                "name": "status[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order status. default `active`"
+              },
+              {
+                "name": "createAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "updateAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to search asks"
+        },
+        {
+          "info": {
+            "name": "Bids (offers)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/orders/bids",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Direct fetch bids by ids, other filters will be ignored if `ids` is provided. Either `ids` and `bidTypes[] + collectionId` must be provided"
+              },
+              {
+                "name": "bidTypes[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by bid types"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collectionId. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8`. Either `ids` and `collectionId` must be provided"
+              },
+              {
+                "name": "assetIds[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset ids. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0`"
+              },
+              {
+                "name": "attributes[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by attributes, could be a list, format as `<attribute_name>:<attribute_value>`, example: `Background:Black`"
+              },
+              {
+                "name": "makers[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by makers who made these bids. example: `0x47d88afbba889709abba07339ed1c88079944ca3`"
+              },
+              {
+                "name": "sources[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order source."
+              },
+              {
+                "name": "status[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by order status. default `active`"
+              },
+              {
+                "name": "createAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some create timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "updateAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter orders after some update timestamp using UTC format. example: `2025-05-01T06:01:09.000Z`."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Amount of items returned, default to __20__"
+              },
+              {
+                "name": "continuation",
+                "value": "",
+                "type": "query",
+                "description": "Use continuation token to request next offset of items."
+              }
+            ]
+          },
+          "docs": "Use this API to search bids"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

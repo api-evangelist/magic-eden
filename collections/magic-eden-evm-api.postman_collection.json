@@ -1,0 +1,5279 @@
+{
+  "item": [
+    {
+      "id": "60dfe6c9-f645-411a-8726-d865c0f29cb9",
+      "name": "EVM",
+      "description": {
+        "content": "Endpoints related to Ethereum, Polygon and Base blockchain",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25d4b436-a52a-4aec-a397-5d4fa5c88966",
+          "name": "Search Magic Eden Collection Stats on Base",
+          "request": {
+            "name": "Search Magic Eden Collection Stats on Base",
+            "description": {
+              "content": "Retrieve collection statistics from Magic Eden on the Base network, with options for sorting and filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection_stats",
+                "search",
+                ":chain"
+              ],
+              "host": [
+                "{{collection_stats-search-chain-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) The time window for the stats"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "(Required) The field to sort the results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "(Required) The direction to sort the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "(Required) JSON string representing filter criteria"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "708f9f5f-106c-4a9f-ad00-67e24e29da38",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5455f4a-772f-4d70-9855-0dc9f0a69041",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8c04cfc-5517-4107-a82c-9f0388c31816",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0807255d-dee2-4035-8c37-309ee35940df",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95b32e04-4d05-4f90-85a6-61415c859afc",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07ac2520-0968-47b2-b0de-d99bf3ad535a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection_stats",
+                    "search",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{collection_stats-search-chain-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "volume"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "{}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e84ee19-0b78-4d61-b017-21cda75d19ff",
+          "name": "Submit signed offer",
+          "request": {
+            "name": "Submit signed offer",
+            "description": {
+              "content": "Submit signed offer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "order",
+                "v4"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "signature",
+                  "value": "<string>",
+                  "description": "(Required) URI encoded signature e.g signature=${encodeURIComponent(signature)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"order\": {\n        \"kind\": \"<string>\",\n        \"data\": {\n          \"kind\": \"<string>\",\n          \"sellerOrBuyer\": \"<string>\",\n          \"protocol\": \"<integer>\",\n          \"cosigner\": \"<string>\",\n          \"beneficiary\": \"<string>\",\n          \"marketplace\": \"<string>\",\n          \"fallbackRoyaltyRecipient\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"tokenAddress\": \"<string>\",\n          \"amount\": \"<string>\",\n          \"itemPrice\": \"<string>\",\n          \"expiration\": \"<string>\",\n          \"marketplaceFeeNumerator\": \"<string>\",\n          \"nonce\": \"<string>\",\n          \"masterNonce\": \"<string>\",\n          \"r\": \"<string>\",\n          \"s\": \"<string>\",\n          \"v\": \"<integer>\"\n        }\n      },\n      \"orderbook\": \"<string>\"\n    },\n    {\n      \"order\": {\n        \"kind\": \"<string>\",\n        \"data\": {\n          \"kind\": \"<string>\",\n          \"sellerOrBuyer\": \"<string>\",\n          \"protocol\": \"<integer>\",\n          \"cosigner\": \"<string>\",\n          \"beneficiary\": \"<string>\",\n          \"marketplace\": \"<string>\",\n          \"fallbackRoyaltyRecipient\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"tokenAddress\": \"<string>\",\n          \"amount\": \"<string>\",\n          \"itemPrice\": \"<string>\",\n          \"expiration\": \"<string>\",\n          \"marketplaceFeeNumerator\": \"<string>\",\n          \"nonce\": \"<string>\",\n          \"masterNonce\": \"<string>\",\n          \"r\": \"<string>\",\n          \"s\": \"<string>\",\n          \"v\": \"<integer>\"\n        }\n      },\n      \"orderbook\": \"<string>\"\n    }\n  ],\n  \"source\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91919886-24c5-4d27-bebe-ed59e397ebf6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "order",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"order\": {\n        \"kind\": \"payment-processor-v2\",\n        \"data\": {\n          \"kind\": \"collection-offer-approval\",\n          \"sellerOrBuyer\": \"0xb71425024868e0c9156c3942ac115cd3b56d5559\",\n          \"protocol\": 0,\n          \"cosigner\": \"0x32da57e736e05f75aa4fae2e9be60fd904492726\",\n          \"beneficiary\": \"0xb71425024868e0c9156c3942ac115cd3b56d5559\",\n          \"marketplace\": \"0xca9337244b5f04cb946391bc8b8a980e988f9a6a\",\n          \"fallbackRoyaltyRecipient\": \"0x9ccf727dbb547d623ded5ab83c5b0e499eee5532\",\n          \"paymentMethod\": \"0x4200000000000000000000000000000000000006\",\n          \"tokenAddress\": \"0x00b5f2e672f6b8a176bf6ade71238b61360a29e9\",\n          \"amount\": \"1\",\n          \"itemPrice\": \"100000000000000\",\n          \"expiration\": \"1722607020\",\n          \"marketplaceFeeNumerator\": \"200\",\n          \"nonce\": \"69005277841611552456666767078621072521642912468796321438269508217196416860176\",\n          \"masterNonce\": \"0\",\n          \"r\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n          \"s\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n          \"v\": 0\n        }\n      },\n      \"orderbook\": \"reservoir\"\n    },\n    {\n      \"order\": {\n        \"kind\": \"payment-processor-v2\",\n        \"data\": {\n          \"kind\": \"collection-offer-approval\",\n          \"sellerOrBuyer\": \"0xb71425024868e0c9156c3942ac115cd3b56d5559\",\n          \"protocol\": 0,\n          \"cosigner\": \"0x32da57e736e05f75aa4fae2e9be60fd904492726\",\n          \"beneficiary\": \"0xb71425024868e0c9156c3942ac115cd3b56d5559\",\n          \"marketplace\": \"0xca9337244b5f04cb946391bc8b8a980e988f9a6a\",\n          \"fallbackRoyaltyRecipient\": \"0x9ccf727dbb547d623ded5ab83c5b0e499eee5532\",\n          \"paymentMethod\": \"0x4200000000000000000000000000000000000006\",\n          \"tokenAddress\": \"0x00b5f2e672f6b8a176bf6ade71238b61360a29e9\",\n          \"amount\": \"1\",\n          \"itemPrice\": \"100000000000000\",\n          \"expiration\": \"1722607020\",\n          \"marketplaceFeeNumerator\": \"200\",\n          \"nonce\": \"69005277841611552456666767078621072521642912468796321438269508217196416860176\",\n          \"masterNonce\": \"0\",\n          \"r\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n          \"s\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n          \"v\": 0\n        }\n      },\n      \"orderbook\": \"reservoir\"\n    }\n  ],\n  \"source\": \"magiceden.io\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Order processed successfully\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d09154d0-f6ef-40bb-b69d-a9265ee20a31",
+          "name": "Submit offer",
+          "request": {
+            "name": "Submit offer",
+            "description": {
+              "content": "Submit offer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "execute",
+                "bid",
+                "v5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"maker\": \"<string>\",\n  \"source\": \"<string>\",\n  \"params\": [\n    {\n      \"collection\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"weiPrice\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"orderKind\": \"<string>\",\n      \"orderbook\": \"<string>\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": \"<boolean>\"\n        }\n      },\n      \"automatedRoyalties\": \"<boolean>\"\n    },\n    {\n      \"collection\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"weiPrice\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"orderKind\": \"<string>\",\n      \"orderbook\": \"<string>\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": \"<boolean>\"\n        }\n      },\n      \"automatedRoyalties\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b96a415f-5280-4477-a00c-61d99622ae36",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "execute",
+                    "bid",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maker\": \"0xb71425024868e0c9156c3942AC115Cd3b56d5559\",\n  \"source\": \"magiceden.io\",\n  \"params\": [\n    {\n      \"collection\": \"0x00b5f2e672f6b8a176bf6ade71238b61360a29e9\",\n      \"currency\": \"0x4200000000000000000000000000000000000006\",\n      \"quantity\": 1,\n      \"weiPrice\": \"100000000000000\",\n      \"expirationTime\": \"1722607020\",\n      \"orderKind\": \"payment-processor-v2\",\n      \"orderbook\": \"reservoir\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": true\n        }\n      },\n      \"automatedRoyalties\": true\n    },\n    {\n      \"collection\": \"0x00b5f2e672f6b8a176bf6ade71238b61360a29e9\",\n      \"currency\": \"0x4200000000000000000000000000000000000006\",\n      \"quantity\": 1,\n      \"weiPrice\": \"100000000000000\",\n      \"expirationTime\": \"1722607020\",\n      \"orderKind\": \"payment-processor-v2\",\n      \"orderbook\": \"reservoir\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": true\n        }\n      },\n      \"automatedRoyalties\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38808d6f-4889-49ba-b4a5-e50b9d2d1bc9",
+          "name": "Execute List",
+          "request": {
+            "name": "Execute List",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "execute",
+                "list",
+                "v5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"maker\": \"<string>\",\n  \"source\": \"<string>\",\n  \"params\": [\n    {\n      \"token\": \"<string>\",\n      \"weiPrice\": \"<string>\",\n      \"orderbook\": \"<string>\",\n      \"orderKind\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"automatedRoyalties\": \"<boolean>\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"token\": \"<string>\",\n      \"weiPrice\": \"<string>\",\n      \"orderbook\": \"<string>\",\n      \"orderKind\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"automatedRoyalties\": \"<boolean>\",\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": \"<boolean>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "170dafe7-a72d-45ea-b3dc-ef087c2d993b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "execute",
+                    "list",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maker\": \"0xb71425024868e0c9156c3942AC115Cd3b56d5559\",\n  \"source\": \"magiceden.io\",\n  \"params\": [\n    {\n      \"token\": \"0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a:9310\",\n      \"weiPrice\": \"10000000000000\",\n      \"orderbook\": \"reservoir\",\n      \"orderKind\": \"payment-processor-v2\",\n      \"quantity\": 1,\n      \"currency\": \"0x0000000000000000000000000000000000000000\",\n      \"expirationTime\": \"1722598814\",\n      \"automatedRoyalties\": true,\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": true\n        }\n      }\n    },\n    {\n      \"token\": \"0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a:9310\",\n      \"weiPrice\": \"10000000000000\",\n      \"orderbook\": \"reservoir\",\n      \"orderKind\": \"payment-processor-v2\",\n      \"quantity\": 1,\n      \"currency\": \"0x0000000000000000000000000000000000000000\",\n      \"expirationTime\": \"1722598814\",\n      \"automatedRoyalties\": true,\n      \"options\": {\n        \"payment-processor-v2\": {\n          \"useOffChainCancellation\": true\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7a5723f-b09b-424b-b946-ada8122bec8f",
+          "name": "Get Marketplace configuration",
+          "request": {
+            "name": "Get Marketplace configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "collections",
+                "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a",
+                "marketplace-configurations",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "debf4d31-fa8a-4d2d-a7e3-0705076da82e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a",
+                    "marketplace-configurations",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45fea4aa-1a97-4bb4-a488-c4578d5d0d6e",
+          "name": "Get Collection Set Id",
+          "request": {
+            "name": "Get Collection Set Id",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "collections-sets",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collections\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e28a69db-2422-40c4-ad82-3c4df5b68932",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections-sets",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collections\": [\n    \"0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a\",\n    \"0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a814e31c-6303-411f-bf6b-c49625b74018",
+          "name": "Retrieve user tokens",
+          "request": {
+            "name": "Retrieve user tokens",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "users",
+                ":address",
+                "tokens",
+                "v10"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeLastSale",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeSpam",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "acquiredAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDirection",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyListed",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "normalizeRoyalties",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b81f30cd-6b26-4b7c-8330-2d1ccac6aaab",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "tokens",
+                    "v10"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeLastSale",
+                      "value": "true"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "acquiredAt"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fbc09d31-1b98-4b1a-a861-af9558239b0d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "tokens",
+                    "v10"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeLastSale",
+                      "value": "true"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "acquiredAt"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eab4b128-eb52-4c13-8c59-90f06f1582a0",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "tokens",
+                    "v10"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeLastSale",
+                      "value": "true"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "acquiredAt"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ccbc960-a123-4302-aeb8-6102d2481f5b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "tokens",
+                    "v10"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeLastSale",
+                      "value": "true"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "true"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "acquiredAt"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "onlyListed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba114512-1180-4250-af33-ace6b1f65b80",
+          "name": "Retrieve token activity",
+          "request": {
+            "name": "Retrieve token activity",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "tokens",
+                ":token",
+                "activity",
+                "v5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "eventTimestamp"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bec9b744-8eca-4ae2-b7c6-191e00da849f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    ":token",
+                    "activity",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "sale"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask"
+                    },
+                    {
+                      "key": "types",
+                      "value": "transfer"
+                    },
+                    {
+                      "key": "types",
+                      "value": "mint"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid_cancel"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask_cancel"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "eventTimestamp"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6c116ab-c1da-4dd5-b267-f0772e4d75e6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    ":token",
+                    "activity",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "sale"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask"
+                    },
+                    {
+                      "key": "types",
+                      "value": "transfer"
+                    },
+                    {
+                      "key": "types",
+                      "value": "mint"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid_cancel"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask_cancel"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "eventTimestamp"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d53da0c-80c0-45c7-82d2-08bcd53d9093",
+              "name": "Token not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    ":token",
+                    "activity",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "sale"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask"
+                    },
+                    {
+                      "key": "types",
+                      "value": "transfer"
+                    },
+                    {
+                      "key": "types",
+                      "value": "mint"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid_cancel"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask_cancel"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "eventTimestamp"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66b65638-a550-413d-bd28-b8c702fa54a4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    ":token",
+                    "activity",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "sale"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask"
+                    },
+                    {
+                      "key": "types",
+                      "value": "transfer"
+                    },
+                    {
+                      "key": "types",
+                      "value": "mint"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid"
+                    },
+                    {
+                      "key": "types",
+                      "value": "bid_cancel"
+                    },
+                    {
+                      "key": "types",
+                      "value": "ask_cancel"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "eventTimestamp"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09684418-5d9a-443d-af7e-c42589c4a816",
+          "name": "Retrieve active ask orders",
+          "request": {
+            "name": "Retrieve active ask orders",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "orders",
+                "asks",
+                "v5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "status",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "key": "sortBy",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "excludeEOA",
+                "value": "<boolean>"
+              },
+              {
+                "disabled": false,
+                "key": "limit",
+                "value": "<integer>",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "normalizeRoyalties",
+                "value": "<boolean>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9519f714-ec08-4152-9e8e-48c48d71e402",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "asks",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "token",
+                    "value": "0xcb28749c24af4797808364d71d71539bc01e76d4:4865"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "status",
+                    "value": "active",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "sortBy",
+                    "value": "price",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "excludeEOA",
+                    "value": "false"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "limit",
+                    "value": "100",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "normalizeRoyalties",
+                    "value": "false"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8fa7880c-ea56-436b-ad30-8aae5084d2bb",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "asks",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "token",
+                    "value": "0xcb28749c24af4797808364d71d71539bc01e76d4:4865"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "status",
+                    "value": "active",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "sortBy",
+                    "value": "price",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "excludeEOA",
+                    "value": "false"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "limit",
+                    "value": "100",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "normalizeRoyalties",
+                    "value": "false"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "153092bf-7493-4d35-abae-603333a78e1d",
+              "name": "Unauthorized - Token invalid or expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "asks",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "token",
+                    "value": "0xcb28749c24af4797808364d71d71539bc01e76d4:4865"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "status",
+                    "value": "active",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "sortBy",
+                    "value": "price",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "excludeEOA",
+                    "value": "false"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "limit",
+                    "value": "100",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "normalizeRoyalties",
+                    "value": "false"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7db3589-fd37-44fd-862b-88e5c4965365",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "asks",
+                    "v5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "token",
+                    "value": "0xcb28749c24af4797808364d71d71539bc01e76d4:4865"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "status",
+                    "value": "active",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "sortBy",
+                    "value": "price",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "excludeEOA",
+                    "value": "false"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "limit",
+                    "value": "100",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "normalizeRoyalties",
+                    "value": "false"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34c197f9-dd1d-44f8-841d-9b8c3b28b5d5",
+          "name": "Retrieve bids for a collection",
+          "request": {
+            "name": "Retrieve bids for a collection",
+            "description": {
+              "content": "Get detailed information about active bids for a specific collection, including criteria metadata and depth.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "orders",
+                "bids",
+                "v6"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collection",
+                  "value": "<string>",
+                  "description": "(Required) The address of the collection"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "The field to sort the results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The status of the bids to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeEOA",
+                  "value": "<boolean>",
+                  "description": "Whether to exclude EOA (Externally Owned Account) bids"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeCriteriaMetadata",
+                  "value": "<boolean>",
+                  "description": "Whether to include criteria metadata"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDepth",
+                  "value": "<boolean>",
+                  "description": "Whether to include depth information"
+                },
+                {
+                  "disabled": false,
+                  "key": "normalizeRoyalties",
+                  "value": "<boolean>",
+                  "description": "Whether to normalize royalties"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3455617d-f5b9-482f-a1c6-ad429b58de49",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "349feb63-638d-49df-9091-caf853433fb7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec440ecd-60f9-40db-ab00-5c55abcab6dd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db6bc058-9539-4941-8a50-3b4b5b4ba8fc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed2177a2-4f1b-43b5-941f-0598a5af9a1c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "097a9b4c-7582-402f-9e02-84787376e4b0",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "orders",
+                    "bids",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeEOA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeCriteriaMetadata",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeDepth",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "779b65ff-3c23-43b0-adbe-1a0f60dd0d8b",
+          "name": "Retrieve user's collections",
+          "request": {
+            "name": "Retrieve user's collections",
+            "description": {
+              "content": "Get detailed information about collections owned by a specific user address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "users",
+                ":address",
+                "collections",
+                "v4"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip before starting to collect the result set"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "collection",
+                  "value": "<string>",
+                  "description": "The address of a specific collection to filter by"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) The address of the user"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1aa1aab1-8db3-415c-b9ce-84e2ad46009c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "421f83a5-e12c-4ef3-83a1-0f988f9028d6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e58f1985-1308-48e4-bf59-138ea0bda1ca",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c92331c6-a084-4620-94f1-18f4c3332166",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9436a89-2a82-4bbd-87b9-cfa31198993e",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ed41690-2168-443b-8c3d-eda617f7035d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "users",
+                    ":address",
+                    "collections",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) The address of the user"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffae332d-ca7c-401b-95f0-7c9339733b16",
+          "name": "Retrieve all attributes for a collection",
+          "request": {
+            "name": "Retrieve all attributes for a collection",
+            "description": {
+              "content": "Get detailed information about all attributes associated with a specific collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "collections",
+                ":collectionAddress",
+                "attributes",
+                "all",
+                "v4"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionAddress",
+                  "description": "(Required) The address of the collection"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d63c0b2-af73-4ef6-9727-eab5f5286588",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59306e00-790f-4c13-9473-ae7d9005dcc2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "563ecc0f-4898-44b2-8c2c-ecda8a9b5473",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1421bbd7-7630-4829-bb83-8ec289cc561d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92b73ff5-fd14-49dd-a9e5-9ccf4b5c18a7",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "65ffa299-28af-4331-803c-fe938a65ac53",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    ":collectionAddress",
+                    "attributes",
+                    "all",
+                    "v4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionAddress",
+                      "description": "(Required) The address of the collection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "202be0c0-9f9e-4fdb-9a58-1cad65bde186",
+          "name": "Retrieve collection information",
+          "request": {
+            "name": "Retrieve collection information",
+            "description": {
+              "content": "Get detailed information about specific collections, including sales count, floor price, and other metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "collections",
+                "v7"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) The address of the collection"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of items to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeSalesCount",
+                  "value": "<boolean>",
+                  "description": "Whether to include the sales count"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeSpam",
+                  "value": "<boolean>",
+                  "description": "Whether to exclude spam collections"
+                },
+                {
+                  "disabled": false,
+                  "key": "displayCurrency",
+                  "value": "<string>",
+                  "description": "The address of the currency to display prices in"
+                },
+                {
+                  "disabled": false,
+                  "key": "normalizeRoyalties",
+                  "value": "<boolean>",
+                  "description": "Whether to normalize royalties"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeQuantity",
+                  "value": "<boolean>",
+                  "description": "Whether to include quantity information"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeLastSale",
+                  "value": "<boolean>",
+                  "description": "Whether to include the last sale information"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeBurnt",
+                  "value": "<boolean>",
+                  "description": "Whether to exclude burnt tokens"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "The field to sort the results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDirection",
+                  "value": "<string>",
+                  "description": "The direction to sort the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAttributes",
+                  "value": "<boolean>",
+                  "description": "Whether to include attribute information"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "faa3ec10-6179-4759-a6ea-553bbad682fc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13b838bc-356f-4097-be02-519989f941d6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "176382ff-e3f4-49a1-966f-8c92bf57ddba",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1578978-5bc9-4afa-aafe-3d6aa7ddb085",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e8decff-709b-41f1-a53e-c7fa4a61ea8d",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e41dcdc3-4853-4096-b57c-bc6fef58f14f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "0x5ca0c41a50fcfec85b91bb4ca5b024b36d9bb120"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeSalesCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "displayCurrency",
+                      "value": "0x4200000000000000000000000000000000000006"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ca20be2-57f1-48b2-b47b-49e34e41c5ce",
+          "name": "Fetch collection activity",
+          "request": {
+            "name": "Fetch collection activity",
+            "description": {},
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "collections",
+                "activity",
+                "v6"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collection",
+                  "value": "<string>",
+                  "description": "(Required) The Ethereum collection address"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) Types of activities to fetch. Can include multiple types (sale, ask, bid, transfer, mint).\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) Types of activities to fetch. Can include multiple types (sale, ask, bid, transfer, mint).\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65682193-c954-47ad-9b0f-724d5567f01f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "activity",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x306b1ea3ecdf94ab739f1910bbda052ed4a9f949"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b939e6d-1a4b-4385-995b-13edc831d0e0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "collections",
+                    "activity",
+                    "v6"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection",
+                      "value": "0x306b1ea3ecdf94ab739f1910bbda052ed4a9f949"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Bad request parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "567146cd-135a-4067-8a29-5ba14e1bce68",
+          "name": "Fetch Ethereum Tokens",
+          "request": {
+            "name": "Fetch Ethereum Tokens",
+            "description": {
+              "content": "Fetches Ethereum tokens from the specified collection with various filters and sorting options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "rtp",
+                ":chain",
+                "tokens",
+                "v7"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeQuantity",
+                  "value": "<boolean>",
+                  "description": "Whether to include quantity."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeLastSale",
+                  "value": "<boolean>",
+                  "description": "Whether to include the last sale."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeSpam",
+                  "value": "<boolean>",
+                  "description": "Whether to exclude spam tokens."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeBurnt",
+                  "value": "<boolean>",
+                  "description": "Whether to exclude burnt tokens."
+                },
+                {
+                  "disabled": false,
+                  "key": "collection",
+                  "value": "<string>",
+                  "description": "(Required) The collection contract address."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "floorAskPrice",
+                  "description": "The field to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDirection",
+                  "value": "asc",
+                  "description": "The direction to sort the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "The number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAttributes",
+                  "value": "<boolean>",
+                  "description": "Whether to include attributes."
+                },
+                {
+                  "disabled": false,
+                  "key": "normalizeRoyalties",
+                  "value": "<boolean>",
+                  "description": "Whether to normalize royalties."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4940ee91-cca5-4294-bca0-aebb119a468e",
+              "name": "A list of Ethereum tokens.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "floorAskPrice"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e3ef572-f20c-4558-ac6a-a27b0b9c6f30",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "floorAskPrice"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14835878-228e-4cb7-b5fe-6b8af8e2c998",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "rtp",
+                    ":chain",
+                    "tokens",
+                    "v7"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeQuantity",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeLastSale",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeSpam",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeBurnt",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "collection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "floorAskPrice"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "includeAttributes",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "normalizeRoyalties",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-NFT-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nfttools.pro/magiceden",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://nfttools.pro/magiceden_stats",
+      "key": "collection_stats-search-chain-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-NFT-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6757adb7-7841-45ca-93c2-ab495b9803cd",
+    "name": "NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin EVM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A comprehensive API for interacting with Magic Eden, providing tools to handle collections, tokens, activity, bid, list, and buy on Solana, Bitcoin, Ethereum, Base, and Polygon chains.",
+      "type": "text/plain"
+    }
+  }
+}

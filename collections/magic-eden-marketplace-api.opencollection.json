@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity marketplace API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "marketplace",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the top popular collections for a time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/marketplace/popular_collections",
+            "params": [
+              {
+                "name": "timeRange",
+                "value": "",
+                "type": "query",
+                "description": "The time range to return popular collections for. Default 1d."
+              }
+            ]
+          },
+          "docs": "Get the top popular collections for a time range"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

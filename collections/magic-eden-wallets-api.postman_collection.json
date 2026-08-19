@@ -1,0 +1,1322 @@
+{
+  "item": [
+    {
+      "id": "0d304621-fb56-4d00-a1f7-74404a7f7b00",
+      "name": "wallets",
+      "description": {
+        "content": "Get information of a wallet",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "97ba9e63-88f9-47ab-8f73-a767c088002a",
+          "name": "Get ownership activities of a wallet.",
+          "request": {
+            "name": "Get ownership activities of a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                "owner",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<string>",
+                  "description": "(Required) wallet address."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "Filter activities that are created after this time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6f0ad34-a0e4-4514-bfe7-21423b6e9152",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    "owner",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "owner",
+                      "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signature\": \"2v5HjvhZf1bPJ6iFoHkbJWgcwEpYoTvhdWwDESDmrTsY6sX7MtN3eeEvLngoXMVrneyRboG74sQWScVcEFR7R5Qg\",\n    \"type\": \"buyNow\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"4DbHsohxbkSJRZUNeVPPdxgYKJwEtXVge1ibQivi9x3T\",\n    \"collectionSymbol\": \"runcible\",\n    \"slot\": 110921876,\n    \"blockTime\": 1643408148,\n    \"buyer\": \"FtynbMEVKQnZp5iUmVaooR2JNW4brGD68eU4PLUUjNdX\",\n    \"buyerReferral\": \"\",\n    \"seller\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"sellerReferral\": \"\",\n    \"price\": 0.045\n  },\n  {\n    \"signature\": \"NYXnQ6uFLbbZhQveYoheWZKFYsb1ZznLYxLxknsobhuPWGufnhGd6JHD5JUsAqkerYHVpc6roMDhYxJiRQ4VXwe\",\n    \"type\": \"bid\",\n    \"source\": \"magiceden\",\n    \"tokenMint\": \"6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma\",\n    \"collectionSymbol\": \"btest\",\n    \"slot\": 110736942,\n    \"blockTime\": 1643335720,\n    \"buyer\": \"4nNQvp6dwo26FVxvFjgZQm66QjwkihPgeW33Z24HaU2T\",\n    \"buyerReferral\": \"\",\n    \"seller\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"sellerReferral\": \"\",\n    \"price\": 0.03\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45cc24fc-ae67-4cc5-b233-6331f6aafabd",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    "owner",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "owner",
+                      "value": "4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c2437ae-dfac-4fe9-be79-f7c567af8293",
+          "name": "Get info about the wallet owner.",
+          "request": {
+            "name": "Get info about the wallet owner.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08e36df9-691d-4585-9035-5a79831575cd",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"walletAddress\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n  \"displayName\": \"Channing\",\n  \"avatar\": \"8DGghzXuaRSe1n1qwabfC3wtfmn4WjiWgNJse1F8Aa6C\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29cc77ca-27ab-41e5-8879-be8dd58300b6",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90e5f7ce-fb9d-4930-80f1-74ffc480af8d",
+          "name": "Get activities of a wallet.",
+          "request": {
+            "name": "Get activities of a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71438959-2b8d-4f40-bb32-8ee1fd6a44ac",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signature\": \"2v5HjvhZf1bPJ6iFoHkbJWgcwEpYoTvhdWwDESDmrTsY6sX7MtN3eeEvLngoXMVrneyRboG74sQWScVcEFR7R5Qg\",\n    \"type\": \"buyNow\",\n    \"source\": \"magiceden_v2\",\n    \"tokenMint\": \"4DbHsohxbkSJRZUNeVPPdxgYKJwEtXVge1ibQivi9x3T\",\n    \"collectionSymbol\": \"runcible\",\n    \"slot\": 110921876,\n    \"blockTime\": 1643408148,\n    \"buyer\": \"FtynbMEVKQnZp5iUmVaooR2JNW4brGD68eU4PLUUjNdX\",\n    \"buyerReferral\": \"\",\n    \"seller\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"sellerReferral\": \"\",\n    \"price\": 0.045\n  },\n  {\n    \"signature\": \"NYXnQ6uFLbbZhQveYoheWZKFYsb1ZznLYxLxknsobhuPWGufnhGd6JHD5JUsAqkerYHVpc6roMDhYxJiRQ4VXwe\",\n    \"type\": \"bid\",\n    \"source\": \"magiceden\",\n    \"tokenMint\": \"6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma\",\n    \"collectionSymbol\": \"btest\",\n    \"slot\": 110736942,\n    \"blockTime\": 1643335720,\n    \"buyer\": \"4nNQvp6dwo26FVxvFjgZQm66QjwkihPgeW33Z24HaU2T\",\n    \"buyerReferral\": \"\",\n    \"seller\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"sellerReferral\": \"\",\n    \"price\": 0.03\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d51ab9e6-5406-4d29-89ae-cc00e499cee0",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb7c7b2e-56ea-44ba-bceb-176387612c6c",
+          "name": "Get escrow balance for a wallet.",
+          "request": {
+            "name": "Get escrow balance for a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address",
+                "escrow_balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce7192e9-c856-4807-8a33-b996a65223c5",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "escrow_balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"buyerEscrow\": \"6XpzgXRA92qg1j6Krfeqhxufnnn2PQNxiAhFFxLprYmj\",\n  \"balance\": 0.03\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11cccf9d-3038-48db-b344-768aed1c36a5",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "escrow_balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb9d3520-4883-45b5-8508-4a3f6cfa85ec",
+          "name": "Get offers made by a wallet.",
+          "request": {
+            "name": "Get offers made by a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address",
+                "offers_made"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, max 500"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the offers made, default 'bidAmount'"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'desc'"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "696dd4ea-060b-415e-a087-51be12044bbf",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "offers_made"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"ABk7HjjQkQmhFaZK9mmDaCTu7L4FJRDLBUU8Lk3ajReH\",\n    \"tokenMint\": \"AKnh88U3Via1A3wFYBPzEa9wH3fXinpXY3ApZhC2ExCf\",\n    \"auctionHouse\": \"\",\n    \"buyer\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"price\": 0.03,\n    \"tokenSize\": 1,\n    \"expiry\": 0\n  },\n  {\n    \"pdaAddress\": \"EPEHNmPbApdYjPKZSAhiW987MGssi3SoqhXUzuqhXTQd\",\n    \"tokenMint\": \"3nCs3tqujtQ37gygKsPKoHbZUsK4ZbMx1EEpoijU4P4A\",\n    \"auctionHouse\": \"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe\",\n    \"buyer\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"buyerReferral\": \"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2\",\n    \"price\": 0.02,\n    \"tokenSize\": 1,\n    \"expiry\": 0\n  },\n  {\n    \"pdaAddress\": \"5BwQZ1DcDeZNGHumZesvQgtf1Y3Y11ZjJuZ988RgJqCr\",\n    \"tokenMint\": \"6c5ZKCMXN4NY1q2H1wBroskEyrWcKFKGnUQVyTiDYvma\",\n    \"auctionHouse\": \"\",\n    \"buyer\": \"4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD\",\n    \"price\": 0.5,\n    \"tokenSize\": 1,\n    \"expiry\": 0\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eabf2d05-c035-418b-8451-ea959f1c5616",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "offers_made"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05e1744d-293b-427f-9181-a3ffc80bcde5",
+          "name": "Get offers received by a wallet.",
+          "request": {
+            "name": "Get offers received by a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address",
+                "offers_received"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter offers that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the offers received, default 'updatedAt'"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'desc'"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e22b518a-142f-46da-9a99-769bc8eefbe3",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "offers_received"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pdaAddress\": \"7QsrcdcXBXqMAwrDkc4XBGBnub7TNaso2oVMDJK5Pbgm\",\n    \"tokenMint\": \"9oTf3TfpCiS9LppP8BuTJ8XQpeg1GHVHuHDRcgWkS38a\",\n    \"auctionHouse\": \"\",\n    \"buyer\": \"BSrs8zdg2VN6GGPpzT6Ss1o6jVGWUXtDXyrvfMbpgxy1\",\n    \"price\": 3,\n    \"tokenSize\": 1,\n    \"expiry\": 0\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79dc6b7f-89ca-4335-bf80-06536622d46e",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "offers_received"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cef2498e-1433-40ed-bdda-d405f069b310",
+          "name": "Get tokens owned by a wallet.",
+          "request": {
+            "name": "Get tokens owned by a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "wallets",
+                ":wallet_address",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collection_symbol",
+                  "value": "<string>",
+                  "description": "Filter tokens that are part of this collection symbol, max length of 255 characters"
+                },
+                {
+                  "disabled": false,
+                  "key": "mcc_address",
+                  "value": "<string>",
+                  "description": "Filter tokens that are part of this Metaplex Certified Collection address, max length of 48 characters"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of items to skip, default 0, min 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return, default 100, min 1, max 500"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are less than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<number>",
+                  "description": "Filter listings that are more than this price"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return tokens that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "[{\"traitType\":\"<string>\",\"value\":\"<string>\"},{\"traitType\":\"<string>\",\"value\":\"<string>\"}]",
+                  "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return tokens that have \"value1\" OR \"value2\" for \"trait1\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "listStatus",
+                  "value": "<string>",
+                  "description": "Determines what type of tokens to return, default both"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort the tokens, default 'updatedAt'"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>",
+                  "description": "The direction returned elements should be sorted in, default 'desc'"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wallet_address",
+                  "description": "(Required) wallet address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ab4ea15-4093-491b-b00a-a21b1a71f323",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection_symbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mcc_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "listStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"mintAddress\": \"HdcrPMF4kHKqy5V9JibNSoWLNpqnxQUBDEBeimZkLf7u\",\n    \"owner\": \"EWmtsfBA8EikR3vvhsXgxn7cBQCUZfXJ7jMwXUpYRzXY\",\n    \"supply\": 1,\n    \"name\": \"Scanning of Picasso\",\n    \"updateAuthority\": \"7YNKWyPW5iqu1QHqnQ5Csj9yWpEEnqAzLcuzudMMHqbk\",\n    \"primarySaleHappened\": false,\n    \"sellerFeeBasisPoints\": 1250,\n    \"image\": \"https://www.arweave.net/c-5vOkt_YZZmlU8pjijlIYPFVZLDrm7jLAs918aFe-g?ext=JPG\",\n    \"attributes\": [],\n    \"properties\": {\n      \"files\": [\n        {\n          \"uri\": \"https://www.arweave.net/c-5vOkt_YZZmlU8pjijlIYPFVZLDrm7jLAs918aFe-g?ext=JPG\",\n          \"type\": \"image/jpeg\"\n        }\n      ],\n      \"category\": \"image\",\n      \"creators\": [\n        {\n          \"address\": \"7YNKWyPW5iqu1QHqnQ5Csj9yWpEEnqAzLcuzudMMHqbk\",\n          \"verified\": true,\n          \"share\": 100\n        }\n      ]\n    },\n    \"listStatus\": \"listed\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "522e30c7-ee55-488e-bca9-6fc89c9a4ac0",
+              "name": "Wallet not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallets",
+                    ":wallet_address",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collection_symbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mcc_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "listStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wallet_address",
+                      "description": "(Required) wallet address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c78fdfa0-8010-48a4-be9c-d6008c8c77c7",
+    "name": "Magic Eden EVM Activity wallets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

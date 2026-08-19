@@ -1,0 +1,3058 @@
+{
+  "item": [
+    {
+      "id": "c02f551f-fe52-4a21-8826-341012fe6070",
+      "name": "instructions",
+      "description": {
+        "content": "Get instructions for the blockchain",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30c0e2ea-25b2-4b6e-9b9a-fb3961baca75",
+          "name": "Get instruction to buy (bid)",
+          "request": {
+            "name": "Get instruction to buy (bid)",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 will default to 7 days."
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "33ed06b6-462a-4294-b410-cf5ccd252eea",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1528.6804341610928,\n      2103.2859435130945\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      7621.380585077904,\n      8580.534206712671\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7b6833d-39a2-4c88-9c04-b0a6d332124b",
+          "name": "Get instruction to cancel a buy",
+          "request": {
+            "name": "Get instruction to cancel a buy",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "buy_cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0cf6110d-9304-4ec0-ab61-b669e3c990cd",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "buy_cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "695b2d8a-bc3d-407c-a267-4b94c8ee9571",
+          "name": "Get instruction to change a buy price",
+          "request": {
+            "name": "Get instruction to change a buy price",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "buy_change_price"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Old price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "newPrice",
+                  "value": "<number>",
+                  "description": "(Required) New price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "395ff98c-718a-4b2a-9cb8-b10bd6bf5c05",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "buy_change_price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "newPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abc0cd2a-5168-4795-834f-287d8683770a",
+          "name": "Get instruction to buy now",
+          "request": {
+            "name": "Get instruction to buy now",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "buy_now"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenATA",
+                  "value": "<string>",
+                  "description": "(Required) Associate Token Account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerExpiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerExpiry",
+                  "value": "<number>",
+                  "description": "(Required) timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerCreatorRoyaltyPercent",
+                  "value": "<number>",
+                  "description": "buyerCreatorRoyaltyPercent, integer 0-100"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "splPrice",
+                  "value": "<string>",
+                  "description": "SPL token price information (JSON string)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "417705f0-00c7-4782-a647-39feda58456f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "buy_now"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenATA",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buyerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerCreatorRoyaltyPercent",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "splPrice",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7d59db4-489b-4637-9a9f-466d998620e0",
+          "name": "Get instruction to buy now and transfer nft to another owner",
+          "request": {
+            "name": "Get instruction to buy now and transfer nft to another owner",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "buy_now_transfer_nft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenATA",
+                  "value": "<string>",
+                  "description": "(Required) Associate Token Account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationATA",
+                  "value": "<string>",
+                  "description": "(Required) Associated token account to send bought NFT to"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationOwner",
+                  "value": "<string>",
+                  "description": "(Required) Owner of token account"
+                },
+                {
+                  "disabled": false,
+                  "key": "createATA",
+                  "value": "<boolean>",
+                  "description": "(Required) whether to include create ATA instructions"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerExpiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerExpiry",
+                  "value": "<number>",
+                  "description": "(Required) timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerCreatorRoyaltyPercent",
+                  "value": "<number>",
+                  "description": "buyerCreatorRoyaltyPercent, integer 0-100"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "9baecfcf-8660-4c9b-a4e7-66fa15ff4124",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "buy_now_transfer_nft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenATA",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "destinationATA",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "destinationOwner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createATA",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buyerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerCreatorRoyaltyPercent",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "207ae949-047f-4efb-a1ca-6a7fb0c30e6f",
+          "name": "Get instruction to deposit to escrow",
+          "request": {
+            "name": "Get instruction to deposit to escrow",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "deposit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) Amount in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1ad1658b-d1fa-473e-98cf-f8f262cdbdc6",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf08d46-fee1-43c9-aad0-09be47221316",
+          "name": "Get instruction to sell (list)",
+          "request": {
+            "name": "Get instruction to sell (list)",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenAccount",
+                  "value": "<string>",
+                  "description": "(Required) Token account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ee760ad3-4ba8-4a4a-98e9-7f6225326d23",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da4c5c28-8b65-45cf-b446-266dd6bb8e55",
+          "name": "Get instruction to cancel a sell",
+          "request": {
+            "name": "Get instruction to cancel a sell",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "sell_cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenAccount",
+                  "value": "<string>",
+                  "description": "(Required) Token account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "e288b9fb-6704-4dd3-9be2-f2e39e3a9278",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "sell_cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7aea2e5e-807e-4f50-a22c-911b3cef04a6",
+          "name": "Get instruction to change a sell price",
+          "request": {
+            "name": "Get instruction to change a sell price",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "sell_change_price"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenAccount",
+                  "value": "<string>",
+                  "description": "(Required) Token account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "newPrice",
+                  "value": "<number>",
+                  "description": "(Required) New price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "(Required) timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "38e165de-57a3-4e80-a34b-e3407757d23d",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "sell_change_price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "newPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0425be0-d079-4180-96ef-f296aa53f8ae",
+          "name": "Get instruction to sell now (accept offer)",
+          "request": {
+            "name": "Get instruction to sell now (accept offer)",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "sell_now"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Seller wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenMint",
+                  "value": "<string>",
+                  "description": "(Required) Token mint address"
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenATA",
+                  "value": "<string>",
+                  "description": "(Required) Associate token account"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>",
+                  "description": "(Required) Price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "newPrice",
+                  "value": "<number>",
+                  "description": "(Required) New price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerExpiry",
+                  "value": "<number>",
+                  "description": "(Required) timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerReferral",
+                  "value": "<string>",
+                  "description": "Buyer referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerReferral",
+                  "value": "<string>",
+                  "description": "Seller referral wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyerExpiry",
+                  "value": "<number>",
+                  "description": "timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7a5325b5-f3bb-48e7-a84e-64a1613c3052",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "sell_now"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tokenATA",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "newPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sellerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerReferral",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buyerExpiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abc3adc6-4c33-4135-8917-6196dcbd7daf",
+          "name": "Get instruction to withdraw from escrow",
+          "request": {
+            "name": "Get instruction to withdraw from escrow",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "withdraw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Buyer wallet"
+                },
+                {
+                  "disabled": false,
+                  "key": "auctionHouseAddress",
+                  "value": "<string>",
+                  "description": "Auction house Address. If not provided, will use default auction house."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) Amount in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "prioFeeMicroLamports",
+                  "value": "<number>",
+                  "description": "Priority fee in microlamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Maximum priority fee in lamports"
+                },
+                {
+                  "disabled": false,
+                  "key": "exactPrioFeeLamports",
+                  "value": "<number>",
+                  "description": "Exact priority fee in lamports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "728630c5-2493-437e-b275-4284f513d928",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auctionHouseAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "prioFeeMicroLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrioFeeLamports",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "exactPrioFeeLamports",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab3059b5-8999-49a1-8907-a0b9e44ada16",
+          "name": "Construct and return burn txs for given mint addresses",
+          "request": {
+            "name": "Construct and return burn txs for given mint addresses",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "magic_ticket",
+                "burns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "(Required) Wallet address that owns the tickets"
+                },
+                {
+                  "disabled": false,
+                  "key": "mintAddresses",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of mint addresses to burn"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f8664775-06ac-4433-b1ed-05763888b98a",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "magic_ticket",
+                    "burns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mintAddresses",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "218c8230-740d-477d-b845-744c634823a5",
+          "name": "Get instruction to create a pool",
+          "request": {
+            "name": "Get instruction to create a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "create-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "spotPrice",
+                  "value": "<number>",
+                  "description": "(Required) Pool initial spot price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveType",
+                  "value": "<string>",
+                  "description": "(Required) Type curve, either 'linear' or 'exp'"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveDelta",
+                  "value": "<number>",
+                  "description": "(Required) Curve delta used to change price after a fill"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestBuy",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest bought asset or transfer directly to owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestSell",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest payment from sale or transfer directly to owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "Timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "lpFeeBp",
+                  "value": "<number>",
+                  "description": "(Required) Requested liquidity provider fee in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of creator royalty the pool should pay in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "paymentMint",
+                  "value": "<string>",
+                  "description": "(Required) Mint address of payment (default for SOL)"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionSymbol",
+                  "value": "<string>",
+                  "description": "(Required) Collection symbol for which the pool will be valid"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<string>",
+                  "description": "(Required) Owner of the pool"
+                },
+                {
+                  "disabled": false,
+                  "key": "solDeposit",
+                  "value": "<number>",
+                  "description": "Optional sol amount to deposit with pool creation"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedEscrowCount",
+                  "value": "<number>",
+                  "description": "Number of pools (bids) that will share the escrow account"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "8cca206a-9f29-43d0-9463-458df54e092f",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "create-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spotPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "curveType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "curveDelta",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reinvestBuy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "reinvestSell",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lpFeeBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "paymentMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionSymbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solDeposit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sharedEscrowCount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fcfd65a-c9f2-4992-b169-9539b232c5a4",
+          "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+          "request": {
+            "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-close-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to close"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "2e65cc88-b4c0-4245-8dd4-0c2c6e2cdca7",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-close-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35eaf186-e2ef-4b59-820b-a579c63d968c",
+          "name": "Get instruction to deposit SOL into a pool for buying",
+          "request": {
+            "name": "Get instruction to deposit SOL into a pool for buying",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-deposit-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to deposit into"
+                },
+                {
+                  "disabled": false,
+                  "key": "solAmount",
+                  "value": "<number>",
+                  "description": "(Required) The amount of SOL to deposit"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "17a93456-ba41-4596-ae30-c83728830177",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-deposit-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9d50533-29b4-4854-8774-544e9a1454c2",
+          "name": "Get instruction to have a pool fulfill a buy",
+          "request": {
+            "name": "Get instruction to have a pool fulfill a buy",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-fulfill-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to interact with"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetAmount",
+                  "value": "<number>",
+                  "description": "(Required) Amount of asset to transact"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPaymentAmount",
+                  "value": "<number>",
+                  "description": "(Required) Minimum payment amount acceptible by the seller, in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "seller",
+                  "value": "<string>",
+                  "description": "(Required) Public key of seller of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetMint",
+                  "value": "<string>",
+                  "description": "(Required) Public key of mint account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetTokenAccount",
+                  "value": "<string>",
+                  "description": "(Required) Public key of token account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowlistAuxAccount",
+                  "value": "<string>",
+                  "description": "The allowlist aux account used for token authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipDelist",
+                  "value": "<boolean>",
+                  "description": "Whether to skip trying to delist the NFT if it is detected to be listed"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1831cf34-d702-4952-acdd-b9e263a558c2",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-fulfill-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "minPaymentAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "seller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetTokenAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allowlistAuxAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skipDelist",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ecf0da7-bf4a-4a48-899b-9d3ed6728b68",
+          "name": "Get instruction to have a pool fulfill a sell",
+          "request": {
+            "name": "Get instruction to have a pool fulfill a sell",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-fulfill-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to interact with"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetAmount",
+                  "value": "<number>",
+                  "description": "(Required) Amount of asset to transact"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPaymentAmount",
+                  "value": "<number>",
+                  "description": "(Required) Maximum payment amount to be paid by the buyer, in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of royalty to be paid, in basis points of total royalty"
+                },
+                {
+                  "disabled": false,
+                  "key": "buyer",
+                  "value": "<string>",
+                  "description": "(Required) Public key of buyer of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetMint",
+                  "value": "<string>",
+                  "description": "(Required) Public key of mint account of asset"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowlistAuxAccount",
+                  "value": "<string>",
+                  "description": "The allowlist aux account used for token authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "2653d8f2-8727-4b4d-ab54-7ed430280376",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-fulfill-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPaymentAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buyer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assetMint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allowlistAuxAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc92614f-12d3-433a-8c31-8680019685c1",
+          "name": "Get instruction to withdraw SOL from a pool",
+          "request": {
+            "name": "Get instruction to withdraw SOL from a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "sol-withdraw-buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to withdraw from"
+                },
+                {
+                  "disabled": false,
+                  "key": "solAmount",
+                  "value": "<number>",
+                  "description": "(Required) The amount of SOL to withdraw"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3827a8ff-ef71-420a-8c1c-b1ef5a19a522",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "sol-withdraw-buy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "solAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "172ae290-14a3-43a5-9802-e06b3014f912",
+          "name": "Get instruction to update an existing pool",
+          "request": {
+            "name": "Get instruction to update an existing pool",
+            "description": {},
+            "url": {
+              "path": [
+                "instructions",
+                "mmm",
+                "update-pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool",
+                  "value": "<string>",
+                  "description": "(Required) Public key of pool to modify"
+                },
+                {
+                  "disabled": false,
+                  "key": "spotPrice",
+                  "value": "<number>",
+                  "description": "(Required) Pool initial spot price in SOL"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveType",
+                  "value": "<string>",
+                  "description": "(Required) Type curve, either 'linear' or 'exp'"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveDelta",
+                  "value": "<number>",
+                  "description": "(Required) Curve delta used to change price after a fill"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestBuy",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest bought asset or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reinvestSell",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether to reinvest payment from sale or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+                },
+                {
+                  "disabled": false,
+                  "key": "expiry",
+                  "value": "<number>",
+                  "description": "(Required) Timestamp in seconds in the future, 0 means no expiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "lpFeeBp",
+                  "value": "<number>",
+                  "description": "(Required) Requested liquidity provider fee in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "buysideCreatorRoyaltyBp",
+                  "value": "<number>",
+                  "description": "(Required) Amount of creator royalty the pool should pay in basis points"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityFee",
+                  "value": "<number>",
+                  "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedEscrowCount",
+                  "value": "<number>",
+                  "description": "Number of pools (bids) that will share the escrow account"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "aa040099-f268-4614-9201-392f68e160d3",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructions",
+                    "mmm",
+                    "update-pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spotPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "curveType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "curveDelta",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reinvestBuy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "reinvestSell",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "expiry",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lpFeeBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "buysideCreatorRoyaltyBp",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "priorityFee",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sharedEscrowCount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      3876.999832697695,\n      4507.540764322958\n    ]\n  },\n  \"txSigned\": {\n    \"type\": \"Buffer\",\n    \"data\": [\n      1674.0221296399482,\n      6789.757125903806\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "91a4e395-36c2-4329-aebf-68bf68171572",
+    "name": "Magic Eden EVM Activity instructions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

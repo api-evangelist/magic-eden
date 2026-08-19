@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "78313f83-334a-4fd3-8e26-c9f065c173a6",
+      "name": "Runes Market Sell",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db8a5e51-d853-4628-a188-1a899c77814e",
+          "name": "Submit a signed PSBT for executing a market order to sell the runes",
+          "request": {
+            "name": "Submit a signed PSBT for executing a market order to sell the runes",
+            "description": {
+              "content": "Submit a signed PSBT for executing a market order to sell the runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "market-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a63d33c-76b5-4eaa-bece-c310e4aaecaf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "market-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbtBase64\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ada96d02-a761-405e-95b3-9643836f203b",
+          "name": "Get an unsigned PSBT to execute a market order to sell the runes",
+          "request": {
+            "name": "Get an unsigned PSBT to execute a market order to sell the runes",
+            "description": {
+              "content": "Get an unsigned PSBT to execute a market order to sell the runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "get-market-sell"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orders\": [\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    }\n  ],\n  \"runeTicker\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b086131e-ff59-4e14-b4fd-86a727f78fed",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "get-market-sell"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orders\": [\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"amount\": \"<bigint>\",\n      \"id\": \"<string>\"\n    }\n  ],\n  \"runeTicker\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invalidOrders\": [\n    \"string\",\n    \"string\"\n  ],\n  \"psbtBase64\": \"string\",\n  \"requestId\": \"string\",\n  \"runeUtxoIndexes\": [\n    5712,\n    1992\n  ],\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 5144.665031295621\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "96c00f07-a419-4aa9-8d3e-34de71b111ac",
+    "name": "Magic Eden EVM Activity Runes Market Sell API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

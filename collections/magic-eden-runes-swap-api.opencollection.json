@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Runes Swap API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Runes Swap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available rune quotes with given parameters for the swap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/quote",
+            "params": [
+              {
+                "name": "runeTicker",
+                "value": "",
+                "type": "query",
+                "description": "Rune symbol"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "The amount for the quote"
+              },
+              {
+                "name": "side",
+                "value": "",
+                "type": "query",
+                "description": "The side of the trade, either \"buy\" or \"sell\""
+              },
+              {
+                "name": "priceToleranceBp",
+                "value": "",
+                "type": "query",
+                "description": "The price tolerance in percentage x 10000"
+              },
+              {
+                "name": "rbfPreventionListingOnly",
+                "value": "",
+                "type": "query",
+                "description": "Flag indicating if only RBF protection sell orders should be considered."
+              }
+            ]
+          },
+          "docs": "Get available rune quotes with given parameters for the swap"
+        },
+        {
+          "info": {
+            "name": "Get an unsigned PSBT for swapping runes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/psbt/swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an unsigned PSBT for swapping runes"
+        },
+        {
+          "info": {
+            "name": "Post a signed PSBT to broadcast the swapping transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/runes/swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post a signed PSBT to broadcast the swapping transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

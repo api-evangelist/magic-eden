@@ -1,0 +1,489 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity mmm API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mmm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get instruction to create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/create-pool",
+            "params": [
+              {
+                "name": "spotPrice",
+                "value": "",
+                "type": "query",
+                "description": "Pool initial spot price in SOL"
+              },
+              {
+                "name": "curveType",
+                "value": "",
+                "type": "query",
+                "description": "Type curve, either 'linear' or 'exp'"
+              },
+              {
+                "name": "curveDelta",
+                "value": "",
+                "type": "query",
+                "description": "Curve delta used to change price after a fill"
+              },
+              {
+                "name": "reinvestBuy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest bought asset or transfer directly to owner"
+              },
+              {
+                "name": "reinvestSell",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest payment from sale or transfer directly to owner"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "Timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "lpFeeBp",
+                "value": "",
+                "type": "query",
+                "description": "Requested liquidity provider fee in basis points"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of creator royalty the pool should pay in basis points"
+              },
+              {
+                "name": "paymentMint",
+                "value": "",
+                "type": "query",
+                "description": "Mint address of payment (default for SOL)"
+              },
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol for which the pool will be valid"
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query",
+                "description": "Owner of the pool"
+              },
+              {
+                "name": "solDeposit",
+                "value": "",
+                "type": "query",
+                "description": "Optional sol amount to deposit with pool creation"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "sharedEscrowCount",
+                "value": "",
+                "type": "query",
+                "description": "Number of pools (bids) that will share the escrow account"
+              }
+            ]
+          },
+          "docs": "Get instruction to create a pool"
+        },
+        {
+          "info": {
+            "name": "Get instruction to close a pool after all assets and payment have been withdrawn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-close-pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to close"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to close a pool after all assets and payment have been withdrawn"
+        },
+        {
+          "info": {
+            "name": "Get instruction to deposit SOL into a pool for buying",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-deposit-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to deposit into"
+              },
+              {
+                "name": "solAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount of SOL to deposit"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to deposit SOL into a pool for buying"
+        },
+        {
+          "info": {
+            "name": "Get instruction to have a pool fulfill a buy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-fulfill-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to interact with"
+              },
+              {
+                "name": "assetAmount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of asset to transact"
+              },
+              {
+                "name": "minPaymentAmount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum payment amount acceptible by the seller, in SOL"
+              },
+              {
+                "name": "seller",
+                "value": "",
+                "type": "query",
+                "description": "Public key of seller of asset"
+              },
+              {
+                "name": "assetMint",
+                "value": "",
+                "type": "query",
+                "description": "Public key of mint account of asset"
+              },
+              {
+                "name": "assetTokenAccount",
+                "value": "",
+                "type": "query",
+                "description": "Public key of token account of asset"
+              },
+              {
+                "name": "allowlistAuxAccount",
+                "value": "",
+                "type": "query",
+                "description": "The allowlist aux account used for token authentication"
+              },
+              {
+                "name": "skipDelist",
+                "value": "",
+                "type": "query",
+                "description": "Whether to skip trying to delist the NFT if it is detected to be listed"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to have a pool fulfill a buy"
+        },
+        {
+          "info": {
+            "name": "Get instruction to have a pool fulfill a sell",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-fulfill-sell",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to interact with"
+              },
+              {
+                "name": "assetAmount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of asset to transact"
+              },
+              {
+                "name": "maxPaymentAmount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum payment amount to be paid by the buyer, in SOL"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of royalty to be paid, in basis points of total royalty"
+              },
+              {
+                "name": "buyer",
+                "value": "",
+                "type": "query",
+                "description": "Public key of buyer of asset"
+              },
+              {
+                "name": "assetMint",
+                "value": "",
+                "type": "query",
+                "description": "Public key of mint account of asset"
+              },
+              {
+                "name": "allowlistAuxAccount",
+                "value": "",
+                "type": "query",
+                "description": "The allowlist aux account used for token authentication"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to have a pool fulfill a sell"
+        },
+        {
+          "info": {
+            "name": "Get instruction to withdraw SOL from a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/sol-withdraw-buy",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to withdraw from"
+              },
+              {
+                "name": "solAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount of SOL to withdraw"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              }
+            ]
+          },
+          "docs": "Get instruction to withdraw SOL from a pool"
+        },
+        {
+          "info": {
+            "name": "Get instruction to update an existing pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/mmm/update-pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query",
+                "description": "Public key of pool to modify"
+              },
+              {
+                "name": "spotPrice",
+                "value": "",
+                "type": "query",
+                "description": "Pool initial spot price in SOL"
+              },
+              {
+                "name": "curveType",
+                "value": "",
+                "type": "query",
+                "description": "Type curve, either 'linear' or 'exp'"
+              },
+              {
+                "name": "curveDelta",
+                "value": "",
+                "type": "query",
+                "description": "Curve delta used to change price after a fill"
+              },
+              {
+                "name": "reinvestBuy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest bought asset or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+              },
+              {
+                "name": "reinvestSell",
+                "value": "",
+                "type": "query",
+                "description": "Whether to reinvest payment from sale or transfer directly to owner (this value must remain unchanged from when the pool was created)"
+              },
+              {
+                "name": "expiry",
+                "value": "",
+                "type": "query",
+                "description": "Timestamp in seconds in the future, 0 means no expiry"
+              },
+              {
+                "name": "lpFeeBp",
+                "value": "",
+                "type": "query",
+                "description": "Requested liquidity provider fee in basis points"
+              },
+              {
+                "name": "buysideCreatorRoyaltyBp",
+                "value": "",
+                "type": "query",
+                "description": "Amount of creator royalty the pool should pay in basis points"
+              },
+              {
+                "name": "priorityFee",
+                "value": "",
+                "type": "query",
+                "description": "Priority fee (in microlamports) to reprioritize the transaction against others"
+              },
+              {
+                "name": "sharedEscrowCount",
+                "value": "",
+                "type": "query",
+                "description": "Number of pools (bids) that will share the escrow account"
+              }
+            ]
+          },
+          "docs": "Get instruction to update an existing pool"
+        },
+        {
+          "info": {
+            "name": "Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/mmm/pools",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "The collection symbol to query the pools from. At least this or \"owner\" must be passed in"
+              },
+              {
+                "name": "pools",
+                "value": "",
+                "type": "query",
+                "description": "The pools key to query by."
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query",
+                "description": "The owner public key to query the pools created by. At least this or \"collectionSymbol\" must be passed in"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 500"
+              },
+              {
+                "name": "field",
+                "value": "",
+                "type": "query",
+                "description": "Sort pools by field. 0: NONE (no sorting field, default), 1: ADDRESS (sort pools by pool address), 2: SPOT_PRICE (sort pools by pool spot price), 5: BUYSIDE_ADJUSTED_PRICE (sort pools by buyside_adjusted_price = spot_price - royalty_fee - lp_fee)"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort pools by field in specified directions. 0: NONE (no sorting direction, default to increasing order if field is specified), 1: DESC (descending), 2: INC (increasing)"
+              }
+            ]
+          },
+          "docs": "Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!"
+        },
+        {
+          "info": {
+            "name": "Get best offers for an NFT",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/mmm/token/:mint_address/pools",
+            "params": [
+              {
+                "name": "mint_address",
+                "value": "6XkPLDtV2w17UUsyzah39PTBjZ9xTY8HokqRdWcmDhBa",
+                "type": "path",
+                "description": "Mint address of the NFT"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Total best offers to return, defaults 1, max 5. Best offer will come first"
+              }
+            ]
+          },
+          "docs": "Get best offers for an NFT"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,153 @@
+# Magic Eden Developer Documentation
+
+> Documentation for Magic Eden Developer
+
+## Guides
+- [Wallet Docs](https://docs.magiceden.io/docs/wallet-docs.md)
+
+## API Reference
+- [Solana API Keys](https://docs.magiceden.io/reference/solana-api-keys.md)
+- [Get listings for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-listings.md)
+- [Get received offers for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-offers-received.md)
+- [Get activities for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-activities.md)
+- [Get token metadata by mint address](https://docs.magiceden.io/reference/get_tokens-token-mint.md)
+- [Get tokens owned by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-tokens.md)
+- [Get info about the wallet owner.](https://docs.magiceden.io/reference/get_wallets-wallet-address.md)
+- [Get activities of a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-activities.md)
+- [Get ownership activities of a wallet.](https://docs.magiceden.io/reference/get_wallets-owner-activities-1.md)
+- [Get offers made by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-offers-made.md)
+- [Get offers received by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-offers-received.md)
+- [Get escrow balance for a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-escrow-balance.md)
+- [Get activities of a collection](https://docs.magiceden.io/reference/get_collections-symbol-activities.md)
+- [Get stats of a collection](https://docs.magiceden.io/reference/get_collections-symbol-stats.md)
+- [Get attributes of a collection](https://docs.magiceden.io/reference/get_collections-collectionsymbol-attributes.md)
+- [Get collections](https://docs.magiceden.io/reference/get_collections.md)
+- [Get listings of a collection](https://docs.magiceden.io/reference/get_collections-symbol-listings.md)
+- [Get batch listings of a collection](https://docs.magiceden.io/reference/post_collections-batch-listings.md)
+- [Get holder stats of a collection](https://docs.magiceden.io/reference/get_collections-symbol-holder-stats.md)
+- [Get wallets rank sorted by volume for one collection](https://docs.magiceden.io/reference/get_collections-symbol-leaderboard.md)
+- [Get launchpad collections](https://docs.magiceden.io/reference/get_launchpad-collections.md)
+- [Get instruction to buy (bid)](https://docs.magiceden.io/reference/get_instructions-buy.md)
+- [Get instruction to buy now and transfer nft to another owner](https://docs.magiceden.io/reference/get_instructions-buy-now-transfer-nft.md)
+- [Get instruction to buy now](https://docs.magiceden.io/reference/get_instructions-buy-now.md)
+- [Get instruction to cancel a buy](https://docs.magiceden.io/reference/get_instructions-buy-cancel.md)
+- [Get instruction to change a buy price](https://docs.magiceden.io/reference/get_instructions-buy-change-price.md)
+- [Get instruction to sell (list)](https://docs.magiceden.io/reference/get_instructions-sell.md)
+- [Get instruction to change a sell price](https://docs.magiceden.io/reference/get_instructions-sell-change-price.md)
+- [Get instruction to sell now (accept offer)](https://docs.magiceden.io/reference/get_instructions-sell-now.md)
+- [Get instruction to cancel a sell](https://docs.magiceden.io/reference/get_instructions-sell-cancel.md)
+- [Get instruction to deposit to escrow](https://docs.magiceden.io/reference/get_instructions-deposit.md)
+- [Get instruction to withdraw from escrow](https://docs.magiceden.io/reference/get_instructions-withdraw.md)
+- [mmm](https://docs.magiceden.io/reference/mmm.md)
+- [Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!](https://docs.magiceden.io/reference/get_mmm-pools.md)
+- [Get best offers for an NFT](https://docs.magiceden.io/reference/get_mmm-token-mint-address-pools.md)
+- [Get instruction to create a pool](https://docs.magiceden.io/reference/get_instructions-mmm-create-pool.md)
+- [Get instruction to update an existing pool](https://docs.magiceden.io/reference/get_instructions-mmm-update-pool.md)
+- [Get instruction to deposit SOL into a pool for buying](https://docs.magiceden.io/reference/get_instructions-mmm-sol-deposit-buy.md)
+- [Get instruction to withdraw SOL from a pool](https://docs.magiceden.io/reference/get_instructions-mmm-sol-withdraw-buy.md)
+- [Get instruction to close a pool after all assets and payment have been withdrawn](https://docs.magiceden.io/reference/get_instructions-mmm-sol-close-pool.md)
+- [Get instruction to have a pool fulfill a buy](https://docs.magiceden.io/reference/get_instructions-mmm-sol-fulfill-buy.md)
+- [Get instruction to have a pool fulfill a sell](https://docs.magiceden.io/reference/get_instructions-mmm-sol-fulfill-sell.md)
+- [Get the top popular collections for a time range](https://docs.magiceden.io/reference/get_marketplace-popular-collections.md)
+- [Construct and return burn txs for given mint addresses](https://docs.magiceden.io/reference/get_instructions-magic-ticket-burns-1.md)
+- [Get listings for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-listings-1.md)
+- [Get received offers for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-offers-received-1.md)
+- [Get activities for a token](https://docs.magiceden.io/reference/get_tokens-token-mint-activities-1.md)
+- [Get token metadata by mint address](https://docs.magiceden.io/reference/get_tokens-token-mint-1.md)
+- [Get tokens owned by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-tokens-1.md)
+- [Get info about the wallet owner.](https://docs.magiceden.io/reference/get_wallets-wallet-address-1.md)
+- [Get activities of a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-activities-1.md)
+- [Get ownership activities of a wallet.](https://docs.magiceden.io/reference/get_wallets-owner-activities.md)
+- [Get offers made by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-offers-made-1.md)
+- [Get offers received by a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-offers-received-1.md)
+- [Get escrow balance for a wallet.](https://docs.magiceden.io/reference/get_wallets-wallet-address-escrow-balance-1.md)
+- [Get activities of a collection](https://docs.magiceden.io/reference/get_collections-symbol-activities-1.md)
+- [Get stats of a collection](https://docs.magiceden.io/reference/get_collections-symbol-stats-1.md)
+- [Get attributes of a collection](https://docs.magiceden.io/reference/get_collections-collectionsymbol-attributes-1.md)
+- [Get collections](https://docs.magiceden.io/reference/get_collections-1.md)
+- [Get listings of a collection](https://docs.magiceden.io/reference/get_collections-symbol-listings-1.md)
+- [Get batch listings of a collection](https://docs.magiceden.io/reference/post_collections-batch-listings-1.md)
+- [Get holder stats of a collection](https://docs.magiceden.io/reference/get_collections-symbol-holder-stats-1.md)
+- [Get wallets rank sorted by volume for one collection](https://docs.magiceden.io/reference/get_collections-symbol-leaderboard-1.md)
+- [Get launchpad collections](https://docs.magiceden.io/reference/get_launchpad-collections-1.md)
+- [Get instruction to buy (bid)](https://docs.magiceden.io/reference/get_instructions-buy-1.md)
+- [Get instruction to buy now and transfer nft to another owner](https://docs.magiceden.io/reference/get_instructions-buy-now-transfer-nft-1.md)
+- [Get instruction to buy now](https://docs.magiceden.io/reference/get_instructions-buy-now-1.md)
+- [Get instruction to cancel a buy](https://docs.magiceden.io/reference/get_instructions-buy-cancel-1.md)
+- [Get instruction to change a buy price](https://docs.magiceden.io/reference/get_instructions-buy-change-price-1.md)
+- [Get instruction to sell (list)](https://docs.magiceden.io/reference/get_instructions-sell-1.md)
+- [Get instruction to change a sell price](https://docs.magiceden.io/reference/get_instructions-sell-change-price-1.md)
+- [Get instruction to sell now (accept offer)](https://docs.magiceden.io/reference/get_instructions-sell-now-1.md)
+- [Get instruction to cancel a sell](https://docs.magiceden.io/reference/get_instructions-sell-cancel-1.md)
+- [Get instruction to deposit to escrow](https://docs.magiceden.io/reference/get_instructions-deposit-1.md)
+- [Get instruction to withdraw from escrow](https://docs.magiceden.io/reference/get_instructions-withdraw-1.md)
+- [Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!](https://docs.magiceden.io/reference/get_mmm-pools-1.md)
+- [Get best offers for an NFT](https://docs.magiceden.io/reference/get_mmm-token-mint-address-pools-1.md)
+- [Get instruction to create a pool](https://docs.magiceden.io/reference/get_instructions-mmm-create-pool-1.md)
+- [Get instruction to update an existing pool](https://docs.magiceden.io/reference/get_instructions-mmm-update-pool-1.md)
+- [Get instruction to deposit SOL into a pool for buying](https://docs.magiceden.io/reference/get_instructions-mmm-sol-deposit-buy-1.md)
+- [Get instruction to withdraw SOL from a pool](https://docs.magiceden.io/reference/get_instructions-mmm-sol-withdraw-buy-1.md)
+- [Get instruction to close a pool after all assets and payment have been withdrawn](https://docs.magiceden.io/reference/get_instructions-mmm-sol-close-pool-1.md)
+- [Get instruction to have a pool fulfill a buy](https://docs.magiceden.io/reference/get_instructions-mmm-sol-fulfill-buy-1.md)
+- [Get instruction to have a pool fulfill a sell](https://docs.magiceden.io/reference/get_instructions-mmm-sol-fulfill-sell-1.md)
+- [Get the top popular collections for a time range](https://docs.magiceden.io/reference/get_marketplace-popular-collections-1.md)
+- [Construct and return burn txs for given mint addresses](https://docs.magiceden.io/reference/get_instructions-magic-ticket-burns.md)
+- [Ordinals API Keys](https://docs.magiceden.io/reference/ordinals-api-keys.md)
+- [Get block activities](https://docs.magiceden.io/reference/get_v2-ord-btc-block-activities.md): Get block activities
+- [Get collection](https://docs.magiceden.io/reference/getcollection-1.md): Get collection
+- [Get collection stats](https://docs.magiceden.io/reference/get_v2-ord-btc-stat.md): Get collection stats
+- [Get collection statistics](https://docs.magiceden.io/reference/getcollectionstats-1.md): Get collection statistics
+- [Get tokens](https://docs.magiceden.io/reference/gettokens-1.md): Get tokens, can be filtered by collectionSymbol, owner, tokenIds
+- [Get Listings](https://docs.magiceden.io/reference/get_v2-ord-btc-raresats-listings.md): Get Rare Sats Listings by a Variety of Filters and Sorting Orders
+- [Get Rare Sats by Address](https://docs.magiceden.io/reference/get_v2-ord-btc-raresats-wallet-utxos.md): Get Rare Sats by Address
+- [Get Batch Listing PSBT](https://docs.magiceden.io/reference/post_v2-ord-btc-raresats-listing-psbt.md): Get Rare Sats Batch Listing PSBT for Signing
+- [Submit Batch Listing](https://docs.magiceden.io/reference/post_v2-ord-btc-raresats-listing.md): Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`
+- [Get rune market info](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-market-rune-info-1.md): Get market market info for a specific rune
+- [Get orders for a specific rune](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-orders-rune-1.md): Get orders for a specific rune
+- [Get rune utxos by wallet address](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-utxos-wallet-address-1.md): Get rune utxos by wallet address
+- [Get activities for a specific rune](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-activities-rune-1.md): Get activities for a specific rune
+- [Get Rune activities for a specific wallet address](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-wallet-activities-address-1.md): Get Rune activities for a specific wallet address
+- [Get Rune balances by wallet address](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-wallet-balances-address-rune-1.md): Get Rune balances by wallet address
+- [Get Rune collection stats](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-collection-stats-search-1.md): Get Rune collection stats
+- [Get an unsigned PSBT for creating a rune sell order](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-psbt-order-create-1.md): Get an unsigned PSBT for creating a rune sell order
+- [Submit a signed PSBT for creating a rune sell order](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-order-create-1.md): Submit a signed PSBT for creating a rune sell order
+- [Get an unsigned message for cancelling a rune sell order](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-psbt-order-cancel-1.md): Get an unsigned message for cancelling a rune sell order
+- [Submit a signed message for cancelling a rune sell order](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-order-cancel-1.md): Submit a signed message for cancelling a rune sell order
+- [Get an unsigned PSBT for buying a rune](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-psbt-get-sweeping.md): Get an unsigned PSBT for buying a rune
+- [Submit a signed PSBT for buying a rune](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-sweeping.md): Submit a signed PSBT for buying a rune
+- [Get an unsigned PSBT to execute a market order to sell the runes](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-psbt-get-market-sell.md): Get an unsigned PSBT to execute a market order to sell the runes
+- [Submit a signed PSBT for executing a market order to sell the runes](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-market-sell.md): Submit a signed PSBT for executing a market order to sell the runes
+- [Get available rune quotes with given parameters for the swap](https://docs.magiceden.io/reference/get_v2-ord-btc-runes-quote-1.md): Get available rune quotes with given parameters for the swap
+- [Get an unsigned PSBT for swapping runes](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-psbt-swap.md): Get an unsigned PSBT for swapping runes
+- [Post a signed PSBT to broadcast the swapping transaction](https://docs.magiceden.io/reference/post_v2-ord-btc-runes-swap.md): Post a signed PSBT to broadcast the swapping transaction
+- [EVM API Overview](https://docs.magiceden.io/reference/evm-api-overview.md)
+- [EVM API Keys](https://docs.magiceden.io/reference/evm-api-keys.md)
+- [Search Collections](https://docs.magiceden.io/reference/searchcollections.md): Use this API to do a fuzzy collection search
+- [Collections](https://docs.magiceden.io/reference/getcollections.md): Use this API to explore a collection's metadata and statistics (sales, volume, etc).
+- [User Collections](https://docs.magiceden.io/reference/getusercollections.md): Use this API to explore a user's collections metadata and statistics (sales, volume, etc).
+- [Collection Assets](https://docs.magiceden.io/reference/getassets.md): Use this API to explore a collection's assets and its market info
+- [User Assets](https://docs.magiceden.io/reference/getuserassets.md): Use this API to explore a user's assets and its market info
+- [Asks (listings)](https://docs.magiceden.io/reference/getasks.md): Use this API to search asks
+- [Bids (offers)](https://docs.magiceden.io/reference/getbids.md): Use this API to search bids
+- [NFT Activity](https://docs.magiceden.io/reference/getnftactivity.md): Use this API to get NFT activity
+- [Create Listings (Get Signing Data)](https://docs.magiceden.io/reference/ixslistget.md): Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation
+- [Create Listings (Creation)](https://docs.magiceden.io/reference/ixslistpost.md): Generate listings for assets (tokens). This API is used to create listings with signature provided
+- [Create Bids (Get Signing Data)](https://docs.magiceden.io/reference/ixsbidget.md): Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation
+- [Create Bids (Creation)](https://docs.magiceden.io/reference/ixsbidpost.md): Generate bids. This API is used to create bids with signature provided
+- [Cancel Orders (Get Signing Data)](https://docs.magiceden.io/reference/ixscancelorderget.md): Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation
+- [Cancel Orders (Cancellation)](https://docs.magiceden.io/reference/ixscancelorderpost.md): Cancel Orders. This API is used to cancel orders with signature provided
+- [Bulk Transfer](https://docs.magiceden.io/reference/ixsbulktransferget.md): Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data
+- [Buy Assets](https://docs.magiceden.io/reference/ixsbuyget.md): Buy assets(tokens). This API is used to generate transaction data to buy assets
+- [Sell Assets](https://docs.magiceden.io/reference/ixssellget.md): Sell assets(tokens). This API is used to generate transaction data to sell assets
+
+## Recipes
+- [[BTC] - Create and Submit Runes Listing Order](https://docs.magiceden.io/recipes/btc-create-and-submit-runes-listing-order.md)
+- [[BTC] - Swap Runes](https://docs.magiceden.io/recipes/btc-swap-runes.md)
+- [[BTC] - Sweep Runes](https://docs.magiceden.io/recipes/btc-sweep-runes.md)
+- [[SOL] - Bid on an individual NFT](https://docs.magiceden.io/recipes/sol-bid-on-an-individual-nft.md)
+- [[SOL] - List an NFT](https://docs.magiceden.io/recipes/sol-list-an-nft.md)
+- [[SOL] - Place collection bid from Escrow](https://docs.magiceden.io/recipes/sol-place-collection-bid-from-escrow.md)
+
+## Changelog
+- [Solana - Introducing the AMM Pool API](https://docs.magiceden.io/changelog/mmm.md)
+- [Solana - Filtering and Sorting Enhancements](https://docs.magiceden.io/changelog/sorting-and-filtering-enhancements.md)

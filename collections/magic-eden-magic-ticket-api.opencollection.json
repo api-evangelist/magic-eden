@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity magic-ticket API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "magic-ticket",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Construct and return burn txs for given mint addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/instructions/magic_ticket/burns",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Wallet address that owns the tickets"
+              },
+              {
+                "name": "mintAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of mint addresses to burn"
+              }
+            ]
+          },
+          "docs": "Construct and return burn txs for given mint addresses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

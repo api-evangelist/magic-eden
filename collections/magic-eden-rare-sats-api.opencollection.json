@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Rare Sats API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rare Sats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/raresats/listings",
+            "params": [
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort By"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Page offset"
+              },
+              {
+                "name": "satributes",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that have the given satributes in the same sat range"
+              },
+              {
+                "name": "minListedAt",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that were listed after the given timestamp"
+              },
+              {
+                "name": "maxListedAt",
+                "value": "",
+                "type": "query",
+                "description": "Filter items that were listed before the given timestamp"
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum listed price in satoshis"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum listed price in satoshis"
+              },
+              {
+                "name": "minUtxoSize",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum utxo size in satoshis"
+              },
+              {
+                "name": "maxUtxoSize",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum utxo size in satoshis"
+              },
+              {
+                "name": "minSatRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter by minimum sat range in sats"
+              },
+              {
+                "name": "maxSatRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter by maximum sat range in sats"
+              },
+              {
+                "name": "minBlockNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created after the given block number"
+              },
+              {
+                "name": "maxBlockNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created before the given block number"
+              },
+              {
+                "name": "minBlockTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created after the given timestamp"
+              },
+              {
+                "name": "maxBlockTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that only contain sats that were created before the given timestamp"
+              }
+            ]
+          },
+          "docs": "Get Rare Sats Listings by a Variety of Filters and Sorting Orders"
+        },
+        {
+          "info": {
+            "name": "Get Rare Sats by Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/raresats/wallet/utxos",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "",
+                "type": "query",
+                "description": "Wallet Address"
+              },
+              {
+                "name": "listed",
+                "value": "",
+                "type": "query",
+                "description": "Get only the rare sats that are listed if set to true"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset - the `nextOffset` cursor received from the request of the previous page"
+              }
+            ]
+          },
+          "docs": "Get Rare Sats by Address"
+        },
+        {
+          "info": {
+            "name": "Get Batch Listing PSBT",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/raresats/listing-psbt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get Rare Sats Batch Listing PSBT for Signing"
+        },
+        {
+          "info": {
+            "name": "Submit Batch Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/raresats/listing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

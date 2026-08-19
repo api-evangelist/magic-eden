@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin Rewards API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-NFT-API-Key",
+      "value": "{{X-NFT-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rewards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Diamond Rewards Eligibility",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nfttools.pro/magiceden/rewards/diamond/eligibility",
+            "params": [
+              {
+                "name": "walletAddress",
+                "value": "EfdC1uyq5gWqHQYxSENscwNZKY8k2z8CXkpmPRB7mn2N",
+                "type": "query",
+                "description": "The wallet address to check for eligibility"
+              },
+              {
+                "name": "chain",
+                "value": "solana",
+                "type": "query",
+                "description": "The blockchain on which to check eligibility"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Cookie",
+              "value": "{{Cookie}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the eligibility status for Diamond Rewards for a specific wallet address on a given blockchain."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

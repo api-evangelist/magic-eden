@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity launchpad API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "launchpad",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get launchpad collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/launchpad/collections",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 200, min 1, max 500"
+              }
+            ]
+          },
+          "docs": "Get launchpad collections"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

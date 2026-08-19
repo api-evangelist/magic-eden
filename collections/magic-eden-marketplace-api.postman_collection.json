@@ -1,0 +1,113 @@
+{
+  "item": [
+    {
+      "id": "94034598-ebd6-4831-93cd-c0bce1093ae2",
+      "name": "marketplace",
+      "description": {
+        "content": "Get information about Magic Eden's marketplace!",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6c8c0be-f9b2-4f23-b4f4-6063c75cd29f",
+          "name": "Get the top popular collections for a time range",
+          "request": {
+            "name": "Get the top popular collections for a time range",
+            "description": {},
+            "url": {
+              "path": [
+                "marketplace",
+                "popular_collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timeRange",
+                  "value": "<string>",
+                  "description": "The time range to return popular collections for. Default 1d."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b633eb7e-53db-47b2-81c9-97001b9ee7c2",
+              "name": "success response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "marketplace",
+                    "popular_collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeRange",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"symbol\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"string\",\n    \"twitter\": \"string\",\n    \"discord\": \"string\",\n    \"website\": \"string\",\n    \"isFlagged\": false,\n    \"flagMessage\": \"string\",\n    \"categories\": [\n      \"string\",\n      \"string\"\n    ],\n    \"floorPrice\": 9742.492615401225,\n    \"listedCount\": 4566.079269295805,\n    \"avgPrice24hr\": 302.63154169962723,\n    \"volumeAll\": 4100.052931958738,\n    \"isBadged\": false,\n    \"hasCNFTs\": false,\n    \"isOcp\": true,\n    \"splTokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"floorPriceWithFee\": {\n      \"floorPrice\": 9324.567965555403,\n      \"floorListedNftType\": \"TENSOR_AMM\"\n    }\n  },\n  {\n    \"symbol\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"string\",\n    \"twitter\": \"string\",\n    \"discord\": \"string\",\n    \"website\": \"string\",\n    \"isFlagged\": false,\n    \"flagMessage\": \"string\",\n    \"categories\": [\n      \"string\",\n      \"string\"\n    ],\n    \"floorPrice\": 1747.1274542218362,\n    \"listedCount\": 7708.4705082427,\n    \"avgPrice24hr\": 5729.96519129462,\n    \"volumeAll\": 4802.056358275338,\n    \"isBadged\": true,\n    \"hasCNFTs\": true,\n    \"isOcp\": true,\n    \"splTokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"floorPriceWithFee\": {\n      \"floorPrice\": 6616.079663426642,\n      \"floorListedNftType\": \"TENSOR_MARKETPLACE_LISTING\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "482accc7-ab88-4a3b-b734-2b58e3b4496a",
+    "name": "Magic Eden EVM Activity marketplace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

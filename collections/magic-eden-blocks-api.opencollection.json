@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Blocks API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get block activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/block/activities",
+            "params": [
+              {
+                "name": "blockHeight",
+                "value": "",
+                "type": "query",
+                "description": "Block height"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of activity kinds. Acceptable values are \"create\" and \"transfer\". If not specified, defaults to \"create,transfer\"."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor"
+              }
+            ]
+          },
+          "docs": "Get block activities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

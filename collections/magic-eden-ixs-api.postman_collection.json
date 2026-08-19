@@ -1,0 +1,881 @@
+{
+  "item": [
+    {
+      "id": "3d700c79-7963-48ce-80a4-0dc0a611dd3f",
+      "name": "Ixs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38386bfd-32a3-4920-b9ef-6c9bc091d12b",
+          "name": "Create Bids (Get Signing Data)",
+          "request": {
+            "name": "Create Bids (Get Signing Data)",
+            "description": {
+              "content": "Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bid",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"<string>\",\n  \"offers\": [\n    {\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"<string>\",\n        \"raw\": \"<string>\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"collectionId\": \"<string>\",\n      \"assetId\": \"<string>\",\n      \"attribute\": {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c66c677-f3aa-4a4b-996c-2349124ff9f6",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bid",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"offers\": [\n    {\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"0x0000000000000000000000000000000000000000\",\n        \"raw\": \"1000000000000000000\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"collectionId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8\",\n      \"assetId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0\",\n      \"attribute\": {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8229b0ef-7c95-4db0-b72f-476d43c53f07",
+          "name": "Create Bids (Creation)",
+          "request": {
+            "name": "Create Bids (Creation)",
+            "description": {
+              "content": "Generate bids. This API is used to create bids with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2eed2941-8c48-4df0-91bb-52185494b2e8",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f291ae8-c1e8-4a67-b75d-56d130371844",
+          "name": "Bulk Transfer",
+          "request": {
+            "name": "Bulk Transfer",
+            "description": {
+              "content": "Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "bulk-transfer",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"assets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "107cf944-f6ee-40b9-9dcf-a1ed7f0ae231",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "bulk-transfer",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"assets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "808242a4-cbe1-4054-bea2-3a23786a63a7",
+          "name": "Buy Assets",
+          "request": {
+            "name": "Buy Assets",
+            "description": {
+              "content": "Buy assets(tokens). This API is used to generate transaction data to buy assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "buy",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba7284d4-44a7-460f-97f2-5e60ec45be92",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "buy",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"currency\": \"0x0000000000000000000000000000000000000000\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bb4bc2b-f94c-43bb-af64-eb1f297151b1",
+          "name": "Cancel Orders (Get Signing Data)",
+          "request": {
+            "name": "Cancel Orders (Get Signing Data)",
+            "description": {
+              "content": "Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "cancel-order",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"orderIds\": [\n    \"<string>\"\n  ],\n  \"maker\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e168467-2da1-417c-920a-f2b99374d512",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "cancel-order",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"orderIds\": [\n    \"<string>\"\n  ],\n  \"maker\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "327cf29f-61bf-4c00-a24c-8933dcaff5ce",
+          "name": "Cancel Orders (Cancellation)",
+          "request": {
+            "name": "Cancel Orders (Cancellation)",
+            "description": {
+              "content": "Cancel Orders. This API is used to cancel orders with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "cancel-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8422917f-49a4-475b-9373-0d2975d9fcd5",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "cancel-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "567b9865-c476-49c0-bdc5-9ed92feb754d",
+          "name": "Create Listings (Get Signing Data)",
+          "request": {
+            "name": "Create Listings (Get Signing Data)",
+            "description": {
+              "content": "Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "list",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"<string>\",\n  \"listings\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"<string>\",\n        \"raw\": \"<string>\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"royaltyBps\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8190cc9-bd23-4b49-bfdd-ad1e56dd62a6",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "list",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"maker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"listings\": [\n    {\n      \"assetId\": \"0xbd3531da5cf5857e7cfaa92426877b022e612cf8:0\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": {\n        \"currency\": \"0x0000000000000000000000000000000000000000\",\n        \"raw\": \"1000000000000000000\"\n      },\n      \"expirationInSeconds\": \"<number>\",\n      \"royaltyBps\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0dee8f99-0f48-4abe-9f8a-d1764ef81996",
+          "name": "Create Listings (Creation)",
+          "request": {
+            "name": "Create Listings (Creation)",
+            "description": {
+              "content": "Generate listings for assets (tokens). This API is used to create listings with signature provided",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05920b38-02c3-4c1c-971d-e7d53c9322d4",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"postBody\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16490d7b-b64c-44bc-aff0-02109e5f291d",
+          "name": "Sell Assets",
+          "request": {
+            "name": "Sell Assets",
+            "description": {
+              "content": "Sell assets(tokens). This API is used to generate transaction data to sell assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ixs",
+                "sell",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"<string>\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0c9ddb6-1008-459a-a3e1-5052c84a394f",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ixs",
+                    "sell",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"<string>\",\n  \"taker\": \"0x079e5e1ac85b04225edad793ecdd9b31a26fdacc\",\n  \"items\": [\n    {\n      \"assetId\": \"<string>\",\n      \"quantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60dd7ee9-32d6-4333-a272-6eb08113f7ac",
+    "name": "Magic Eden EVM Activity Ixs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Ixs API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ixs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Bids (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bid/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate bids. This API is used to generate bid data to sign. Once you get signing data from this API, you shall sign them and post to another bid creation API to finish bid generation"
+        },
+        {
+          "info": {
+            "name": "Create Bids (Creation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bid",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate bids. This API is used to create bids with signature provided"
+        },
+        {
+          "info": {
+            "name": "Bulk Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/bulk-transfer/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk transfer assets(tokens). This API is used to generate asset bulk transfer transaction data"
+        },
+        {
+          "info": {
+            "name": "Buy Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/buy/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Buy assets(tokens). This API is used to generate transaction data to buy assets"
+        },
+        {
+          "info": {
+            "name": "Cancel Orders (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/cancel-order/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel Orders. This API is used to generate order cancellation data to sign. Once you get signing data from this API, you shall sign them and post to another order cancellation API to finish order cancellation"
+        },
+        {
+          "info": {
+            "name": "Cancel Orders (Cancellation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/cancel-order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel Orders. This API is used to cancel orders with signature provided"
+        },
+        {
+          "info": {
+            "name": "Create Listings (Get Signing Data)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/list/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate listings for assets (tokens). This API is used to generate listing data to sign. Once you get signing data from this API, you shall sign them and post to another listing creation API to finish listing generation"
+        },
+        {
+          "info": {
+            "name": "Create Listings (Creation)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate listings for assets (tokens). This API is used to create listings with signature provided"
+        },
+        {
+          "info": {
+            "name": "Sell Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/ixs/sell/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sell assets(tokens). This API is used to generate transaction data to sell assets"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,602 @@
+{
+  "item": [
+    {
+      "id": "e1be627f-93cf-49d0-9ee9-74b1a8a2bf05",
+      "name": "Rare Sats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee3c3edd-5866-4aea-bdcc-9bfbd06a33a3",
+          "name": "Get Listings",
+          "request": {
+            "name": "Get Listings",
+            "description": {
+              "content": "Get Rare Sats Listings by a Variety of Filters and Sorting Orders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "priceAsc",
+                  "description": "Sort By"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Page limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "satributes",
+                  "value": "<string>",
+                  "description": "Filter listings that have the given satributes in the same sat range"
+                },
+                {
+                  "disabled": false,
+                  "key": "satributes",
+                  "value": "<string>",
+                  "description": "Filter listings that have the given satributes in the same sat range"
+                },
+                {
+                  "disabled": false,
+                  "key": "minListedAt",
+                  "value": "<integer>",
+                  "description": "Filter items that were listed after the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxListedAt",
+                  "value": "<integer>",
+                  "description": "Filter items that were listed before the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "minPrice",
+                  "value": "<integer>",
+                  "description": "Filter by minimum listed price in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<integer>",
+                  "description": "Filter by maximum listed price in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "minUtxoSize",
+                  "value": "<integer>",
+                  "description": "Filter by minimum utxo size in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxUtxoSize",
+                  "value": "<integer>",
+                  "description": "Filter by maximum utxo size in satoshis"
+                },
+                {
+                  "disabled": false,
+                  "key": "minSatRange",
+                  "value": "<integer>",
+                  "description": "Filter by minimum sat range in sats"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxSatRange",
+                  "value": "<integer>",
+                  "description": "Filter by maximum sat range in sats"
+                },
+                {
+                  "disabled": false,
+                  "key": "minBlockNumber",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created after the given block number"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxBlockNumber",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created before the given block number"
+                },
+                {
+                  "disabled": false,
+                  "key": "minBlockTimestamp",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created after the given timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxBlockTimestamp",
+                  "value": "<integer>",
+                  "description": "Filter listings that only contain sats that were created before the given timestamp"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f76826b-fdc1-4bfc-a92a-9696c70fad2b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "priceAsc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "satributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "satributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minListedAt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxListedAt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minUtxoSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxUtxoSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minSatRange",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxSatRange",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minBlockNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxBlockNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "minBlockTimestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxBlockTimestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tokens\": [\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 7523.997549673237,\n        \"outputValue\": 4829.7329262615685,\n        \"owner\": \"string\",\n        \"listed\": false,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 7646.882434329678,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 6486.137480211635,\n        \"maxBlockHeight\": 2667.3178572547595,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 3871.973552839326,\n        \"maxSatRange\": 6387.4202871846865,\n        \"minUnitPrice\": 1874.0064756601537,\n        \"maxUnitPrice\": 3938.118217010793,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 7271.059779509057,\n            \"to\": 1784.9566168491715,\n            \"parentFrom\": 5049.066823529291,\n            \"parentTo\": 1274.7841382396464,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 3018.9473978056412,\n            \"sequence\": 7665.763230036665,\n            \"unitPrice\": 3837.213260012978,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 3928.191546516868,\n            \"to\": 469.1959513682631,\n            \"parentFrom\": 5569.9693955370785,\n            \"parentTo\": 1214.3214441420369,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 5851.315372452303,\n            \"sequence\": 3450.7622369811543,\n            \"unitPrice\": 6194.766354540885,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 6316.487112966817,\n        \"outputValue\": 4756.087865918568,\n        \"owner\": \"string\",\n        \"listed\": true,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 6115.272088589697,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 2578.597709227729,\n        \"maxBlockHeight\": 2224.1380818469224,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 1712.8496327534049,\n        \"maxSatRange\": 1579.8594227289275,\n        \"minUnitPrice\": 6370.9636758471115,\n        \"maxUnitPrice\": 4188.803675999932,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 4604.100195581644,\n            \"to\": 682.3913077846145,\n            \"parentFrom\": 3644.168396349188,\n            \"parentTo\": 1597.0419744755905,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 9113.665674401229,\n            \"sequence\": 3389.59183394936,\n            \"unitPrice\": 3037.508173771184,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 4972.185027527781,\n            \"to\": 283.30124604831195,\n            \"parentFrom\": 9976.037753342684,\n            \"parentTo\": 5247.095433292656,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 493.78176356000836,\n            \"sequence\": 2505.5690788344386,\n            \"unitPrice\": 3568.3801153574923,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"tokens\": [\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 3711.149988109087,\n        \"outputValue\": 8762.599822233748,\n        \"owner\": \"string\",\n        \"listed\": false,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 8409.104734892793,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 9133.87679810339,\n        \"maxBlockHeight\": 9252.53952396248,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 1894.1808958051886,\n        \"maxSatRange\": 4621.602619577937,\n        \"minUnitPrice\": 5816.560966380276,\n        \"maxUnitPrice\": 1973.9406815162463,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 2027.6647223738853,\n            \"to\": 1246.6644097212832,\n            \"parentFrom\": 860.197805946924,\n            \"parentTo\": 7669.213794723178,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 1343.7057935136177,\n            \"sequence\": 2598.727463889515,\n            \"unitPrice\": 8432.413817854318,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 6570.662976231595,\n            \"to\": 5675.863220562306,\n            \"parentFrom\": 3170.7494351643363,\n            \"parentTo\": 8516.865681534542,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 4669.378866253155,\n            \"sequence\": 23.24093916087122,\n            \"unitPrice\": 1666.473431930614,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"genesisTransaction\": \"string\",\n        \"genesisTransactionBlockTime\": \"string\",\n        \"genesisTransactionBlockHash\": \"string\",\n        \"genesisTransactionBlockHeight\": 5455.174184836349,\n        \"outputValue\": 5716.391119627895,\n        \"owner\": \"string\",\n        \"listed\": true,\n        \"listedAt\": \"string\",\n        \"listedPrice\": 115.3675427526768,\n        \"listedSellerReceiverAddress\": \"string\",\n        \"minBlockHeight\": 9812.945988258485,\n        \"maxBlockHeight\": 7986.023678761822,\n        \"minBlockTime\": \"string\",\n        \"maxBlockTime\": \"string\",\n        \"minSatRange\": 7535.731790173467,\n        \"maxSatRange\": 9973.510359407917,\n        \"minUnitPrice\": 8340.31205183185,\n        \"maxUnitPrice\": 9982.246964125068,\n        \"satRanges\": [\n          {\n            \"id\": \"string\",\n            \"from\": 5762.261735806011,\n            \"to\": 604.2031223651534,\n            \"parentFrom\": 8318.741660652473,\n            \"parentTo\": 346.0872185981045,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 8433.048330194191,\n            \"sequence\": 6909.343391279707,\n            \"unitPrice\": 5883.897830775475,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"from\": 691.9567423648931,\n            \"to\": 3086.0968244077435,\n            \"parentFrom\": 9964.779857140022,\n            \"parentTo\": 18.860589909270864,\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": 6192.694576888893,\n            \"sequence\": 2862.778391477592,\n            \"unitPrice\": 4724.827440000489,\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f218189-fa8c-4bc1-8ebb-1a2eb44a5010",
+          "name": "Get Rare Sats by Address",
+          "request": {
+            "name": "Get Rare Sats by Address",
+            "description": {
+              "content": "Get Rare Sats by Address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "wallet",
+                "utxos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "(Required) Wallet Address"
+                },
+                {
+                  "disabled": false,
+                  "key": "listed",
+                  "value": "false",
+                  "description": "Get only the rare sats that are listed if set to true"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "40",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>",
+                  "description": "Offset - the `nextOffset` cursor received from the request of the previous page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9674eb5-7707-4071-8c29-ac6e47ac4f99",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "wallet",
+                    "utxos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "40"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tokens\": [\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 3699.376295968703,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 9710.576376216368,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 2031.5360114719117,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 5892.229226539864,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 8756.217343370976,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 6950.959179726279,\n      \"listedMakerFeeBp\": 998.2143552695843,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": false,\n      \"brc20TransferAmt\": 277.3603058495089,\n      \"brc20ListedUnitPrice\": 9965.48213102265,\n      \"domain\": \"string\",\n      \"rareSatsUtxo\": {\n        \"id\": \"string\",\n        \"txId\": \"string\",\n        \"vout\": 2199.6173401611672,\n        \"value\": 2180.0131465429818,\n        \"address\": \"string\",\n        \"blockInfo\": {\n          \"blockHash\": \"string\",\n          \"blockHeight\": 3806.6323314290416,\n          \"blockTime\": \"string\"\n        },\n        \"listedPrice\": 4972.911716433095,\n        \"satRanges\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"hasUninscribedRareSat\": true,\n        \"floorValue\": 7012.202958500134\n      }\n    },\n    {\n      \"chain\": \"string\",\n      \"collection\": {\n        \"chain\": \"string\",\n        \"imageURI\": \"string\",\n        \"name\": \"string\",\n        \"symbol\": \"string\"\n      },\n      \"contentURI\": \"string\",\n      \"contentType\": \"string\",\n      \"contentBody\": \"string\",\n      \"contentPreviewURI\": \"string\",\n      \"sat\": 4094.8007366253946,\n      \"satName\": \"string\",\n      \"satRarity\": \"string\",\n      \"genesisTransaction\": \"string\",\n      \"genesisTransactionBlockTime\": \"string\",\n      \"genesisTransactionBlockHeight\": 4767.514203725394,\n      \"genesisTransactionBlockHash\": \"string\",\n      \"inscriptionNumber\": 8534.925814742113,\n      \"meta\": {\n        \"name\": \"string\",\n        \"attributes\": [\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"trait_type\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"owner\": \"string\",\n      \"collectionSymbol\": \"string\",\n      \"location\": \"string\",\n      \"locationBlockHeight\": 5081.643699607199,\n      \"locationBlockTime\": \"string\",\n      \"locationBlockHash\": \"string\",\n      \"outputValue\": 3262.536295160439,\n      \"output\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"mempoolTxTimestamp\": \"string\",\n      \"listed\": true,\n      \"listedAt\": \"string\",\n      \"listedPrice\": 5529.829319432448,\n      \"listedMakerFeeBp\": 1891.7223496391189,\n      \"listedSellerReceiverAddress\": \"string\",\n      \"listedForMint\": true,\n      \"brc20TransferAmt\": 9084.062244872375,\n      \"brc20ListedUnitPrice\": 562.1185179340082,\n      \"domain\": \"string\",\n      \"rareSatsUtxo\": {\n        \"id\": \"string\",\n        \"txId\": \"string\",\n        \"vout\": 936.3838836102734,\n        \"value\": 8382.978458263346,\n        \"address\": \"string\",\n        \"blockInfo\": {\n          \"blockHash\": \"string\",\n          \"blockHeight\": 1517.4014341916065,\n          \"blockTime\": \"string\"\n        },\n        \"listedPrice\": 6198.060576057874,\n        \"satRanges\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentFrom\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentTo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"satributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitPrice\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"blockInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"hasUninscribedRareSat\": true,\n        \"floorValue\": 3435.547255564362\n      }\n    }\n  ],\n  \"total\": 2335,\n  \"nextOffset\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14366098-070f-42a4-bd38-2b605eece5a1",
+          "name": "Get Batch Listing PSBT",
+          "request": {
+            "name": "Get Batch Listing PSBT",
+            "description": {
+              "content": "Get Rare Sats Batch Listing PSBT for Signing",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listing-psbt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listings\": [\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "140b64ba-239f-4b19-9715-559c1d48c540",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listing-psbt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listings\": [\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"sellerReceiveAddress\": \"<string>\",\n      \"publicKey\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"sellerReceiveAddress\": \"string\",\n      \"price\": 2822.59578623523,\n      \"utxoId\": \"string\",\n      \"unsignedListingPSBTBase64\": \"string\",\n      \"makerFee\": 2014.1080779089882,\n      \"publicKey\": \"string\"\n    },\n    {\n      \"sellerReceiveAddress\": \"string\",\n      \"price\": 7915.906141746428,\n      \"utxoId\": \"string\",\n      \"unsignedListingPSBTBase64\": \"string\",\n      \"makerFee\": 6163.752090175561,\n      \"publicKey\": \"string\"\n    }\n  ],\n  \"failed\": [\n    \"string\",\n    \"string\"\n  ],\n  \"unsignedCombinedPSBTBase64\": \"string\",\n  \"toSignInputs\": [\n    1688.547835630121,\n    5386.109849212454\n  ],\n  \"toSignSigHash\": 3989.368529046722\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2281de36-1d05-4e33-9247-88b4290fb616",
+          "name": "Submit Batch Listing",
+          "request": {
+            "name": "Submit Batch Listing",
+            "description": {
+              "content": "Submit Batch Listing using the signed PSBT received from `GET /listing-psbt`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "raresats",
+                "listing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listings\": [\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    }\n  ],\n  \"signedCombinedPSBTBase64\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2195daea-830b-473a-a3a3-3e2b4d911285",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "raresats",
+                    "listing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listings\": [\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    },\n    {\n      \"sellerReceiveAddress\": \"<string>\",\n      \"price\": \"<number>\",\n      \"utxoId\": \"<string>\",\n      \"satRangePrices\": [\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"from\": \"<number>\",\n          \"to\": \"<number>\",\n          \"parentFrom\": \"<number>\",\n          \"parentTo\": \"<number>\",\n          \"satributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"unitPrice\": \"<number>\"\n        }\n      ],\n      \"signedListingPSBTBase64\": \"<string>\",\n      \"makerFee\": \"<number>\",\n      \"publicKey\": \"<string>\"\n    }\n  ],\n  \"signedCombinedPSBTBase64\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"listed\": 2173.00362652183,\n  \"failed\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ba37476f-b16b-4b46-b6b9-dce39767f4a9",
+    "name": "Magic Eden EVM Activity Rare Sats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

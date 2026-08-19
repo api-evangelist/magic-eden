@@ -1,0 +1,362 @@
+{
+  "item": [
+    {
+      "id": "be422724-f6f1-4fca-b6d7-2b34bb7e7958",
+      "name": "Runes Swap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f946683-6807-4611-bad1-19f3591efd9e",
+          "name": "Get available rune quotes with given parameters for the swap",
+          "request": {
+            "name": "Get available rune quotes with given parameters for the swap",
+            "description": {
+              "content": "Get available rune quotes with given parameters for the swap",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "runeTicker",
+                  "value": "<string>",
+                  "description": "(Required) Rune symbol"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<bigint>",
+                  "description": "(Required) The amount for the quote"
+                },
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>",
+                  "description": "(Required) The side of the trade, either \"buy\" or \"sell\""
+                },
+                {
+                  "disabled": false,
+                  "key": "priceToleranceBp",
+                  "value": "<integer>",
+                  "description": "The price tolerance in percentage x 10000"
+                },
+                {
+                  "disabled": false,
+                  "key": "rbfPreventionListingOnly",
+                  "value": "<boolean>",
+                  "description": "Flag indicating if only RBF protection sell orders should be considered."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89761a5f-b103-4917-8081-c47d2c91c26d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "runeTicker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<bigint>"
+                    },
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priceToleranceBp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rbfPreventionListingOnly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": \"string\",\n  \"averageUnitPrice\": 4202.7562313634935,\n  \"bestUnitPrice\": 3246.5329145963483,\n  \"maxUnitPrice\": 830.3942382548623,\n  \"minUnitPrice\": 5777.74861102863,\n  \"price\": 1281.3056115178833,\n  \"orders\": [\n    {\n      \"amount\": \"string\",\n      \"id\": \"string\"\n    },\n    {\n      \"amount\": \"string\",\n      \"id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "daecddfa-60e1-4693-bbcd-09be810f06e8",
+          "name": "Get an unsigned PSBT for swapping runes",
+          "request": {
+            "name": "Get an unsigned PSBT for swapping runes",
+            "description": {
+              "content": "Get an unsigned PSBT for swapping runes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "psbt",
+                "swap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<bigint>\",\n  \"runeTicker\": \"<string>\",\n  \"side\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"priceToleranceBp\": \"<integer>\",\n  \"takerPublicKey\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\",\n  \"legacyListingOnly\": \"<boolean>\",\n  \"rbfPreventionListingOnly\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "01b83342-3608-4b07-a5ba-5a1c1eab5a17",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "psbt",
+                    "swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<bigint>\",\n  \"runeTicker\": \"<string>\",\n  \"side\": \"<string>\",\n  \"takerPaymentAddress\": \"<string>\",\n  \"takerRunesAddress\": \"<string>\",\n  \"priceToleranceBp\": \"<integer>\",\n  \"takerPublicKey\": \"<string>\",\n  \"takerRunesPublicKey\": \"<string>\",\n  \"feeRateTier\": \"hourFee\",\n  \"feeRateNum\": \"<number>\",\n  \"legacyListingOnly\": \"<boolean>\",\n  \"rbfPreventionListingOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"psbts\": [\n    {\n      \"type\": \"legacy-buy\",\n      \"paymentUtxoIndexes\": [\n        1169,\n        7726\n      ],\n      \"psbtBase64\": \"string\",\n      \"settlement\": {\n        \"amount\": \"string\",\n        \"price\": 3082.064092945067\n      },\n      \"runeUtxoIndexes\": [\n        8237,\n        8705\n      ]\n    },\n    {\n      \"type\": \"rbf-buy\",\n      \"paymentUtxoIndexes\": [\n        3416,\n        8951\n      ],\n      \"psbtBase64\": \"string\",\n      \"settlement\": {\n        \"amount\": \"string\",\n        \"price\": 3428.569047406879\n      },\n      \"runeUtxoIndexes\": [\n        7096,\n        4602\n      ]\n    }\n  ],\n  \"quote\": {\n    \"amount\": \"string\",\n    \"averageUnitPrice\": 8561.731232959874,\n    \"bestUnitPrice\": 8808.671810205084,\n    \"maxUnitPrice\": 2465.0011833411977,\n    \"minUnitPrice\": 77.7753505303591,\n    \"price\": 3988.003192943932,\n    \"orders\": [\n      {\n        \"amount\": \"string\",\n        \"id\": \"string\"\n      },\n      {\n        \"amount\": \"string\",\n        \"id\": \"string\"\n      }\n    ]\n  },\n  \"settlement\": {\n    \"amount\": \"string\",\n    \"price\": 6655.16652062234\n  },\n  \"requestId\": \"string\",\n  \"btcChangeOutputIndex\": 9398,\n  \"errors\": [\n    {\n      \"type\": \"market-sell\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"market-sell\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82c0d680-a590-4a0f-8e1b-f3f56d412ce9",
+          "name": "Post a signed PSBT to broadcast the swapping transaction",
+          "request": {
+            "name": "Post a signed PSBT to broadcast the swapping transaction",
+            "description": {
+              "content": "Post a signed PSBT to broadcast the swapping transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "swap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbts\": [\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    },\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31a4229d-9d3a-439b-9246-842a21f77606",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestId\": \"<string>\",\n  \"signedPsbts\": [\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    },\n    {\n      \"signedPsbtBase64\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"txs\": [\n    {\n      \"type\": \"market-sell\",\n      \"txid\": \"string\"\n    },\n    {\n      \"type\": \"legacy-buy\",\n      \"txid\": \"string\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"legacy-buy\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"legacy-buy\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c4549f2-e285-4b23-9e55-fbfc8c735431",
+    "name": "Magic Eden EVM Activity Runes Swap API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}

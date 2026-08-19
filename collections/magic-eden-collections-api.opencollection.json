@@ -1,0 +1,434 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Eden EVM Activity Collections API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections",
+            "headers": [
+              {
+                "name": "ME-Pub-API-Metadata",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 200, min 1, max 500"
+              }
+            ]
+          },
+          "docs": "Get collections"
+        },
+        {
+          "info": {
+            "name": "Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to explore a collection's metadata and statistics (sales, volume, etc)."
+        },
+        {
+          "info": {
+            "name": "User Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/user-collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to explore a user's collections metadata and statistics (sales, volume, etc)."
+        },
+        {
+          "info": {
+            "name": "Search Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this API to do a fuzzy collection search"
+        },
+        {
+          "info": {
+            "name": "Get collection stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/stat",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "query",
+                "description": "Collection symbol"
+              }
+            ]
+          },
+          "docs": "Get collection stats"
+        },
+        {
+          "info": {
+            "name": "Get collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/v2/ord/btc/collections/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Collection symbol"
+              }
+            ]
+          },
+          "docs": "Get collection"
+        },
+        {
+          "info": {
+            "name": "Get collection statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collection_stats/search/bitcoin",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query",
+                "description": "Time window"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort by"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit"
+              }
+            ]
+          },
+          "docs": "Get collection statistics"
+        },
+        {
+          "info": {
+            "name": "Get attributes of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:collectionSymbol/attributes",
+            "params": [
+              {
+                "name": "collectionSymbol",
+                "value": "",
+                "type": "path",
+                "description": "collection symbol"
+              }
+            ]
+          },
+          "docs": "Get attributes of a collection"
+        },
+        {
+          "info": {
+            "name": "Get activities of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:symbol/activities",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "btest",
+                "type": "path",
+                "description": "collection symbol"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 1000"
+              }
+            ]
+          },
+          "docs": "Get activities of a collection"
+        },
+        {
+          "info": {
+            "name": "Get holder stats of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:symbol/holder_stats",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "collection symbol"
+              }
+            ]
+          },
+          "docs": "Get holder stats of a collection"
+        },
+        {
+          "info": {
+            "name": "Get wallets rank sorted by volume for one collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:symbol/leaderboard",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "collection symbol"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 100, min 1, max 100"
+              }
+            ]
+          },
+          "docs": "Get wallets rank sorted by volume for one collection"
+        },
+        {
+          "info": {
+            "name": "Get listings of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:symbol/listings",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "btest",
+                "type": "path",
+                "description": "collection symbol"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 20, min 1, max 100"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are more than this price"
+              },
+              {
+                "name": "attributes",
+                "value": "",
+                "type": "query",
+                "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the listings, default 'listPrice'"
+              },
+              {
+                "name": "listingAggMode",
+                "value": "",
+                "type": "query",
+                "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings."
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'asc'"
+              },
+              {
+                "name": "paymentMints",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings by the payment mint address that the seller expects. Default to filter for listings that only accept native SOL. Use \"ALL\" to show all listings."
+              }
+            ]
+          },
+          "docs": "Get listings of a collection"
+        },
+        {
+          "info": {
+            "name": "Get stats of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/:symbol/stats",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "collection symbol"
+              },
+              {
+                "name": "timeWindow",
+                "value": "",
+                "type": "query",
+                "description": "Time window for stats, default all. '24h', '7d', '30d', 'all'"
+              },
+              {
+                "name": "listingAggMode",
+                "value": "",
+                "type": "query",
+                "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings. Defaults to false."
+              }
+            ]
+          },
+          "docs": "Get stats of a collection"
+        },
+        {
+          "info": {
+            "name": "Get batch listings of a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-mainnet.magiceden.dev/v4/evm-public/collections/batch/listings",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip, default 0, min 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The numbers of items to return, default 20, min 1, max 100"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are less than this price"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Filter listings that are more than this price"
+              },
+              {
+                "name": "attributes",
+                "value": "",
+                "type": "query",
+                "description": "Represents a filtering mechanism where the elements within each inner array are logically ORed, and the resulting arrays are ANDed together at the top level. Each inner array consists of objects with two properties: traitType (a string) and value (a string). For example: [[{\"traitType\":\"trait1\", \"value\":\"value1\"},{\"traitType\":\"trait1\", \"value\":\"value2\"}]] would return listings that have \"value1\" OR \"value2\" for \"trait1\"."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort the listings, default 'listPrice'"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction returned elements should be sorted in, default 'asc'"
+              },
+              {
+                "name": "listingAggMode",
+                "value": "",
+                "type": "query",
+                "description": "True to return aggregated marketplace listings, false to return just Magic Eden listings."
+              }
+            ]
+          },
+          "docs": "Get batch listings of a collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,912 @@
+{
+  "item": [
+    {
+      "id": "75f2759d-8b50-4425-acb8-17cfd31a5f49",
+      "name": "Runes Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a967d2e-d1b6-4722-89ab-5978d8d9ec57",
+          "name": "Get activities for a specific rune",
+          "request": {
+            "name": "Get activities for a specific rune",
+            "description": {
+              "content": "Get activities for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "activities",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 5000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The rune symbol for which activities are fetched."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2424281-6df4-4f94-a39a-907ef850f2bc",
+              "name": "Successful response with an array of activity records for the specified rune.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "activities",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The rune symbol for which activities are fetched."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2018-01-04T16:19:16.841Z\",\n      \"txBlockHeight\": 9261,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1961-07-03T06:16:34.565Z\",\n      \"createdAt\": \"2001-06-24T09:26:34.192Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4109,\n      \"listedTakerFeeBp\": 161,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2013-02-26T19:30:28.701Z\",\n      \"txBlockHeight\": 9106,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1995-07-08T11:51:46.975Z\",\n      \"createdAt\": \"2003-02-11T11:12:09.615Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 387,\n      \"listedTakerFeeBp\": 1012,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82096198-9b9f-4dfa-985d-c994620c33d2",
+          "name": "Get Rune collection stats",
+          "request": {
+            "name": "Get Rune collection stats",
+            "description": {
+              "content": "Get Rune collection stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "collection_stats",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "1d",
+                  "description": "(Required) Time window for which statistics are aggregated."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned. Default is 20, maximum is 2000."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for results."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "floorPrice",
+                  "description": "(Required) Column to sort the results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "desc",
+                  "description": "(Required) Direction of the sort ('asc' for ascending, 'desc' for descending)."
+                },
+                {
+                  "disabled": false,
+                  "key": "walletAddress",
+                  "value": "<string>",
+                  "description": "Filter results by a specific wallet address."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "Filter collections by a search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "allCollections",
+                  "value": "<boolean>",
+                  "description": "Include all collections in the results, regardless of activity."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b77a778-7f09-4983-971f-6c81fbe93e84",
+              "name": "Successful response with collection statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "collection_stats",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "1d"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "floorPrice"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "walletAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "allCollections",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runes\": [\n    {\n      \"rune\": \"string\",\n      \"etching\": {\n        \"details\": \"string\"\n      },\n      \"vol\": 4612.918807071673,\n      \"totalVol\": 372.46118520677385,\n      \"unitPriceSats\": 8907.87679952946,\n      \"formattedUnitPriceSats\": \"string\",\n      \"txnCount\": 456.7195430286153,\n      \"imageURI\": \"string\",\n      \"unitPriceChange\": 7505.12742963043,\n      \"holderCount\": 8088.7570702783705,\n      \"pendingCount\": 6680.4832196777\n    },\n    {\n      \"rune\": \"string\",\n      \"etching\": {\n        \"details\": \"string\"\n      },\n      \"vol\": 7394.542829672133,\n      \"totalVol\": 3197.8033706657925,\n      \"unitPriceSats\": 6061.734594282525,\n      \"formattedUnitPriceSats\": \"string\",\n      \"txnCount\": 388.73522059083234,\n      \"imageURI\": \"string\",\n      \"unitPriceChange\": 3932.792695929741,\n      \"holderCount\": 9850.791038182542,\n      \"pendingCount\": 3806.9262341311637\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f988a08d-8069-4426-b0b5-bf30983d1a9d",
+          "name": "Get rune market info",
+          "request": {
+            "name": "Get rune market info",
+            "description": {
+              "content": "Get market market info for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "market",
+                ":rune",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) Rune symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f97fc5a5-48a5-49b8-9201-940e8e737145",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "market",
+                    ":rune",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) Rune symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rune\": \"string\",\n  \"ticker\": \"string\",\n  \"totalSupply\": \"string\",\n  \"formattedTotalSupply\": \"string\",\n  \"divisibility\": 2168,\n  \"imageURI\": \"string\",\n  \"description\": \"string\",\n  \"coinMarketCapLink\": \"string\",\n  \"discordLink\": \"string\",\n  \"telegramLink\": \"string\",\n  \"twitterLink\": \"string\",\n  \"minOrderSize\": 6845,\n  \"maxOrderSize\": 2099,\n  \"pendingTxnCount\": 2230,\n  \"floorUnitPrice\": {\n    \"formatted\": \"string\",\n    \"value\": \"string\"\n  },\n  \"marketCap\": 9713,\n  \"volume\": {\n    \"24h\": 8196,\n    \"7d\": 2403,\n    \"30d\": 2147\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a518071-0465-4135-8d7d-a5a43ce1f707",
+          "name": "Get orders for a specific rune",
+          "request": {
+            "name": "Get orders for a specific rune",
+            "description": {
+              "content": "Get orders for a specific rune",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "orders",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>",
+                  "description": "(Required) Filter by order side, currently only 'sell' orders are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order of the results. Default is 'unitPriceAsc'."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the results. Default is 0, and increments of 100 are supported up to 2000."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePending",
+                  "value": "<boolean>",
+                  "description": "Whether to include pending orders in the results. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "rbfPreventionListingOnly",
+                  "value": "<boolean>",
+                  "description": "Whether to only include RBF protected rune orders. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "queryIssuerAddress",
+                  "value": "<string>",
+                  "description": "When \"rbfPreventionListingOnly == true\", filter the rune orders can be bought with RBF protection"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The rune symbol for which orders are requested."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b964db3-b5b6-49ed-ad87-73bc556c44af",
+              "name": "Successful response with an array of orders for the specified rune.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "orders",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rbfPreventionListingOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "queryIssuerAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The rune symbol for which orders are requested."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"amount\": 8172.494453517428,\n      \"formattedAmount\": \"string\",\n      \"createdAt\": \"1998-04-21T06:11:46.537Z\",\n      \"expiresAt\": \"2014-04-15T10:05:54.930Z\",\n      \"id\": \"string\",\n      \"rune\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"maker\": \"string\",\n      \"makerReceiveAddress\": \"string\",\n      \"makerFeeBps\": 7005.99607285607,\n      \"price\": 9547.757611657571,\n      \"side\": \"string\",\n      \"status\": \"string\",\n      \"unitPrice\": 1086.3367866844287,\n      \"formattedUnitPrice\": \"string\"\n    },\n    {\n      \"amount\": 34.72493150139866,\n      \"formattedAmount\": \"string\",\n      \"createdAt\": \"1966-09-20T09:27:00.901Z\",\n      \"expiresAt\": \"1973-11-06T07:30:12.032Z\",\n      \"id\": \"string\",\n      \"rune\": \"string\",\n      \"mempoolTxId\": \"string\",\n      \"maker\": \"string\",\n      \"makerReceiveAddress\": \"string\",\n      \"makerFeeBps\": 5943.447684111447,\n      \"price\": 1566.9882499754506,\n      \"side\": \"string\",\n      \"status\": \"string\",\n      \"unitPrice\": 1964.1459070605704,\n      \"formattedUnitPrice\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35b5618d-7956-4e8b-8d27-f0cc845943e0",
+          "name": "Get rune utxos by wallet address",
+          "request": {
+            "name": "Get rune utxos by wallet address",
+            "description": {
+              "content": "Get rune utxos by wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "utxos",
+                "wallet",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "rune",
+                  "value": "<string>",
+                  "description": "(Required) Filter UTXOs by rune symbol."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order of the UTXOs based on their balance. Defaults to 'balanceAsc'."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeListed",
+                  "value": "<boolean>",
+                  "description": "Whether to include UTXOs that are currently listed in the marketplace. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The Bitcoin address to fetch Rune UTXOs for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38834bc7-c968-4a36-8691-3fa46c0dbc9f",
+              "name": "Successful response with an array of UTXOs for the specified address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "utxos",
+                    "wallet",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rune",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeListed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The Bitcoin address to fetch Rune UTXOs for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"utxos\": [\n    {\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"rune\": \"string\",\n      \"balance\": 6289.2739139785945,\n      \"formattedBalance\": \"string\",\n      \"spent\": true,\n      \"pure\": false,\n      \"containsInscription\": true,\n      \"costSats\": 5218.4347253477235,\n      \"listing\": {\n        \"orderId\": \"739e264e-9b84-935d-5441-85ab3aec7905\",\n        \"totalPriceSats\": 9701.890727613065,\n        \"unitPriceSats\": 7707.61887347623,\n        \"formattedUnitPriceSats\": \"string\",\n        \"expiresAt\": \"1972-03-13T07:27:07.178Z\"\n      }\n    },\n    {\n      \"location\": \"string\",\n      \"address\": \"string\",\n      \"rune\": \"string\",\n      \"balance\": 4000.761665746927,\n      \"formattedBalance\": \"string\",\n      \"spent\": false,\n      \"pure\": false,\n      \"containsInscription\": true,\n      \"costSats\": 8875.220935298428,\n      \"listing\": {\n        \"orderId\": \"161de8c6-91d8-63fd-9ce0-2da11127abcb\",\n        \"totalPriceSats\": 8432.877215647351,\n        \"unitPriceSats\": 6823.380609230078,\n        \"formattedUnitPriceSats\": \"string\",\n        \"expiresAt\": \"1989-10-04T16:08:23.249Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ca91a18-7d50-4060-8f55-a4e15c8a70f8",
+          "name": "Get Rune activities for a specific wallet address",
+          "request": {
+            "name": "Get Rune activities for a specific wallet address",
+            "description": {
+              "content": "Get Rune activities for a specific wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "wallet",
+                "activities",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset for the list of activities. Defaults to 0, increments must be multiples of 100, up to 10,000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The wallet address to fetch Rune activities for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3155572c-87f8-4ae0-a387-f0f45989c38b",
+              "name": "Successful response with an array of Rune activities for the specified wallet address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "wallet",
+                    "activities",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The wallet address to fetch Rune activities for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2018-01-04T16:19:16.841Z\",\n      \"txBlockHeight\": 9261,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1961-07-03T06:16:34.565Z\",\n      \"createdAt\": \"2001-06-24T09:26:34.192Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 4109,\n      \"listedTakerFeeBp\": 161,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"kind\": \"string\",\n      \"oldOwner\": \"string\",\n      \"newOwner\": \"string\",\n      \"rune\": \"string\",\n      \"amount\": \"string\",\n      \"txValue\": \"string\",\n      \"txId\": \"string\",\n      \"txBlockTime\": \"2013-02-26T19:30:28.701Z\",\n      \"txBlockHeight\": 9106,\n      \"txBlockHash\": \"string\",\n      \"deletedAt\": \"1995-07-08T11:51:46.975Z\",\n      \"createdAt\": \"2003-02-11T11:12:09.615Z\",\n      \"listedPrice\": \"string\",\n      \"listedMakerFeeBp\": 387,\n      \"listedTakerFeeBp\": 1012,\n      \"btcUsdPrice\": \"string\",\n      \"sellerPaymentReceiverAddress\": \"string\",\n      \"buyerPaymentAddress\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bef4239a-871d-4b63-b2a0-d2c5dcaa09c9",
+          "name": "Get Rune balances by wallet address",
+          "request": {
+            "name": "Get Rune balances by wallet address",
+            "description": {
+              "content": "Get Rune balances by wallet address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ord",
+                "btc",
+                "runes",
+                "wallet",
+                "balances",
+                ":address",
+                ":rune"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "address",
+                  "description": "(Required) The wallet address to fetch Rune balances for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rune",
+                  "description": "(Required) The specific Rune symbol whose balance is being queried."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2f649be-cc06-40e3-ac73-8878ac777826",
+              "name": "Successful response with the balance details of the specified Rune for the given address.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ord",
+                    "btc",
+                    "runes",
+                    "wallet",
+                    "balances",
+                    ":address",
+                    ":rune"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "address",
+                      "description": "(Required) The wallet address to fetch Rune balances for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rune",
+                      "description": "(Required) The specific Rune symbol whose balance is being queried."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balance\": \"string\",\n  \"formattedBalance\": \"string\",\n  \"ticker\": \"ZRJI\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-mainnet.magiceden.dev/v4/evm-public",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a30d8205-38fc-49bc-8ade-7641fd37a6ed",
+    "name": "Magic Eden EVM Activity Runes Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.",
+      "type": "text/plain"
+    }
+  }
+}
