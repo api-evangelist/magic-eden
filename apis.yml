@@ -31,6 +31,17 @@ tags:
 - Bitcoin
 - Ordinals
 - Runes
+- Multi-Chain
+tags_raw:
+- NFT
+- Web3
+- Blockchain
+- Marketplace
+- Solana
+- Ethereum
+- Bitcoin
+- Ordinals
+- Runes
 - Multi-chain
 created: '2026-05-24'
 modified: '2026-08-08'
@@ -108,6 +119,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -130,6 +143,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Instructions
+  tags_raw:
   - instructions
   properties:
   - type: OpenAPI
@@ -174,6 +189,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Launchpad
+  tags_raw:
   - launchpad
   properties:
   - type: OpenAPI
@@ -218,6 +235,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Marketplace
+  tags_raw:
   - marketplace
   properties:
   - type: OpenAPI
@@ -262,6 +281,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -438,6 +459,8 @@ apis:
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
   tags:
+  - Wallets
+  tags_raw:
   - wallets
   properties:
   - type: OpenAPI
