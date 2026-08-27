@@ -477,6 +477,56 @@ apis:
     url: https://docs.magiceden.io/reference/ordinals-api-keys
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
+- aid: magic-eden:magic-eden-bitcoin-api
+  name: Magic Eden Bitcoin API
+  description: Endpoints related to Bitcoin blockchain
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Bitcoin
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-bitcoin-api-openapi.yml
+- aid: magic-eden:magic-eden-evm-api
+  name: Magic Eden EVM API
+  description: Endpoints related to Ethereum, Polygon and Base blockchain
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - EVM
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-evm-api-openapi.yml
+- aid: magic-eden:magic-eden-general-api
+  name: Magic Eden General API
+  description: The General API from Magic Eden — 1 operation(s) for general.
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - General
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-general-api-openapi.yml
+- aid: magic-eden:magic-eden-rewards-api
+  name: Magic Eden Rewards API
+  description: Check Diamond Rewards Eligibility
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Rewards
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-rewards-api-openapi.yml
+- aid: magic-eden:magic-eden-solana-api
+  name: Magic Eden Solana API
+  description: Endpoints related to Solana blockchain
+  humanURL: https://docs.magiceden.io/reference/solana-api-keys
+  baseURL: https://api-mainnet.magiceden.dev/v2
+  tags:
+  - Solana
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-eden-solana-api-openapi.yml
 common:
 - type: IssueTracker
   url: https://github.com/magiceden/magiceden-sdk/issues
