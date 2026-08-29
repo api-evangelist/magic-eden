@@ -1,14 +1,14 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Magic Eden EVM Activity Runes Info API
-  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
-  version: v4
+  title: Magic Eden Bitcoin Ordinals Runes Info API
+  description: Aggregated Magic Eden Bitcoin/Ordinals API covering ordinal collections, rare sats, runes (orders, swaps, sweeping, market sells), block activities, and wallet balances.
+  version: v2
   termsOfService: https://magiceden.io/terms-of-service.pdf
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api-mainnet.magiceden.dev/v4/evm-public
+- url: https://api-mainnet.magiceden.dev/v2
 tags:
 - name: Runes Info
 paths:
@@ -334,31 +334,6 @@ paths:
                 $ref: '#/components/schemas/GetBalanceByAddressAndRuneResultSchema'
 components:
   schemas:
-    RuneEtchingSchema:
-      type: object
-      properties:
-        details:
-          type: string
-    GetBalanceByAddressAndRuneResultSchema:
-      type: object
-      properties:
-        balance:
-          type: string
-          description: The raw balance of the Rune, typically in its smallest unit.
-        formattedBalance:
-          type: string
-          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
-        ticker:
-          type: string
-          description: The symbol of the Rune whose balance is represented.
-          pattern: ^[A-Z]{1,26}$
-    GetRuneActivitiesByAddressResultSchema:
-      type: object
-      properties:
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneActivitySchema'
     RuneStatsSchema:
       type: object
       properties:
@@ -367,46 +342,41 @@ components:
         etching:
           $ref: '#/components/schemas/RuneEtchingSchema'
         vol:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         totalVol:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         unitPriceSats:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         formattedUnitPriceSats:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         txnCount:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         imageURI:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         unitPriceChange:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         holderCount:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         pendingCount:
-          type: number
-          nullable: true
-    GetRuneActivitiesResultSchema:
-      type: object
-      properties:
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneActivitySchema'
-    GetRunesUtxoByWalletResultSchema:
-      type: object
-      properties:
-        utxos:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneUtxoSchema'
+          type:
+          - number
+          - 'null'
     RuneActivitySchema:
       type: object
       properties:
@@ -415,64 +385,72 @@ components:
         kind:
           type: string
         oldOwner:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         newOwner:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         rune:
           type: string
         amount:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         txValue:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         txId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         txBlockTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         txBlockHeight:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         txBlockHash:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         deletedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         createdAt:
           type: string
           format: date-time
         listedPrice:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         listedMakerFeeBp:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         listedTakerFeeBp:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         btcUsdPrice:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         sellerPaymentReceiverAddress:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         buyerPaymentAddress:
-          type: string
-          nullable: true
-    GetRunesOrderInfoResultSchema:
-      type: object
-      properties:
-        orders:
-          type: array
-          items:
-            $ref: '#/components/schemas/ISafeApiRuneOrderSchema'
+          type:
+          - string
+          - 'null'
     ISafeApiRuneOrderSchema:
       type: object
       properties:
@@ -491,8 +469,9 @@ components:
         rune:
           type: string
         mempoolTxId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         maker:
           type: string
         makerReceiveAddress:
@@ -509,14 +488,22 @@ components:
           type: number
         formattedUnitPrice:
           type: string
+    GetRuneActivitiesResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
     RuneUtxoSchema:
       type: object
       properties:
         location:
           type: string
         address:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         rune:
           type: string
         balance:
@@ -528,14 +515,17 @@ components:
         pure:
           type: boolean
         containsInscription:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         costSats:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         listing:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           properties:
             orderId:
               type: string
@@ -556,8 +546,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RuneStatsSchema'
-    GetRunesMarketInfoResultSchema:
+    GetRunesOrderInfoResultSchema:
       type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/ISafeApiRuneOrderSchema'
+    GetRunesUtxoByWalletResultSchema:
+      type: object
+      properties:
+        utxos:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneUtxoSchema'
+    RuneEtchingSchema:
+      type: object
+      properties:
+        details:
+          type: string
+    GetRunesMarketInfoResultSchema:
+      type:
+      - object
+      - 'null'
       properties:
         rune:
           type: string
@@ -570,56 +581,89 @@ components:
         divisibility:
           type: integer
         imageURI:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         coinMarketCapLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         discordLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         telegramLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         twitterLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         minOrderSize:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         maxOrderSize:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         pendingTxnCount:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         floorUnitPrice:
-          type: object
+          type:
+          - object
+          - 'null'
           properties:
             formatted:
               type: string
             value:
               type: string
-          nullable: true
         marketCap:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         volume:
           type: object
           properties:
             24h:
-              type: integer
-              nullable: true
+              type:
+              - integer
+              - 'null'
             7d:
-              type: integer
-              nullable: true
+              type:
+              - integer
+              - 'null'
             30d:
-              type: integer
-              nullable: true
-      nullable: true
+              type:
+              - integer
+              - 'null'
+    GetBalanceByAddressAndRuneResultSchema:
+      type: object
+      properties:
+        balance:
+          type: string
+          description: The raw balance of the Rune, typically in its smallest unit.
+        formattedBalance:
+          type: string
+          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
+        ticker:
+          type: string
+          description: The symbol of the Rune whose balance is represented.
+          pattern: ^[A-Z]{1,26}$
+    GetRuneActivitiesByAddressResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
   securitySchemes:
     BearerAuth:
       type: http

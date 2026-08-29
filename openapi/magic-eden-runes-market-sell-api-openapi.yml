@@ -1,14 +1,14 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Magic Eden EVM Activity Runes Market Sell API
-  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
-  version: v4
+  title: Magic Eden Bitcoin Ordinals Runes Market Sell API
+  description: Aggregated Magic Eden Bitcoin/Ordinals API covering ordinal collections, rare sats, runes (orders, swaps, sweeping, market sells), block activities, and wallet balances.
+  version: v2
   termsOfService: https://magiceden.io/terms-of-service.pdf
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api-mainnet.magiceden.dev/v4/evm-public
+- url: https://api-mainnet.magiceden.dev/v2
 tags:
 - name: Runes Market Sell
 paths:
@@ -52,18 +52,6 @@ paths:
                 $ref: '#/components/schemas/GetMarketSellPsbtResponseSchema'
 components:
   schemas:
-    PostMarketSellPsbtRequestSchema:
-      type: object
-      properties:
-        requestId:
-          type: string
-          description: The unique request ID for the market sell.
-        signedPsbtBase64:
-          type: string
-          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-      required:
-      - requestId
-      - signedPsbtBase64
     PostMarketSellPsbtResponseSchema:
       type: object
       properties:
@@ -72,20 +60,6 @@ components:
           description: The transaction ID for the market sell.
       required:
       - txid
-    SettlementSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
     GetMarketSellPsbtResponseSchema:
       type: object
       properties:
@@ -114,6 +88,32 @@ components:
       - requestId
       - runeUtxoIndexes
       - settlement
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
     GetMarketSellPsbtRequestSchema:
       type: object
       properties:
@@ -152,9 +152,10 @@ components:
           description: The fee rate tier.
           default: hourFee
         feeRateNum:
-          type: number
+          type:
+          - number
+          - 'null'
           description: The numerical fee rate.
-          nullable: true
   securitySchemes:
     BearerAuth:
       type: http

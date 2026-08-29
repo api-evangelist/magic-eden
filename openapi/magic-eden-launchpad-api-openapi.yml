@@ -1,14 +1,15 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Magic Eden EVM Activity launchpad API
-  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
-  version: v4
+  title: Magic Eden Solana Launchpad API
+  description: Aggregated Magic Eden Solana NFT marketplace API covering collections, tokens, wallets, instructions (buy/sell/bid), MMM AMM pools, launchpad, and marketplace endpoints.
+  version: v2
   termsOfService: https://magiceden.io/terms-of-service.pdf
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api-mainnet.magiceden.dev/v4/evm-public
+- url: https://api-mainnet.magiceden.dev/v2
+- url: https://api-devnet.magiceden.dev/v2
 tags:
 - name: launchpad
   description: Get launchpad information
@@ -113,3 +114,8 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
+    bearerAuth:
+      bearerFormat: auth-scheme
+      description: 'Bearer HTTP authentication. Allowed headers-- Authorization: Bearer <api_key>'
+      scheme: bearer
+      type: http

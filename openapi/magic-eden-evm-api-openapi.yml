@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin EVM API
+  title: NFTTOOLS API DOCS FOR MAGIC EDEN EVM API
   version: 1.0.0
   description: A comprehensive API for interacting with Magic Eden, providing tools to handle collections, tokens, activity, bid, list, and buy on Solana, Bitcoin, Ethereum, Base, and Polygon chains.
 servers:

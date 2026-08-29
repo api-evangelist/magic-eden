@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin API
   version: 1.0.0

@@ -1,14 +1,15 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Magic Eden EVM Activity marketplace API
-  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
-  version: v4
+  title: Magic Eden Solana Marketplace API
+  description: Aggregated Magic Eden Solana NFT marketplace API covering collections, tokens, wallets, instructions (buy/sell/bid), MMM AMM pools, launchpad, and marketplace endpoints.
+  version: v2
   termsOfService: https://magiceden.io/terms-of-service.pdf
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api-mainnet.magiceden.dev/v4/evm-public
+- url: https://api-mainnet.magiceden.dev/v2
+- url: https://api-devnet.magiceden.dev/v2
 tags:
 - name: marketplace
   description: Get information about Magic Eden's marketplace!
@@ -39,37 +40,6 @@ paths:
       - marketplace
 components:
   schemas:
-    IFloorPriceInfo:
-      properties:
-        floorPrice:
-          type: number
-          format: double
-        floorListedNftType:
-          $ref: '#/components/schemas/ListedNftType'
-      required:
-      - floorPrice
-      - floorListedNftType
-      type: object
-      additionalProperties: false
-    PopularCollectionsTimeRanges:
-      type: string
-      enum:
-      - 1h
-      - 1d
-      - 7d
-      - 30d
-    ListedNftType:
-      type: string
-      enum:
-      - M2
-      - MMM
-      - TENSOR_LISTING
-      - TENSOR_CNFT_LISTING
-      - TENSOR_MARKETPLACE_LISTING
-      - TENSOR_AMM
-      - TENSOR_AMM_V2
-      - HADESWAP_AMM
-      - M3
     ICollectionV2:
       properties:
         symbol:
@@ -92,8 +62,9 @@ components:
           type: string
         categories:
           items:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
           type: array
         floorPrice:
           type: number
@@ -126,7 +97,43 @@ components:
       - image
       type: object
       additionalProperties: false
+    PopularCollectionsTimeRanges:
+      type: string
+      enum:
+      - 1h
+      - 1d
+      - 7d
+      - 30d
+    ListedNftType:
+      type: string
+      enum:
+      - M2
+      - MMM
+      - TENSOR_LISTING
+      - TENSOR_CNFT_LISTING
+      - TENSOR_MARKETPLACE_LISTING
+      - TENSOR_AMM
+      - TENSOR_AMM_V2
+      - HADESWAP_AMM
+      - M3
+    IFloorPriceInfo:
+      properties:
+        floorPrice:
+          type: number
+          format: double
+        floorListedNftType:
+          $ref: '#/components/schemas/ListedNftType'
+      required:
+      - floorPrice
+      - floorListedNftType
+      type: object
+      additionalProperties: false
   securitySchemes:
     BearerAuth:
       type: http
       scheme: bearer
+    bearerAuth:
+      bearerFormat: auth-scheme
+      description: 'Bearer HTTP authentication. Allowed headers-- Authorization: Bearer <api_key>'
+      scheme: bearer
+      type: http

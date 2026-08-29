@@ -1,14 +1,14 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Magic Eden EVM Activity Blocks API
-  description: Aggregated Magic Eden EVM API (v4) for Ethereum and L2 chains (Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract). Covers collections, assets, bids, asks, listings, buy/sell, and bulk transfer instructions.
-  version: v4
+  title: Magic Eden Bitcoin Ordinals Blocks API
+  description: Aggregated Magic Eden Bitcoin/Ordinals API covering ordinal collections, rare sats, runes (orders, swaps, sweeping, market sells), block activities, and wallet balances.
+  version: v2
   termsOfService: https://magiceden.io/terms-of-service.pdf
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api-mainnet.magiceden.dev/v4/evm-public
+- url: https://api-mainnet.magiceden.dev/v2
 tags:
 - name: Blocks
 paths:
@@ -80,43 +80,55 @@ components:
             contentMedia:
               type: string
             contentLength:
-              type: number
-              nullable: true
+              type:
+              - number
+              - 'null'
             number:
-              type: number
-              nullable: true
+              type:
+              - number
+              - 'null'
             sat:
-              type: number
-              nullable: true
+              type:
+              - number
+              - 'null'
             satName:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             satRarity:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             satBlockHeight:
-              type: number
-              nullable: true
+              type:
+              - number
+              - 'null'
             satBlockTime:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             genesisTransaction:
               type: string
             genesisTransactionBlockTime:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             genesisTransactionBlockHeight:
-              type: number
-              nullable: true
+              type:
+              - number
+              - 'null'
             genesisTransactionBlockHash:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             parentInscriptionId:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             metaprotocol:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
         activityType:
           type: string
         blockHeight:
@@ -138,11 +150,13 @@ components:
         timestamp:
           type: number
         oldLocation:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         oldAddress:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         createdAt:
           type: string
           format: date-time
