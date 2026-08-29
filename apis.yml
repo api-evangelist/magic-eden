@@ -7,6 +7,19 @@ description: Magic Eden is a multi-chain NFT marketplace offering REST and instr
   and Bitcoin Ordinals (inscriptions, rare sats, and runes). Developers can fetch collections, tokens,
   listings, bids, activity, holder stats, AMM pool data, launchpad data, and generate signed transactions
   or PSBTs for listing, buying, bidding, transferring, swapping, and minting across all supported chains.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
