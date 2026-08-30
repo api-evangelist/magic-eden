@@ -44,7 +44,7 @@ tags:
 - Bitcoin
 - Ordinals
 - Runes
-- Multi-Chain
+- Multi-chain
 tags_raw:
 - NFT
 - Web3
@@ -515,7 +515,8 @@ apis:
   description: The General API from Magic Eden — 1 operation(s) for general.
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
-  tags:
+  tags: []
+  tags_raw:
   - General
   properties:
   - type: OpenAPI
