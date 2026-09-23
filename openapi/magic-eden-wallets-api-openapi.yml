@@ -11,13 +11,13 @@ servers:
 - url: https://api-mainnet.magiceden.dev/v2
 - url: https://api-devnet.magiceden.dev/v2
 tags:
-- name: wallets
+- name: Wallets
   description: Get information of a wallet
 paths:
   /wallets/owner/activities:
     get:
       deprecated: false
-      summary: Get ownership activities of a wallet.
+      summary: Get ownership activities of a wallet
       security: []
       responses:
         '200':
@@ -76,11 +76,13 @@ paths:
         schema:
           type: string
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsOwnerActivities
+      x-operation-id-source: derived
   /wallets/{wallet_address}:
     get:
       deprecated: false
-      summary: Get info about the wallet owner.
+      summary: Get info about the wallet owner
       security: []
       responses:
         '200':
@@ -109,11 +111,13 @@ paths:
           type: string
         example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddress
+      x-operation-id-source: derived
   /wallets/{wallet_address}/activities:
     get:
       deprecated: false
-      summary: Get activities of a wallet.
+      summary: Get activities of a wallet
       security: []
       responses:
         '200':
@@ -179,11 +183,13 @@ paths:
         schema:
           type: integer
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddressActivities
+      x-operation-id-source: derived
   /wallets/{wallet_address}/escrow_balance:
     get:
       deprecated: false
-      summary: Get escrow balance for a wallet.
+      summary: Get escrow balance for a wallet
       security: []
       responses:
         '200':
@@ -211,11 +217,13 @@ paths:
           type: string
         example: 4wejSnr97csngztZ5SU7A6iZRXJD7B3Y1R1koCQ5NjmD
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddressEscrowBalance
+      x-operation-id-source: derived
   /wallets/{wallet_address}/offers_made:
     get:
       deprecated: false
-      summary: Get offers made by a wallet.
+      summary: Get offers made by a wallet
       security: []
       responses:
         '200':
@@ -307,11 +315,13 @@ paths:
         schema:
           $ref: '#/components/schemas/SortDirQuery'
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddressOffersMade
+      x-operation-id-source: derived
   /wallets/{wallet_address}/offers_received:
     get:
       deprecated: false
-      summary: Get offers received by a wallet.
+      summary: Get offers received by a wallet
       security: []
       responses:
         '200':
@@ -388,11 +398,13 @@ paths:
         schema:
           type: integer
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddressOffersReceived
+      x-operation-id-source: derived
   /wallets/{wallet_address}/tokens:
     get:
       deprecated: false
-      summary: Get tokens owned by a wallet.
+      summary: Get tokens owned by a wallet
       security: []
       responses:
         '200':
@@ -509,9 +521,72 @@ paths:
         schema:
           $ref: '#/components/schemas/SortDirQuery'
       tags:
-      - wallets
+      - Wallets
+      operationId: getWalletsByWalletAddressTokens
+      x-operation-id-source: derived
 components:
   schemas:
+    IAttributeV2:
+      properties:
+        trait_type:
+          type: string
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
+    EscrowBalance:
+      properties:
+        buyerEscrow:
+          type: string
+        balance:
+          type: number
+          format: double
+      required:
+      - buyerEscrow
+      - balance
+      type: object
+      additionalProperties: false
+    ListingSortOptions:
+      type: string
+      enum:
+      - updatedAt
+      - listPrice
+    SwaggerFriendlyPriceInfo:
+      properties:
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+      required:
+      - solPrice
+      type: object
+      additionalProperties: false
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
+    ListStatus:
+      type: string
+      enum:
+      - listed
+      - unlisted
+      - both
+    IPropertiesV2File:
+      properties:
+        uri:
+          type: string
+        type:
+          type: string
+        cdn:
+          type: boolean
+      required:
+      - uri
+      - type
+      type: object
+      additionalProperties: false
     Partial_ICreatorV2_:
       properties:
         address:
@@ -534,106 +609,12 @@ components:
       - value
       type: object
       additionalProperties: false
-    OfferReceivedSort:
-      type: string
-      enum:
-      - updatedAt
-      - bidAmount
-    SwaggerFriendlyIActivityV2:
-      properties:
-        type:
-          type: string
-        collection:
-          type: string
-          deprecated: true
-        image:
-          type: string
-        price:
-          type: number
-          format: double
-        tokenMint:
-          type: string
-        seller:
-          type:
-          - string
-          - 'null'
-        sellerReferral:
-          type: string
-        signature:
-          type: string
-        source:
-          type: string
-        collectionSymbol:
-          type: string
-        slot:
-          type: number
-          format: double
-        blockTime:
-          type: number
-          format: double
-        buyer:
-          type:
-          - string
-          - 'null'
-        buyerReferral:
-          type: string
-        priceInfo:
-          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
-      required:
-      - type
-      - price
-      - signature
-      - source
-      - slot
-      - blockTime
-      type: object
-      additionalProperties: false
-    ListStatus:
-      type: string
-      enum:
-      - listed
-      - unlisted
-      - both
-    SwaggerFriendlyPriceInfo:
-      properties:
-        solPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-        splPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-      required:
-      - solPrice
-      type: object
-      additionalProperties: false
-    EscrowBalance:
-      properties:
-        buyerEscrow:
-          type: string
-        balance:
-          type: number
-          format: double
-      required:
-      - buyerEscrow
-      - balance
-      type: object
-      additionalProperties: false
-    IPropertiesV2:
-      properties:
-        files:
-          items:
-            $ref: '#/components/schemas/IPropertiesV2File'
-          type: array
-        category:
-          type: string
-        creators:
-          items:
-            $ref: '#/components/schemas/Partial_ICreatorV2_'
-          type: array
-      required:
-      - files
-      - category
-      - creators
-      type: object
-      additionalProperties: false
+    SwaggerNftAttributeSchema:
+      items:
+        items:
+          $ref: '#/components/schemas/SwaggerNftAttribute'
+        type: array
+      type: array
     IOfferV2:
       properties:
         pdaAddress:
@@ -665,59 +646,11 @@ components:
       - expiry
       type: object
       additionalProperties: false
-    IAttributeV2:
-      properties:
-        trait_type:
-          type: string
-        value: {}
-      required:
-      - trait_type
-      - value
-      type: object
-      additionalProperties: false
-    ListingSortOptions:
+    OfferReceivedSort:
       type: string
       enum:
       - updatedAt
-      - listPrice
-    SwaggerFriendlyTokenAmount:
-      properties:
-        rawAmount:
-          type: string
-        address:
-          type: string
-          description: The identifier of the amount.
-        decimals:
-          type: number
-          format: double
-          description: The number of decimals in the amount.
-      required:
-      - rawAmount
-      - address
-      - decimals
-      type: object
-      additionalProperties: false
-    SwaggerNftAttributeSchema:
-      items:
-        items:
-          $ref: '#/components/schemas/SwaggerNftAttribute'
-        type: array
-      type: array
-    SortDirQuery:
-      type: string
-      enum:
-      - asc
-      - desc
-    TokenStandard:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - -1
-      type: number
+      - bidAmount
     SwaggerFriendlyITokenV2:
       properties:
         mintAddress:
@@ -781,19 +714,6 @@ components:
       - image
       type: object
       additionalProperties: false
-    IPropertiesV2File:
-      properties:
-        uri:
-          type: string
-        type:
-          type: string
-        cdn:
-          type: boolean
-      required:
-      - uri
-      - type
-      type: object
-      additionalProperties: false
     IWalletOwnerInfo:
       properties:
         walletAddress:
@@ -806,6 +726,100 @@ components:
           type: string
       required:
       - walletAddress
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyIActivityV2:
+      properties:
+        type:
+          type: string
+        collection:
+          type: string
+          deprecated: true
+        image:
+          type: string
+        price:
+          type: number
+          format: double
+        tokenMint:
+          type: string
+        seller:
+          type:
+          - string
+          - 'null'
+        sellerReferral:
+          type: string
+        signature:
+          type: string
+        source:
+          type: string
+        collectionSymbol:
+          type: string
+        slot:
+          type: number
+          format: double
+        blockTime:
+          type: number
+          format: double
+        buyer:
+          type:
+          - string
+          - 'null'
+        buyerReferral:
+          type: string
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - type
+      - price
+      - signature
+      - source
+      - slot
+      - blockTime
+      type: object
+      additionalProperties: false
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
+    SwaggerFriendlyTokenAmount:
+      properties:
+        rawAmount:
+          type: string
+        address:
+          type: string
+          description: The identifier of the amount.
+        decimals:
+          type: number
+          format: double
+          description: The number of decimals in the amount.
+      required:
+      - rawAmount
+      - address
+      - decimals
+      type: object
+      additionalProperties: false
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
       type: object
       additionalProperties: false
   securitySchemes:

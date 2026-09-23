@@ -151,12 +151,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RareSatsGetListingsSchema'
+      operationId: getV2OrdBtcRaresatsListings
+      x-operation-id-source: derived
   /v2/ord/btc/raresats/wallet/utxos:
     get:
       tags:
       - Rare Sats
       summary: Get Rare Sats by Address
-      description: Get Rare Sats by Address
       parameters:
       - name: walletAddress
         in: query
@@ -208,6 +209,8 @@ paths:
                     type: integer
                   nextOffset:
                     type: string
+      operationId: getV2OrdBtcRaresatsWalletUtxos
+      x-operation-id-source: derived
   /v2/ord/btc/raresats/listing-psbt:
     post:
       tags:
@@ -227,6 +230,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RareSatsListingsPSBTResultSchema'
+      operationId: postV2OrdBtcRaresatsListingPsbt
+      x-operation-id-source: derived
   /v2/ord/btc/raresats/listing:
     post:
       tags:
@@ -246,53 +251,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RareSatsListingResultSchema'
+      operationId: postV2OrdBtcRaresatsListing
+      x-operation-id-source: derived
 components:
   schemas:
-    RareSatsGetListingsItem:
+    RareSatsItemAdditionalSchema:
       type: object
       properties:
-        id:
-          type: string
-        genesisTransaction:
-          type: string
-        genesisTransactionBlockTime:
-          type: string
-        genesisTransactionBlockHash:
-          type: string
-        genesisTransactionBlockHeight:
-          type: number
-        outputValue:
-          type: number
-        owner:
-          type: string
-        listed:
-          type: boolean
-        listedAt:
-          type: string
-        listedPrice:
-          type: number
-        listedSellerReceiverAddress:
-          type: string
-        minBlockHeight:
-          type: number
-        maxBlockHeight:
-          type: number
-        minBlockTime:
-          type: string
-        maxBlockTime:
-          type: string
-        minSatRange:
-          type: number
-        maxSatRange:
-          type: number
-        minUnitPrice:
-          type: number
-        maxUnitPrice:
-          type: number
-        satRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/RareSatsSatRanges'
+        rareSatsUtxo:
+          $ref: '#/components/schemas/RareSatsUtxoSchema'
     SatributesSchema:
       type: string
       enum:
@@ -325,28 +292,6 @@ components:
       - JPEG
       - Legacy
       - Hitman
-    RareSatsListingRequestSchema:
-      type: object
-      required:
-      - listings
-      - signedCombinedPSBTBase64
-      properties:
-        listings:
-          type: array
-          items:
-            $ref: '#/components/schemas/RareSatsListingSchema'
-        signedCombinedPSBTBase64:
-          description: The selling PSBT must be signed by the rare sats owner. The unsigned PSBT can be generated using the `POST /listing-psbt` endpoint
-          type: string
-    RareSatsListingsPSBTRequestSchema:
-      type: object
-      required:
-      - listings
-      properties:
-        listings:
-          type: array
-          items:
-            $ref: '#/components/schemas/RareSatsListingsPSBTRequestSchemaSingleItem'
     RareSatsListingsPSBTRequestSchemaSingleItem:
       type: object
       required:
@@ -364,63 +309,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RareSatsSatRangePriceSchema'
-    RareSatsListingSchema:
-      type: object
-      required:
-      - sellerReceiveAddress
-      - price
-      - utxoId
-      - satRangePrices
-      - signedListingPSBTBase64
-      - makerFee
-      properties:
-        sellerReceiveAddress:
-          type: string
-        price:
-          description: The total price of the listed rare sats utxo. Must be equal to the sum of the price of each sat range
-          type: number
-        utxoId:
-          type: string
-        satRangePrices:
-          type: array
-          items:
-            $ref: '#/components/schemas/RareSatsSatRangePriceSchema'
-        signedListingPSBTBase64:
-          description: Same as the signedCombinedPSBTBase64
-          type: string
-        makerFee:
-          description: Will be deprecated
-          type: number
-        publicKey:
-          type: string
     SatributesArraySchema:
       type: array
       items:
         $ref: '#/components/schemas/SatributesSchema'
-    RareSatsSatRangePriceSchema:
-      type: object
-      required:
-      - id
-      - from
-      - to
-      - parentFrom
-      - parentTo
-      - satributes
-      properties:
-        id:
-          type: string
-        from:
-          type: number
-        to:
-          type: number
-        parentFrom:
-          type: number
-        parentTo:
-          type: number
-        unitPrice:
-          type: number
-        satributes:
-          $ref: '#/components/schemas/SatributesArraySchema'
     RareSatsSatRanges:
       type: object
       properties:
@@ -444,32 +336,6 @@ components:
           type: number
         blockInfo:
           $ref: '#/components/schemas/BlockInfoSchema'
-    RareSatsItemAdditionalSchema:
-      type: object
-      properties:
-        rareSatsUtxo:
-          $ref: '#/components/schemas/RareSatsUtxoSchema'
-    RareSatsListingPSBTResultSchema:
-      type: object
-      required:
-      - sellerReceiveAddress
-      - price
-      - utxoId
-      - unsignedListingPSBTBase64
-      - makerFee
-      properties:
-        sellerReceiveAddress:
-          type: string
-        price:
-          type: number
-        utxoId:
-          type: string
-        unsignedListingPSBTBase64:
-          type: string
-        makerFee:
-          type: number
-        publicKey:
-          type: string
     ItemSchema:
       type: object
       properties:
@@ -562,38 +428,50 @@ components:
           type: number
         domain:
           type: string
-    RareSatsGetListingsSchema:
+    RareSatsListingSchema:
       type: object
+      required:
+      - sellerReceiveAddress
+      - price
+      - utxoId
+      - satRangePrices
+      - signedListingPSBTBase64
+      - makerFee
       properties:
-        tokens:
+        sellerReceiveAddress:
+          type: string
+        price:
+          description: The total price of the listed rare sats utxo. Must be equal to the sum of the price of each sat range
+          type: number
+        utxoId:
+          type: string
+        satRangePrices:
           type: array
           items:
-            $ref: '#/components/schemas/RareSatsGetListingsItem'
-    RareSatsUtxoSchema:
+            $ref: '#/components/schemas/RareSatsSatRangePriceSchema'
+        signedListingPSBTBase64:
+          description: Same as the signedCombinedPSBTBase64
+          type: string
+        makerFee:
+          description: Will be deprecated
+          type: number
+        publicKey:
+          type: string
+    RareSatsListingResultSchema:
       type: object
+      required:
+      - ok
+      - listed
+      - failed
       properties:
-        id:
-          type: string
-        txId:
-          type: string
-        vout:
-          type: number
-        value:
-          type: number
-        address:
-          type: string
-        blockInfo:
-          $ref: '#/components/schemas/BlockInfoSchema'
-        listedPrice:
-          type: number
-        satRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/RareSatsSatRanges'
-        hasUninscribedRareSat:
+        ok:
           type: boolean
-        floorValue:
+        listed:
           type: number
+        failed:
+          type: array
+          items:
+            type: string
     RareSatsListingsPSBTResultSchema:
       type: object
       required:
@@ -620,6 +498,13 @@ components:
             type: number
         toSignSigHash:
           type: number
+    RareSatsGetListingsSchema:
+      type: object
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsGetListingsItem'
     BlockInfoSchema:
       type: object
       properties:
@@ -629,21 +514,143 @@ components:
           type: number
         blockTime:
           type: string
-    RareSatsListingResultSchema:
+    RareSatsSatRangePriceSchema:
       type: object
       required:
-      - ok
-      - listed
-      - failed
+      - id
+      - from
+      - to
+      - parentFrom
+      - parentTo
+      - satributes
       properties:
-        ok:
-          type: boolean
-        listed:
+        id:
+          type: string
+        from:
           type: number
-        failed:
+        to:
+          type: number
+        parentFrom:
+          type: number
+        parentTo:
+          type: number
+        unitPrice:
+          type: number
+        satributes:
+          $ref: '#/components/schemas/SatributesArraySchema'
+    RareSatsUtxoSchema:
+      type: object
+      properties:
+        id:
+          type: string
+        txId:
+          type: string
+        vout:
+          type: number
+        value:
+          type: number
+        address:
+          type: string
+        blockInfo:
+          $ref: '#/components/schemas/BlockInfoSchema'
+        listedPrice:
+          type: number
+        satRanges:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/RareSatsSatRanges'
+        hasUninscribedRareSat:
+          type: boolean
+        floorValue:
+          type: number
+    RareSatsListingRequestSchema:
+      type: object
+      required:
+      - listings
+      - signedCombinedPSBTBase64
+      properties:
+        listings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsListingSchema'
+        signedCombinedPSBTBase64:
+          description: The selling PSBT must be signed by the rare sats owner. The unsigned PSBT can be generated using the `POST /listing-psbt` endpoint
+          type: string
+    RareSatsListingPSBTResultSchema:
+      type: object
+      required:
+      - sellerReceiveAddress
+      - price
+      - utxoId
+      - unsignedListingPSBTBase64
+      - makerFee
+      properties:
+        sellerReceiveAddress:
+          type: string
+        price:
+          type: number
+        utxoId:
+          type: string
+        unsignedListingPSBTBase64:
+          type: string
+        makerFee:
+          type: number
+        publicKey:
+          type: string
+    RareSatsGetListingsItem:
+      type: object
+      properties:
+        id:
+          type: string
+        genesisTransaction:
+          type: string
+        genesisTransactionBlockTime:
+          type: string
+        genesisTransactionBlockHash:
+          type: string
+        genesisTransactionBlockHeight:
+          type: number
+        outputValue:
+          type: number
+        owner:
+          type: string
+        listed:
+          type: boolean
+        listedAt:
+          type: string
+        listedPrice:
+          type: number
+        listedSellerReceiverAddress:
+          type: string
+        minBlockHeight:
+          type: number
+        maxBlockHeight:
+          type: number
+        minBlockTime:
+          type: string
+        maxBlockTime:
+          type: string
+        minSatRange:
+          type: number
+        maxSatRange:
+          type: number
+        minUnitPrice:
+          type: number
+        maxUnitPrice:
+          type: number
+        satRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsSatRanges'
+    RareSatsListingsPSBTRequestSchema:
+      type: object
+      required:
+      - listings
+      properties:
+        listings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RareSatsListingsPSBTRequestSchemaSingleItem'
   securitySchemes:
     BearerAuth:
       type: http

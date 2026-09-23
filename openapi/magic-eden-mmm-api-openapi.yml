@@ -128,6 +128,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmCreatePool
+      x-operation-id-source: derived
   /instructions/mmm/sol-close-pool:
     get:
       deprecated: false
@@ -158,6 +160,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmSolClosePool
+      x-operation-id-source: derived
   /instructions/mmm/sol-deposit-buy:
     get:
       deprecated: false
@@ -195,6 +199,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmSolDepositBuy
+      x-operation-id-source: derived
   /instructions/mmm/sol-fulfill-buy:
     get:
       deprecated: false
@@ -274,6 +280,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmSolFulfillBuy
+      x-operation-id-source: derived
   /instructions/mmm/sol-fulfill-sell:
     get:
       deprecated: false
@@ -346,6 +354,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmSolFulfillSell
+      x-operation-id-source: derived
   /instructions/mmm/sol-withdraw-buy:
     get:
       deprecated: false
@@ -383,6 +393,8 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmSolWithdrawBuy
+      x-operation-id-source: derived
   /instructions/mmm/update-pool:
     get:
       deprecated: false
@@ -476,10 +488,12 @@ paths:
           type: number
       tags:
       - mmm
+      operationId: getInstructionsMmmUpdatePool
+      x-operation-id-source: derived
   /mmm/pools:
     get:
       deprecated: false
-      summary: Get AMM pools corresponding to an owner or collection symbol. At least one of required collectionSymbol or owner is required!
+      summary: Get AMM pools corresponding to an owner or collection symbol.
       security: []
       responses:
         '200':
@@ -615,6 +629,8 @@ paths:
           $ref: '#/components/schemas/DirectionOptions'
       tags:
       - mmm
+      operationId: getMmmPools
+      x-operation-id-source: derived
   /mmm/token/{mint_address}/pools:
     get:
       deprecated: false
@@ -675,44 +691,61 @@ paths:
           type: integer
       tags:
       - mmm
+      operationId: getMmmTokenByMintAddressPools
+      x-operation-id-source: derived
 components:
   schemas:
-    ISharedEscrowInfo:
+    IAttributeV2:
       properties:
-        sharedEscrowAddress:
+        trait_type:
           type: string
-        sharedEscrowCount:
-          type: number
-          format: double
-        sharedEscrowBuysidePaymentAmount:
-          type: number
-          format: double
+        value: {}
       required:
-      - sharedEscrowAddress
-      - sharedEscrowCount
-      - sharedEscrowBuysidePaymentAmount
+      - trait_type
+      - value
       type: object
       additionalProperties: false
-    MMM.PoolTypeString:
-      type: string
-      enum:
-      - buy_sided
-      - sell_sided
-      - two_sided
-      - invalid
+    IMmmPoolV2Response:
+      properties:
+        results:
+          items:
+            allOf:
+            - $ref: '#/components/schemas/Omit_IMmmPoolV2.updatedAt_'
+            - properties:
+                updatedAt:
+                  type: string
+              required:
+              - updatedAt
+              type: object
+          type: array
+      required:
+      - results
+      type: object
+    IBuffer:
+      properties:
+        type:
+          type: string
+          enum:
+          - Buffer
+        data:
+          items:
+            type: number
+            format: double
+          type: array
+      required:
+      - type
+      - data
+      type: object
+      additionalProperties: false
     DirectionOptions:
       type: string
       enum:
       - '0'
       - '1'
       - '2'
-    FieldOptions:
-      type: string
-      enum:
-      - '0'
-      - '1'
-      - '2'
-      - '5'
+    Omit_IMmmPoolV2.updatedAt_:
+      $ref: '#/components/schemas/Pick_IMmmPoolV2.Exclude_keyofIMmmPoolV2.updatedAt__'
+      description: Construct a type with the properties of T except for those in type K.
     Pick_IMmmPoolV2.Exclude_keyofIMmmPoolV2.updatedAt__:
       properties:
         collectionName:
@@ -812,48 +845,6 @@ components:
       - lpFeeEarned
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    IMmmPoolV2Response:
-      properties:
-        results:
-          items:
-            allOf:
-            - $ref: '#/components/schemas/Omit_IMmmPoolV2.updatedAt_'
-            - properties:
-                updatedAt:
-                  type: string
-              required:
-              - updatedAt
-              type: object
-          type: array
-      required:
-      - results
-      type: object
-    IAttributeV2:
-      properties:
-        trait_type:
-          type: string
-        value: {}
-      required:
-      - trait_type
-      - value
-      type: object
-      additionalProperties: false
-    IBuffer:
-      properties:
-        type:
-          type: string
-          enum:
-          - Buffer
-        data:
-          items:
-            type: number
-            format: double
-          type: array
-      required:
-      - type
-      - data
-      type: object
-      additionalProperties: false
     Transaction:
       properties:
         tx:
@@ -864,15 +855,42 @@ components:
       - tx
       type: object
       additionalProperties: false
+    ISharedEscrowInfo:
+      properties:
+        sharedEscrowAddress:
+          type: string
+        sharedEscrowCount:
+          type: number
+          format: double
+        sharedEscrowBuysidePaymentAmount:
+          type: number
+          format: double
+      required:
+      - sharedEscrowAddress
+      - sharedEscrowCount
+      - sharedEscrowBuysidePaymentAmount
+      type: object
+      additionalProperties: false
+    MMM.PoolTypeString:
+      type: string
+      enum:
+      - buy_sided
+      - sell_sided
+      - two_sided
+      - invalid
+    FieldOptions:
+      type: string
+      enum:
+      - '0'
+      - '1'
+      - '2'
+      - '5'
     MMM.CurveKindString:
       type: string
       enum:
       - linear
       - exp
       - xyk
-    Omit_IMmmPoolV2.updatedAt_:
-      $ref: '#/components/schemas/Pick_IMmmPoolV2.Exclude_keyofIMmmPoolV2.updatedAt__'
-      description: Construct a type with the properties of T except for those in type K.
   securitySchemes:
     BearerAuth:
       type: http

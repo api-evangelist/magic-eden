@@ -17,7 +17,6 @@ paths:
       tags:
       - Runes Swap
       summary: Get available rune quotes with given parameters for the swap
-      description: Get available rune quotes with given parameters for the swap
       parameters:
       - name: runeTicker
         in: query
@@ -60,12 +59,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetQuoteResponseSchema'
+      operationId: getV2OrdBtcRunesQuote
+      x-operation-id-source: derived
   /v2/ord/btc/runes/psbt/swap:
     post:
       tags:
       - Runes Swap
       summary: Get an unsigned PSBT for swapping runes
-      description: Get an unsigned PSBT for swapping runes
       requestBody:
         description: Post Request Body for get unsigned PSBT for swapping runes
         content:
@@ -79,12 +79,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetRuneSwapPsbtResponseSchema'
+      operationId: postV2OrdBtcRunesPsbtSwap
+      x-operation-id-source: derived
   /v2/ord/btc/runes/swap:
     post:
       tags:
       - Runes Swap
       summary: Post a signed PSBT to broadcast the swapping transaction
-      description: Post a signed PSBT to broadcast the swapping transaction
       requestBody:
         description: Post Request Body for swapping runes
         content:
@@ -98,187 +99,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostRuneSwapPsbtResponseSchema'
+      operationId: postV2OrdBtcRunesSwap
+      x-operation-id-source: derived
 components:
   schemas:
-    GetRuneSwapPsbtRequestSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: The amount for the swap, represented as a string to accommodate large integers.
-          minimum: 1
-        priceToleranceBp:
-          type:
-          - integer
-          - 'null'
-          description: The price tolerance in percentate x 10000.
-        runeTicker:
-          type: string
-          description: The ticker symbol for the rune.
-        side:
-          type: string
-          enum:
-          - buy
-          - sell
-          description: The side of the trade, either "buy" or "sell".
-        takerPaymentAddress:
-          type: string
-          description: The payment address of the taker.
-        takerPublicKey:
-          type:
-          - string
-          - 'null'
-          description: The public key of the taker, required for buying.
-        takerRunesAddress:
-          type: string
-          description: The runes address of the taker.
-        takerRunesPublicKey:
-          type:
-          - string
-          - 'null'
-          description: The runes public key of the taker, required for selling.
-        feeRateTier:
-          type: string
-          enum:
-          - custom
-          - minimumFee
-          - halfHourFee
-          - hourFee
-          - fastestFee
-          description: The fee rate tier.
-          default: hourFee
-        feeRateNum:
-          type:
-          - number
-          - 'null'
-          description: The numerical fee rate.
-        legacyListingOnly:
-          type:
-          - boolean
-          - 'null'
-          description: Flag indicating if only legacy listings should be considered.
-        rbfPreventionListingOnly:
-          type:
-          - boolean
-          - 'null'
-          description: Flag indicating if only RBF prevention listings should be considered.
-      required:
-      - amount
-      - runeTicker
-      - side
-      - takerPaymentAddress
-      - takerRunesAddress
-    PostRuneSwapPsbtRequestSchema:
-      type: object
-      properties:
-        requestId:
-          type: string
-          description: The unique request identifier.
-        signedPsbts:
-          type: array
-          items:
-            $ref: '#/components/schemas/SignedSwapPsbtSchema'
-          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
-      required:
-      - requestId
-      - signedPsbts
-    RuneSwapErrorSchema:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - legacy-buy
-          - rbf-buy
-          - market-sell
-          description: The type of the Rune swap transaction error.
-        message:
-          type: string
-          description: The error message.
-      required:
-      - type
-      - message
-    GetRuneSwapPsbtResponseSchema:
-      type: object
-      properties:
-        btcChangeOutputIndex:
-          type:
-          - integer
-          - 'null'
-          description: The index of the BTC change output, optional for sweeping post split.
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RuneSwapErrorSchema'
-          description: An array of errors encountered during the swap process.
-        psbts:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneSwapPsbtSchema'
-          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
-        quote:
-          $ref: '#/components/schemas/GetQuoteResponseSchema'
-          description: The quote details for the swap.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-        requestId:
-          type: string
-          description: The unique request identifier.
-      required:
-      - psbts
-      - quote
-      - settlement
-      - requestId
-    RuneSwapPsbtSchema:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - legacy-buy
-          - rbf-buy
-          - market-sell
-          description: The type of the Rune swap transaction.
-        paymentUtxoIndexes:
-          type: array
-          items:
-            type: integer
-          description: Array of payment UTXO indexes.
-        psbtBase64:
-          type: string
-          description: The PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-        runeUtxoIndexes:
-          type: array
-          items:
-            type: integer
-          description: Array of rune UTXO indexes.
-      required:
-      - type
-      - paymentUtxoIndexes
-      - psbtBase64
-      - settlement
-      - runeUtxoIndexes
-    SettlementSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
     GetQuoteResponseSchema:
       type: object
       properties:
@@ -349,6 +173,109 @@ components:
           description: An array of transactions with their types and IDs.
       required:
       - txs
+    GetRuneSwapPsbtResponseSchema:
+      type: object
+      properties:
+        btcChangeOutputIndex:
+          type:
+          - integer
+          - 'null'
+          description: The index of the BTC change output, optional for sweeping post split.
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RuneSwapErrorSchema'
+          description: An array of errors encountered during the swap process.
+        psbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapPsbtSchema'
+          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
+        quote:
+          $ref: '#/components/schemas/GetQuoteResponseSchema'
+          description: The quote details for the swap.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        requestId:
+          type: string
+          description: The unique request identifier.
+      required:
+      - psbts
+      - quote
+      - settlement
+      - requestId
+    GetRuneSwapPsbtRequestSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: The amount for the swap, represented as a string to accommodate large integers.
+          minimum: 1
+        priceToleranceBp:
+          type:
+          - integer
+          - 'null'
+          description: The price tolerance in percentate x 10000.
+        runeTicker:
+          type: string
+          description: The ticker symbol for the rune.
+        side:
+          type: string
+          enum:
+          - buy
+          - sell
+          description: The side of the trade, either "buy" or "sell".
+        takerPaymentAddress:
+          type: string
+          description: The payment address of the taker.
+        takerPublicKey:
+          type:
+          - string
+          - 'null'
+          description: The public key of the taker, required for buying.
+        takerRunesAddress:
+          type: string
+          description: The runes address of the taker.
+        takerRunesPublicKey:
+          type:
+          - string
+          - 'null'
+          description: The runes public key of the taker, required for selling.
+        feeRateTier:
+          type: string
+          enum:
+          - custom
+          - minimumFee
+          - halfHourFee
+          - hourFee
+          - fastestFee
+          description: The fee rate tier.
+          default: hourFee
+        feeRateNum:
+          type:
+          - number
+          - 'null'
+          description: The numerical fee rate.
+        legacyListingOnly:
+          type:
+          - boolean
+          - 'null'
+          description: Flag indicating if only legacy listings should be considered.
+        rbfPreventionListingOnly:
+          type:
+          - boolean
+          - 'null'
+          description: Flag indicating if only RBF prevention listings should be considered.
+      required:
+      - amount
+      - runeTicker
+      - side
+      - takerPaymentAddress
+      - takerRunesAddress
     SignedSwapPsbtSchema:
       type: object
       properties:
@@ -357,6 +284,82 @@ components:
           description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
       required:
       - signedPsbtBase64
+    RuneSwapErrorSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - legacy-buy
+          - rbf-buy
+          - market-sell
+          description: The type of the Rune swap transaction error.
+        message:
+          type: string
+          description: The error message.
+      required:
+      - type
+      - message
+    PostRuneSwapPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request identifier.
+        signedPsbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignedSwapPsbtSchema'
+          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
+      required:
+      - requestId
+      - signedPsbts
+    RuneSwapPsbtSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - legacy-buy
+          - rbf-buy
+          - market-sell
+          description: The type of the Rune swap transaction.
+        paymentUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of payment UTXO indexes.
+        psbtBase64:
+          type: string
+          description: The PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+      required:
+      - type
+      - paymentUtxoIndexes
+      - psbtBase64
+      - settlement
+      - runeUtxoIndexes
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
   securitySchemes:
     BearerAuth:
       type: http

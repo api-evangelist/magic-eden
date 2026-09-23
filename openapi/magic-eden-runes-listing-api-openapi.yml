@@ -17,7 +17,6 @@ paths:
       tags:
       - Runes Listing
       summary: Submit a signed message for cancelling a rune sell order
-      description: Submit a signed message for cancelling a rune sell order
       requestBody:
         description: Post Request Body for cancelling a rune sell order
         content:
@@ -31,12 +30,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostRunesOrderCancelResultSchema'
+      operationId: postV2OrdBtcRunesOrderCancel
+      x-operation-id-source: derived
   /v2/ord/btc/runes/order/create:
     post:
       tags:
       - Runes Listing
       summary: Submit a signed PSBT for creating a rune sell order
-      description: Submit a signed PSBT for creating a rune sell order
       requestBody:
         description: PSBT Post Request Body for creating a rune sell order
         content:
@@ -50,12 +50,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostRunesOrderCreateResultSchema'
+      operationId: postV2OrdBtcRunesOrderCreate
+      x-operation-id-source: derived
   /v2/ord/btc/runes/psbt/order/cancel:
     post:
       tags:
       - Runes Listing
       summary: Get an unsigned message for cancelling a rune sell order
-      description: Get an unsigned message for cancelling a rune sell order
       requestBody:
         description: Post Request Body for cancelling a rune sell order
         content:
@@ -69,12 +70,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostRunesPSBTOrderCancelResultSchema'
+      operationId: postV2OrdBtcRunesPsbtOrderCancel
+      x-operation-id-source: derived
   /v2/ord/btc/runes/psbt/order/create:
     post:
       tags:
       - Runes Listing
       summary: Get an unsigned PSBT for creating a rune sell order
-      description: Get an unsigned PSBT for creating a rune sell order
       requestBody:
         description: PSBT Post Request Body for creating a rune sell order
         content:
@@ -88,20 +90,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostRunesPSBTOrderCreateResultSchema'
+      operationId: postV2OrdBtcRunesPsbtOrderCreate
+      x-operation-id-source: derived
 components:
   schemas:
-    PostRunesOrderCancelResultSchema:
-      type: object
-      required:
-      - orderIds
-      properties:
-        orderIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-          description: Array of UUIDs for successfully cancelled orders.
-      additionalProperties: false
     PostRunesPSBTOrderCancelResultSchema:
       type: object
       required:
@@ -121,18 +113,6 @@ components:
           type: string
           description: Unsigned message of cancellation request.
       additionalProperties: false
-    PostRunesOrderCreateResultSchema:
-      type: object
-      required:
-      - orderIds
-      properties:
-        orderIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-          description: Array of UUIDs for successfully created orders.
-      additionalProperties: false
     PostRunesPSBTOrderCreateResultSchema:
       type: object
       required:
@@ -147,67 +127,17 @@ components:
           items:
             $ref: '#/components/schemas/UnsignedRBFProtectedPSBTSchema'
       additionalProperties: false
-    PostRunesPSBTOrderCreateRequestSchema:
+    PostRunesOrderCreateResultSchema:
       type: object
       required:
-      - side
-      - rune
-      - makerRunesPublicKey
-      - makerRunesAddress
-      - makerReceiveAddress
-      - utxos
-      - expiresAt
+      - orderIds
       properties:
-        side:
-          type: string
-          enum:
-          - sell
-          description: Currently only 'sell' orders are supported.
-        rune:
-          type: string
-          pattern: ^[A-Z]{1,26}$
-          description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long.
-        makerRunesPublicKey:
-          type: string
-          oneOf:
-          - pattern: ^([0-9a-f]){66}$
-          - pattern: ^([0-9a-f]){64}$
-          description: Bitcoin public key, either a standard or x-only format.
-        makerRunesAddress:
-          type: string
-          oneOf:
-          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
-          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
-          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
-          description: Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
-        makerReceiveAddress:
-          type: string
-          oneOf:
-          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
-          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
-          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
-          description: Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
-        utxos:
+        orderIds:
           type: array
-          maxItems: 100
           items:
-            type: object
-            required:
-            - location
-            - priceSats
-            properties:
-              location:
-                type: string
-                description: Location identifier for the UTXO.
-              priceSats:
-                type: integer
-                minimum: 10000
-                maximum: 3000000000
-                description: Price in satoshis, within specified limits.
-        expiresAt:
-          type: string
-          format: date-time
-          description: Expiration date and time of the order.
+            type: string
+            format: uuid
+          description: Array of UUIDs for successfully created orders.
       additionalProperties: false
     UnsignedRBFProtectedPSBTSchema:
       type: object
@@ -223,6 +153,59 @@ components:
         toSignSigHash:
           type: number
           description: Signature hash type for signing.
+    PostRunesOrderCreateRequestSchema:
+      type: object
+      required:
+      - side
+      - signedPsbtBase64
+      - symbol
+      - makerRunesPublicKey
+      - makerRunesAddress
+      - makerReceiveAddress
+      - expiresAt
+      properties:
+        side:
+          type: string
+          enum:
+          - sell
+          description: Only 'sell' orders are currently supported.
+        signedPsbtBase64:
+          type: string
+          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction).
+        symbol:
+          type: string
+          description: Symbol representing the asset being transacted.
+        makerRunesPublicKey:
+          type: string
+          oneOf:
+          - pattern: ^([0-9a-f]){66}$
+          - pattern: ^([0-9a-f]){64}$
+          description: Maker's Bitcoin public key, either a standard or x-only format.
+        makerRunesAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+        makerReceiveAddress:
+          type: string
+          oneOf:
+          - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
+          - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
+          - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
+          description: Maker's Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiration date and time for the order.
+        signedRBFProtectedPsbts:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of the RBF protected sell order.
+      additionalProperties: false
     PostRunesOrderCancelRequestSchema:
       type: object
       required:
@@ -289,58 +272,79 @@ components:
           - pattern: ^([0-9a-f]){64}$
           description: Maker's Bitcoin public key, either a standard or x-only format.
       additionalProperties: false
-    PostRunesOrderCreateRequestSchema:
+    PostRunesPSBTOrderCreateRequestSchema:
       type: object
       required:
       - side
-      - signedPsbtBase64
-      - symbol
+      - rune
       - makerRunesPublicKey
       - makerRunesAddress
       - makerReceiveAddress
+      - utxos
       - expiresAt
       properties:
         side:
           type: string
           enum:
           - sell
-          description: Only 'sell' orders are currently supported.
-        signedPsbtBase64:
+          description: Currently only 'sell' orders are supported.
+        rune:
           type: string
-          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction).
-        symbol:
-          type: string
-          description: Symbol representing the asset being transacted.
+          pattern: ^[A-Z]{1,26}$
+          description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long.
         makerRunesPublicKey:
           type: string
           oneOf:
           - pattern: ^([0-9a-f]){66}$
           - pattern: ^([0-9a-f]){64}$
-          description: Maker's Bitcoin public key, either a standard or x-only format.
+          description: Bitcoin public key, either a standard or x-only format.
         makerRunesAddress:
           type: string
           oneOf:
           - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
           - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
           - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
-          description: Maker's Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
+          description: Bitcoin address, supporting native segwit, Taproot, or P2SH formats.
         makerReceiveAddress:
           type: string
           oneOf:
           - pattern: ^(bc|tb)1q[023456789acdefghjklmnpqrstuvwxyz]{38,58}$
           - pattern: ^(bc|tb)1p[023456789acdefghjklmnpqrstuvwxyz]{58}$
           - pattern: ^[32][1-9A-HJ-NP-Za-km-z]{33,34}$
-          description: Maker's Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
+          description: Bitcoin receive address for the transaction, supporting native segwit, Taproot, or P2SH formats.
+        utxos:
+          type: array
+          maxItems: 100
+          items:
+            type: object
+            required:
+            - location
+            - priceSats
+            properties:
+              location:
+                type: string
+                description: Location identifier for the UTXO.
+              priceSats:
+                type: integer
+                minimum: 10000
+                maximum: 3000000000
+                description: Price in satoshis, within specified limits.
         expiresAt:
           type: string
           format: date-time
-          description: Expiration date and time for the order.
-        signedRBFProtectedPsbts:
+          description: Expiration date and time of the order.
+      additionalProperties: false
+    PostRunesOrderCancelResultSchema:
+      type: object
+      required:
+      - orderIds
+      properties:
+        orderIds:
           type: array
           items:
             type: string
             format: uuid
-          description: Array of Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of the RBF protected sell order.
+          description: Array of UUIDs for successfully cancelled orders.
       additionalProperties: false
   securitySchemes:
     BearerAuth:

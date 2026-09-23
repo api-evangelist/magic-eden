@@ -78,6 +78,8 @@ paths:
           description: Activities not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcActivities
+      x-operation-id-source: derived
   /v2/ord/btc/tokens:
     get:
       summary: Retrieve BTC tokens from Magic Eden
@@ -150,6 +152,8 @@ paths:
           description: Tokens not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcTokens
+      x-operation-id-source: derived
   /v2/ord/btc/attributes:
     get:
       summary: Retrieve BTC attributes from Magic Eden
@@ -216,6 +220,8 @@ paths:
           description: Attributes not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcAttributes
+      x-operation-id-source: derived
   /v2/ord/btc/tokens/{tokenId}:
     get:
       summary: Retrieve BTC token by tokenId
@@ -238,6 +244,8 @@ paths:
           description: Token not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcTokensByTokenId
+      x-operation-id-source: derived
   /v2/ord/btc/stat:
     get:
       summary: Retrieve BTC collection statistics
@@ -260,6 +268,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcStat
+      x-operation-id-source: derived
   /collection_stats/search/bitcoin:
     servers:
     - url: https://nfttools.pro/magiceden_stats
@@ -315,6 +325,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getCollectionStatsSearchBitcoin
+      x-operation-id-source: derived
   /v2/ord/btc/collection-offers/psbt/cancel:
     get:
       summary: Cancel Collection Offers
@@ -349,6 +361,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcCollectionOffersPsbtCancel
+      x-operation-id-source: derived
     post:
       summary: Cancel Collection Offers
       tags:
@@ -400,6 +414,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: postV2OrdBtcCollectionOffersPsbtCancel
+      x-operation-id-source: derived
   /v2/ord/btc/collection-offers/psbt/create:
     get:
       summary: Create Collection Offers
@@ -485,6 +501,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcCollectionOffersPsbtCreate
+      x-operation-id-source: derived
     post:
       summary: Submit Collection Offers
       tags:
@@ -542,6 +560,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: postV2OrdBtcCollectionOffersPsbtCreate
+      x-operation-id-source: derived
   /v2/ord/btc/offers/create:
     get:
       summary: Create Offer for a Token
@@ -604,6 +624,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV2OrdBtcOffersCreate
+      x-operation-id-source: derived
     post:
       tags:
       - Bitcoin
@@ -711,7 +733,7 @@ paths:
     get:
       tags:
       - Bitcoin
-      summary: Retrieve best offers for a specific token.
+      summary: Retrieve best offers for a specific token
       parameters:
       - name: status
         in: query
@@ -765,6 +787,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      operationId: getV2OrdBtcOffers
+      x-operation-id-source: derived
   /v2/ord/btc/offers/cancel:
     get:
       summary: Retrieve cancel offer format

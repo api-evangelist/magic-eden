@@ -11,7 +11,7 @@ servers:
 - url: https://api-mainnet.magiceden.dev/v2
 - url: https://api-devnet.magiceden.dev/v2
 tags:
-- name: instructions
+- name: Instructions
   description: Get instructions for the blockchain
 paths:
   /instructions/buy:
@@ -78,7 +78,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsBuy
+      x-operation-id-source: derived
   /instructions/buy_cancel:
     get:
       deprecated: false
@@ -164,7 +166,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsBuyCancel
+      x-operation-id-source: derived
   /instructions/buy_change_price:
     get:
       deprecated: false
@@ -236,7 +240,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsBuyChangePrice
+      x-operation-id-source: derived
   /instructions/buy_now:
     get:
       deprecated: false
@@ -364,7 +370,9 @@ paths:
         schema:
           type: string
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsBuyNow
+      x-operation-id-source: derived
   /instructions/buy_now_transfer_nft:
     get:
       deprecated: false
@@ -506,7 +514,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsBuyNowTransferNft
+      x-operation-id-source: derived
   /instructions/deposit:
     get:
       deprecated: false
@@ -571,7 +581,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsDeposit
+      x-operation-id-source: derived
   /instructions/sell:
     get:
       deprecated: false
@@ -664,7 +676,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsSell
+      x-operation-id-source: derived
   /instructions/sell_cancel:
     get:
       deprecated: false
@@ -757,7 +771,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsSellCancel
+      x-operation-id-source: derived
   /instructions/sell_change_price:
     get:
       deprecated: false
@@ -836,7 +852,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsSellChangePrice
+      x-operation-id-source: derived
   /instructions/sell_now:
     get:
       deprecated: false
@@ -936,7 +954,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsSellNow
+      x-operation-id-source: derived
   /instructions/withdraw:
     get:
       deprecated: false
@@ -1001,7 +1021,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsWithdraw
+      x-operation-id-source: derived
   /instructions/magic_ticket/burns:
     get:
       deprecated: false
@@ -1031,7 +1053,9 @@ paths:
         schema:
           type: string
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMagicTicketBurns
+      x-operation-id-source: derived
   /instructions/mmm/create-pool:
     get:
       deprecated: false
@@ -1145,7 +1169,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmCreatePool
+      x-operation-id-source: derived
   /instructions/mmm/sol-close-pool:
     get:
       deprecated: false
@@ -1175,7 +1201,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmSolClosePool
+      x-operation-id-source: derived
   /instructions/mmm/sol-deposit-buy:
     get:
       deprecated: false
@@ -1212,7 +1240,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmSolDepositBuy
+      x-operation-id-source: derived
   /instructions/mmm/sol-fulfill-buy:
     get:
       deprecated: false
@@ -1291,7 +1321,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmSolFulfillBuy
+      x-operation-id-source: derived
   /instructions/mmm/sol-fulfill-sell:
     get:
       deprecated: false
@@ -1363,7 +1395,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmSolFulfillSell
+      x-operation-id-source: derived
   /instructions/mmm/sol-withdraw-buy:
     get:
       deprecated: false
@@ -1400,7 +1434,9 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmSolWithdrawBuy
+      x-operation-id-source: derived
   /instructions/mmm/update-pool:
     get:
       deprecated: false
@@ -1493,9 +1529,17 @@ paths:
         schema:
           type: number
       tags:
-      - instructions
+      - Instructions
+      operationId: getInstructionsMmmUpdatePool
+      x-operation-id-source: derived
 components:
   schemas:
+    MMM.CurveKindString:
+      type: string
+      enum:
+      - linear
+      - exp
+      - xyk
     IBuffer:
       properties:
         type:
@@ -1512,12 +1556,6 @@ components:
       - data
       type: object
       additionalProperties: false
-    MMM.CurveKindString:
-      type: string
-      enum:
-      - linear
-      - exp
-      - xyk
     Transaction:
       properties:
         tx:

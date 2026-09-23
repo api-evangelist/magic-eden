@@ -103,6 +103,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getCollectionStatsSearchSolana
+      x-operation-id-source: derived
   /rpc/getCollectionHolderStats/{collectionSymbol}:
     get:
       summary: Get Collection Holder Statistics
@@ -161,6 +163,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getRpcGetCollectionHolderStatsByCollectionSymbol
+      x-operation-id-source: derived
   /idxv2/getAllNftsByCollectionSymbol:
     get:
       summary: Retrieve all NFTs by collection symbol
@@ -238,6 +242,8 @@ paths:
           description: NFTs not found
         '500':
           description: Internal server error
+      operationId: getIdxv2GetAllNftsByCollectionSymbol
+      x-operation-id-source: derived
   /rpc/getNFTsByOwner/{ownerAddress}:
     get:
       summary: Retrieve NFTs by owner
@@ -259,6 +265,8 @@ paths:
           description: NFTs not found
         '500':
           description: Internal server error
+      operationId: getRpcGetNFTsByOwnerByOwnerAddress
+      x-operation-id-source: derived
   /rpc/getCollectionAttributesStats/{collectionSymbol}:
     get:
       summary: Retrieve collection attributes stats
@@ -305,6 +313,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getRpcGetCollectionAttributesStatsByCollectionSymbol
+      x-operation-id-source: derived
   /collections/{collectionSymbol}/organization:
     get:
       summary: Retrieve collection organization details
@@ -333,6 +343,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getCollectionsByCollectionSymbolOrganization
+      x-operation-id-source: derived
   /sft/collection/{collectionSymbol}:
     get:
       summary: Retrieve collection details with pagination
@@ -368,6 +380,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getSftCollectionByCollectionSymbol
+      x-operation-id-source: derived
   /rpc/getCollectionEscrowStats/{collectionSymbol}:
     get:
       summary: Retrieve collection escrow stats
@@ -421,6 +435,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getRpcGetCollectionEscrowStatsByCollectionSymbol
+      x-operation-id-source: derived
   /v2/activities:
     get:
       summary: Get Collection Activities
@@ -478,6 +494,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getV2Activities
+      x-operation-id-source: derived
   /idxv2/getListedNftsByCollectionSymbol:
     get:
       summary: Retrieve listed NFTs by collection symbol
@@ -566,6 +584,8 @@ paths:
           description: NFTs not found
         '500':
           description: Internal server error
+      operationId: getIdxv2GetListedNftsByCollectionSymbol
+      x-operation-id-source: derived
   /collection_watchlists/action/checkUserWatchCollection/{collectionSymbol}:
     get:
       summary: Check if user is watching a collection
@@ -593,6 +613,8 @@ paths:
           description: Collection or user not found
         '500':
           description: Internal server error
+      operationId: getCollectionWatchlistsActionCheckUserWatchCollectionByCollectionSymbol
+      x-operation-id-source: derived
   /collections/{collectionSymbol}:
     get:
       summary: Retrieve collection details
@@ -621,6 +643,8 @@ paths:
           description: Collection not found
         '500':
           description: Internal server error
+      operationId: getCollectionsByCollectionSymbol
+      x-operation-id-source: derived
   /idxv2/getBidsByMintAddresses:
     get:
       summary: Retrieve bids by mint addresses
@@ -680,6 +704,8 @@ paths:
           description: Bids not found
         '500':
           description: Internal server error
+      operationId: getIdxv2GetBidsByMintAddresses
+      x-operation-id-source: derived
   /rpc/getNFTByMintAddress/{mintAddress}:
     get:
       summary: Retrieve NFT by mint address
@@ -734,6 +760,8 @@ paths:
           description: NFT not found
         '500':
           description: Internal server error
+      operationId: getRpcGetNFTByMintAddressByMintAddress
+      x-operation-id-source: derived
   /rpc/getNFTStatsByMintAddress/{mintAddress}:
     get:
       summary: Retrieve NFT stats by mint address
@@ -755,6 +783,8 @@ paths:
           description: NFT stats not found
         '500':
           description: Internal server error
+      operationId: getRpcGetNFTStatsByMintAddressByMintAddress
+      x-operation-id-source: derived
   /v2/collections/{symbol}/activities:
     get:
       summary: Retrieve activities for a collection
@@ -776,6 +806,8 @@ paths:
           description: Activities not found
         '500':
           description: Internal server error
+      operationId: getV2CollectionsBySymbolActivities
+      x-operation-id-source: derived
   /v2/tokens/{token_mint}/listings:
     get:
       summary: Retrieve listings for a token
@@ -797,6 +829,8 @@ paths:
           description: Listings not found
         '500':
           description: Internal server error
+      operationId: getV2TokensByTokenMintListings
+      x-operation-id-source: derived
   /v2/tokens/{token_mint}/offers_received:
     get:
       summary: Retrieve offers received for a token
@@ -884,6 +918,8 @@ paths:
           description: Offers not found
         '500':
           description: Internal server error
+      operationId: getV2TokensByTokenMintOffersReceived
+      x-operation-id-source: derived
   /v2/tokens/{token_mint}/activities:
     get:
       summary: Retrieve activities for a token
@@ -919,6 +955,8 @@ paths:
           description: Activities not found
         '500':
           description: Internal server error
+      operationId: getV2TokensByTokenMintActivities
+      x-operation-id-source: derived
   /v2/tokens/{token_mint}:
     get:
       summary: Retrieve token details by mint address
@@ -940,6 +978,8 @@ paths:
           description: Token not found
         '500':
           description: Internal server error
+      operationId: getV2TokensByTokenMint
+      x-operation-id-source: derived
   /v2/collections/batch/listings:
     post:
       summary: Batch retrieve listings for collections
@@ -1035,6 +1075,8 @@ paths:
           description: Listings not found
         '500':
           description: Internal server error
+      operationId: postV2CollectionsBatchListings
+      x-operation-id-source: derived
   /v2/instructions/sell:
     get:
       tags:
@@ -1084,6 +1126,8 @@ paths:
           description: Invalid parameters
         '500':
           description: Internal server error
+      operationId: getV2InstructionsSell
+      x-operation-id-source: derived
   /v2/tx/{txId}:
     post:
       tags:
@@ -1109,6 +1153,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: postV2TxByTxId
+      x-operation-id-source: derived
   /v2/instructions/buy:
     get:
       tags:
@@ -1142,6 +1188,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      operationId: getV2InstructionsBuy
+      x-operation-id-source: derived
 components:
   securitySchemes:
     ApiKeyAuth:

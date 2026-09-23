@@ -73,6 +73,8 @@ paths:
           type: integer
       tags:
       - launchpad
+      operationId: getLaunchpadCollections
+      x-operation-id-source: derived
 components:
   schemas:
     ILaunchpadCollectionV2:

@@ -43,6 +43,8 @@ paths:
           type: string
       tags:
       - magic-ticket
+      operationId: getInstructionsMagicTicketBurns
+      x-operation-id-source: derived
 components:
   securitySchemes:
     BearerAuth:

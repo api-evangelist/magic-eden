@@ -90,6 +90,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getCollectionStatsSearchByChain
+      x-operation-id-source: derived
   /v3/rtp/{chain}/order/v4:
     post:
       tags:
@@ -111,7 +113,6 @@ paths:
         schema:
           type: string
       summary: Submit signed offer
-      description: Submit signed offer
       requestBody:
         required: true
         content:
@@ -204,6 +205,8 @@ paths:
                   message:
                     type: string
                     example: Order processed successfully
+      operationId: postV3RtpByChainOrderV4
+      x-operation-id-source: derived
   /v3/rtp/{chain}/execute/bid/v5:
     post:
       tags:
@@ -219,7 +222,6 @@ paths:
           - base
           - polygon
       summary: Submit offer
-      description: Submit offer
       requestBody:
         required: true
         content:
@@ -282,6 +284,8 @@ paths:
                   success:
                     type: boolean
                     example: true
+      operationId: postV3RtpByChainExecuteBidV5
+      x-operation-id-source: derived
   /v3/rtp/{chain}/execute/list/v5:
     post:
       tags:
@@ -359,6 +363,8 @@ paths:
                   success:
                     type: boolean
                     example: true
+      operationId: postV3RtpByChainExecuteListV5
+      x-operation-id-source: derived
   /v3/rtp/{chain}/collections/0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a/marketplace-configurations/v2:
     get:
       tags:
@@ -385,6 +391,8 @@ paths:
                   success:
                     type: boolean
                     example: true
+      operationId: getV3RtpByChainCollections0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74aMarketplaceConfigurationsV2
+      x-operation-id-source: derived
   /v3/rtp/{chain}/collections-sets/v1:
     post:
       tags:
@@ -423,6 +431,8 @@ paths:
                   success:
                     type: boolean
                     example: true
+      operationId: postV3RtpByChainCollectionsSetsV1
+      x-operation-id-source: derived
   /v3/rtp/{chain}/users/{address}/tokens/v10:
     get:
       summary: Retrieve user tokens
@@ -508,6 +518,8 @@ paths:
           description: User not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainUsersByAddressTokensV10
+      x-operation-id-source: derived
   /v3/rtp/{chain}/tokens/{token}/activity/v5:
     get:
       tags:
@@ -564,6 +576,8 @@ paths:
           description: Token not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainTokensByTokenActivityV5
+      x-operation-id-source: derived
   /v3/rtp/{chain}/orders/asks/v5:
     get:
       tags:
@@ -624,6 +638,8 @@ paths:
           description: Unauthorized - Token invalid or expired
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainOrdersAsksV5
+      x-operation-id-source: derived
   /v3/rtp/{chain}/orders/bids/v6:
     get:
       summary: Retrieve bids for a collection
@@ -700,6 +716,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainOrdersBidsV6
+      x-operation-id-source: derived
   /v3/rtp/{chain}/users/{address}/collections/v4:
     get:
       summary: Retrieve user's collections
@@ -760,6 +778,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainUsersByAddressCollectionsV4
+      x-operation-id-source: derived
   /v3/rtp/{chain}/collections/{collectionAddress}/attributes/all/v4:
     get:
       summary: Retrieve all attributes for a collection
@@ -800,6 +820,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainCollectionsByCollectionAddressAttributesAllV4
+      x-operation-id-source: derived
   /v3/rtp/{chain}/collections/v7:
     get:
       summary: Retrieve collection information
@@ -904,6 +926,8 @@ paths:
           description: Not found
         '500':
           description: Internal server error
+      operationId: getV3RtpByChainCollectionsV7
+      x-operation-id-source: derived
   /v3/rtp/{chain}/collections/activity/v6:
     get:
       summary: Fetch collection activity
@@ -955,6 +979,8 @@ paths:
                   message:
                     type: string
                     example: Bad request parameters
+      operationId: getV3RtpByChainCollectionsActivityV6
+      x-operation-id-source: derived
   /v3/rtp/{chain}/tokens/v7:
     get:
       tags:
@@ -1048,6 +1074,8 @@ paths:
           description: Bad Request
         '500':
           description: Server Error
+      operationId: getV3RtpByChainTokensV7
+      x-operation-id-source: derived
 components:
   securitySchemes:
     ApiKeyAuth:

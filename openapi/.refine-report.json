@@ -58,7 +58,8 @@
     "magic-eden-solana-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "magic-eden-solana-openapi.yml: declared missing tag: magic-ticket",
     "tag 'Collections' spans 3 source specs (magic-eden-evm-openapi.yml, magic-eden-ordinals-openapi.yml, magic-eden-solana-openapi.yml): per-path servers applied",
-    "tag 'Tokens' spans 2 source specs (magic-eden-ordinals-openapi.yml, magic-eden-solana-openapi.yml): per-path servers applied"
+    "tag 'Tokens' spans 2 source specs (magic-eden-ordinals-openapi.yml, magic-eden-solana-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "magic-eden-activity-api-openapi.yml: previously refined output, superseded by openapi/_original/",

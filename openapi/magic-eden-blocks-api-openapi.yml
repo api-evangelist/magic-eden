@@ -17,7 +17,6 @@ paths:
       tags:
       - Blocks
       summary: Get block activities
-      description: Get block activities
       parameters:
       - name: blockHeight
         in: query
@@ -65,6 +64,8 @@ paths:
                     type: integer
                   nextCursor:
                     type: string
+      operationId: getV2OrdBtcBlockActivities
+      x-operation-id-source: derived
 components:
   schemas:
     BlockActivitySchema:

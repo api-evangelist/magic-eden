@@ -38,6 +38,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not found
+      operationId: getAuthUserByWalletAddress
+      x-operation-id-source: derived
 components:
   securitySchemes:
     ApiKeyAuth:
