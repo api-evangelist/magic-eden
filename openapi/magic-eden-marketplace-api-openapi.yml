@@ -42,6 +42,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PopularCollectionsTimeRanges:
+      type: string
+      enum:
+      - 1h
+      - 1d
+      - 7d
+      - 30d
     ICollectionV2:
       properties:
         symbol:
@@ -99,13 +106,6 @@ components:
       - image
       type: object
       additionalProperties: false
-    PopularCollectionsTimeRanges:
-      type: string
-      enum:
-      - 1h
-      - 1d
-      - 7d
-      - 30d
     IFloorPriceInfo:
       properties:
         floorPrice:

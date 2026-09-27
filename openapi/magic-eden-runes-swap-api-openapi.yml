@@ -103,48 +103,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GetQuoteResponseSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: The total amount for the quote, represented as a string to accommodate large integers.
-        averageUnitPrice:
-          type: number
-          description: The average unit price.
-        bestUnitPrice:
-          type: number
-          description: The best unit price available.
-        maxUnitPrice:
-          type: number
-          description: The maximum unit price.
-        minUnitPrice:
-          type: number
-          description: The minimum unit price.
-        price:
-          type: number
-          description: The total price.
-        orders:
-          type: array
-          items:
-            type: object
-            properties:
-              amount:
-                type: string
-                format: bigint
-                description: The amount for the order, represented as a string to accommodate large integers.
-              id:
-                type: string
-                description: The unique identifier for the order.
-      required:
-      - amount
-      - averageUnitPrice
-      - bestUnitPrice
-      - maxUnitPrice
-      - minUnitPrice
-      - price
-      - orders
     PostRuneSwapPsbtResponseSchema:
       type: object
       properties:
@@ -173,40 +131,6 @@ components:
           description: An array of transactions with their types and IDs.
       required:
       - txs
-    GetRuneSwapPsbtResponseSchema:
-      type: object
-      properties:
-        btcChangeOutputIndex:
-          type:
-          - integer
-          - 'null'
-          description: The index of the BTC change output, optional for sweeping post split.
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RuneSwapErrorSchema'
-          description: An array of errors encountered during the swap process.
-        psbts:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneSwapPsbtSchema'
-          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
-        quote:
-          $ref: '#/components/schemas/GetQuoteResponseSchema'
-          description: The quote details for the swap.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-        requestId:
-          type: string
-          description: The unique request identifier.
-      required:
-      - psbts
-      - quote
-      - settlement
-      - requestId
     GetRuneSwapPsbtRequestSchema:
       type: object
       properties:
@@ -300,20 +224,96 @@ components:
       required:
       - type
       - message
-    PostRuneSwapPsbtRequestSchema:
+    SettlementSchema:
       type: object
       properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    GetQuoteResponseSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: The total amount for the quote, represented as a string to accommodate large integers.
+        averageUnitPrice:
+          type: number
+          description: The average unit price.
+        bestUnitPrice:
+          type: number
+          description: The best unit price available.
+        maxUnitPrice:
+          type: number
+          description: The maximum unit price.
+        minUnitPrice:
+          type: number
+          description: The minimum unit price.
+        price:
+          type: number
+          description: The total price.
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: string
+                format: bigint
+                description: The amount for the order, represented as a string to accommodate large integers.
+              id:
+                type: string
+                description: The unique identifier for the order.
+      required:
+      - amount
+      - averageUnitPrice
+      - bestUnitPrice
+      - maxUnitPrice
+      - minUnitPrice
+      - price
+      - orders
+    GetRuneSwapPsbtResponseSchema:
+      type: object
+      properties:
+        btcChangeOutputIndex:
+          type:
+          - integer
+          - 'null'
+          description: The index of the BTC change output, optional for sweeping post split.
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RuneSwapErrorSchema'
+          description: An array of errors encountered during the swap process.
+        psbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapPsbtSchema'
+          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
+        quote:
+          $ref: '#/components/schemas/GetQuoteResponseSchema'
+          description: The quote details for the swap.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
         requestId:
           type: string
           description: The unique request identifier.
-        signedPsbts:
-          type: array
-          items:
-            $ref: '#/components/schemas/SignedSwapPsbtSchema'
-          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
       required:
+      - psbts
+      - quote
+      - settlement
       - requestId
-      - signedPsbts
     RuneSwapPsbtSchema:
       type: object
       properties:
@@ -346,20 +346,20 @@ components:
       - psbtBase64
       - settlement
       - runeUtxoIndexes
-    SettlementSchema:
+    PostRuneSwapPsbtRequestSchema:
       type: object
       properties:
-        amount:
+        requestId:
           type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
+          description: The unique request identifier.
+        signedPsbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignedSwapPsbtSchema'
+          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
       required:
-      - amount
-      - price
+      - requestId
+      - signedPsbts
   securitySchemes:
     BearerAuth:
       type: http

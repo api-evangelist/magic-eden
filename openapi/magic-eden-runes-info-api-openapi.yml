@@ -347,57 +347,49 @@ components:
       properties:
         details:
           type: string
-    RuneUtxoSchema:
+    RuneStatsSchema:
       type: object
       properties:
-        location:
-          type: string
-        address:
-          type:
-          - string
-          - 'null'
         rune:
           type: string
-        balance:
-          type: number
-        formattedBalance:
-          type: string
-        spent:
-          type: boolean
-        pure:
-          type: boolean
-        containsInscription:
-          type:
-          - boolean
-          - 'null'
-        costSats:
+        etching:
+          $ref: '#/components/schemas/RuneEtchingSchema'
+        vol:
           type:
           - number
           - 'null'
-        listing:
+        totalVol:
           type:
-          - object
+          - number
           - 'null'
-          properties:
-            orderId:
-              type: string
-              format: uuid
-            totalPriceSats:
-              type: number
-            unitPriceSats:
-              type: number
-            formattedUnitPriceSats:
-              type: string
-            expiresAt:
-              type: string
-              format: date-time
-    GetRunesUtxoByWalletResultSchema:
-      type: object
-      properties:
-        utxos:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneUtxoSchema'
+        unitPriceSats:
+          type:
+          - number
+          - 'null'
+        formattedUnitPriceSats:
+          type:
+          - string
+          - 'null'
+        txnCount:
+          type:
+          - number
+          - 'null'
+        imageURI:
+          type:
+          - string
+          - 'null'
+        unitPriceChange:
+          type:
+          - number
+          - 'null'
+        holderCount:
+          type:
+          - number
+          - 'null'
+        pendingCount:
+          type:
+          - number
+          - 'null'
     RuneActivitySchema:
       type: object
       properties:
@@ -472,6 +464,33 @@ components:
           type:
           - string
           - 'null'
+    GetRuneActivitiesResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    GetRuneActivitiesByAddressResultSchema:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneActivitySchema'
+    GetBalanceByAddressAndRuneResultSchema:
+      type: object
+      properties:
+        balance:
+          type: string
+          description: The raw balance of the Rune, typically in its smallest unit.
+        formattedBalance:
+          type: string
+          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
+        ticker:
+          type: string
+          description: The symbol of the Rune whose balance is represented.
+          pattern: ^[A-Z]{1,26}$
     GetRunesMarketInfoResultSchema:
       type:
       - object
@@ -551,6 +570,50 @@ components:
               type:
               - integer
               - 'null'
+    RuneUtxoSchema:
+      type: object
+      properties:
+        location:
+          type: string
+        address:
+          type:
+          - string
+          - 'null'
+        rune:
+          type: string
+        balance:
+          type: number
+        formattedBalance:
+          type: string
+        spent:
+          type: boolean
+        pure:
+          type: boolean
+        containsInscription:
+          type:
+          - boolean
+          - 'null'
+        costSats:
+          type:
+          - number
+          - 'null'
+        listing:
+          type:
+          - object
+          - 'null'
+          properties:
+            orderId:
+              type: string
+              format: uuid
+            totalPriceSats:
+              type: number
+            unitPriceSats:
+              type: number
+            formattedUnitPriceSats:
+              type: string
+            expiresAt:
+              type: string
+              format: date-time
     GetRunesOrderInfoResultSchema:
       type: object
       properties:
@@ -558,26 +621,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ISafeApiRuneOrderSchema'
-    GetRuneActivitiesByAddressResultSchema:
+    GetCollectionStatsRuneResultSchema:
       type: object
       properties:
-        activities:
+        runes:
           type: array
           items:
-            $ref: '#/components/schemas/RuneActivitySchema'
-    GetBalanceByAddressAndRuneResultSchema:
+            $ref: '#/components/schemas/RuneStatsSchema'
+    GetRunesUtxoByWalletResultSchema:
       type: object
       properties:
-        balance:
-          type: string
-          description: The raw balance of the Rune, typically in its smallest unit.
-        formattedBalance:
-          type: string
-          description: The formatted balance of the Rune, adjusted for human readability according to divisibility.
-        ticker:
-          type: string
-          description: The symbol of the Rune whose balance is represented.
-          pattern: ^[A-Z]{1,26}$
+        utxos:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneUtxoSchema'
     ISafeApiRuneOrderSchema:
       type: object
       properties:
@@ -615,63 +672,6 @@ components:
           type: number
         formattedUnitPrice:
           type: string
-    RuneStatsSchema:
-      type: object
-      properties:
-        rune:
-          type: string
-        etching:
-          $ref: '#/components/schemas/RuneEtchingSchema'
-        vol:
-          type:
-          - number
-          - 'null'
-        totalVol:
-          type:
-          - number
-          - 'null'
-        unitPriceSats:
-          type:
-          - number
-          - 'null'
-        formattedUnitPriceSats:
-          type:
-          - string
-          - 'null'
-        txnCount:
-          type:
-          - number
-          - 'null'
-        imageURI:
-          type:
-          - string
-          - 'null'
-        unitPriceChange:
-          type:
-          - number
-          - 'null'
-        holderCount:
-          type:
-          - number
-          - 'null'
-        pendingCount:
-          type:
-          - number
-          - 'null'
-    GetCollectionStatsRuneResultSchema:
-      type: object
-      properties:
-        runes:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneStatsSchema'
-    GetRuneActivitiesResultSchema:
-      type: object
-      properties:
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuneActivitySchema'
   securitySchemes:
     BearerAuth:
       type: http

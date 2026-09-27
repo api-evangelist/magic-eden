@@ -526,131 +526,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IAttributeV2:
+    SwaggerFriendlyTokenAmount:
       properties:
-        trait_type:
+        rawAmount:
           type: string
-        value: {}
-      required:
-      - trait_type
-      - value
-      type: object
-      additionalProperties: false
-    EscrowBalance:
-      properties:
-        buyerEscrow:
-          type: string
-        balance:
-          type: number
-          format: double
-      required:
-      - buyerEscrow
-      - balance
-      type: object
-      additionalProperties: false
-    ListingSortOptions:
-      type: string
-      enum:
-      - updatedAt
-      - listPrice
-    SwaggerFriendlyPriceInfo:
-      properties:
-        solPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-        splPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-      required:
-      - solPrice
-      type: object
-      additionalProperties: false
-    SortDirQuery:
-      type: string
-      enum:
-      - asc
-      - desc
-    ListStatus:
-      type: string
-      enum:
-      - listed
-      - unlisted
-      - both
-    IPropertiesV2File:
-      properties:
-        uri:
-          type: string
-        type:
-          type: string
-        cdn:
-          type: boolean
-      required:
-      - uri
-      - type
-      type: object
-      additionalProperties: false
-    Partial_ICreatorV2_:
-      properties:
         address:
           type: string
-        verified:
-          type: boolean
-        share:
+          description: The identifier of the amount.
+        decimals:
           type: number
           format: double
-      type: object
-      description: Make all properties in T optional
-    SwaggerNftAttribute:
-      properties:
-        traitType:
-          type: string
-        value:
-          type: string
+          description: The number of decimals in the amount.
       required:
-      - traitType
-      - value
+      - rawAmount
+      - address
+      - decimals
       type: object
       additionalProperties: false
-    SwaggerNftAttributeSchema:
-      items:
-        items:
-          $ref: '#/components/schemas/SwaggerNftAttribute'
-        type: array
-      type: array
-    IOfferV2:
-      properties:
-        pdaAddress:
-          type: string
-        tokenMint:
-          type: string
-        auctionHouse:
-          type: string
-        buyer:
-          type: string
-        buyerReferral:
-          type: string
-        tokenSize:
-          type: number
-          format: double
-        price:
-          type: number
-          format: double
-        expiry:
-          type: number
-          format: double
-      required:
-      - pdaAddress
-      - tokenMint
-      - auctionHouse
-      - buyer
-      - tokenSize
-      - price
-      - expiry
-      type: object
-      additionalProperties: false
-    OfferReceivedSort:
-      type: string
-      enum:
-      - updatedAt
-      - bidAmount
     SwaggerFriendlyITokenV2:
       properties:
         mintAddress:
@@ -714,18 +606,101 @@ components:
       - image
       type: object
       additionalProperties: false
-    IWalletOwnerInfo:
+    IAttributeV2:
       properties:
-        walletAddress:
+        trait_type:
           type: string
-        displayName:
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
+    IOfferV2:
+      properties:
+        pdaAddress:
           type: string
-        avatar:
+        tokenMint:
           type: string
-        bio:
+        auctionHouse:
+          type: string
+        buyer:
+          type: string
+        buyerReferral:
+          type: string
+        tokenSize:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        expiry:
+          type: number
+          format: double
+      required:
+      - pdaAddress
+      - tokenMint
+      - auctionHouse
+      - buyer
+      - tokenSize
+      - price
+      - expiry
+      type: object
+      additionalProperties: false
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
+    EscrowBalance:
+      properties:
+        buyerEscrow:
+          type: string
+        balance:
+          type: number
+          format: double
+      required:
+      - buyerEscrow
+      - balance
+      type: object
+      additionalProperties: false
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
+      type: object
+      additionalProperties: false
+    SwaggerNftAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
           type: string
       required:
-      - walletAddress
+      - traitType
+      - value
       type: object
       additionalProperties: false
     SwaggerFriendlyIActivityV2:
@@ -777,49 +752,74 @@ components:
       - blockTime
       type: object
       additionalProperties: false
-    TokenStandard:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - -1
-      type: number
-    SwaggerFriendlyTokenAmount:
+    Partial_ICreatorV2_:
       properties:
-        rawAmount:
-          type: string
         address:
           type: string
-          description: The identifier of the amount.
-        decimals:
+        verified:
+          type: boolean
+        share:
           type: number
           format: double
-          description: The number of decimals in the amount.
+      type: object
+      description: Make all properties in T optional
+    IPropertiesV2File:
+      properties:
+        uri:
+          type: string
+        type:
+          type: string
+        cdn:
+          type: boolean
       required:
-      - rawAmount
-      - address
-      - decimals
+      - uri
+      - type
       type: object
       additionalProperties: false
-    IPropertiesV2:
+    ListingSortOptions:
+      type: string
+      enum:
+      - updatedAt
+      - listPrice
+    SwaggerFriendlyPriceInfo:
       properties:
-        files:
-          items:
-            $ref: '#/components/schemas/IPropertiesV2File'
-          type: array
-        category:
-          type: string
-        creators:
-          items:
-            $ref: '#/components/schemas/Partial_ICreatorV2_'
-          type: array
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
       required:
-      - files
-      - category
-      - creators
+      - solPrice
+      type: object
+      additionalProperties: false
+    SwaggerNftAttributeSchema:
+      items:
+        items:
+          $ref: '#/components/schemas/SwaggerNftAttribute'
+        type: array
+      type: array
+    ListStatus:
+      type: string
+      enum:
+      - listed
+      - unlisted
+      - both
+    OfferReceivedSort:
+      type: string
+      enum:
+      - updatedAt
+      - bidAmount
+    IWalletOwnerInfo:
+      properties:
+        walletAddress:
+          type: string
+        displayName:
+          type: string
+        avatar:
+          type: string
+        bio:
+          type: string
+      required:
+      - walletAddress
       type: object
       additionalProperties: false
   securitySchemes:

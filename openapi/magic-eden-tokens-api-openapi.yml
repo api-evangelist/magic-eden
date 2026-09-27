@@ -542,80 +542,15 @@ components:
           type: number
         domain:
           type: string
-    NFTRarity:
+    MoonrankCrawl:
       properties:
-        howrare:
-          properties:
-            rank:
-              type: number
-              format: double
-          required:
-          - rank
-          type: object
-        moonrank:
-          properties:
-            crawl:
-              $ref: '#/components/schemas/MoonrankCrawl'
-            absolute_rarity:
-              type: number
-              format: double
-            rank:
-              type: number
-              format: double
-          required:
-          - crawl
-          - absolute_rarity
-          - rank
-          type: object
-        merarity:
-          $ref: '#/components/schemas/MeTokenRarity'
-        meInstant:
-          $ref: '#/components/schemas/MeInstantRarity'
-      type: object
-      additionalProperties: false
-    SwaggerFriendlyPriceInfo:
-      properties:
-        solPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-        splPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-      required:
-      - solPrice
-      type: object
-      additionalProperties: false
-    MeInstantRarity:
-      properties:
-        rank:
-          type: number
-          format: double
-      required:
-      - rank
-      type: object
-      additionalProperties: false
-    IXAttribute:
-      properties:
-        traitType:
+        complete:
+          type: boolean
+          description: 'Flag for if Moonrank has fully crawled the collection. If this is false,
+
+            then it means the rarity values are incomplete and should not be used.'
+        id:
           type: string
-        value:
-          type: string
-        count:
-          type: number
-          format: double
-        rarity:
-          type: number
-          format: double
-        topBidValue:
-          type: number
-          format: double
-        floorAskPrice:
-          type: number
-          format: double
-        onSaleCount:
-          type: number
-          format: double
-      required:
-      - traitType
-      - value
       type: object
       additionalProperties: false
     SwaggerFriendlyITokenV2:
@@ -681,92 +616,66 @@ components:
       - image
       type: object
       additionalProperties: false
-    IPropertiesV2:
+    MeTokenRarity:
       properties:
-        files:
-          items:
-            $ref: '#/components/schemas/IPropertiesV2File'
-          type: array
-        category:
+        tokenKey:
           type: string
-        creators:
-          items:
-            $ref: '#/components/schemas/Partial_ICreatorV2_'
-          type: array
-      required:
-      - files
-      - category
-      - creators
-      type: object
-      additionalProperties: false
-    ListedNftType:
-      type: string
-      enum:
-      - M2
-      - MMM
-      - TENSOR_LISTING
-      - TENSOR_CNFT_LISTING
-      - TENSOR_MARKETPLACE_LISTING
-      - TENSOR_AMM
-      - TENSOR_AMM_V2
-      - HADESWAP_AMM
-      - M3
-    SwaggerFriendlyIListingV2:
-      properties:
-        price:
+        score:
           type: number
           format: double
-        tokenAddress:
-          type: string
+        rank:
+          type: number
+          format: double
+        totalSupply:
+          type: number
+          format: double
+        attributeWithCounts:
+          items:
+            $ref: '#/components/schemas/IXAttribute'
+          type: array
+      required:
+      - tokenKey
+      - score
+      type: object
+      additionalProperties: false
+    MeInstantRarity:
+      properties:
+        rank:
+          type: number
+          format: double
+      required:
+      - rank
+      type: object
+      additionalProperties: false
+    IOfferV2:
+      properties:
         pdaAddress:
-          type: string
-        auctionHouse:
           type: string
         tokenMint:
           type: string
-        seller:
+        auctionHouse:
           type: string
-        sellerReferral:
+        buyer:
+          type: string
+        buyerReferral:
           type: string
         tokenSize:
           type: number
           format: double
-        rarity:
-          $ref: '#/components/schemas/NFTRarity'
-        extra:
-          $ref: '#/components/schemas/IExtraPublicInfo'
+        price:
+          type: number
+          format: double
         expiry:
           type: number
           format: double
-        listingSource:
-          $ref: '#/components/schemas/ListedNftType'
-        priceInfo:
-          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
-        token:
-          $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
       required:
-      - price
-      - tokenAddress
       - pdaAddress
-      - auctionHouse
       - tokenMint
-      - seller
+      - auctionHouse
+      - buyer
       - tokenSize
-      - rarity
+      - price
       - expiry
-      - listingSource
-      - token
-      type: object
-      additionalProperties: false
-    MoonrankCrawl:
-      properties:
-        complete:
-          type: boolean
-          description: 'Flag for if Moonrank has fully crawled the collection. If this is false,
-
-            then it means the rarity values are incomplete and should not be used.'
-        id:
-          type: string
       type: object
       additionalProperties: false
     OfferReceivedSort:
@@ -774,6 +683,42 @@ components:
       enum:
       - updatedAt
       - bidAmount
+    IXAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
+          type: string
+        count:
+          type: number
+          format: double
+        rarity:
+          type: number
+          format: double
+        topBidValue:
+          type: number
+          format: double
+        floorAskPrice:
+          type: number
+          format: double
+        onSaleCount:
+          type: number
+          format: double
+      required:
+      - traitType
+      - value
+      type: object
+      additionalProperties: false
+    IAttributeV2:
+      properties:
+        trait_type:
+          type: string
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
     SwaggerFriendlyIActivityV2:
       properties:
         type:
@@ -823,6 +768,53 @@ components:
       - blockTime
       type: object
       additionalProperties: false
+    NFTRarity:
+      properties:
+        howrare:
+          properties:
+            rank:
+              type: number
+              format: double
+          required:
+          - rank
+          type: object
+        moonrank:
+          properties:
+            crawl:
+              $ref: '#/components/schemas/MoonrankCrawl'
+            absolute_rarity:
+              type: number
+              format: double
+            rank:
+              type: number
+              format: double
+          required:
+          - crawl
+          - absolute_rarity
+          - rank
+          type: object
+        merarity:
+          $ref: '#/components/schemas/MeTokenRarity'
+        meInstant:
+          $ref: '#/components/schemas/MeInstantRarity'
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyPriceInfo:
+      properties:
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+      required:
+      - solPrice
+      type: object
+      additionalProperties: false
+    IExtraPublicInfo:
+      properties:
+        img:
+          type: string
+      type: object
+      additionalProperties: false
     TokenStandard:
       enum:
       - 0
@@ -833,50 +825,86 @@ components:
       - 5
       - -1
       type: number
-    IAttributeV2:
-      properties:
-        trait_type:
-          type: string
-        value: {}
-      required:
-      - trait_type
-      - value
-      type: object
-      additionalProperties: false
     SortDirQuery:
       type: string
       enum:
       - asc
       - desc
-    IOfferV2:
+    SwaggerFriendlyIListingV2:
       properties:
-        pdaAddress:
+        price:
+          type: number
+          format: double
+        tokenAddress:
           type: string
-        tokenMint:
+        pdaAddress:
           type: string
         auctionHouse:
           type: string
-        buyer:
+        tokenMint:
           type: string
-        buyerReferral:
+        seller:
+          type: string
+        sellerReferral:
           type: string
         tokenSize:
           type: number
           format: double
-        price:
-          type: number
-          format: double
+        rarity:
+          $ref: '#/components/schemas/NFTRarity'
+        extra:
+          $ref: '#/components/schemas/IExtraPublicInfo'
         expiry:
           type: number
           format: double
+        listingSource:
+          $ref: '#/components/schemas/ListedNftType'
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+        token:
+          $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
       required:
-      - pdaAddress
-      - tokenMint
-      - auctionHouse
-      - buyer
-      - tokenSize
       - price
+      - tokenAddress
+      - pdaAddress
+      - auctionHouse
+      - tokenMint
+      - seller
+      - tokenSize
+      - rarity
       - expiry
+      - listingSource
+      - token
+      type: object
+      additionalProperties: false
+    ListedNftType:
+      type: string
+      enum:
+      - M2
+      - MMM
+      - TENSOR_LISTING
+      - TENSOR_CNFT_LISTING
+      - TENSOR_MARKETPLACE_LISTING
+      - TENSOR_AMM
+      - TENSOR_AMM_V2
+      - HADESWAP_AMM
+      - M3
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
       type: object
       additionalProperties: false
     Partial_ICreatorV2_:
@@ -890,34 +918,6 @@ components:
           format: double
       type: object
       description: Make all properties in T optional
-    IExtraPublicInfo:
-      properties:
-        img:
-          type: string
-      type: object
-      additionalProperties: false
-    MeTokenRarity:
-      properties:
-        tokenKey:
-          type: string
-        score:
-          type: number
-          format: double
-        rank:
-          type: number
-          format: double
-        totalSupply:
-          type: number
-          format: double
-        attributeWithCounts:
-          items:
-            $ref: '#/components/schemas/IXAttribute'
-          type: array
-      required:
-      - tokenKey
-      - score
-      type: object
-      additionalProperties: false
     IPropertiesV2File:
       properties:
         uri:

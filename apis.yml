@@ -8,17 +8,20 @@ description: Magic Eden is a multi-chain NFT marketplace offering REST and instr
   listings, bids, activity, holder stats, AMM pool data, launchpad data, and generate signed transactions
   or PSBTs for listing, buying, bidding, transferring, swapping, and minting across all supported chains.
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - magiceden/magiceden-sdk
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -152,7 +155,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-instructions-api
-  name: Magic Eden instructions API
+  name: Magic Eden Instructions API
   description: Get instructions for the blockchain
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
@@ -198,7 +201,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-launchpad-api
-  name: Magic Eden launchpad API
+  name: Magic Eden Launchpad API
   description: Get launchpad information
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
@@ -222,7 +225,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-magic-ticket-api
-  name: Magic Eden magic-ticket API
+  name: Magic Eden Magic Ticket API
   description: The magic-ticket API from Magic Eden — 1 operation(s) for magic-ticket.
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
@@ -244,7 +247,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-marketplace-api
-  name: Magic Eden marketplace API
+  name: Magic Eden Marketplace API
   description: Get information about Magic Eden's marketplace!
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
@@ -268,7 +271,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-mmm-api
-  name: Magic Eden mmm API
+  name: Magic Eden Mmm API
   description: Get AMM information
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
@@ -468,7 +471,7 @@ apis:
   - type: Authentication
     url: https://docs.magiceden.io/reference/ordinals-api-keys
 - aid: magic-eden:magic-eden-wallets-api
-  name: Magic Eden wallets API
+  name: Magic Eden Wallets API
   description: Get information of a wallet
   humanURL: https://docs.magiceden.io/reference/solana-api-keys
   baseURL: https://api-mainnet.magiceden.dev/v2
