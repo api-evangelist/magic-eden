@@ -306,6 +306,33 @@ components:
       - protocol
       - contract
       - contractData
+    bidTypeEnum:
+      type: string
+      enum:
+      - ASSET
+      - COLLECTION
+      - ATTRIBUTE
+    baseAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAssetCriteria'
+      required:
+      - kind
+    orderQuantity:
+      type: object
+      properties:
+        filled:
+          type: string
+        remaining:
+          type: string
+      required:
+      - filled
+      - remaining
     getBidsResponse:
       type: object
       properties:
@@ -318,37 +345,15 @@ components:
           description: used to get next offset of items
       required:
       - bids
-    orderContractKind:
-      type: string
-    orderExpiry:
+    baseAssetAsk:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
       type: object
       properties:
-        validFrom:
-          type: string
-        validUntil:
+        assetId:
           type: string
       required:
-      - validUntil
-    chainEnum:
-      type: string
-      enum:
-      - ethereum
-      - abstract
-      - apechain
-      - arbitrum
-      - base
-      - berachain
-      - bsc
-      - polygon
-      - sei
-      - avalanche
-      - monad
-    orderSourceEnum:
-      type: string
-      enum:
-      - MAGICEDEN
-      - OPENSEA
-      - IXS_SERVICE
+      - assetId
     tokenPrice:
       type: object
       properties:
@@ -391,17 +396,73 @@ components:
       required:
       - amount
       - currency
-    bidTypeEnum:
+    orderContractKind:
+      type: string
+    orderSourceEnum:
       type: string
       enum:
-      - ASSET
-      - COLLECTION
-      - ATTRIBUTE
+      - MAGICEDEN
+      - OPENSEA
+      - IXS_SERVICE
+    orderKindEnum:
+      type: string
+      enum:
+      - ASK
+      - BID
+    orderExpiry:
+      type: object
+      properties:
+        validFrom:
+          type: string
+        validUntil:
+          type: string
+      required:
+      - validUntil
+    getAsksResponse:
+      type: object
+      properties:
+        asks:
+          type: array
+          items:
+            $ref: '#/components/schemas/evmAssetAsk'
+        continuation:
+          type: string
+          description: used to get next offset of items
+      required:
+      - asks
+    orderFee:
+      type: object
+      properties:
+        royaltyBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        makerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        takerMarketplaceBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+        lpFeeBp:
+          type: number
+          minimum: 0
+          maximum: 10000
+      required:
+      - royaltyBp
+      - makerMarketplaceBp
+      - takerMarketplaceBp
+      - lpFeeBp
+    evmCollectionBid:
+      allOf:
+      - $ref: '#/components/schemas/baseCollectionBid'
+      - $ref: '#/components/schemas/evmChainCommon'
     evmAssetAsk:
       allOf:
       - $ref: '#/components/schemas/baseAssetAsk'
       - $ref: '#/components/schemas/evmChainCommon'
-    baseAttributeBid:
+    baseCollectionBid:
       allOf:
       - $ref: '#/components/schemas/baseOrder'
       type: object
@@ -409,9 +470,33 @@ components:
         kind:
           $ref: '#/components/schemas/orderKindEnum'
         criteria:
-          $ref: '#/components/schemas/bidAttributeCriteria'
+          $ref: '#/components/schemas/bidCollectionCriteria'
       required:
       - kind
+    evmBid:
+      oneOf:
+      - $ref: '#/components/schemas/evmAssetBid'
+      - $ref: '#/components/schemas/evmCollectionBid'
+      - $ref: '#/components/schemas/evmAttributeBid'
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/bidTypeEnum'
+      required:
+      - type
+    evmProtocolTypeEnum:
+      type: string
+      enum:
+      - ERC721
+      - ERC1155
+    orderStatusEnum:
+      type: string
+      enum:
+      - active
+      - inactive
+      - expired
+      - filled
+      - cancelled
     bidAttributeCriteria:
       type: object
       properties:
@@ -425,58 +510,17 @@ components:
       required:
       - collectionId
       - attributes
-    evmProtocolTypeEnum:
-      type: string
-      enum:
-      - ERC721
-      - ERC1155
-    baseAssetBid:
-      allOf:
-      - $ref: '#/components/schemas/baseOrder'
-      type: object
-      properties:
-        kind:
-          $ref: '#/components/schemas/orderKindEnum'
-        criteria:
-          $ref: '#/components/schemas/bidAssetCriteria'
-      required:
-      - kind
     evmAttributeBid:
       allOf:
       - $ref: '#/components/schemas/baseAttributeBid'
       - $ref: '#/components/schemas/evmChainCommon'
-    getAsksResponse:
+    bidCollectionCriteria:
       type: object
       properties:
-        asks:
-          type: array
-          items:
-            $ref: '#/components/schemas/evmAssetAsk'
-        continuation:
-          type: string
-          description: used to get next offset of items
-      required:
-      - asks
-    baseAssetAsk:
-      allOf:
-      - $ref: '#/components/schemas/baseOrder'
-      type: object
-      properties:
-        assetId:
+        collectionId:
           type: string
       required:
-      - assetId
-    baseCollectionBid:
-      allOf:
-      - $ref: '#/components/schemas/baseOrder'
-      type: object
-      properties:
-        kind:
-          $ref: '#/components/schemas/orderKindEnum'
-        criteria:
-          $ref: '#/components/schemas/bidCollectionCriteria'
-      required:
-      - kind
+      - collectionId
     baseOrder:
       type: object
       properties:
@@ -512,60 +556,12 @@ components:
       - source
       - fees
       - createdAt
-    evmBid:
-      oneOf:
-      - $ref: '#/components/schemas/evmAssetBid'
-      - $ref: '#/components/schemas/evmCollectionBid'
-      - $ref: '#/components/schemas/evmAttributeBid'
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/bidTypeEnum'
-      required:
-      - type
     filterOrderSourceEnum:
       type: string
       enum:
       - any
       - opensea.io
       - magiceden
-    evmAssetBid:
-      allOf:
-      - $ref: '#/components/schemas/baseAssetBid'
-      - $ref: '#/components/schemas/evmChainCommon'
-    orderKindEnum:
-      type: string
-      enum:
-      - ASK
-      - BID
-    orderFee:
-      type: object
-      properties:
-        royaltyBp:
-          type: number
-          minimum: 0
-          maximum: 10000
-        makerMarketplaceBp:
-          type: number
-          minimum: 0
-          maximum: 10000
-        takerMarketplaceBp:
-          type: number
-          minimum: 0
-          maximum: 10000
-        lpFeeBp:
-          type: number
-          minimum: 0
-          maximum: 10000
-      required:
-      - royaltyBp
-      - makerMarketplaceBp
-      - takerMarketplaceBp
-      - lpFeeBp
-    evmCollectionBid:
-      allOf:
-      - $ref: '#/components/schemas/baseCollectionBid'
-      - $ref: '#/components/schemas/evmChainCommon'
     bidAssetCriteria:
       type: object
       properties:
@@ -573,24 +569,17 @@ components:
           type: string
       required:
       - assetId
-    orderQuantity:
+    baseAttributeBid:
+      allOf:
+      - $ref: '#/components/schemas/baseOrder'
       type: object
       properties:
-        filled:
-          type: string
-        remaining:
-          type: string
+        kind:
+          $ref: '#/components/schemas/orderKindEnum'
+        criteria:
+          $ref: '#/components/schemas/bidAttributeCriteria'
       required:
-      - filled
-      - remaining
-    orderStatusEnum:
-      type: string
-      enum:
-      - active
-      - inactive
-      - expired
-      - filled
-      - cancelled
+      - kind
     assetAttribute:
       type: object
       properties:
@@ -603,13 +592,24 @@ components:
       required:
       - name
       - value
-    bidCollectionCriteria:
-      type: object
-      properties:
-        collectionId:
-          type: string
-      required:
-      - collectionId
+    chainEnum:
+      type: string
+      enum:
+      - ethereum
+      - abstract
+      - apechain
+      - arbitrum
+      - base
+      - berachain
+      - bsc
+      - polygon
+      - sei
+      - avalanche
+      - monad
+    evmAssetBid:
+      allOf:
+      - $ref: '#/components/schemas/baseAssetBid'
+      - $ref: '#/components/schemas/evmChainCommon'
   securitySchemes:
     BearerAuth:
       type: http

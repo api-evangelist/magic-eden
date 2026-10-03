@@ -1145,6 +1145,15 @@ paths:
     - url: https://api-devnet.magiceden.dev/v2
 components:
   schemas:
+    searchCollectionsResponse:
+      type: object
+      properties:
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/collectionSchema'
+      required:
+      - collections
     social:
       type: object
       properties:
@@ -1154,35 +1163,22 @@ components:
           type: string
         websiteUrl:
           type: string
-    chainEnum:
-      type: string
-      enum:
-      - ethereum
-      - abstract
-      - apechain
-      - arbitrum
-      - base
-      - berachain
-      - bsc
-      - polygon
-      - sei
-      - avalanche
-      - monad
-    collectionRoyalty:
+    getCollectionsById:
       type: object
       properties:
-        recipient:
-          type: string
-        bps:
-          type: number
-          maximum: 10000
-          minimum: 0
-        isOptional:
-          type: boolean
+        collectionIds:
+          description: 'List of collection IDs to retrieve. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` '
+          type: array
+          items:
+            type: string
+          maxItems: 100
       required:
-      - recipient
-      - bps
-      - isOptional
+      - collectionIds
+    collectionTypeEnum:
+      type: string
+      enum:
+      - ERC721
+      - ERC1155
     getUserCollectionsRequest:
       type: object
       properties:
@@ -1196,6 +1192,15 @@ components:
             type: string
       required:
       - walletAddresses
+    getUserCollectionsResponse:
+      type: object
+      properties:
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/userCollectionSchema'
+      required:
+      - collections
     getCollectionsRequest:
       type: object
       properties:
@@ -1212,99 +1217,6 @@ components:
       - $ref: '#/components/schemas/getCollectionsBySlugs'
       required:
       - chain
-    getCollectionsBySlugs:
-      type: object
-      properties:
-        collectionSlugs:
-          description: 'List of collection Slugs to retrieve. example: `pudgypenguins` '
-          type: array
-          items:
-            type: string
-          maxItems: 100
-      required:
-      - collectionSlugs
-    getUserCollectionsResponse:
-      type: object
-      properties:
-        collections:
-          type: array
-          items:
-            $ref: '#/components/schemas/userCollectionSchema'
-      required:
-      - collections
-    media:
-      type: object
-      properties:
-        url:
-          type: string
-        mimeType:
-          type: string
-    searchCollectionsRequest:
-      type: object
-      properties:
-        chain:
-          $ref: '#/components/schemas/chainEnum'
-        pattern:
-          type: string
-          description: Any name pattern you want to search for collections. Only first 50 collection matched will be returned
-      required:
-      - chain
-      - pattern
-    getCollectionsById:
-      type: object
-      properties:
-        collectionIds:
-          description: 'List of collection IDs to retrieve. example: `0xbd3531da5cf5857e7cfaa92426877b022e612cf8` '
-          type: array
-          items:
-            type: string
-          maxItems: 100
-      required:
-      - collectionIds
-    chainAsset:
-      type: object
-      properties:
-        chain:
-          $ref: '#/components/schemas/chainEnum'
-        assetId:
-          type: string
-      required:
-      - chain
-      - assetId
-    collectionMintStage:
-      type: object
-      properties:
-        kind:
-          $ref: '#/components/schemas/collectionMintStageKindEnum'
-        price:
-          type: object
-          properties:
-            currency:
-              $ref: '#/components/schemas/chainAsset'
-            raw:
-              type: string
-          required:
-          - currency
-          - raw
-        startTime:
-          type: string
-        endTime:
-          type: string
-        walletLimit:
-          type: number
-          minimum: 0
-          maximum: 1000
-        maxSupply:
-          type: number
-          minimum: 1
-      required:
-      - kind
-      - price
-    collectionTypeEnum:
-      type: string
-      enum:
-      - ERC721
-      - ERC1155
     getCollectionsResponse:
       type: object
       properties:
@@ -1314,6 +1226,22 @@ components:
             $ref: '#/components/schemas/collectionSchema'
       required:
       - collections
+    listingCurrency:
+      type: object
+      properties:
+        address:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+        decimals:
+          type: number
+      required:
+      - address
+      - name
+      - symbol
+      - decimals
     collectionSchema:
       type: object
       properties:
@@ -1410,16 +1338,73 @@ components:
       - verification
       - isTradeable
       - collectionType
-    collectionMintStageKindEnum:
-      type: string
-      enum:
-      - public
-      - allowlist
     collectionVerificationEnum:
       type: string
       enum:
       - VERIFIED
       - UNVERIFIED
+    media:
+      type: object
+      properties:
+        url:
+          type: string
+        mimeType:
+          type: string
+    collectionMintStage:
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/collectionMintStageKindEnum'
+        price:
+          type: object
+          properties:
+            currency:
+              $ref: '#/components/schemas/chainAsset'
+            raw:
+              type: string
+          required:
+          - currency
+          - raw
+        startTime:
+          type: string
+        endTime:
+          type: string
+        walletLimit:
+          type: number
+          minimum: 0
+          maximum: 1000
+        maxSupply:
+          type: number
+          minimum: 1
+      required:
+      - kind
+      - price
+    getCollectionsBySlugs:
+      type: object
+      properties:
+        collectionSlugs:
+          description: 'List of collection Slugs to retrieve. example: `pudgypenguins` '
+          type: array
+          items:
+            type: string
+          maxItems: 100
+      required:
+      - collectionSlugs
+    collectionRoyalty:
+      type: object
+      properties:
+        recipient:
+          type: string
+        bps:
+          type: number
+          maximum: 10000
+          minimum: 0
+        isOptional:
+          type: boolean
+      required:
+      - recipient
+      - bps
+      - isOptional
     collectionTransferabilityEnum:
       type: string
       enum:
@@ -1427,15 +1412,16 @@ components:
       - TRANSFERABLE_NOT_TRADABLE
       - NOT_TRANSFERABLE_NOT_TRADABLE
       - NOT_TRANSFERABLE_TRADABLE
-    searchCollectionsResponse:
+    chainAsset:
       type: object
       properties:
-        collections:
-          type: array
-          items:
-            $ref: '#/components/schemas/collectionSchema'
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        assetId:
+          type: string
       required:
-      - collections
+      - chain
+      - assetId
     userCollectionSchema:
       allOf:
       - $ref: '#/components/schemas/collectionSchema'
@@ -1450,22 +1436,55 @@ components:
         required:
         - ownedCount
         - listedCount
-    listingCurrency:
+    searchCollectionsRequest:
       type: object
       properties:
-        address:
+        chain:
+          $ref: '#/components/schemas/chainEnum'
+        pattern:
           type: string
-        name:
-          type: string
-        symbol:
-          type: string
-        decimals:
-          type: number
+          description: Any name pattern you want to search for collections. Only first 50 collection matched will be returned
       required:
-      - address
-      - name
-      - symbol
-      - decimals
+      - chain
+      - pattern
+    collectionMintStageKindEnum:
+      type: string
+      enum:
+      - public
+      - allowlist
+    chainEnum:
+      type: string
+      enum:
+      - ethereum
+      - abstract
+      - apechain
+      - arbitrum
+      - base
+      - berachain
+      - bsc
+      - polygon
+      - sei
+      - avalanche
+      - monad
+    CollectionStatSchema:
+      type: object
+      properties:
+        floorPrice:
+          type: string
+        inscriptionNumberMin:
+          type: string
+        inscriptionNumberMax:
+          type: string
+        owners:
+          type: string
+        pendingTransactions:
+          type: string
+        supply:
+          type: string
+        totalListed:
+          type: string
+        totalVolume:
+          type: string
     CollectionSchema:
       type: object
       properties:
@@ -1493,34 +1512,16 @@ components:
           type: integer
         createdAt:
           type: string
-    CollectionStatSchema:
-      type: object
+    IFloorPriceInfo:
       properties:
         floorPrice:
-          type: string
-        inscriptionNumberMin:
-          type: string
-        inscriptionNumberMax:
-          type: string
-        owners:
-          type: string
-        pendingTransactions:
-          type: string
-        supply:
-          type: string
-        totalListed:
-          type: string
-        totalVolume:
-          type: string
-    MoonrankCrawl:
-      properties:
-        complete:
-          type: boolean
-          description: 'Flag for if Moonrank has fully crawled the collection. If this is false,
-
-            then it means the rarity values are incomplete and should not be used.'
-        id:
-          type: string
+          type: number
+          format: double
+        floorListedNftType:
+          $ref: '#/components/schemas/ListedNftType'
+      required:
+      - floorPrice
+      - floorListedNftType
       type: object
       additionalProperties: false
     CollectionAttributes:
@@ -1531,69 +1532,61 @@ components:
       - results
       type: object
       additionalProperties: false
-    ResponseMetadata:
-      properties:
-        paging:
-          $ref: '#/components/schemas/PagingMetadata'
-      type: object
-      additionalProperties: false
-    ICollectionV2:
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
+    SwaggerFriendlyICollectionHolderStatsV2:
       properties:
         symbol:
           type: string
-        name:
-          type: string
-        description:
-          type: string
-        image:
-          type: string
-        twitter:
-          type: string
-        discord:
-          type: string
-        website:
-          type: string
-        isFlagged:
-          type: boolean
-        flagMessage:
-          type: string
-        categories:
+        tokenHistogram:
+          properties:
+            bars:
+              items:
+                properties:
+                  r_val:
+                    type: number
+                    format: double
+                  hight:
+                    type: number
+                    format: double
+                  l_val:
+                    type: number
+                    format: double
+                required:
+                - hight
+                - l_val
+                type: object
+              type: array
+          type: object
+        totalSupply:
+          type: number
+          format: double
+        uniqueHolders:
+          type: number
+          format: double
+        topHolders:
           items:
-            type:
-            - string
-            - 'null'
+            $ref: '#/components/schemas/SwaggerFriendlyIIndividualHolderStats'
           type: array
-        floorPrice:
-          type: number
-          format: double
-        listedCount:
-          type: number
-          format: double
-        avgPrice24hr:
-          type: number
-          format: double
-        volumeAll:
-          type: number
-          format: double
-        isBadged:
-          type: boolean
-        hasCNFTs:
-          type: boolean
-        isOcp:
-          type: boolean
-        splTokens:
-          items:
-            type: string
-          type: array
-        floorPriceWithFee:
-          $ref: '#/components/schemas/IFloorPriceInfo'
       required:
       - symbol
-      - name
-      - description
-      - image
+      - tokenHistogram
+      - topHolders
       type: object
       additionalProperties: false
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
     SwaggerFriendlyITokenV2:
       properties:
         mintAddress:
@@ -1657,52 +1650,124 @@ components:
       - image
       type: object
       additionalProperties: false
+    PagingMetadata:
+      properties:
+        total:
+          type: number
+          format: double
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+      required:
+      - total
+      - start
+      - end
+      type: object
+      additionalProperties: false
     RequestMetadata:
       properties:
         paging:
           type: boolean
       type: object
       additionalProperties: false
-    SwaggerFriendlyICollectionHolderStatsV2:
+    MeInstantRarity:
       properties:
-        symbol:
-          type: string
-        tokenHistogram:
-          properties:
-            bars:
-              items:
-                properties:
-                  r_val:
-                    type: number
-                    format: double
-                  hight:
-                    type: number
-                    format: double
-                  l_val:
-                    type: number
-                    format: double
-                required:
-                - hight
-                - l_val
-                type: object
-              type: array
-          type: object
-        totalSupply:
+        rank:
           type: number
           format: double
-        uniqueHolders:
-          type: number
-          format: double
-        topHolders:
-          items:
-            $ref: '#/components/schemas/SwaggerFriendlyIIndividualHolderStats'
-          type: array
       required:
-      - symbol
-      - tokenHistogram
-      - topHolders
+      - rank
       type: object
       additionalProperties: false
+    NFTRarity:
+      properties:
+        howrare:
+          properties:
+            rank:
+              type: number
+              format: double
+          required:
+          - rank
+          type: object
+        moonrank:
+          properties:
+            crawl:
+              $ref: '#/components/schemas/MoonrankCrawl'
+            absolute_rarity:
+              type: number
+              format: double
+            rank:
+              type: number
+              format: double
+          required:
+          - crawl
+          - absolute_rarity
+          - rank
+          type: object
+        merarity:
+          $ref: '#/components/schemas/MeTokenRarity'
+        meInstant:
+          $ref: '#/components/schemas/MeInstantRarity'
+      type: object
+      additionalProperties: false
+    ListingSortOptions:
+      type: string
+      enum:
+      - updatedAt
+      - listPrice
+    IAttributeV2:
+      properties:
+        trait_type:
+          type: string
+        value: {}
+      required:
+      - trait_type
+      - value
+      type: object
+      additionalProperties: false
+    SwaggerNftAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
+          type: string
+      required:
+      - traitType
+      - value
+      type: object
+      additionalProperties: false
+    IExtraPublicInfo:
+      properties:
+        img:
+          type: string
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyTokenAmount:
+      properties:
+        rawAmount:
+          type: string
+        address:
+          type: string
+          description: The identifier of the amount.
+        decimals:
+          type: number
+          format: double
+          description: The number of decimals in the amount.
+      required:
+      - rawAmount
+      - address
+      - decimals
+      type: object
+      additionalProperties: false
+    SwaggerNftAttributeSchema:
+      items:
+        items:
+          $ref: '#/components/schemas/SwaggerNftAttribute'
+        type: array
+      type: array
     MeTokenRarity:
       properties:
         tokenKey:
@@ -1725,107 +1790,174 @@ components:
       - score
       type: object
       additionalProperties: false
-    MeInstantRarity:
-      properties:
-        rank:
-          type: number
-          format: double
-      required:
-      - rank
-      type: object
-      additionalProperties: false
-    AvailableAttribute:
-      properties:
-        attribute:
-          $ref: '#/components/schemas/IAttributeV2'
-        count:
-          type: number
-          format: double
-        floor:
-          type: number
-          format: double
-        countByListingType:
-          properties: {}
-          additionalProperties:
-            type: number
-            format: double
-          type: object
-      required:
-      - attribute
-      - count
-      - floor
-      - countByListingType
-      type: object
-      additionalProperties: false
-    CollectionAttributesResults:
-      properties:
-        symbol:
-          type: string
-        availableAttributes:
-          items:
-            $ref: '#/components/schemas/AvailableAttribute'
-          type: array
-      required:
-      - symbol
-      - availableAttributes
-      type: object
-      additionalProperties: false
-    ListingSortOptions:
+    ListedNftType:
       type: string
       enum:
-      - updatedAt
-      - listPrice
-    IXAttribute:
+      - M2
+      - MMM
+      - TENSOR_LISTING
+      - TENSOR_CNFT_LISTING
+      - TENSOR_MARKETPLACE_LISTING
+      - TENSOR_AMM
+      - TENSOR_AMM_V2
+      - HADESWAP_AMM
+      - M3
+    SwaggerFriendlyIListingV2:
       properties:
-        traitType:
+        price:
+          type: number
+          format: double
+        tokenAddress:
           type: string
-        value:
+        pdaAddress:
           type: string
-        count:
+        auctionHouse:
+          type: string
+        tokenMint:
+          type: string
+        seller:
+          type: string
+        sellerReferral:
+          type: string
+        tokenSize:
           type: number
           format: double
         rarity:
+          $ref: '#/components/schemas/NFTRarity'
+        extra:
+          $ref: '#/components/schemas/IExtraPublicInfo'
+        expiry:
           type: number
           format: double
-        topBidValue:
-          type: number
-          format: double
-        floorAskPrice:
-          type: number
-          format: double
-        onSaleCount:
-          type: number
-          format: double
+        listingSource:
+          $ref: '#/components/schemas/ListedNftType'
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+        token:
+          $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
       required:
-      - traitType
-      - value
+      - price
+      - tokenAddress
+      - pdaAddress
+      - auctionHouse
+      - tokenMint
+      - seller
+      - tokenSize
+      - rarity
+      - expiry
+      - listingSource
+      - token
       type: object
       additionalProperties: false
-    PagingMetadata:
+    SwaggerFriendlyPriceInfo:
       properties:
-        total:
-          type: number
-          format: double
-        start:
-          type: number
-          format: double
-        end:
-          type: number
-          format: double
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
       required:
-      - total
-      - start
-      - end
+      - solPrice
       type: object
       additionalProperties: false
-    IAttributeV2:
+    ICollectionV2:
       properties:
-        trait_type:
+        symbol:
           type: string
-        value: {}
+        name:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        twitter:
+          type: string
+        discord:
+          type: string
+        website:
+          type: string
+        isFlagged:
+          type: boolean
+        flagMessage:
+          type: string
+        categories:
+          items:
+            type:
+            - string
+            - 'null'
+          type: array
+        floorPrice:
+          type: number
+          format: double
+        listedCount:
+          type: number
+          format: double
+        avgPrice24hr:
+          type: number
+          format: double
+        volumeAll:
+          type: number
+          format: double
+        isBadged:
+          type: boolean
+        hasCNFTs:
+          type: boolean
+        isOcp:
+          type: boolean
+        splTokens:
+          items:
+            type: string
+          type: array
+        floorPriceWithFee:
+          $ref: '#/components/schemas/IFloorPriceInfo'
       required:
-      - trait_type
-      - value
+      - symbol
+      - name
+      - description
+      - image
+      type: object
+      additionalProperties: false
+    ResponseMetadata:
+      properties:
+        paging:
+          $ref: '#/components/schemas/PagingMetadata'
+      type: object
+      additionalProperties: false
+    CollectionStats:
+      properties:
+        symbol:
+          type: string
+        floorPrice:
+          type: number
+          format: double
+        listedCount:
+          type: number
+          format: double
+        avgPrice24hr:
+          type: number
+          format: double
+        volumeAll:
+          type: number
+          format: double
+      required:
+      - symbol
+      type: object
+      additionalProperties: false
+    IPropertiesV2:
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/IPropertiesV2File'
+          type: array
+        category:
+          type: string
+        creators:
+          items:
+            $ref: '#/components/schemas/Partial_ICreatorV2_'
+          type: array
+      required:
+      - files
+      - category
+      - creators
       type: object
       additionalProperties: false
     SwaggerFriendlyIIndividualHolderStats:
@@ -1862,37 +1994,41 @@ components:
       - nextCursor
       type: object
       additionalProperties: false
-    NFTRarity:
+    CollectionAttributesResults:
       properties:
-        howrare:
-          properties:
-            rank:
-              type: number
-              format: double
-          required:
-          - rank
-          type: object
-        moonrank:
-          properties:
-            crawl:
-              $ref: '#/components/schemas/MoonrankCrawl'
-            absolute_rarity:
-              type: number
-              format: double
-            rank:
-              type: number
-              format: double
-          required:
-          - crawl
-          - absolute_rarity
-          - rank
-          type: object
-        merarity:
-          $ref: '#/components/schemas/MeTokenRarity'
-        meInstant:
-          $ref: '#/components/schemas/MeInstantRarity'
+        symbol:
+          type: string
+        availableAttributes:
+          items:
+            $ref: '#/components/schemas/AvailableAttribute'
+          type: array
+      required:
+      - symbol
+      - availableAttributes
       type: object
       additionalProperties: false
+    MoonrankCrawl:
+      properties:
+        complete:
+          type: boolean
+          description: 'Flag for if Moonrank has fully crawled the collection. If this is false,
+
+            then it means the rarity values are incomplete and should not be used.'
+        id:
+          type: string
+      type: object
+      additionalProperties: false
+    Partial_ICreatorV2_:
+      properties:
+        address:
+          type: string
+        verified:
+          type: boolean
+        share:
+          type: number
+          format: double
+      type: object
+      description: Make all properties in T optional
     SwaggerFriendlyIActivityV2:
       properties:
         type:
@@ -1942,154 +2078,32 @@ components:
       - blockTime
       type: object
       additionalProperties: false
-    SwaggerFriendlyPriceInfo:
-      properties:
-        solPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-        splPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-      required:
-      - solPrice
-      type: object
-      additionalProperties: false
-    SwaggerNftAttributeSchema:
-      items:
-        items:
-          $ref: '#/components/schemas/SwaggerNftAttribute'
-        type: array
-      type: array
-    IExtraPublicInfo:
-      properties:
-        img:
-          type: string
-      type: object
-      additionalProperties: false
-    TokenStandard:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - -1
-      type: number
-    IFloorPriceInfo:
-      properties:
-        floorPrice:
-          type: number
-          format: double
-        floorListedNftType:
-          $ref: '#/components/schemas/ListedNftType'
-      required:
-      - floorPrice
-      - floorListedNftType
-      type: object
-      additionalProperties: false
-    SwaggerFriendlyIListingV2:
-      properties:
-        price:
-          type: number
-          format: double
-        tokenAddress:
-          type: string
-        pdaAddress:
-          type: string
-        auctionHouse:
-          type: string
-        tokenMint:
-          type: string
-        seller:
-          type: string
-        sellerReferral:
-          type: string
-        tokenSize:
-          type: number
-          format: double
-        rarity:
-          $ref: '#/components/schemas/NFTRarity'
-        extra:
-          $ref: '#/components/schemas/IExtraPublicInfo'
-        expiry:
-          type: number
-          format: double
-        listingSource:
-          $ref: '#/components/schemas/ListedNftType'
-        priceInfo:
-          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
-        token:
-          $ref: '#/components/schemas/SwaggerFriendlyITokenV2'
-      required:
-      - price
-      - tokenAddress
-      - pdaAddress
-      - auctionHouse
-      - tokenMint
-      - seller
-      - tokenSize
-      - rarity
-      - expiry
-      - listingSource
-      - token
-      type: object
-      additionalProperties: false
-    SortDirQuery:
-      type: string
-      enum:
-      - asc
-      - desc
-    ListedNftType:
-      type: string
-      enum:
-      - M2
-      - MMM
-      - TENSOR_LISTING
-      - TENSOR_CNFT_LISTING
-      - TENSOR_MARKETPLACE_LISTING
-      - TENSOR_AMM
-      - TENSOR_AMM_V2
-      - HADESWAP_AMM
-      - M3
-    IPropertiesV2:
-      properties:
-        files:
-          items:
-            $ref: '#/components/schemas/IPropertiesV2File'
-          type: array
-        category:
-          type: string
-        creators:
-          items:
-            $ref: '#/components/schemas/Partial_ICreatorV2_'
-          type: array
-      required:
-      - files
-      - category
-      - creators
-      type: object
-      additionalProperties: false
-    SwaggerNftAttribute:
+    IXAttribute:
       properties:
         traitType:
           type: string
         value:
           type: string
+        count:
+          type: number
+          format: double
+        rarity:
+          type: number
+          format: double
+        topBidValue:
+          type: number
+          format: double
+        floorAskPrice:
+          type: number
+          format: double
+        onSaleCount:
+          type: number
+          format: double
       required:
       - traitType
       - value
       type: object
       additionalProperties: false
-    Partial_ICreatorV2_:
-      properties:
-        address:
-          type: string
-        verified:
-          type: boolean
-        share:
-          type: number
-          format: double
-      type: object
-      description: Make all properties in T optional
     IPropertiesV2File:
       properties:
         uri:
@@ -2103,41 +2117,27 @@ components:
       - type
       type: object
       additionalProperties: false
-    CollectionStats:
+    AvailableAttribute:
       properties:
-        symbol:
-          type: string
-        floorPrice:
+        attribute:
+          $ref: '#/components/schemas/IAttributeV2'
+        count:
           type: number
           format: double
-        listedCount:
+        floor:
           type: number
           format: double
-        avgPrice24hr:
-          type: number
-          format: double
-        volumeAll:
-          type: number
-          format: double
+        countByListingType:
+          properties: {}
+          additionalProperties:
+            type: number
+            format: double
+          type: object
       required:
-      - symbol
-      type: object
-      additionalProperties: false
-    SwaggerFriendlyTokenAmount:
-      properties:
-        rawAmount:
-          type: string
-        address:
-          type: string
-          description: The identifier of the amount.
-        decimals:
-          type: number
-          format: double
-          description: The number of decimals in the amount.
-      required:
-      - rawAmount
-      - address
-      - decimals
+      - attribute
+      - count
+      - floor
+      - countByListingType
       type: object
       additionalProperties: false
   securitySchemes:

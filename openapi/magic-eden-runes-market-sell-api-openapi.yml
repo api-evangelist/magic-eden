@@ -54,6 +54,32 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
     GetMarketSellPsbtResponseSchema:
       type: object
       properties:
@@ -124,32 +150,6 @@ components:
           - number
           - 'null'
           description: The numerical fee rate.
-    SettlementSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
-    PostMarketSellPsbtRequestSchema:
-      type: object
-      properties:
-        requestId:
-          type: string
-          description: The unique request ID for the market sell.
-        signedPsbtBase64:
-          type: string
-          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-      required:
-      - requestId
-      - signedPsbtBase64
     PostMarketSellPsbtResponseSchema:
       type: object
       properties:

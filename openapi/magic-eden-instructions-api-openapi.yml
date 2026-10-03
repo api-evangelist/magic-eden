@@ -1534,12 +1534,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MMM.CurveKindString:
-      type: string
-      enum:
-      - linear
-      - exp
-      - xyk
     IBuffer:
       properties:
         type:
@@ -1566,6 +1560,12 @@ components:
       - tx
       type: object
       additionalProperties: false
+    MMM.CurveKindString:
+      type: string
+      enum:
+      - linear
+      - exp
+      - xyk
   securitySchemes:
     BearerAuth:
       type: http
