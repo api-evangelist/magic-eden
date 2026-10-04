@@ -1534,22 +1534,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IBuffer:
-      properties:
-        type:
-          type: string
-          enum:
-          - Buffer
-        data:
-          items:
-            type: number
-            format: double
-          type: array
-      required:
-      - type
-      - data
-      type: object
-      additionalProperties: false
     Transaction:
       properties:
         tx:
@@ -1566,6 +1550,22 @@ components:
       - linear
       - exp
       - xyk
+    IBuffer:
+      properties:
+        type:
+          type: string
+          enum:
+          - Buffer
+        data:
+          items:
+            type: number
+            format: double
+          type: array
+      required:
+      - type
+      - data
+      type: object
+      additionalProperties: false
   securitySchemes:
     BearerAuth:
       type: http

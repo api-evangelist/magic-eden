@@ -54,18 +54,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PostMarketSellPsbtRequestSchema:
+    PostMarketSellPsbtResponseSchema:
       type: object
       properties:
-        requestId:
+        txid:
           type: string
-          description: The unique request ID for the market sell.
-        signedPsbtBase64:
-          type: string
-          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+          description: The transaction ID for the market sell.
       required:
-      - requestId
-      - signedPsbtBase64
+      - txid
     SettlementSchema:
       type: object
       properties:
@@ -80,6 +76,18 @@ components:
       required:
       - amount
       - price
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
     GetMarketSellPsbtResponseSchema:
       type: object
       properties:
@@ -150,14 +158,6 @@ components:
           - number
           - 'null'
           description: The numerical fee rate.
-    PostMarketSellPsbtResponseSchema:
-      type: object
-      properties:
-        txid:
-          type: string
-          description: The transaction ID for the market sell.
-      required:
-      - txid
   securitySchemes:
     BearerAuth:
       type: http

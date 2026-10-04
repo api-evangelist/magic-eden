@@ -526,28 +526,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EscrowBalance:
-      properties:
-        buyerEscrow:
-          type: string
-        balance:
-          type: number
-          format: double
-      required:
-      - buyerEscrow
-      - balance
-      type: object
-      additionalProperties: false
-    TokenStandard:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - -1
-      type: number
     SwaggerFriendlyTokenAmount:
       properties:
         rawAmount:
@@ -563,6 +541,35 @@ components:
       - rawAmount
       - address
       - decimals
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyPriceInfo:
+      properties:
+        solPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        splPrice:
+          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+      required:
+      - solPrice
+      type: object
+      additionalProperties: false
+    OfferReceivedSort:
+      type: string
+      enum:
+      - updatedAt
+      - bidAmount
+    IWalletOwnerInfo:
+      properties:
+        walletAddress:
+          type: string
+        displayName:
+          type: string
+        avatar:
+          type: string
+        bio:
+          type: string
+      required:
+      - walletAddress
       type: object
       additionalProperties: false
     IPropertiesV2:
@@ -581,6 +588,115 @@ components:
       - files
       - category
       - creators
+      type: object
+      additionalProperties: false
+    EscrowBalance:
+      properties:
+        buyerEscrow:
+          type: string
+        balance:
+          type: number
+          format: double
+      required:
+      - buyerEscrow
+      - balance
+      type: object
+      additionalProperties: false
+    SwaggerNftAttribute:
+      properties:
+        traitType:
+          type: string
+        value:
+          type: string
+      required:
+      - traitType
+      - value
+      type: object
+      additionalProperties: false
+    ListStatus:
+      type: string
+      enum:
+      - listed
+      - unlisted
+      - both
+    IOfferV2:
+      properties:
+        pdaAddress:
+          type: string
+        tokenMint:
+          type: string
+        auctionHouse:
+          type: string
+        buyer:
+          type: string
+        buyerReferral:
+          type: string
+        tokenSize:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        expiry:
+          type: number
+          format: double
+      required:
+      - pdaAddress
+      - tokenMint
+      - auctionHouse
+      - buyer
+      - tokenSize
+      - price
+      - expiry
+      type: object
+      additionalProperties: false
+    SwaggerFriendlyIActivityV2:
+      properties:
+        type:
+          type: string
+        collection:
+          type: string
+          deprecated: true
+        image:
+          type: string
+        price:
+          type: number
+          format: double
+        tokenMint:
+          type: string
+        seller:
+          type:
+          - string
+          - 'null'
+        sellerReferral:
+          type: string
+        signature:
+          type: string
+        source:
+          type: string
+        collectionSymbol:
+          type: string
+        slot:
+          type: number
+          format: double
+        blockTime:
+          type: number
+          format: double
+        buyer:
+          type:
+          - string
+          - 'null'
+        buyerReferral:
+          type: string
+        priceInfo:
+          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
+      required:
+      - type
+      - price
+      - signature
+      - source
+      - slot
+      - blockTime
       type: object
       additionalProperties: false
     SwaggerFriendlyITokenV2:
@@ -646,146 +762,6 @@ components:
       - image
       type: object
       additionalProperties: false
-    OfferReceivedSort:
-      type: string
-      enum:
-      - updatedAt
-      - bidAmount
-    SwaggerNftAttributeSchema:
-      items:
-        items:
-          $ref: '#/components/schemas/SwaggerNftAttribute'
-        type: array
-      type: array
-    SwaggerFriendlyIActivityV2:
-      properties:
-        type:
-          type: string
-        collection:
-          type: string
-          deprecated: true
-        image:
-          type: string
-        price:
-          type: number
-          format: double
-        tokenMint:
-          type: string
-        seller:
-          type:
-          - string
-          - 'null'
-        sellerReferral:
-          type: string
-        signature:
-          type: string
-        source:
-          type: string
-        collectionSymbol:
-          type: string
-        slot:
-          type: number
-          format: double
-        blockTime:
-          type: number
-          format: double
-        buyer:
-          type:
-          - string
-          - 'null'
-        buyerReferral:
-          type: string
-        priceInfo:
-          $ref: '#/components/schemas/SwaggerFriendlyPriceInfo'
-      required:
-      - type
-      - price
-      - signature
-      - source
-      - slot
-      - blockTime
-      type: object
-      additionalProperties: false
-    IWalletOwnerInfo:
-      properties:
-        walletAddress:
-          type: string
-        displayName:
-          type: string
-        avatar:
-          type: string
-        bio:
-          type: string
-      required:
-      - walletAddress
-      type: object
-      additionalProperties: false
-    SortDirQuery:
-      type: string
-      enum:
-      - asc
-      - desc
-    ListStatus:
-      type: string
-      enum:
-      - listed
-      - unlisted
-      - both
-    Partial_ICreatorV2_:
-      properties:
-        address:
-          type: string
-        verified:
-          type: boolean
-        share:
-          type: number
-          format: double
-      type: object
-      description: Make all properties in T optional
-    IOfferV2:
-      properties:
-        pdaAddress:
-          type: string
-        tokenMint:
-          type: string
-        auctionHouse:
-          type: string
-        buyer:
-          type: string
-        buyerReferral:
-          type: string
-        tokenSize:
-          type: number
-          format: double
-        price:
-          type: number
-          format: double
-        expiry:
-          type: number
-          format: double
-      required:
-      - pdaAddress
-      - tokenMint
-      - auctionHouse
-      - buyer
-      - tokenSize
-      - price
-      - expiry
-      type: object
-      additionalProperties: false
-    IPropertiesV2File:
-      properties:
-        uri:
-          type: string
-        type:
-          type: string
-        cdn:
-          type: boolean
-      required:
-      - uri
-      - type
-      type: object
-      additionalProperties: false
     ListingSortOptions:
       type: string
       enum:
@@ -801,27 +777,51 @@ components:
       - value
       type: object
       additionalProperties: false
-    SwaggerFriendlyPriceInfo:
+    Partial_ICreatorV2_:
       properties:
-        solPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
-        splPrice:
-          $ref: '#/components/schemas/SwaggerFriendlyTokenAmount'
+        address:
+          type: string
+        verified:
+          type: boolean
+        share:
+          type: number
+          format: double
+      type: object
+      description: Make all properties in T optional
+    IPropertiesV2File:
+      properties:
+        uri:
+          type: string
+        type:
+          type: string
+        cdn:
+          type: boolean
       required:
-      - solPrice
+      - uri
+      - type
       type: object
       additionalProperties: false
-    SwaggerNftAttribute:
-      properties:
-        traitType:
-          type: string
-        value:
-          type: string
-      required:
-      - traitType
-      - value
-      type: object
-      additionalProperties: false
+    TokenStandard:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - -1
+      type: number
+    SwaggerNftAttributeSchema:
+      items:
+        items:
+          $ref: '#/components/schemas/SwaggerNftAttribute'
+        type: array
+      type: array
+    SortDirQuery:
+      type: string
+      enum:
+      - asc
+      - desc
   securitySchemes:
     BearerAuth:
       type: http

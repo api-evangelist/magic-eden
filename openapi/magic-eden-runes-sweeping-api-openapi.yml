@@ -54,72 +54,24 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PostRunesSweepingRequestSchema:
-      type: object
-      required:
-      - orderIds
-      - takerPaymentAddress
-      - takerReceiveAddress
-      properties:
-        orderIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-          description: Array of order IDs, must contain at least one and no more than 50.
-          minItems: 1
-          maxItems: 50
-        signedPsbtBase64:
-          type: string
-          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of non RBF protection sweeping. You must sign before submitting.
-        takerPaymentAddress:
-          type: string
-          format: btc-address
-          description: Bitcoin address for the taker’s payment.
-        takerReceiveAddress:
-          type: string
-          format: btc-address
-          description: Bitcoin address for the taker to receive assets. Should be your taproot address
-        enableRBFProtection:
-          type: boolean
-          description: Boolean value to enable RBF protection sweeping
-        fullRBFProtectedSweepingRequest:
-          $ref: '#/components/schemas/FullRBFProtectedSweepingRequestSchema'
-          description: Signed PSBT for RBF protection sweeping
-      additionalProperties: false
-    SettlementSchema:
+    FullRBFProtectedSweepingResponseSchema:
       type: object
       properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
-    RuneSymbol:
-      type: string
-      pattern: ^[A-Z]{1,26}$
-      description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long
-    PostRunesSweepingResultSchema:
-      type: object
-      required:
-      - txid
-      properties:
-        txid:
-          type: string
-          description: Transaction ID of the successfully broadcasted Bitcoin RBF protection sweeping transaction.
+        fundsPreparationTxId:
+          type:
+          - string
+          - 'null'
+          description: The transaction ID for the funds preparation, if available.
+        fulfillmentId:
+          type:
+          - string
+          - 'null'
+          description: The ID of the fulfillment, if available.
         error:
-          type: string
-          description: Error message, if an error occurred during broadcasting RBF protection sweeping transaction.
-        fullRBFProtectedSweepingResponse:
-          $ref: '#/components/schemas/FullRBFProtectedSweepingResponseSchema'
-          description: Post result of the RBF protection sweeping
-      additionalProperties: false
+          type:
+          - string
+          - 'null'
+          description: Error message, if an error occurred.
     PostRunesPSBTSweepingRequestSchema:
       type: object
       required:
@@ -166,55 +118,6 @@ components:
           type: boolean
           description: Boolean value to enable RBF protection sweeping
       additionalProperties: false
-    FullRBFProtectedSweepingResponseSchema:
-      type: object
-      properties:
-        fundsPreparationTxId:
-          type:
-          - string
-          - 'null'
-          description: The transaction ID for the funds preparation, if available.
-        fulfillmentId:
-          type:
-          - string
-          - 'null'
-          description: The ID of the fulfillment, if available.
-        error:
-          type:
-          - string
-          - 'null'
-          description: Error message, if an error occurred.
-    PostRunesPSBTSweepingResultSchema:
-      type: object
-      required:
-      - invalidOrders
-      - paymentUtxoIndexes
-      properties:
-        invalidOrders:
-          type: array
-          description: List of order IDs that could not be processed by non RBF protection sweeping (RBF protection orders are excluded)
-          items:
-            type: string
-            format: uuid
-        validOrders:
-          type: array
-          description: List of order IDs that could be processed by non RBF protection sweeping
-          items:
-            type: string
-            format: uuid
-        psbtBase64:
-          type: string
-          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the non RBF protection sweeping
-        paymentUtxoIndexes:
-          type: number
-          description: Index of payment UTXO inputs
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: Settlement of the non RBF protection sweeping
-        fullRBFProtectedSweepingResult:
-          $ref: '#/components/schemas/FullRBFProtectedSweepingResultSchema'
-          description: Full RBF protection information need to be signed
-      additionalProperties: false
     FullRBFProtectedSweepingResultSchema:
       type: object
       properties:
@@ -249,6 +152,103 @@ components:
       - settlement
       - validOrderIds
       - psbtIndexesToSign
+    PostRunesSweepingResultSchema:
+      type: object
+      required:
+      - txid
+      properties:
+        txid:
+          type: string
+          description: Transaction ID of the successfully broadcasted Bitcoin RBF protection sweeping transaction.
+        error:
+          type: string
+          description: Error message, if an error occurred during broadcasting RBF protection sweeping transaction.
+        fullRBFProtectedSweepingResponse:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResponseSchema'
+          description: Post result of the RBF protection sweeping
+      additionalProperties: false
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
+    PostRunesSweepingRequestSchema:
+      type: object
+      required:
+      - orderIds
+      - takerPaymentAddress
+      - takerReceiveAddress
+      properties:
+        orderIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Array of order IDs, must contain at least one and no more than 50.
+          minItems: 1
+          maxItems: 50
+        signedPsbtBase64:
+          type: string
+          description: Base64-encoded signed PSBT (Partially Signed Bitcoin Transaction) of non RBF protection sweeping. You must sign before submitting.
+        takerPaymentAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker’s payment.
+        takerReceiveAddress:
+          type: string
+          format: btc-address
+          description: Bitcoin address for the taker to receive assets. Should be your taproot address
+        enableRBFProtection:
+          type: boolean
+          description: Boolean value to enable RBF protection sweeping
+        fullRBFProtectedSweepingRequest:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingRequestSchema'
+          description: Signed PSBT for RBF protection sweeping
+      additionalProperties: false
+    RuneSymbol:
+      type: string
+      pattern: ^[A-Z]{1,26}$
+      description: Rune symbol must contain only uppercase letters and be between 1 and 26 characters long
+    PostRunesPSBTSweepingResultSchema:
+      type: object
+      required:
+      - invalidOrders
+      - paymentUtxoIndexes
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed by non RBF protection sweeping (RBF protection orders are excluded)
+          items:
+            type: string
+            format: uuid
+        validOrders:
+          type: array
+          description: List of order IDs that could be processed by non RBF protection sweeping
+          items:
+            type: string
+            format: uuid
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the non RBF protection sweeping
+        paymentUtxoIndexes:
+          type: number
+          description: Index of payment UTXO inputs
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: Settlement of the non RBF protection sweeping
+        fullRBFProtectedSweepingResult:
+          $ref: '#/components/schemas/FullRBFProtectedSweepingResultSchema'
+          description: Full RBF protection information need to be signed
+      additionalProperties: false
     FullRBFProtectedSweepingRequestSchema:
       type: object
       properties:

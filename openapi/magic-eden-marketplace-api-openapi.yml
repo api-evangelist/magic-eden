@@ -42,6 +42,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PopularCollectionsTimeRanges:
+      type: string
+      enum:
+      - 1h
+      - 1d
+      - 7d
+      - 30d
     ListedNftType:
       type: string
       enum:
@@ -54,18 +61,6 @@ components:
       - TENSOR_AMM_V2
       - HADESWAP_AMM
       - M3
-    IFloorPriceInfo:
-      properties:
-        floorPrice:
-          type: number
-          format: double
-        floorListedNftType:
-          $ref: '#/components/schemas/ListedNftType'
-      required:
-      - floorPrice
-      - floorListedNftType
-      type: object
-      additionalProperties: false
     ICollectionV2:
       properties:
         symbol:
@@ -123,13 +118,18 @@ components:
       - image
       type: object
       additionalProperties: false
-    PopularCollectionsTimeRanges:
-      type: string
-      enum:
-      - 1h
-      - 1d
-      - 7d
-      - 30d
+    IFloorPriceInfo:
+      properties:
+        floorPrice:
+          type: number
+          format: double
+        floorListedNftType:
+          $ref: '#/components/schemas/ListedNftType'
+      required:
+      - floorPrice
+      - floorListedNftType
+      type: object
+      additionalProperties: false
   securitySchemes:
     BearerAuth:
       type: http
