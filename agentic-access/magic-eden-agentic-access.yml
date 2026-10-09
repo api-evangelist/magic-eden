@@ -1,18 +1,27 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/magic-eden-evm-openapi.yml, openapi/magic-eden-ordinals-openapi.yml, openapi/magic-eden-solana-openapi.yml
+source: openapi/magic-eden-activity-api-openapi.yml, openapi/magic-eden-assets-api-openapi.yml,
+  openapi/magic-eden-bitcoin-api-openapi.yml, openapi/magic-eden-blocks-api-openapi.yml, openapi/magic-eden-collections-api-openapi.yml,
+  openapi/magic-eden-evm-api-openapi.yml, openapi/magic-eden-general-api-openapi.yml, openapi/magic-eden-instructions-api-openapi.yml,
+  openapi/magic-eden-ixs-api-openapi.yml, openapi/magic-eden-launchpad-api-openapi.yml, openapi/magic-eden-magic-ticket-api-openapi.yml,
+  openapi/magic-eden-marketplace-api-openapi.yml, openapi/magic-eden-mmm-api-openapi.yml, openapi/magic-eden-orders-api-openapi.yml,
+  openapi/magic-eden-rare-sats-api-openapi.yml, openapi/magic-eden-rewards-api-openapi.yml,
+  openapi/magic-eden-runes-info-api-openapi.yml, openapi/magic-eden-runes-listing-api-openapi.yml,
+  openapi/magic-eden-runes-market-sell-api-openapi.yml, openapi/magic-eden-runes-swap-api-openapi.yml,
+  openapi/magic-eden-runes-sweeping-api-openapi.yml, openapi/magic-eden-solana-api-openapi.yml,
+  openapi/magic-eden-tokens-api-openapi.yml, openapi/magic-eden-wallets-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 86
+  operations: 151
   by_action_class:
-    connected: 61
-    acting: 25
+    connected: 124
+    acting: 27
   by_consequence:
-    read: 61
-    write: 16
-    physical: 9
+    read: 124
+    write: 17
+    physical: 10
   human_in_the_loop_required: 0
 operations:
 - path: /activities
@@ -25,41 +34,393 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /assets/collection-assets
+  method: get
+  operationId: getAssets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /assets/user-assets
+  method: get
+  operationId: getUserAssets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/activities
+  method: get
+  operationId: getV2OrdBtcActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/tokens
+  method: get
+  operationId: getV2OrdBtcTokens
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/attributes
+  method: get
+  operationId: getV2OrdBtcAttributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/tokens/{tokenId}
+  method: get
+  operationId: getV2OrdBtcTokensByTokenId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/stat
+  method: get
+  operationId: getV2OrdBtcStat
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collection_stats/search/bitcoin
+  method: get
+  operationId: getCollectionStatsSearchBitcoin
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/collection-offers/psbt/cancel
+  method: get
+  operationId: getV2OrdBtcCollectionOffersPsbtCancel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/collection-offers/psbt/cancel
+  method: post
+  operationId: postV2OrdBtcCollectionOffersPsbtCancel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/ord/btc/collection-offers/psbt/create
+  method: get
+  operationId: getV2OrdBtcCollectionOffersPsbtCreate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/collection-offers/psbt/create
+  method: post
+  operationId: postV2OrdBtcCollectionOffersPsbtCreate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/ord/btc/offers/create
+  method: get
+  operationId: getV2OrdBtcOffersCreate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/offers/create
+  method: post
+  operationId: submitSignedOfferOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/ord/btc/collection-offers/collection/{collectionSymbol}
+  method: get
+  operationId: getCollectionOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/offers/
+  method: get
+  operationId: getV2OrdBtcOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/offers/cancel
+  method: get
+  operationId: retrieveCancelOfferFormat
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/offers/cancel
+  method: post
+  operationId: submitCancelOfferData
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/ord/btc/block/activities
+  method: get
+  operationId: getV2OrdBtcBlockActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /collections
   method: post
   operationId: getCollections
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
+- path: /collections
+  method: get
+  operationId: getCollections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /collections/user-collections
   method: post
   operationId: getUserCollections
   x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/search
+  method: post
+  operationId: searchCollections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/stat
+  method: get
+  operationId: getV2OrdBtcStat
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/ord/btc/collections/{symbol}
+  method: get
+  operationId: getCollection
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collection_stats/search/bitcoin
+  method: get
+  operationId: getCollectionStats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{collectionSymbol}/attributes
+  method: get
+  operationId: getCollectionsByCollectionSymbolAttributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{symbol}/activities
+  method: get
+  operationId: getCollectionsBySymbolActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{symbol}/holder_stats
+  method: get
+  operationId: getCollectionsBySymbolHolderStats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{symbol}/leaderboard
+  method: get
+  operationId: getCollectionsBySymbolLeaderboard
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{symbol}/listings
+  method: get
+  operationId: getCollectionsBySymbolListings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{symbol}/stats
+  method: get
+  operationId: getCollectionsBySymbolStats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/batch/listings
+  method: post
+  operationId: postCollectionsBatchListings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collection_stats/search/{chain}
+  method: get
+  operationId: getCollectionStatsSearchByChain
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/order/v4
+  method: post
+  operationId: postV3RtpByChainOrderV4
+  x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: physical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
-- path: /collections/search
+- path: /v3/rtp/{chain}/execute/bid/v5
   method: post
-  operationId: searchCollections
+  operationId: postV3RtpByChainExecuteBidV5
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -73,6 +434,338 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /v3/rtp/{chain}/execute/list/v5
+  method: post
+  operationId: postV3RtpByChainExecuteListV5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/rtp/{chain}/collections/0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74a/marketplace-configurations/v2
+  method: get
+  operationId: getV3RtpByChainCollections0x9db39ac416c5ec75c2c3ae622d2013ecccc2d74aMarketplaceConfigurationsV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/collections-sets/v1
+  method: post
+  operationId: postV3RtpByChainCollectionsSetsV1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/rtp/{chain}/users/{address}/tokens/v10
+  method: get
+  operationId: getV3RtpByChainUsersByAddressTokensV10
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/tokens/{token}/activity/v5
+  method: get
+  operationId: getV3RtpByChainTokensByTokenActivityV5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/orders/asks/v5
+  method: get
+  operationId: getV3RtpByChainOrdersAsksV5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/orders/bids/v6
+  method: get
+  operationId: getV3RtpByChainOrdersBidsV6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/users/{address}/collections/v4
+  method: get
+  operationId: getV3RtpByChainUsersByAddressCollectionsV4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/collections/{collectionAddress}/attributes/all/v4
+  method: get
+  operationId: getV3RtpByChainCollectionsByCollectionAddressAttributesAllV4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/collections/v7
+  method: get
+  operationId: getV3RtpByChainCollectionsV7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/collections/activity/v6
+  method: get
+  operationId: getV3RtpByChainCollectionsActivityV6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/rtp/{chain}/tokens/v7
+  method: get
+  operationId: getV3RtpByChainTokensV7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /auth/user/{walletAddress}
+  method: get
+  operationId: getAuthUserByWalletAddress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/buy
+  method: get
+  operationId: getInstructionsBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/buy_cancel
+  method: get
+  operationId: getInstructionsBuyCancel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/buy_change_price
+  method: get
+  operationId: getInstructionsBuyChangePrice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/buy_now
+  method: get
+  operationId: getInstructionsBuyNow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/buy_now_transfer_nft
+  method: get
+  operationId: getInstructionsBuyNowTransferNft
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/deposit
+  method: get
+  operationId: getInstructionsDeposit
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/sell
+  method: get
+  operationId: getInstructionsSell
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/sell_cancel
+  method: get
+  operationId: getInstructionsSellCancel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/sell_change_price
+  method: get
+  operationId: getInstructionsSellChangePrice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/sell_now
+  method: get
+  operationId: getInstructionsSellNow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/withdraw
+  method: get
+  operationId: getInstructionsWithdraw
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/magic_ticket/burns
+  method: get
+  operationId: getInstructionsMagicTicketBurns
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/create-pool
+  method: get
+  operationId: getInstructionsMmmCreatePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-close-pool
+  method: get
+  operationId: getInstructionsMmmSolClosePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-deposit-buy
+  method: get
+  operationId: getInstructionsMmmSolDepositBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-fulfill-buy
+  method: get
+  operationId: getInstructionsMmmSolFulfillBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-fulfill-sell
+  method: get
+  operationId: getInstructionsMmmSolFulfillSell
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-withdraw-buy
+  method: get
+  operationId: getInstructionsMmmSolWithdrawBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/update-pool
+  method: get
+  operationId: getInstructionsMmmUpdatePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /ixs/bid/get
   method: post
   operationId: ixsBidGet
@@ -223,6 +916,126 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /launchpad/collections
+  method: get
+  operationId: getLaunchpadCollections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/magic_ticket/burns
+  method: get
+  operationId: getInstructionsMagicTicketBurns
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /marketplace/popular_collections
+  method: get
+  operationId: getMarketplacePopularCollections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/create-pool
+  method: get
+  operationId: getInstructionsMmmCreatePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-close-pool
+  method: get
+  operationId: getInstructionsMmmSolClosePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-deposit-buy
+  method: get
+  operationId: getInstructionsMmmSolDepositBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-fulfill-buy
+  method: get
+  operationId: getInstructionsMmmSolFulfillBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-fulfill-sell
+  method: get
+  operationId: getInstructionsMmmSolFulfillSell
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/sol-withdraw-buy
+  method: get
+  operationId: getInstructionsMmmSolWithdrawBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /instructions/mmm/update-pool
+  method: get
+  operationId: getInstructionsMmmUpdatePool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mmm/pools
+  method: get
+  operationId: getMmmPools
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mmm/token/{mint_address}/pools
+  method: get
+  operationId: getMmmTokenByMintAddressPools
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /orders/asks
   method: get
   operationId: getAsks
@@ -243,66 +1056,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /assets/collection-assets
-  method: get
-  operationId: getAssets
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /assets/user-assets
-  method: get
-  operationId: getUserAssets
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v2/ord/btc/block/activities
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v2/ord/btc/stat
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v2/ord/btc/collections/{symbol}
-  method: get
-  operationId: getCollection
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collection_stats/search/bitcoin
-  method: get
-  operationId: getCollectionStats
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /v2/ord/btc/raresats/listings
   method: get
+  operationId: getV2OrdBtcRaresatsListings
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -312,6 +1068,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/raresats/wallet/utxos
   method: get
+  operationId: getV2OrdBtcRaresatsWalletUtxos
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -321,21 +1078,17 @@ operations:
     audit: none
 - path: /v2/ord/btc/raresats/listing-psbt
   method: post
+  operationId: postV2OrdBtcRaresatsListingPsbt
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/raresats/listing
   method: post
+  operationId: postV2OrdBtcRaresatsListing
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -349,8 +1102,19 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /rewards/diamond/eligibility
+  method: get
+  operationId: getRewardsDiamondEligibility
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/runes/activities/{rune}
   method: get
+  operationId: getV2OrdBtcRunesActivitiesByRune
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -360,6 +1124,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/collection_stats/search
   method: get
+  operationId: getV2OrdBtcRunesCollectionStatsSearch
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -369,6 +1134,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/market/{rune}/info
   method: get
+  operationId: getV2OrdBtcRunesMarketByRuneInfo
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -378,6 +1144,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/orders/{rune}
   method: get
+  operationId: getV2OrdBtcRunesOrdersByRune
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -387,6 +1154,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/utxos/wallet/{address}
   method: get
+  operationId: getV2OrdBtcRunesUtxosWalletByAddress
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -396,6 +1164,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/wallet/activities/{address}
   method: get
+  operationId: getV2OrdBtcRunesWalletActivitiesByAddress
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -405,6 +1174,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/wallet/balances/{address}/{rune}
   method: get
+  operationId: getV2OrdBtcRunesWalletBalancesByAddressByRune
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -414,6 +1184,7 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/order/cancel
   method: post
+  operationId: postV2OrdBtcRunesOrderCancel
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -431,6 +1202,7 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/order/create
   method: post
+  operationId: postV2OrdBtcRunesOrderCreate
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -448,23 +1220,17 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/psbt/order/cancel
   method: post
+  operationId: postV2OrdBtcRunesPsbtOrderCancel
   x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/runes/psbt/order/create
   method: post
+  operationId: postV2OrdBtcRunesPsbtOrderCreate
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -482,6 +1248,7 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/market-sell
   method: post
+  operationId: postV2OrdBtcRunesMarketSell
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -499,6 +1266,7 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/psbt/get-market-sell
   method: post
+  operationId: postV2OrdBtcRunesPsbtGetMarketSell
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -516,6 +1284,7 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/quote
   method: get
+  operationId: getV2OrdBtcRunesQuote
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -525,21 +1294,17 @@ operations:
     audit: none
 - path: /v2/ord/btc/runes/psbt/swap
   method: post
+  operationId: postV2OrdBtcRunesPsbtSwap
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/runes/swap
   method: post
+  operationId: postV2OrdBtcRunesSwap
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -555,21 +1320,17 @@ operations:
     audit: required
 - path: /v2/ord/btc/runes/psbt/get-sweeping
   method: post
+  operationId: postV2OrdBtcRunesPsbtGetSweeping
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/runes/sweeping
   method: post
+  operationId: postV2OrdBtcRunesSweeping
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -583,6 +1344,258 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /collection_stats/search/solana
+  method: get
+  operationId: getCollectionStatsSearchSolana
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getCollectionHolderStats/{collectionSymbol}
+  method: get
+  operationId: getRpcGetCollectionHolderStatsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /idxv2/getAllNftsByCollectionSymbol
+  method: get
+  operationId: getIdxv2GetAllNftsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getNFTsByOwner/{ownerAddress}
+  method: get
+  operationId: getRpcGetNFTsByOwnerByOwnerAddress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getCollectionAttributesStats/{collectionSymbol}
+  method: get
+  operationId: getRpcGetCollectionAttributesStatsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{collectionSymbol}/organization
+  method: get
+  operationId: getCollectionsByCollectionSymbolOrganization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sft/collection/{collectionSymbol}
+  method: get
+  operationId: getSftCollectionByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getCollectionEscrowStats/{collectionSymbol}
+  method: get
+  operationId: getRpcGetCollectionEscrowStatsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/activities
+  method: get
+  operationId: getV2Activities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /idxv2/getListedNftsByCollectionSymbol
+  method: get
+  operationId: getIdxv2GetListedNftsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collection_watchlists/action/checkUserWatchCollection/{collectionSymbol}
+  method: get
+  operationId: getCollectionWatchlistsActionCheckUserWatchCollectionByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /collections/{collectionSymbol}
+  method: get
+  operationId: getCollectionsByCollectionSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /idxv2/getBidsByMintAddresses
+  method: get
+  operationId: getIdxv2GetBidsByMintAddresses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getNFTByMintAddress/{mintAddress}
+  method: get
+  operationId: getRpcGetNFTByMintAddressByMintAddress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rpc/getNFTStatsByMintAddress/{mintAddress}
+  method: get
+  operationId: getRpcGetNFTStatsByMintAddressByMintAddress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/collections/{symbol}/activities
+  method: get
+  operationId: getV2CollectionsBySymbolActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/tokens/{token_mint}/listings
+  method: get
+  operationId: getV2TokensByTokenMintListings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/tokens/{token_mint}/offers_received
+  method: get
+  operationId: getV2TokensByTokenMintOffersReceived
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/tokens/{token_mint}/activities
+  method: get
+  operationId: getV2TokensByTokenMintActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/tokens/{token_mint}
+  method: get
+  operationId: getV2TokensByTokenMint
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/collections/batch/listings
+  method: post
+  operationId: postV2CollectionsBatchListings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/instructions/sell
+  method: get
+  operationId: getV2InstructionsSell
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/tx/{txId}
+  method: post
+  operationId: postV2TxByTxId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/instructions/buy
+  method: get
+  operationId: getV2InstructionsBuy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /v2/ord/btc/tokens
   method: get
   operationId: getTokens
@@ -593,293 +1606,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /collections
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{collectionSymbol}/attributes
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{symbol}/activities
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{symbol}/holder_stats
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{symbol}/leaderboard
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{symbol}/listings
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/{symbol}/stats
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /collections/batch/listings
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /instructions/buy
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/buy_cancel
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/buy_change_price
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/buy_now
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/buy_now_transfer_nft
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/deposit
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/sell
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/sell_cancel
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/sell_change_price
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/sell_now
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/withdraw
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /launchpad/collections
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/magic_ticket/burns
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /marketplace/popular_collections
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/create-pool
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/sol-close-pool
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/sol-deposit-buy
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/sol-fulfill-buy
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/sol-fulfill-sell
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/sol-withdraw-buy
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /instructions/mmm/update-pool
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /mmm/pools
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /mmm/token/{mint_address}/pools
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /tokens/{token_mint}
   method: get
+  operationId: getTokensByTokenMint
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -889,6 +1618,7 @@ operations:
     audit: none
 - path: /tokens/{token_mint}/activities
   method: get
+  operationId: getTokensByTokenMintActivities
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -898,6 +1628,7 @@ operations:
     audit: none
 - path: /tokens/{token_mint}/listings
   method: get
+  operationId: getTokensByTokenMintListings
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -907,6 +1638,7 @@ operations:
     audit: none
 - path: /tokens/{token_mint}/offers_received
   method: get
+  operationId: getTokensByTokenMintOffersReceived
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -916,6 +1648,7 @@ operations:
     audit: none
 - path: /wallets/owner/activities
   method: get
+  operationId: getWalletsOwnerActivities
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -925,6 +1658,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}
   method: get
+  operationId: getWalletsByWalletAddress
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -934,6 +1668,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}/activities
   method: get
+  operationId: getWalletsByWalletAddressActivities
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -943,6 +1678,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}/escrow_balance
   method: get
+  operationId: getWalletsByWalletAddressEscrowBalance
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -952,6 +1688,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}/offers_made
   method: get
+  operationId: getWalletsByWalletAddressOffersMade
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -961,6 +1698,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}/offers_received
   method: get
+  operationId: getWalletsByWalletAddressOffersReceived
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -970,6 +1708,7 @@ operations:
     audit: none
 - path: /wallets/{wallet_address}/tokens
   method: get
+  operationId: getWalletsByWalletAddressTokens
   x-agentic-access:
     action-class: connected
     consequence: read
