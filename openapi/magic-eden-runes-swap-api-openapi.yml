@@ -103,6 +103,94 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RuneSwapPsbtSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - legacy-buy
+          - rbf-buy
+          - market-sell
+          description: The type of the Rune swap transaction.
+        paymentUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of payment UTXO indexes.
+        psbtBase64:
+          type: string
+          description: The PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+      required:
+      - type
+      - paymentUtxoIndexes
+      - psbtBase64
+      - settlement
+      - runeUtxoIndexes
+    SignedSwapPsbtSchema:
+      type: object
+      properties:
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - signedPsbtBase64
+    GetRuneSwapPsbtResponseSchema:
+      type: object
+      properties:
+        btcChangeOutputIndex:
+          type:
+          - integer
+          - 'null'
+          description: The index of the BTC change output, optional for sweeping post split.
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RuneSwapErrorSchema'
+          description: An array of errors encountered during the swap process.
+        psbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuneSwapPsbtSchema'
+          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
+        quote:
+          $ref: '#/components/schemas/GetQuoteResponseSchema'
+          description: The quote details for the swap.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+        requestId:
+          type: string
+          description: The unique request identifier.
+      required:
+      - psbts
+      - quote
+      - settlement
+      - requestId
+    PostRuneSwapPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request identifier.
+        signedPsbts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignedSwapPsbtSchema'
+          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
+      required:
+      - requestId
+      - signedPsbts
     GetRuneSwapPsbtRequestSchema:
       type: object
       properties:
@@ -172,28 +260,9 @@ components:
       - side
       - takerPaymentAddress
       - takerRunesAddress
-    SettlementSchema:
+    PostRuneSwapPsbtResponseSchema:
       type: object
       properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
-    GetRuneSwapPsbtResponseSchema:
-      type: object
-      properties:
-        btcChangeOutputIndex:
-          type:
-          - integer
-          - 'null'
-          description: The index of the BTC change output, optional for sweeping post split.
         errors:
           type:
           - array
@@ -201,65 +270,24 @@ components:
           items:
             $ref: '#/components/schemas/RuneSwapErrorSchema'
           description: An array of errors encountered during the swap process.
-        psbts:
+        txs:
           type: array
           items:
-            $ref: '#/components/schemas/RuneSwapPsbtSchema'
-          description: An array of PSBTs (Partially Signed Bitcoin Transactions).
-        quote:
-          $ref: '#/components/schemas/GetQuoteResponseSchema'
-          description: The quote details for the swap.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-        requestId:
-          type: string
-          description: The unique request identifier.
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - legacy-buy
+                - rbf-buy
+                - market-sell
+                description: The type of the Rune swap transaction.
+              txid:
+                type: string
+                description: The transaction ID.
+          description: An array of transactions with their types and IDs.
       required:
-      - psbts
-      - quote
-      - settlement
-      - requestId
-    RuneSwapPsbtSchema:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - legacy-buy
-          - rbf-buy
-          - market-sell
-          description: The type of the Rune swap transaction.
-        paymentUtxoIndexes:
-          type: array
-          items:
-            type: integer
-          description: Array of payment UTXO indexes.
-        psbtBase64:
-          type: string
-          description: The PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-        runeUtxoIndexes:
-          type: array
-          items:
-            type: integer
-          description: Array of rune UTXO indexes.
-      required:
-      - type
-      - paymentUtxoIndexes
-      - psbtBase64
-      - settlement
-      - runeUtxoIndexes
-    SignedSwapPsbtSchema:
-      type: object
-      properties:
-        signedPsbtBase64:
-          type: string
-          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-      required:
-      - signedPsbtBase64
+      - txs
     GetQuoteResponseSchema:
       type: object
       properties:
@@ -302,34 +330,6 @@ components:
       - minUnitPrice
       - price
       - orders
-    PostRuneSwapPsbtResponseSchema:
-      type: object
-      properties:
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RuneSwapErrorSchema'
-          description: An array of errors encountered during the swap process.
-        txs:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-                enum:
-                - legacy-buy
-                - rbf-buy
-                - market-sell
-                description: The type of the Rune swap transaction.
-              txid:
-                type: string
-                description: The transaction ID.
-          description: An array of transactions with their types and IDs.
-      required:
-      - txs
     RuneSwapErrorSchema:
       type: object
       properties:
@@ -346,20 +346,20 @@ components:
       required:
       - type
       - message
-    PostRuneSwapPsbtRequestSchema:
+    SettlementSchema:
       type: object
       properties:
-        requestId:
+        amount:
           type: string
-          description: The unique request identifier.
-        signedPsbts:
-          type: array
-          items:
-            $ref: '#/components/schemas/SignedSwapPsbtSchema'
-          description: An array of signed PSBTs (Partially Signed Bitcoin Transactions).
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
       required:
-      - requestId
-      - signedPsbts
+      - amount
+      - price
   securitySchemes:
     BearerAuth:
       type: http

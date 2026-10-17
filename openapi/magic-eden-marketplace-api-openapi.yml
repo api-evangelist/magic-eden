@@ -42,13 +42,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PopularCollectionsTimeRanges:
-      type: string
-      enum:
-      - 1h
-      - 1d
-      - 7d
-      - 30d
     ListedNftType:
       type: string
       enum:
@@ -130,6 +123,13 @@ components:
       - floorListedNftType
       type: object
       additionalProperties: false
+    PopularCollectionsTimeRanges:
+      type: string
+      enum:
+      - 1h
+      - 1d
+      - 7d
+      - 30d
   securitySchemes:
     BearerAuth:
       type: http

@@ -1534,22 +1534,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Transaction:
-      properties:
-        tx:
-          $ref: '#/components/schemas/IBuffer'
-        txSigned:
-          $ref: '#/components/schemas/IBuffer'
-      required:
-      - tx
-      type: object
-      additionalProperties: false
-    MMM.CurveKindString:
-      type: string
-      enum:
-      - linear
-      - exp
-      - xyk
     IBuffer:
       properties:
         type:
@@ -1566,6 +1550,22 @@ components:
       - data
       type: object
       additionalProperties: false
+    Transaction:
+      properties:
+        tx:
+          $ref: '#/components/schemas/IBuffer'
+        txSigned:
+          $ref: '#/components/schemas/IBuffer'
+      required:
+      - tx
+      type: object
+      additionalProperties: false
+    MMM.CurveKindString:
+      type: string
+      enum:
+      - linear
+      - exp
+      - xyk
   securitySchemes:
     BearerAuth:
       type: http

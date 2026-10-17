@@ -62,60 +62,6 @@ components:
           description: The transaction ID for the market sell.
       required:
       - txid
-    SettlementSchema:
-      type: object
-      properties:
-        amount:
-          type: string
-          format: bigint
-          description: A large integer value, represented the total amount of runes.
-        price:
-          type: number
-          format: float
-          description: The price value as a floating-point number, represented the total amount of BTC payment.
-      required:
-      - amount
-      - price
-    PostMarketSellPsbtRequestSchema:
-      type: object
-      properties:
-        requestId:
-          type: string
-          description: The unique request ID for the market sell.
-        signedPsbtBase64:
-          type: string
-          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
-      required:
-      - requestId
-      - signedPsbtBase64
-    GetMarketSellPsbtResponseSchema:
-      type: object
-      properties:
-        invalidOrders:
-          type: array
-          description: List of order IDs that could not be processed.
-          items:
-            type: string
-        psbtBase64:
-          type: string
-          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the market sell.
-        requestId:
-          type: string
-          description: The unique request ID for the market sell.
-        runeUtxoIndexes:
-          type: array
-          items:
-            type: integer
-          description: Array of rune UTXO indexes.
-        settlement:
-          $ref: '#/components/schemas/SettlementSchema'
-          description: The settlement details.
-      required:
-      - invalidOrders
-      - psbtBase64
-      - requestId
-      - runeUtxoIndexes
-      - settlement
     GetMarketSellPsbtRequestSchema:
       type: object
       properties:
@@ -158,6 +104,60 @@ components:
           - number
           - 'null'
           description: The numerical fee rate.
+    PostMarketSellPsbtRequestSchema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        signedPsbtBase64:
+          type: string
+          description: The signed PSBT (Partially Signed Bitcoin Transaction) in base64 format.
+      required:
+      - requestId
+      - signedPsbtBase64
+    GetMarketSellPsbtResponseSchema:
+      type: object
+      properties:
+        invalidOrders:
+          type: array
+          description: List of order IDs that could not be processed.
+          items:
+            type: string
+        psbtBase64:
+          type: string
+          description: Base64-encoded unsigned PSBT (Partially Signed Bitcoin Transaction) of the market sell.
+        requestId:
+          type: string
+          description: The unique request ID for the market sell.
+        runeUtxoIndexes:
+          type: array
+          items:
+            type: integer
+          description: Array of rune UTXO indexes.
+        settlement:
+          $ref: '#/components/schemas/SettlementSchema'
+          description: The settlement details.
+      required:
+      - invalidOrders
+      - psbtBase64
+      - requestId
+      - runeUtxoIndexes
+      - settlement
+    SettlementSchema:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: bigint
+          description: A large integer value, represented the total amount of runes.
+        price:
+          type: number
+          format: float
+          description: The price value as a floating-point number, represented the total amount of BTC payment.
+      required:
+      - amount
+      - price
   securitySchemes:
     BearerAuth:
       type: http
