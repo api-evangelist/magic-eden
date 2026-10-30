@@ -1,4 +1,4 @@
-# Magic Eden (magic-eden)
+# Magic Eden
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,114 +66,201 @@
 
 Magic Eden is a multi-chain NFT marketplace offering REST and instruction-generation APIs for Solana, EVM chains (Ethereum, Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract), and Bitcoin Ordinals (inscriptions, rare sats, and runes). Developers can fetch collections, tokens, listings, bids, activity, holder stats, AMM pool data, launchpad data, and generate signed transactions or PSBTs for listing, buying, bidding, transferring, swapping, and minting across all supported chains.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/magic-eden/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/magic-eden/refs/heads/main/apis.yml)
+**Areas:** NFT · Web3 · Blockchain · Marketplace · Solana · Ethereum · Bitcoin · Ordinals · Runes · Multi-Chain
 
-## Tags
+## Magic Eden on APIs.io
 
-- NFT
-- Web3
-- Blockchain
-- Marketplace
-- Solana
-- Ethereum
-- Bitcoin
-- Ordinals
-- Runes
-- Multi-chain
+Everything profiled for Magic Eden is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/magic-eden/](https://apis.io/providers/magic-eden/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (24)
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+- [Magic Eden Activity API](https://apis.io/apis/magic-eden/magic-eden-activity-api/) — The Activity API from Magic Eden — 1 operation(s) for activity.
+- [Magic Eden Assets API](https://apis.io/apis/magic-eden/magic-eden-assets-api/) — The Assets API from Magic Eden — 2 operation(s) for assets.
+- [Magic Eden Blocks API](https://apis.io/apis/magic-eden/magic-eden-blocks-api/) — The Blocks API from Magic Eden — 1 operation(s) for blocks.
+- [Magic Eden Collections API](https://apis.io/apis/magic-eden/magic-eden-collections-api/) — The Collections API from Magic Eden — 13 operation(s) for collections.
+- [Magic Eden Instructions API](https://apis.io/apis/magic-eden/magic-eden-instructions-api/) — Get instructions for the blockchain
+- [Magic Eden Ixs API](https://apis.io/apis/magic-eden/magic-eden-ixs-api/) — The Ixs API from Magic Eden — 9 operation(s) for ixs.
+- [Magic Eden Launchpad API](https://apis.io/apis/magic-eden/magic-eden-launchpad-api/) — Get launchpad information
+- [Magic Eden Magic Ticket API](https://apis.io/apis/magic-eden/magic-eden-magic-ticket-api/) — The magic-ticket API from Magic Eden — 1 operation(s) for magic-ticket.
+- [Magic Eden Marketplace API](https://apis.io/apis/magic-eden/magic-eden-marketplace-api/) — Get information about Magic Eden's marketplace!
+- [Magic Eden Mmm API](https://apis.io/apis/magic-eden/magic-eden-mmm-api/) — Get AMM information
+- [Magic Eden Orders API](https://apis.io/apis/magic-eden/magic-eden-orders-api/) — The Orders API from Magic Eden — 2 operation(s) for orders.
+- [Magic Eden Rare Sats API](https://apis.io/apis/magic-eden/magic-eden-rare-sats-api/) — The Rare Sats API from Magic Eden — 4 operation(s) for rare sats.
+- [Magic Eden Runes Info API](https://apis.io/apis/magic-eden/magic-eden-runes-info-api/) — The Runes Info API from Magic Eden — 7 operation(s) for runes info.
+- [Magic Eden Runes Listing API](https://apis.io/apis/magic-eden/magic-eden-runes-listing-api/) — The Runes Listing API from Magic Eden — 4 operation(s) for runes listing.
+- [Magic Eden Runes Market Sell API](https://apis.io/apis/magic-eden/magic-eden-runes-market-sell-api/) — The Runes Market Sell API from Magic Eden — 2 operation(s) for runes market sell.
+- [Magic Eden Runes Swap API](https://apis.io/apis/magic-eden/magic-eden-runes-swap-api/) — The Runes Swap API from Magic Eden — 3 operation(s) for runes swap.
+- [Magic Eden Runes Sweeping API](https://apis.io/apis/magic-eden/magic-eden-runes-sweeping-api/) — The Runes Sweeping API from Magic Eden — 2 operation(s) for runes sweeping.
+- [Magic Eden Tokens API](https://apis.io/apis/magic-eden/magic-eden-tokens-api/) — The Tokens API from Magic Eden — 5 operation(s) for tokens.
+- [Magic Eden Wallets API](https://apis.io/apis/magic-eden/magic-eden-wallets-api/) — Get information of a wallet
+- [Magic Eden Bitcoin API](https://apis.io/apis/magic-eden/magic-eden-bitcoin-api/) — Endpoints related to Bitcoin blockchain
+- [Magic Eden EVM API](https://apis.io/apis/magic-eden/magic-eden-evm-api/) — Endpoints related to Ethereum, Polygon and Base blockchain
+- [Magic Eden General API](https://apis.io/apis/magic-eden/magic-eden-general-api/) — The General API from Magic Eden — 1 operation(s) for general.
+- [Magic Eden Rewards API](https://apis.io/apis/magic-eden/magic-eden-rewards-api/) — Check Diamond Rewards Eligibility
+- [Magic Eden Solana API](https://apis.io/apis/magic-eden/magic-eden-solana-api/) — Endpoints related to Solana blockchain
 
-## APIs
+### Published properties
 
-### Magic Eden Solana API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST endpoints and signed-transaction instruction generators for the Solana marketplace - collections, tokens, wallets, listings, bids, activity, MMM AMM pools, marketplace popular collections, and launchpad. Public reads are free at 120 QPM; instruction endpoints require a Bearer API key.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.magiceden.io/reference/solana-api-keys](https://docs.magiceden.io/reference/solana-api-keys)
-- **Base URL:** `https://api-mainnet.magiceden.dev/v2`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Magic Eden Agentic Access](https://apis.io/agentic-access/magic-eden/magic-eden-agentic-access/)
 
-- REST
-- Solana
-- Instructions
-- MMM
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.magiceden.io/reference/solana-api-keys)
-- [OpenAPI](openapi/magic-eden-solana-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/magic-eden-solana.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/magic-eden-solana.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://docs.magiceden.io/reference/solana-api-keys)
+- [MagicEdenActivity](https://apis.io/schemas/magic-eden/magic-eden-activity/)
+- [MagicEdenAMMPool](https://apis.io/schemas/magic-eden/magic-eden-amm-pool/)
+- [MagicEdenCollection](https://apis.io/schemas/magic-eden/magic-eden-collection/)
+- [MagicEdenNFTToken](https://apis.io/schemas/magic-eden/magic-eden-nft-token/)
+- [MagicEdenWallet](https://apis.io/schemas/magic-eden/magic-eden-wallet/)
 
-### Magic Eden EVM API
+#### JSON-LD (2)
 
-Reservoir-powered v4 REST API for EVM chains (Ethereum, Polygon, Base, ApeChain, Arbitrum, Berachain, BSC, SEI, Abstract) covering collections, user collections, search, NFT activity, asks (listings), bids (offers), assets, and signed-transaction instruction endpoints for bidding, listing, buying, selling, cancelling, and bulk transfers.
+Linked-data contexts for the provider's vocabulary.
 
-- **Human URL:** [https://docs.magiceden.io/reference/evm-api-overview](https://docs.magiceden.io/reference/evm-api-overview)
-- **Base URL:** `https://api-mainnet.magiceden.dev/v4/evm-public`
+- [Magic Eden Context](https://apis.io/jsonld/magic-eden/magic-eden-context/)
+- [Magic Eden Provider Context](https://apis.io/jsonld/magic-eden/magic-eden-provider/)
 
-#### Tags
+#### Examples (5)
 
-- REST
-- EVM
-- Reservoir
-- Multi-chain
+Example requests and responses.
 
-#### Properties
+- [Amm Pool Response](https://apis.io/examples/magic-eden/amm-pool-response/)
+- [Buy Instruction Request](https://apis.io/examples/magic-eden/buy-instruction-request/)
+- [Collection Stats Response](https://apis.io/examples/magic-eden/collection-stats-response/)
+- [Nft Token Response](https://apis.io/examples/magic-eden/nft-token-response/)
+- [Wallet Activity Response](https://apis.io/examples/magic-eden/wallet-activity-response/)
 
-- [Documentation](https://docs.magiceden.io/reference/evm-api-overview)
-- [OpenAPI](openapi/magic-eden-evm-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/magic-eden-evm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/magic-eden-evm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://docs.magiceden.io/reference/evm-api-keys)
+#### Collections (27)
 
-### Magic Eden Bitcoin Ordinals & Runes API
+Postman and Open Collection request collections.
 
-REST and PSBT-generation endpoints for the Bitcoin Ordinals marketplace - ordinal collections, block activities, rare sats batch listings, and full Runes lifecycle (orders, market sells, quotes, swaps, sweeping, wallet balances, and activities). Free tier limited to 30 QPM; instruction endpoints require Bearer auth.
+- [Magic Eden EVM Activity API](https://apis.io/collections/magic-eden/open-magic-eden-activity-api/)
+- [Magic Eden EVM Activity Assets API](https://apis.io/collections/magic-eden/open-magic-eden-assets-api/)
+- [NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin API](https://apis.io/collections/magic-eden/open-magic-eden-bitcoin-api/)
+- [Magic Eden EVM Activity Blocks API](https://apis.io/collections/magic-eden/open-magic-eden-blocks-api/)
+- [Magic Eden EVM Activity Collections API](https://apis.io/collections/magic-eden/open-magic-eden-collections-api/)
+- [Magic Eden EVM API](https://apis.io/collections/magic-eden/open-magic-eden-evm/)
+- [NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin EVM API](https://apis.io/collections/magic-eden/open-magic-eden-evm-api/)
+- [NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin General API](https://apis.io/collections/magic-eden/open-magic-eden-general-api/)
+- [Magic Eden EVM Activity instructions API](https://apis.io/collections/magic-eden/open-magic-eden-instructions-api/)
+- [Magic Eden EVM Activity Ixs API](https://apis.io/collections/magic-eden/open-magic-eden-ixs-api/)
+- [Magic Eden EVM Activity launchpad API](https://apis.io/collections/magic-eden/open-magic-eden-launchpad-api/)
+- [Magic Eden EVM Activity magic-ticket API](https://apis.io/collections/magic-eden/open-magic-eden-magic-ticket-api/)
+- [Magic Eden EVM Activity marketplace API](https://apis.io/collections/magic-eden/open-magic-eden-marketplace-api/)
+- [Magic Eden EVM Activity mmm API](https://apis.io/collections/magic-eden/open-magic-eden-mmm-api/)
+- [Magic Eden EVM Activity Orders API](https://apis.io/collections/magic-eden/open-magic-eden-orders-api/)
+- [Magic Eden Bitcoin Ordinals API](https://apis.io/collections/magic-eden/open-magic-eden-ordinals/)
+- [Magic Eden EVM Activity Rare Sats API](https://apis.io/collections/magic-eden/open-magic-eden-rare-sats-api/)
+- [NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin Rewards API](https://apis.io/collections/magic-eden/open-magic-eden-rewards-api/)
+- [Magic Eden EVM Activity Runes Info API](https://apis.io/collections/magic-eden/open-magic-eden-runes-info-api/)
+- [Magic Eden EVM Activity Runes Listing API](https://apis.io/collections/magic-eden/open-magic-eden-runes-listing-api/)
+- [Magic Eden EVM Activity Runes Market Sell API](https://apis.io/collections/magic-eden/open-magic-eden-runes-market-sell-api/)
+- [Magic Eden EVM Activity Runes Swap API](https://apis.io/collections/magic-eden/open-magic-eden-runes-swap-api/)
+- [Magic Eden EVM Activity Runes Sweeping API](https://apis.io/collections/magic-eden/open-magic-eden-runes-sweeping-api/)
+- [Magic Eden Solana API](https://apis.io/collections/magic-eden/open-magic-eden-solana/)
+- [NFTTOOLS API DOCS FOR MAGIC EDEN Bitcoin Solana API](https://apis.io/collections/magic-eden/open-magic-eden-solana-api/)
+- …and 2 more published on APIs.io
 
-- **Human URL:** [https://docs.magiceden.io/reference/ordinals-api-keys](https://docs.magiceden.io/reference/ordinals-api-keys)
-- **Base URL:** `https://api-mainnet.magiceden.dev/v2`
+#### Governance rules (1)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- REST
-- Bitcoin
-- Ordinals
-- Runes
-- PSBT
+- [Magic Eden — jsonschema rules](https://apis.io/rules/magic-eden/magic-eden-jsonschema-spectral-rules/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://docs.magiceden.io/reference/ordinals-api-keys)
-- [OpenAPI](openapi/magic-eden-ordinals-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/magic-eden-ordinals.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/magic-eden-ordinals.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://docs.magiceden.io/reference/ordinals-api-keys)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Magic Eden Authentication](https://apis.io/security/magic-eden/magic-eden-authentication/)
+- [Magic Eden Domain Security](https://apis.io/security/magic-eden/magic-eden-domain-security/)
+- [Magic Eden Vulnerability Disclosure](https://apis.io/security/magic-eden/magic-eden-vulnerability-disclosure/)
+
+#### Plans and pricing (2)
+
+Published plans, tiers and prices.
+
+- [Magic Eden Plans](https://apis.io/plans/magic-eden/magic-eden-plans/)
+- [Magic Eden Plans Pricing](https://apis.io/plans/magic-eden/magic-eden-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Magic Eden Rate Limits](https://apis.io/rate-limits/magic-eden/magic-eden-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Magic Eden Finops](https://apis.io/finops/magic-eden/magic-eden-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://magiceden.io)
-- [Portal](https://docs.magiceden.io)
-- [API Reference](https://docs.magiceden.io/reference/getting-started-1)
-- [Getting Started](https://docs.magiceden.io/reference/getting-started-1)
+- [Documentation](https://docs.magiceden.io)
+- [Getting started](https://docs.magiceden.io/reference/getting-started-1)
+- [API reference](https://docs.magiceden.io/reference/getting-started-1)
 - [Changelog](https://docs.magiceden.io/changelog)
-- [GitHub Organization](https://github.com/magiceden)
-- [GitHub Organization](https://github.com/magicoss)
-- [SDK](https://github.com/magiceden/magiceden-sdk)
-- [L L Ms Txt](https://docs.magiceden.io/llms.txt)
-- [Terms of Service](https://magiceden.io/terms-of-service.pdf)
-- [Bug Bounty](https://hackerone.com/magic-eden)
-- [Discord](https://discord.com/invite/magiceden)
-- [Plans](plans/magic-eden-plans-pricing.yml)
-- [Rate Limits](rate-limits/magic-eden-rate-limits.yml)
-- [Fin Ops](finops/magic-eden-finops.yml)
+- [Terms of service](https://magiceden.io/terms-of-service.pdf)
+- [GitHub](https://github.com/magiceden)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 49.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 22.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/magic-eden/](https://apis.io/providers/magic-eden/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Magic Eden: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/magic-eden/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
